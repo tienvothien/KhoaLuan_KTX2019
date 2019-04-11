@@ -1,0 +1,150 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  font-family: "Times New Roman", Times, serif;
+}
+.vien_do{
+  border-color: red;
+}
+.nuthemmoi {
+    padding-bottom: 10px;
+}
+
+button.fa.fa-times-circle-o.btn.btn-danger {
+    border-radius: 20px;
+    text-align: center;
+    padding: 0px;
+}
+
+ul.pagination.phantrang_1123 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+td.canhgiuanek12 {
+    text-align: center;
+}
+
+.menutrai .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    margin: 0px;
+    /* color: red; */
+}
+
+.menutrai a.navbar-brand {
+    color: #337ab7;
+}
+
+.table-responsive th {
+    text-align: center;
+}
+
+hr.ngay_ad {
+    border-color: #99bbd9;
+    margin: 5px 0px 5px 0px;
+}
+
+.chutieude h2 {
+    margin: 0px;
+}
+
+.col-xs-12.col-sm-2.col-md-2.col-lg-2.menutrai {
+    padding-right: 0px;
+}
+@media (max-width: 768px){
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    margin-left: 0px;
+}
+.menutrai .navbar-default .navbar-brand,,a.navbar-brand{
+  width: 75%;
+}
+.food h4{
+  font-size: 10px;
+  margin: 3px 0px 3px 0px;
+}
+}
+.menutrai .navbar-header {
+    width: 100%;
+}
+
+.menutrai .collapse.navbar-collapse.navbar-ex1-collapse {
+    padding: 0px;
+}
+
+.row.anhbia.text-center {
+    background-color: #337ab7;
+}
+
+.food {
+    background-color: #337ab7;
+    color: white;
+}
+/* menu */
+/* Fixed sidenav, full height */
+.sidenav ,.menutrai nav.navbar.navbar-default{
+  height: 100%;
+  width: 100%;
+  /* position: fixed; */
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #b7e3e3;
+  overflow-x: hidden;
+  /* padding-top: 20px; */
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 15px 8px 15px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #337ab7;
+  display: block;
+  border: none;
+  background: none;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  border-top: 1px solid #ffffff;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover ,a.navbar-brand:hover{
+  color: #f9f9f9;
+  background-color: #337ab7;
+}
+
+/* Main content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active, {
+  background-color: #726e6e;
+  color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #726e6e;
+  /* padding-left: 8px; */
+}
+
+.dropdown-container>a{
+    color: #337ab7;
+    border-top: 1px solid white;
+    background-color: #b7e3e3;
+    margin-left: 9px;
+}
+
+a.list-group-item {}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}

@@ -3,7 +3,7 @@
     <title>Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/jpg" href="images/anh1.jpg"/>
+    <link rel="shortcut icon" type="image/jpg" href="./../../images/vnkgu.png"/>
     <script type="text/javascript" src="vendor/bootstrap.js"></script>
     <script type="text/javascript" src="1.js"></script>
     <link rel="stylesheet" href="vendor/bootstrap.css">
@@ -15,24 +15,24 @@
 </head>
 <body >
     <div class="bg"></div>
-    
+
     <div class="container-fluid">
         <div class="row text-right">
             <div class="login1">
                 <div class="anhbia">
                     <img src="images/profile.png" class="img-responsive" alt="Image">
                 </div>
-                <form action="" method="POST" role="form">
+                <form action="index.php" method="POST" role="form" id="formdangnhap">
                     <legend >Đăng nhập</legend>
                     <div class="form-group">
-                        <input type="text"  id="" placeholder="" required="">
+                        <input type="text"  id="tendangnhap" name="tendangnhap" placeholder="" required="">
                         <label for="">Tên đăng nhập</label>
                     </div>
                     <div class="form-group">
-                        <input type="password"  id="" placeholder="" required="">
+                        <input type="password"  id="matkhaudangnhap" name="matkhaudangnhap" placeholder="" required="">
                         <label for="">Mật khẩu</label>
                     </div>
-                    <button type="submit" class="btn btn-primary ">Đăng nhập</button>
+                    <button type="submit" class="btn btn-primary" name="nutdangnhap">Đăng nhập</button>
                 </form>
             </div>
         </div>
