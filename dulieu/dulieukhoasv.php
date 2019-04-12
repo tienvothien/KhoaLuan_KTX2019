@@ -30,6 +30,7 @@ include 'conn.php';
 		<thead>
 			<tr>
 				<th style="text-align:center;">STT</th>
+				<th>Mã khoa</th>
 				<th>Tên khoa</th>
 				<th>Sửa</th>
 				<th>Chi tiết</th>
@@ -42,11 +43,12 @@ include 'conn.php';
 			while ($row_khoa = mysqli_fetch_array($selecet_khoa)) {
 			echo "
 			<tr>
-											<td style='text-align:center;'>$stt</td>
-				<td>$row_khoa[ten_khoa]</td>";?>
-				<td class="canhgiuanek12"><input type="button" name="edit" value="Sửa" id="<?php echo $ma_toa_nha; ?>" class="btn btn-primary btn-xs edit_data" /></td>
-				<td class="canhgiuanek12"><input type="button" name="view" value="Chi tiết" id="<?php echo $ma_toa_nha; ?>" class="btn btn-success btn-xs view_data" /></td>
-				<td class="canhgiuanek12"><input type="button" name="delete" value="Xóa" id="<?php echo $ma_toa_nha; ?>" class="btn btn-info btn-danger btn-xs xoa_lop" /></td>
+				<td style='text-align:center;'>$stt</td>
+				<td class='chuinhoa canhgiua'>$row_khoa[ma_khoa]</td>
+				<td class='chuinthuong'>$row_khoa[ten_khoa]</td>";?>
+				<td class="canhgiuanek12"><input type="button" name="edit" value="Sửa" id="<?php echo $row_khoa['id_khoa']; ?>" class="btn btn-primary btn-xs id_sua_khoa" /></td>
+				<td class="canhgiuanek12"><input type="button" name="view" value="Chi tiết" id="<?php echo $row_khoa['id_khoa']; ?>" class="btn btn-success btn-xs view_chitietkhoa" /></td>
+				<td class="canhgiuanek12"><input type="button" name="delete" value="Xóa" id="<?php echo $row_khoa['id_khoa']; ?>" class="btn btn-info btn-danger btn-xs xoa_lop" /></td>
 				<?php echo "
 			</tr>
 			";
@@ -60,13 +62,13 @@ include 'conn.php';
 	<div style="text-align: center;width: 100%; float: left; padding-right: ">
 		<?php
 		echo " <ul class='pagination phantrang_1123'>
-								<li ><a href='./../admin/quanlykhoa.php?page=1'>&nbsp&nbspTrang đầu&nbsp&nbsp</a></li>
-								";
-					echo "";
-					for ($trangbandau = 1; $trangbandau <= $tongsotrang; $trangbandau++) {
-						echo "<li ><a href='./../admin/quanlykhoa.php?page={$trangbandau}'>{$trangbandau}</a></li>";
-					}
-					echo " <li><a href='./../admin/quanlykhoa.php?page=$tongsotrang'>&nbsp&nbspTrang cuối&nbsp&nbsp</a></li>
+										<li ><a href='./../admin/quanlykhoa.php?page=1'>&nbsp&nbspTrang đầu&nbsp&nbsp</a></li>
+										";
+							echo "";
+							for ($trangbandau = 1; $trangbandau <= $tongsotrang; $trangbandau++) {
+								echo "<li ><a href='./../admin/quanlykhoa.php?page={$trangbandau}'>{$trangbandau}</a></li>";
+							}
+							echo " <li><a href='./../admin/quanlykhoa.php?page=$tongsotrang'>&nbsp&nbspTrang cuối&nbsp&nbsp</a></li>
 		</ul>";
 		?>
 	</div>

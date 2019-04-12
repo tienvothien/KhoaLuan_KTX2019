@@ -3,8 +3,26 @@
   margin: 0px;
   font-family: "Times New Roman", Times, serif;
 }
+
+.modal-dialog.themkhoa2.khoa_themmoi {
+    width: 300px;
+}
+
+.thumbnail.mua_nen_1 {
+    background-color: red;
+    color: white;
+}
+.chuinthuong{
+  text-transform: capitalize;
+}
+.chuinhoa{
+  text-transform: uppercase;
+}
 .vien_do{
   border-color: red;
+}
+.canhgiua{
+  text-align: center;
 }
 .nuthemmoi {
     padding-bottom: 10px;
@@ -51,12 +69,17 @@ hr.ngay_ad {
     padding-right: 0px;
 }
 @media (max-width: 768px){
+  h2, h3,h4,a,.sidenav a, .dropdown-btn{
+    font-size: 16px  !important;
+  }
+
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
     margin-left: 0px;
 }
 .menutrai .navbar-default .navbar-brand,,a.navbar-brand{
   width: 75%;
 }
+
 .food h4{
   font-size: 10px;
   margin: 3px 0px 3px 0px;
@@ -96,7 +119,7 @@ hr.ngay_ad {
 .sidenav a, .dropdown-btn {
   padding: 15px 8px 15px 16px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 16px;
   color: #337ab7;
   display: block;
   border: none;

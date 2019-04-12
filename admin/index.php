@@ -28,7 +28,7 @@ include './../dulieu/kiemtradangnhap.php';
 		<div class="container-fluid">
 			<div class="row">
 				<?php include 'menutrai1.php';?>
-				<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 benphai">
+				<div class="col-xs-12 col-sm-8 col-md-10 col-lg-10 benphai">
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 chutieude">
@@ -38,13 +38,29 @@ include './../dulieu/kiemtradangnhap.php';
 					<hr class="ngay_ad"></div>
 					<div class="container-fluid">
 						<div class="row"><!-- nho doi ten class -->
-
-						</div><!-- end thaydoi1 -->
+						<a href="quanlykhoa.php" title=""><!--  hien thoong trinh chi tiet khoa -->
+							<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+								<div class="thumbnail mua_nen_1">
+									<div class="captionb align-middler">
+										<h3 class="canhgiua"  >Khoa</h3>
+										<p  >
+											<h3 class="canhgiua ">
+											<?php include './conn.php';
+											$soluongkhoa = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(khoa.id_khoa) AS slkhoa FROM khoa WHERE khoa.xoa =0"));
+											echo $soluongkhoa['slkhoa'];
+											?></h3>
+										</p>
+									</div>
+								</div>
+							</div>
+						</a> <!-- end het hien thong tin khoa -->
+					</div>
+					</div><!-- end thaydoi1 -->
 					</div><!-- end noidungthaydoi -->
-				</div> <!-- end col-9 -->
-			</div> <!-- end row noi dung -->
-		</div>
-	<?php include 'food.php';?>
-	</div> <!-- end trang admin -->
-</body>
-</html>
+					</div> <!-- end col-9 -->
+					</div> <!-- end row noi dung -->
+				</div>
+				<?php include 'food.php';?>
+				</div> <!-- end trang admin -->
+			</body>
+		</html>

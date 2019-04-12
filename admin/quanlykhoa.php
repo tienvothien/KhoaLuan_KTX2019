@@ -2,67 +2,68 @@
 include './../dulieu/kiemtradangnhap.php';
 ?>
 <!DOCTYPE html>
-<html lang="en"><head>
-	<title> Hệ thông KTX ĐH Kiên Giang </title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" type="image/jpg" href="./../images/vnkgu.png"/>
-	<script type="text/javascript" src="../vendor/bootstrap.js"></script>
-	<script type="text/javascript" src="../js/js_quanlykhoa.js"></script>
-	<link rel="stylesheet" href="../vendor/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="../css/ad_css.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body >
-	<div class="container-fluid">
-		<a href="index.php" title="">
-			<div class="container-fluid">
-				<div class="row anhbia  text-center">
-					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<img class="img-responsive" src="../images/anhbia.PNG" alt="">
+<html lang="en">
+	<head>
+		<title> Hệ thông KTX ĐH Kiên Giang </title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/jpg" href="./../images/vnkgu.png"/>
+		<script type="text/javascript" src="../vendor/bootstrap.js"></script>
+		<script type="text/javascript" src="../js/js_quanlykhoa.js"></script>
+		<link rel="stylesheet" href="../vendor/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../css/ad_css.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body >
+		<div class="container-fluid">
+			<a href="index.php" title="">
+				<div class="container-fluid">
+					<div class="row anhbia  text-center">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<img class="img-responsive" src="../images/anhbia.PNG" alt="">
+						</div>
 					</div>
 				</div>
-			</div>
-		</a>
-		<br>
-		<div class="container-fluid">
-			<div class="row">
-				<?php include 'menutrai1.php';?>
-				<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 benphai">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 chutieude">
-								<h2>Quản lý khoa</h2>
+			</a>
+			<br>
+			<div class="container-fluid">
+				<div class="row">
+					<?php include 'menutrai1.php';?>
+					<div class="col-xs-12 col-sm-8 col-md-10 col-lg-10 benphai">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 chutieude">
+									<h2>Quản lý khoa</h2>
+								</div>
 							</div>
+						<hr class="ngay_ad"></div>
+						<div class="container-fluid">
+							<div class="row"><!-- nho doi ten class -->
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<div id="dulieukhoa"><?php include './../dulieu/dulieukhoasv.php';?></div>
+							</div>
+							<div class="col-xs-11 col-sm-12 col-md-2 col-lg-2">
+								<div class="nuthemmoi"><input type="button" class="btn btn-primary btn-block" name="themkhoa" value="Thêm mới" data-toggle="modal" data-target="#themkhoa1"></div>
+							</div>
+							</div><!-- end thaydoi1 -->
+							</div><!-- end noidungthaydoi -->
+							</div> <!-- end col-9 -->
+							</div> <!-- end row noi dung -->
 						</div>
-					<hr class="ngay_ad"></div>
-					<div class="container-fluid">
-						<div class="row"><!-- nho doi ten class -->
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<div id="dulieukhoa"><?php include './../dulieu/dulieukhoasv.php';?></div>
-						</div>
-						<div class="col-xs-11 col-sm-12 col-md-2 col-lg-2">
-							<div class="nuthemmoi"><input type="button" class="btn btn-primary btn-block" name="themkhoa" value="Thêm mới" data-toggle="modal" data-target="#themkhoa1"></div>
-						</div>
-
-						</div><!-- end thaydoi1 -->
-						</div><!-- end noidungthaydoi -->
-						</div> <!-- end col-9 -->
-						</div> <!-- end row noi dung -->
-					</div>
-					<?php include 'food.php';?>
-					</div> <!-- end trang admin -->
-				</body>
+						<?php include 'food.php';?>
+						</div> <!-- end trang admin -->
+					</body>
+				</html>
 				<div class="modal" id="themkhoa1">
 					<div class="modal-dialog themkhoa2 khoa_themmoi">
 						<div class="modal-content">
 							<!-- Modal Header -->
 							<div class="modal-header">
 								<div class="row">
-									<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
+									<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
 										<h4 class="modal-title">Thêm Khoa</h4>
 									</div>
-									<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 										<button type="button" class="fa fa-times-circle-o btn btn-danger" data-dismiss="modal"></button>
 									</div>
 								</div>
@@ -96,7 +97,7 @@ include './../dulieu/kiemtradangnhap.php';
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
 								<h4 class="modal-title">Thông tin khoa</h4>
 							</div>
-							<div class="modal-body" id="employee_detail">
+							<div class="modal-body" id="thongtin_chitietkhoa">
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -104,54 +105,55 @@ include './../dulieu/kiemtradangnhap.php';
 						</div>
 					</div>
 				</div>
-				<div id="add_data_Modal" class="modal fade">
+				<!-- Cập nhật lại thông tin phòng -->
+				<div id="modal_sua_khoa" class="modal fade">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Cập nhật thông tin khoa</h4>
+								<h4 class="modal-title">Cập nhật thông tin Khoa</h4>
 							</div>
 							<div class="modal-body">
-								<form method="post" id="insert_form">
-									<label>Mã khoa</label>
-									<input disabled type="text" name="name" id="name" class="form-control" style=" text-transform: uppercase;"/>
+								<form method="post" id="from_suathongtin_khoa" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
+									<label>Mã Khoa</label>
+									<input type="text" name="ma_khoa_sua123" id="ma_khoa_sua123" class="form-control chuinhoa"  required="" />
 									<br />
-									<label>Tên khoa</label>
-									<textarea  name="address" id="address" class="form-control" rows="1" style=" text-transform: capitalize;"></textarea>
+									<label>Tên Khoa</label>
+									<textarea  name="ten_khoasua_12" id="ten_khoasua_12" class="form-control chuinthuong" rows="1" required=""></textarea>
 									<br />
-									<input type="hidden" name="employee_id" id="employee_id" />
-									<input type="hidden" name="thong_bao_loi_capnhat" id="thong_bao_loi_capnhat" />
-									<input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />
+									<input type="hidden" name="id_khoa_sua_12" id="id_khoa_sua_12" />
+									<input type="submit" name="insert" id="insert" value="Insert" class="btn btn-danger capnhattb" />
 								</form>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div id="xoa_khoa" class="modal fade">
+				<!-- Xoa thiêt bị -->
+				<div id="xoa_data_Modal" class="modal fade">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Xóa khoa</h4>
+								<h4 class="modal-title">Xóa Khoa</h4>
 							</div>
 							<div class="modal-body">
-								<form method="post" id="xoa_khoa_form">
-									<label>Mã khoa</label>
-									<input disabled type="text" name="name1" id="name1" class="form-control"style=" text-transform: uppercase;" />
+								<form method="post" id="xoa_tb_form" data-confirm="Bạn có chắn muốn xóa thông tin này?">
+									<label>Mã Khoa</label>
+									<input disabled type="text" name="ma_tb_xoa" id="ma_tb_xoa" class="form-control "style="text-transform: uppercase;" />
 									<br />
-									<label>Tên khoa</label>
-									<textarea disabled name="address1" id="address1" class="form-control" rows="1" style=" text-transform: capitalize;"></textarea>
-									<br />
-									<input type="hidden" name="employee_id1" id="employee_id1" />
+									<label>Tên Khoa</label>
+									<input disabled type="text" name="ten_tb_xoa" id="ten_tb_xoa" class="form-control "style="text-transform: capitalize;" />
+									<br>
+									<input type="hidden" name="mathietbi_xoa_2" id="mathietbi_xoa_2" />
 									<input type="hidden" name="thong_bao_loi_capnhat" id="thong_bao_loi_capnhat" />
-									<input type="submit" name="insert1" id="insert1" value="Insert" class="btn btn-success" />
+									<input type="submit" name="insert1" id="insert1" value="Insert" class="btn btn-danger"  />
 								</form>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>
 							</div>
 						</div>
 					</div>

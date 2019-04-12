@@ -1,4 +1,4 @@
-<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 menutrai ">
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 menutrai ">
 	<nav class="navbar navbar-default" role="navigation">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
