@@ -46,7 +46,7 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 			</button>
 			<div class="dropdown-container">
 				<a href="qlsinhvien.php" class="list-group-item">Thông tin Sinh viên</a>
-				<a href="qllop.php" class="list-group-item">Quản lý Lớp</a>
+				<a href="quanlylop.php" class="list-group-item">Quản lý Lớp</a>
 				<a href="quanlykhoa.php" class="list-group-item">Quản lý Khoa</a>
 			</div>
 			<button class="dropdown-btn">Quản lý Phòng Ở

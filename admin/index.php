@@ -8,7 +8,6 @@ include './../dulieu/kiemtradangnhap.php';
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" type="image/jpg" href="./../images/vnkgu.png"/>
 	<script type="text/javascript" src="../vendor/bootstrap.js"></script>
-	<script type="text/javascript" src="../js/1.js"></script>
 	<link rel="stylesheet" href="../vendor/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="../css/ad_css.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -39,20 +38,36 @@ include './../dulieu/kiemtradangnhap.php';
 					<div class="container-fluid">
 						<div class="row"><!-- nho doi ten class -->
 						<a href="quanlykhoa.php" title=""><!--  hien thoong trinh chi tiet khoa -->
-							<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-								<div class="thumbnail mua_nen_1">
-									<div class="captionb align-middler">
-										<h3 class="canhgiua"  >Khoa</h3>
-										<p  >
-											<h3 class="canhgiua ">
-											<?php include './conn.php';
-											$soluongkhoa = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(khoa.id_khoa) AS slkhoa FROM khoa WHERE khoa.xoa =0"));
-											echo $soluongkhoa['slkhoa'];
-											?></h3>
-										</p>
-									</div>
+						<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+							<div class="thumbnail mua_nen_1">
+								<div class="captionb align-middler">
+									<h3 class="canhgiua"  >Khoa</h3>
+									<p  >
+										<h3 class="canhgiua ">
+										<?php include './conn.php';
+										$soluongkhoa = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(khoa.id_khoa) AS slkhoa FROM khoa WHERE khoa.xoa =0"));
+										echo $soluongkhoa['slkhoa'];
+										?></h3>
+									</p>
 								</div>
 							</div>
+						</div>
+						</a> <!-- end het hien thong tin khoa -->
+						<a href="quanlylop.php" title=""><!--  hien thoong trinh chi tiet khoa -->
+						<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+							<div class="thumbnail mua_nen_2">
+								<div class="captionb align-middler">
+									<h3 class="canhgiua"  >Lớp</h3>
+									<p  >
+										<h3 class="canhgiua ">
+										<?php include './conn.php';
+										$soluonglop = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(lop.id_lop) AS sllop FROM lop WHERE lop.xoa =0"));
+										echo $soluonglop['sllop'];
+										?></h3>
+									</p>
+								</div>
+							</div>
+						</div>
 						</a> <!-- end het hien thong tin khoa -->
 					</div>
 					</div><!-- end thaydoi1 -->

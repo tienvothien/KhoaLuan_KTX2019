@@ -4,6 +4,23 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+.thumbnail.mua_nen_2 {
+    background-color: #03A9F4;
+    color: black;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #e9edff;
+}
+
+#modal_xoa_khoa .modal-dialog {
+    width: 500px;
+}
+
+#modal_xoa_khoa .modal-dialog, {
+    width: 300px;
+}
+
 .modal-dialog.themkhoa2.khoa_themmoi {
     width: 300px;
 }

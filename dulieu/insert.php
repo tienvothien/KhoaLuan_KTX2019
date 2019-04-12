@@ -28,4 +28,15 @@
 			}
 		}
 	} //ket thuc cap nhat thong tin khoa
+	//xủ lý xoa khoa
+	if (isset($_POST['id_xoa_khoa123'])) {
+		$delete_xoa_khoa = "UPDATE khoa SET khoa.xoa=1 WHERE khoa.id_khoa = '$_POST[id_xoa_khoa123]'";
+		if (mysqli_query($con,$delete_xoa_khoa)) {
+			echo "99";
+		}else{
+			echo "100";
+		}
+	}
+	// end xử lý xóa khoa
+	mysqli_close($con);
 ?>

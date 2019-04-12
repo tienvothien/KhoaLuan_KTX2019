@@ -9,7 +9,7 @@ include './../dulieu/kiemtradangnhap.php';
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" type="image/jpg" href="./../images/vnkgu.png"/>
 		<script type="text/javascript" src="../vendor/bootstrap.js"></script>
-		<script type="text/javascript" src="../js/js_quanlykhoa.js"></script>
+		<script type="text/javascript" src="../js/js_quanlylop.js"></script>
 		<link rel="stylesheet" href="../vendor/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="../css/ad_css.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,17 +33,17 @@ include './../dulieu/kiemtradangnhap.php';
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 chutieude">
-									<h2>Quản lý khoa</h2>
+									<h2>Quản lý Lớp</h2>
 								</div>
 							</div>
 						<hr class="ngay_ad"></div>
 						<div class="container-fluid">
 							<div class="row"><!-- nho doi ten class -->
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-								<div id="dulieukhoa"><?php include './../dulieu/dulieukhoasv.php';?></div>
+								<div id="dulieulop"><?php include './../dulieu/dulieulopsv.php';?></div>
 							</div>
 							<div class="col-xs-11 col-sm-12 col-md-2 col-lg-2">
-								<div class="nuthemmoi"><input type="button" class="btn btn-primary btn-block" name="themkhoa" value="Thêm mới" data-toggle="modal" data-target="#themkhoa1"></div>
+								<div class="nuthemmoi"><input type="button" class="btn btn-primary btn-block" name="themlop" value="Thêm mới" data-toggle="modal" data-target="#themlop1"></div>
 							</div>
 							</div><!-- end thaydoi1 -->
 							</div><!-- end noidungthaydoi -->
@@ -54,15 +54,15 @@ include './../dulieu/kiemtradangnhap.php';
 						</div> <!-- end trang admin -->
 					</body>
 				</html>
-				<!-- thêm khoa mới -->
-				<div class="modal" id="themkhoa1">
-					<div class="modal-dialog themkhoa2 khoa_themmoi">
+				<!-- thêm lop mới -->
+				<div class="modal" id="themlop1">
+					<div class="modal-dialog themlop2 lop_themmoi">
 						<div class="modal-content">
 							<!-- Modal Header -->
 							<div class="modal-header">
 								<div class="row">
 									<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-										<h4 class="modal-title">Thêm Khoa</h4>
+										<h4 class="modal-title">Thêm Lớp</h4>
 									</div>
 									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 										<button type="button" class="fa fa-times-circle-o btn btn-danger" data-dismiss="modal"></button>
@@ -71,59 +71,77 @@ include './../dulieu/kiemtradangnhap.php';
 							</div>
 							<!-- Modal body -->
 							<div class="modal-body _1themtoanha">
-								<form action="" id="form_themkhoamoi" name="form_themkhoamoi" 	method="POST" role="form" class="_1themphong1 ">
+								<form action="" id="form_themlopmoi" name="form_themlopmoi" 	method="POST" role="form" class="_1themphong1 ">
 									<div class="form-group">
-										<label for="">Mã Khoa</label>
-										<input type="text" name="ma_khoa_them" id="ma_khoa_them" class="form-control" value="" required="" placeholder="Nhập mã khoa" style=" text-transform: uppercase;">
+										<label for="">Mã Lớp</label>
+										<input type="text" name="ma_lop_them" id="ma_lop_them" class="form-control" value="" required="" placeholder="Nhập mã lop" style=" text-transform: uppercase;">
 									</div>
 									<div class="form-group">
-										<label for="">Tên Khoa</label>
-										<input type="text" name="ten_khoa_them" id="ten_khoa_them" class="form-control" value="" required=""  placeholder="Nhập tên khoa" style=" text-transform: capitalize;">
+										<label for="">Tên lop</label>
+										<input type="text" name="ten_lop_them" id="ten_lop_them" class="form-control" value="" required=""  placeholder="Nhập tên lop" style=" text-transform: capitalize;">
 									</div>
-									<p id="thongbao_themkhoa"></p>
+									<p id="thongbao_themlop"></p>
 								</div>
 								<!-- Modal footer -->
 								<div class="modal-footer">
-									<button type="submit" class="btn btn-danger">Thêm Khoa mới</button>
+									<button type="submit" class="btn btn-danger">Thêm Lớp mới</button>
 								</div>
 							</form>
 						</div>
 					</div>
 				</div>
 				</div><!-- end model -->
-				<!-- xem thông tin khoa -->
-				<div id="dataModal" class="modal fade">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Thông tin khoa</h4>
-							</div>
-							<div class="modal-body" id="thongtin_chitietkhoa">
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<!-- xem thông tin lop -->
+				<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+					<div id="dataModal" class="modal fade">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">Thông tin Lớp</h4>
+								</div>
+								<div class="modal-body" id="thongtin_chitietlop">
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- Cập nhật lại thông tin phòng -->
-				<div id="modal_sua_khoa" class="modal fade">
+				<div id="modal_sua_lop" class="modal fade">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Cập nhật thông tin Khoa</h4>
+								<h4 class="modal-title">Cập nhật thông tin Lớp</h4>
 							</div>
 							<div class="modal-body">
-								<form method="post" id="from_suathongtin_khoa" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
-									<label>Mã Khoa</label>
-									<input type="text" name="ma_khoa_sua123" id="ma_khoa_sua123" class="form-control chuinhoa"  required="" />
+								<form method="post" id="from_suathongtin_lop" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
+									<label>Mã Lớp</label>
+									<input type="text" name="ma_lop_sua123" id="ma_lop_sua123" class="form-control chuinhoa"  required="" />
 									<br />
-									<label>Tên Khoa</label>
-									<textarea  name="ten_khoasua_12" id="ten_khoasua_12" class="form-control chuinthuong" rows="1" required=""></textarea>
+									<label>Tên Lớp</label>
+									<textarea  name="ten_lopsua_12" id="ten_lopsua_12" class="form-control chuinthuong" rows="1" required=""></textarea>
 									<br />
-									<input type="hidden" name="id_khoa_sua_12" id="id_khoa_sua_12" />
+									<label>Khoa</label>
+									<select name="" id="id_khoa_sua_lopt"  name="id_khoa_sua_lopt" class="form-control" required="required">
+										<option value="" id="khoahienra"></option>
+										<?php 
+											
+											$ssql_ds_khoa=(mysqli_query($con, "SELECT * FROM khoa WHERE khoa.xoa =0 ORDER BY khoa.ten_khoa"));
+											if (mysqli_num_rows($ssql_ds_khoa)) {
+												while ($row_dskhoa= mysqli_fetch_array($ssql_ds_khoa)) {
+													echo "<option value='$row_dskhoa[id_khoa]'>$row_dskhoa[ten_khoa]</option>";
+												}
+											}else{
+												echo "<option value=''>Chưa có dữ liệu khoa</option>";
+											}
+										 ?>
+									</select>
+									<br />
+									<input type="hidden" name="id_lop_sua_12" id="id_lop_sua_12" />
 									<input type="submit" name="insert" id="insert" value="Insert" class="btn btn-danger capnhattb" />
 								</form>
 							</div>
@@ -135,27 +153,26 @@ include './../dulieu/kiemtradangnhap.php';
 				</div>
 				<!-- Xoa thiêt bị -->
 				<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-					<div id="modal_xoa_khoa" class="modal fade">
+					<div id="modal_xoa_lop" class="modal fade">
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title canhgiua">Xóa Khoa</h4>
+									<button type="button" class="close btn btn-danger" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title canhgiua">Xóa Lớp</h4>
 								</div>
 								<div class="modal-body">
-									<form method="post" id="From_xoa_khoa" data-confirm="Bạn có chắn muốn xóa thông tin này?">
-										<label>Mã Khoa</label>
-										<input type="text" disabled="" name="ma_khoa_xoa123" id="ma_khoa_xoa123" class="form-control chuinhoa"  required="" />
+									<form method="post" id="From_xoa_lop" data-confirm="Bạn có chắn muốn xóa thông tin này?">
+										<label>Mã Lớp</label>
+										<input type="text" disabled="" name="ma_lop_xoa123" id="ma_lop_xoa123" class="form-control chuinhoa"  required="" />
 										<br />
-										<label>Tên Khoa</label>
-										<textarea  name="ten_khoaxoa_12" disabled="" id="ten_khoaxoa_12" class="form-control chuinthuong" rows="1" required=""></textarea>
+										<label>Tên Lớp</label>
+										<textarea  name="ten_lopxoa_12" disabled="" id="ten_lopxoa_12" class="form-control chuinthuong" rows="1" required=""></textarea>
 										<br />
-										<input type="hidden" name="id_khoa_xoa_12" id="id_khoa_xoa_12" />
+										<input type="hidden" name="id_lop_xoa_12" id="id_lop_xoa_12" />
 										<div class="modal-footer">
 											<input type="submit" name="insert_xoa" id="insert_xoa" value="Xóa" class="btn btn-danger canhgiua" />
 											<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>
 										</div>
-
 									</form>
 								</div>
 								
