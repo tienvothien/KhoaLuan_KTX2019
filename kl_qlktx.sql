@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 12, 2019 lúc 08:28 AM
+-- Thời gian đã tạo: Th4 12, 2019 lúc 07:36 PM
 -- Phiên bản máy phục vụ: 10.1.29-MariaDB
 -- Phiên bản PHP: 7.2.0
 
@@ -931,11 +931,11 @@ CREATE TABLE `khoa` (
 
 INSERT INTO `khoa` (`id_khoa`, `ma_khoa`, `ten_khoa`, `id_canbothem`, `ngay`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
 (1, 'TTTT', 'Thông Tin - Truyền Thông', 1, '2018-09-13 00:00:00', 0, NULL, NULL),
-(55, 'TTT0', 'ewưadsa', 1, '2019-04-11 22:48:05', 0, NULL, NULL),
-(56, 'tttq', 'Tiên', 1, '2019-04-11 22:51:07', 0, NULL, NULL),
-(57, 'tttr', 'sdaasda', 1, '2019-04-11 22:51:28', 0, NULL, NULL),
-(58, 'ttt4', 'ew2', 1, '2019-04-11 22:53:08', 0, NULL, NULL),
-(59, 'ttt8', 'ewqw566546565', 1, '2019-04-11 22:54:40', 0, NULL, NULL);
+(55, 'TTT0', 'ewưadsa12123123', 1, '2019-04-11 22:48:05', 0, NULL, NULL),
+(56, 'tttq', 'Ví dụ 2', 1, '2019-04-11 22:51:07', 0, NULL, NULL),
+(57, 'tt39', '145adasd', 1, '2019-04-11 22:51:28', 0, NULL, NULL),
+(58, 'ttt4', 'ew2', 1, '2019-04-11 22:53:08', 1, NULL, NULL),
+(59, 'ttt8', 'ewqw566546565', 1, '2019-04-11 22:54:40', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -997,8 +997,17 @@ CREATE TABLE `log_sua_dl` (
 --
 
 INSERT INTO `log_sua_dl` (`idlog`, `bangsua`, `tenbang`, `iddulieu`, `cot`, `tencot`, `noidungtruocsua`, `noidungsausua`, `nguoisua`, `ngaysua`) VALUES
-(25, 'khoa', 'Khoa', 59, 'ma_khoa', 'Mã Khoa', 'ttt8', 'ttt8', 1, '2019-04-12 13:25:24'),
-(26, 'khoa', 'Khoa', 59, 'ten_khoa', 'tên Khoa', 'ewqw', 'ewqw566546565', 1, '2019-04-12 13:25:24');
+(58, 'lop', 'Lớp', 9, 'ma_lop', 'Mã Lớp', 'ma_lop', 'B13tt3', 1, '2019-04-12 23:24:31'),
+(59, 'lop', 'Lớp', 9, 'ten_lop', 'Tên Lớp', 'ten_lop_sua', 'adsa32', 1, '2019-04-12 23:24:31'),
+(60, 'lop', 'Lớp', 9, 'ma_lop', 'Mã Lớp', 'ma_lop', 'ma2lop', 1, '2019-04-12 23:25:42'),
+(61, 'lop', 'Lớp', 9, 'ma_lop', 'Mã Lớp', 'ma2lop', 'ma2lo2', 1, '2019-04-12 23:26:27'),
+(62, 'lop', 'Lớp', 9, 'ma_lop', 'Mã Lớp', 'ma2lo2', 'ma2lo3', 1, '2019-04-12 23:27:39'),
+(63, 'lop', 'Lớp', 9, 'ten_lop', 'Tên Lớp', 'ten_lop_sua', 'Ví dụ sửa tên', 1, '2019-04-12 23:28:51'),
+(64, 'lop', 'Lớp', 9, 'ma_lop', 'Mã Lớp', 'ma2lo3', 'ma2l33', 1, '2019-04-12 23:29:18'),
+(65, 'lop', 'Lớp', 9, 'ten_lop', 'Tên Lớp', 'Ví dụ sửa tên', 'Ví dụ sửa tên231231', 1, '2019-04-12 23:30:01'),
+(66, 'lop', 'Lớp', 9, 'id_khoa', 'Tên Khoa', '55', '1', 1, '2019-04-12 23:32:32'),
+(67, 'lop', 'Lớp', 9, 'khoa', 'Khóa', '1', '2', 1, '2019-04-12 23:34:57'),
+(68, 'lop', 'Lớp', 9, 'nam_BD', 'Năm bắt đầu', '2015', '2023', 1, '2019-04-12 23:36:39');
 
 -- --------------------------------------------------------
 
@@ -1011,6 +1020,7 @@ CREATE TABLE `lop` (
   `ma_lop` char(6) COLLATE utf8_unicode_ci NOT NULL,
   `ten_lop` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `id_khoa` int(11) NOT NULL,
+  `khoa` int(11) NOT NULL,
   `nam_BD` int(11) NOT NULL,
   `id_canbothem` int(11) DEFAULT NULL,
   `ngay` datetime NOT NULL,
@@ -1018,6 +1028,16 @@ CREATE TABLE `lop` (
   `id_canboxoa` int(11) DEFAULT NULL,
   `ngay_xoa` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `lop`
+--
+
+INSERT INTO `lop` (`id_lop`, `ma_lop`, `ten_lop`, `id_khoa`, `khoa`, `nam_BD`, `id_canbothem`, `ngay`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
+(1, 'b15tt3', 'B15 Thông tin 3', 1, 1, 2015, 1, '2019-04-12 00:00:00', 0, 1, '2019-04-12 19:30:20'),
+(7, 'qưert', 'asda', 55, 1, 2015, 1, '0000-00-00 00:00:00', 1, 1, '2019-04-12 21:28:34'),
+(8, 'qưer8', 'asdaasdasd', 55, 1, 2015, 1, '2019-04-12 20:46:29', 0, NULL, NULL),
+(9, 'ma2l33', 'Ví dụ sửa tên231231', 1, 2, 2023, 1, '2019-04-12 22:20:08', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1062,6 +1082,7 @@ CREATE TABLE `phong` (
 --
 
 CREATE TABLE `sinh_vien` (
+  `id_sinhvien` int(11) NOT NULL,
   `mssv` int(10) NOT NULL,
   `anh_ca_nhan` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `ho_sv` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -1083,7 +1104,7 @@ CREATE TABLE `sinh_vien` (
   `hotenme` varchar(70) COLLATE utf8_unicode_ci DEFAULT NULL,
   `sdtme` int(10) DEFAULT NULL,
   `nam_vao` int(4) NOT NULL,
-  `ma_lop` char(6) COLLATE utf8_unicode_ci NOT NULL,
+  `id_lop` int(11) NOT NULL,
   `id_canbo` int(11) NOT NULL,
   `ngay_them` datetime NOT NULL,
   `xoa` int(1) NOT NULL DEFAULT '0',
@@ -12580,14 +12601,16 @@ ALTER TABLE `phong`
 -- Chỉ mục cho bảng `sinh_vien`
 --
 ALTER TABLE `sinh_vien`
-  ADD PRIMARY KEY (`mssv`),
+  ADD PRIMARY KEY (`id_sinhvien`),
+  ADD UNIQUE KEY `mssv` (`mssv`) USING BTREE,
   ADD UNIQUE KEY `so_dt` (`so_dt`),
   ADD UNIQUE KEY `email` (`email`),
   ADD KEY `id_canbo` (`id_canbo`),
   ADD KEY `idcanboxoa` (`idcanboxoa`),
   ADD KEY `tinh` (`matinh`),
   ADD KEY `huyen` (`mahuyen`),
-  ADD KEY `xa` (`maxa`);
+  ADD KEY `xa` (`maxa`),
+  ADD KEY `id_lop` (`id_lop`);
 
 --
 -- Chỉ mục cho bảng `taikhoan`
@@ -12703,13 +12726,13 @@ ALTER TABLE `loai_phong`
 -- AUTO_INCREMENT cho bảng `log_sua_dl`
 --
 ALTER TABLE `log_sua_dl`
-  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT cho bảng `lop`
 --
 ALTER TABLE `lop`
-  MODIFY `id_lop` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_lop` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `o_phong`
@@ -12843,7 +12866,8 @@ ALTER TABLE `sinh_vien`
   ADD CONSTRAINT `sinh_vien_ibfk_2` FOREIGN KEY (`idcanboxoa`) REFERENCES `can_bo` (`id_canbo`),
   ADD CONSTRAINT `sinh_vien_ibfk_3` FOREIGN KEY (`matinh`) REFERENCES `tinh` (`matinh`),
   ADD CONSTRAINT `sinh_vien_ibfk_4` FOREIGN KEY (`mahuyen`) REFERENCES `huyen` (`mahuyen`),
-  ADD CONSTRAINT `sinh_vien_ibfk_5` FOREIGN KEY (`maxa`) REFERENCES `xa` (`maxa`);
+  ADD CONSTRAINT `sinh_vien_ibfk_5` FOREIGN KEY (`maxa`) REFERENCES `xa` (`maxa`),
+  ADD CONSTRAINT `sinh_vien_ibfk_6` FOREIGN KEY (`id_lop`) REFERENCES `lop` (`id_lop`);
 
 --
 -- Các ràng buộc cho bảng `thietbi`

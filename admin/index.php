@@ -74,8 +74,8 @@ include './../dulieu/kiemtradangnhap.php';
 					</div><!-- end noidungthaydoi -->
 					</div> <!-- end col-9 -->
 					</div> <!-- end row noi dung -->
+					
+					<?php include 'food.php'; mysqli_cloes($con)?>
 				</div>
-				<?php include 'food.php';?>
-				</div> <!-- end trang admin -->
 			</body>
 		</html>

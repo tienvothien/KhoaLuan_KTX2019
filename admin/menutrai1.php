@@ -1,6 +1,6 @@
 <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 menutrai ">
 	<nav class="navbar navbar-default" role="navigation">
-	<div class="container-fluid">
+	<div class="container-fluid " style="padding-left: 0px; padding-right: 0px;">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -70,6 +70,14 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 			</button>
 			<div class="dropdown-container">
 				<a href="quanlythietbi.php" class="list-group-item">Quản lý thiết bị</a>
+				<a href="themtb_vao_lp.php" class="list-group-item">Thiết bị trong loại phòng</a>
+				<a href="kiemtrathietbi.php" class="list-group-item">Kiêm tra thiết bị</a>
+			</div>
+			<button class="dropdown-btn">Quản lý Log Edit
+			<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-container">
+				<a href="quanlyloglop.php" class="list-group-item">Log Edit Lớp</a>
 				<a href="themtb_vao_lp.php" class="list-group-item">Thiết bị trong loại phòng</a>
 				<a href="kiemtrathietbi.php" class="list-group-item">Kiêm tra thiết bị</a>
 			</div>

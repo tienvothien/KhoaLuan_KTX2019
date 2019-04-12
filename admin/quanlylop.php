@@ -74,33 +74,126 @@ include './../dulieu/kiemtradangnhap.php';
 								<form action="" id="form_themlopmoi" name="form_themlopmoi" 	method="POST" role="form" class="_1themphong1 ">
 									<div class="form-group">
 										<label for="">Mã Lớp</label>
-										<input type="text" name="ma_lop_them" id="ma_lop_them" class="form-control" value="" required="" placeholder="Nhập mã lop" style=" text-transform: uppercase;">
+										<input type="text" name="ma_lop_them" id="ma_lop_them" class="form-control chuinhoa" value="" required="" placeholder="Nhập mã lop" >
 									</div>
 									<div class="form-group">
-										<label for="">Tên lop</label>
-										<input type="text" name="ten_lop_them" id="ten_lop_them" class="form-control" value="" required=""  placeholder="Nhập tên lop" style=" text-transform: capitalize;">
+										<label for="">Tên Lớp</label>
+										<input type="text" name="ten_lop_them" id="ten_lop_them" class="form-control chuinthuong" value="" required=""  placeholder="Nhập tên lop" >
 									</div>
-									<p id="thongbao_themlop"></p>
-								</div>
-								<!-- Modal footer -->
-								<div class="modal-footer">
-									<button type="submit" class="btn btn-danger">Thêm Lớp mới</button>
-								</div>
-							</form>
+									<div class="form-group">
+										<label for="">Khoa</label>
+										<select  id="id_khoa_them_lopt12"  name="id_khoa_them_lopt12" class="form-control" required="required">
+											<option value="">Chọn Khoa</option>
+											<?php
+												
+												$ssql_ds_khoa=(mysqli_query($con, "SELECT * FROM khoa WHERE khoa.xoa =0 ORDER BY khoa.ten_khoa"));
+												if (mysqli_num_rows($ssql_ds_khoa)) {
+													while ($row_dskhoa= mysqli_fetch_array($ssql_ds_khoa)) {
+														echo "<option value='".$row_dskhoa['id_khoa']."'>$row_dskhoa[ten_khoa]</option>";
+													}
+												}else{
+													echo "<option value=''>Chưa có dữ liệu khoa</option>";
+												}
+											?>
+										</select>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 canh15px">
+											<label for="">Khóa</label>
+											<select id="stt_khoa_lopthem" name="stt_khoa_lopthem" class="form-control" required="required">
+												<option value="">Chọn khóa</option>
+												<?php for ($i=1; $i <=70 ; $i++) { 
+													echo "<option value='$i'>$i</option>";
+												} ?>
+											</select>
+										</div>
+										<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 canh15px">
+											<label for="">Năm bắt đầu</label>
+											<select name="nam_BD_themlopm" id="nam_BD_themlopm" class="form-control" required="required">
+												<option value="">Chọn năm</option>
+												<?php for ($i=2015; $i <=2070 ; $i++) { 
+													echo "<option value='$i'>$i</option>";
+												} ?>
+											</select>
+										</div>
+									</div>
+										<button type="submit" class="btn btn-danger">Thêm Lớp mới</button>
+								</form>
+							</div>
 						</div>
 					</div>
-				</div>
-				</div><!-- end model -->
-				<!-- xem thông tin lop -->
-				<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-					<div id="dataModal" class="modal fade">
-						<div class="modal-dialog">
+					</div><!-- end model -->
+					<!-- xem thông tin lop -->
+					<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+						<div id="dataModal" class="modal fade">
+							<div class="modal-dialog ">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title">Thông tin Lớp</h4>
+									</div>
+									<div class="modal-body" id="thongtin_chitietlop">
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Cập nhật lại thông tin lop -->
+					<div id="modal_sua_lop" class="modal fade">
+						<div class="modal-dialog lop_themmoi">
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">Thông tin Lớp</h4>
+									<h4 class="modal-title">Cập nhật thông tin Lớp</h4>
 								</div>
-								<div class="modal-body" id="thongtin_chitietlop">
+								<div class="modal-body">
+									<form method="post" id="from_suathongtin_lop" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
+										<label>Mã Lớp</label>
+										<input type="text" name="ma_lop_sua123" id="ma_lop_sua123" class="form-control chuinhoa"  required="" />
+										<br />
+										<label>Tên Lớp</label>
+										<textarea  name="ten_lopsua_12" id="ten_lopsua_12" class="form-control chuinthuong" rows="1" required=""></textarea>
+										<br />
+										<label>Khoa</label>
+										<select  id="id_khoa_sua_lopt"  name="id_khoa_sua_lopt" class="form-control" required="required">
+											<option value="" id="khoahienra"></option>
+											<?php
+												
+												$ssql_ds_khoa=(mysqli_query($con, "SELECT * FROM khoa WHERE khoa.xoa =0 ORDER BY khoa.ten_khoa"));
+												if (mysqli_num_rows($ssql_ds_khoa)) {
+													while ($row_dskhoa= mysqli_fetch_array($ssql_ds_khoa)) {
+														echo "<option value='$row_dskhoa[id_khoa]'>$row_dskhoa[ten_khoa]</option>";
+													}
+												}else{
+													echo "<option value=''>Chưa có dữ liệu khoa</option>";
+												}
+											?>
+										</select>
+										<br />
+										<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 canh15px">
+											<label for="">Khóa</label>
+											<select id="stt_khoa_lopsua" name="stt_khoa_lopsua" class="form-control" required="required">
+												<option value="" id="dl_khoa_sua_lop"></option>
+												<?php for ($i=1; $i <=70 ; $i++) { 
+													echo "<option value='$i'>$i</option>";
+												} ?>
+											</select>
+										</div>
+										<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 canh15px">
+											<label for="">Năm bắt đầu</label>
+											<select name="nam_BD_sualopm" id="nam_BD_sualopm" class="form-control" required="required">
+												<option value="" id="dl_nambdat_sua_lop"></option>
+												<?php for ($i=2015; $i <=2070 ; $i++) { 
+													echo "<option value='$i'>$i</option>";
+												} ?>
+											</select>
+										</div>
+										<input type="hidden" name="id_lop_sua_12" id="id_lop_sua_12" />
+										<input type="submit" name="insert" id="insert" value="Insert" class="btn btn-danger capnhattb" />
+									</form>
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>
@@ -108,75 +201,35 @@ include './../dulieu/kiemtradangnhap.php';
 							</div>
 						</div>
 					</div>
-				</div>
-				<!-- Cập nhật lại thông tin phòng -->
-				<div id="modal_sua_lop" class="modal fade">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Cập nhật thông tin Lớp</h4>
-							</div>
-							<div class="modal-body">
-								<form method="post" id="from_suathongtin_lop" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
-									<label>Mã Lớp</label>
-									<input type="text" name="ma_lop_sua123" id="ma_lop_sua123" class="form-control chuinhoa"  required="" />
-									<br />
-									<label>Tên Lớp</label>
-									<textarea  name="ten_lopsua_12" id="ten_lopsua_12" class="form-control chuinthuong" rows="1" required=""></textarea>
-									<br />
-									<label>Khoa</label>
-									<select name="" id="id_khoa_sua_lopt"  name="id_khoa_sua_lopt" class="form-control" required="required">
-										<option value="" id="khoahienra"></option>
-										<?php 
-											
-											$ssql_ds_khoa=(mysqli_query($con, "SELECT * FROM khoa WHERE khoa.xoa =0 ORDER BY khoa.ten_khoa"));
-											if (mysqli_num_rows($ssql_ds_khoa)) {
-												while ($row_dskhoa= mysqli_fetch_array($ssql_ds_khoa)) {
-													echo "<option value='$row_dskhoa[id_khoa]'>$row_dskhoa[ten_khoa]</option>";
-												}
-											}else{
-												echo "<option value=''>Chưa có dữ liệu khoa</option>";
-											}
-										 ?>
-									</select>
-									<br />
-									<input type="hidden" name="id_lop_sua_12" id="id_lop_sua_12" />
-									<input type="submit" name="insert" id="insert" value="Insert" class="btn btn-danger capnhattb" />
-								</form>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>
+					<!-- Xoa thiêt bị -->
+					<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+						<div id="modal_xoa_lop" class="modal fade">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close btn btn-danger" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title canhgiua">Xóa Lớp</h4>
+									</div>
+									<div class="modal-body">
+										<form method="post" id="From_xoa_lop" data-confirm="Bạn có chắn muốn xóa thông tin này?">
+											<label>Mã Lớp</label>
+											<input type="text" disabled="" name="ma_lop_xoa123" id="ma_lop_xoa123" class="form-control chuinhoa"  required="" />
+											<br />
+											<label>Tên Lớp</label>
+											<input type="text" name="ten_lopxoa_12" disabled="" id="ten_lopxoa_12" class="form-control chuinthuong" required=""></input>
+											<br />
+											<label>Khoa</label>
+											<input type="text" name="khoa_lopxoa_12" disabled="" id="khoa_lopxoa_12" class="form-control chuinthuong" required=""></input>
+											<br />
+											<input type="hidden" name="id_lop_xoa_12" id="id_lop_xoa_12" />
+											<div class="modal-footer">
+												<input type="submit" name="insert_xoa" id="insert_xoa" value="Xóa" class="btn btn-danger canhgiua" />
+												<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>
+											</div>
+										</form>
+									</div>
+									
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<!-- Xoa thiêt bị -->
-				<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-					<div id="modal_xoa_lop" class="modal fade">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close btn btn-danger" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title canhgiua">Xóa Lớp</h4>
-								</div>
-								<div class="modal-body">
-									<form method="post" id="From_xoa_lop" data-confirm="Bạn có chắn muốn xóa thông tin này?">
-										<label>Mã Lớp</label>
-										<input type="text" disabled="" name="ma_lop_xoa123" id="ma_lop_xoa123" class="form-control chuinhoa"  required="" />
-										<br />
-										<label>Tên Lớp</label>
-										<textarea  name="ten_lopxoa_12" disabled="" id="ten_lopxoa_12" class="form-control chuinthuong" rows="1" required=""></textarea>
-										<br />
-										<input type="hidden" name="id_lop_xoa_12" id="id_lop_xoa_12" />
-										<div class="modal-footer">
-											<input type="submit" name="insert_xoa" id="insert_xoa" value="Xóa" class="btn btn-danger canhgiua" />
-											<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>
-										</div>
-									</form>
-								</div>
-								
-							</div>
-						</div>
-					</div>
-				</div>

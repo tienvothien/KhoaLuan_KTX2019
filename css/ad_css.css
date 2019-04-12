@@ -4,6 +4,21 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+select.custom-select.custom-select-sm.form-control.form-control-sm,input.form-control.form-control-sm {
+    height: 25px;
+    font-size: 14px;
+}
+
+.col-xs-12.col-sm-12.col-md-6.col-lg-6.canh15px {
+    padding-left: 0px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+}
+
+.lop_themmoi {
+    width: 400px;
+}
+
 .thumbnail.mua_nen_2 {
     background-color: #03A9F4;
     color: black;
@@ -86,6 +101,9 @@ hr.ngay_ad {
     padding-right: 0px;
 }
 @media (max-width: 768px){
+  .modal-dialog.themlop2.lop_themmoi{
+    width: 95%;
+  }
   h2, h3,h4,a,.sidenav a, .dropdown-btn{
     font-size: 16px  !important;
   }
