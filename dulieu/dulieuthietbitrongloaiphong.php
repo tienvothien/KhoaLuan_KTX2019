@@ -1,6 +1,6 @@
 <?php
 include 'conn.php';
-$query1 = mysqli_query($con, " SELECT loaiphongcothietbi.idcothietbi, loai_phong.id_loaiphong, loai_phong.ten_loai_phong, thietbi.idtb, thietbi.tenthietbi, loaiphongcothietbi.soluong FROM loaiphongcothietbi INNER JOIN thietbi ON loaiphongcothietbi.idtb = thietbi.idtb INNER JOIN loai_phong ON loaiphongcothietbi.id_loaiphong = loai_phong.id_loaiphong WHERE loai_phong.xoa=0 AND thietbi.xoa=0 AND loaiphongcothietbi.xoa=0");
+$query1 = mysqli_query($con, " SELECT loaiphongcothietbi.idcothietbi, loai_phong.id_loaiphong, loai_phong.ten_loai_phong, thietbi.idtb, thietbi.tenthietbi, loaiphongcothietbi.soluong FROM loaiphongcothietbi INNER JOIN thietbi ON loaiphongcothietbi.idtb = thietbi.idtb INNER JOIN loai_phong ON loaiphongcothietbi.id_loaiphong = loai_phong.id_loaiphong WHERE loai_phong.xoa=0 AND thietbi.xoa=0 AND loaiphongcothietbi.xoa=0 ORDER BY loai_phong.id_loaiphong");
 if (mysqli_num_rows($query1)) {
 ?>
 <table class="table table-hover table-bordered table-striped" id="myTable"  cellspacing='0' cellpadding='0' >
@@ -9,7 +9,9 @@ if (mysqli_num_rows($query1)) {
 			<th class="text-center">STT</th>
 			<th class="text-center align-middle">Tên loại phòng</th>
 			<th class="text-center">Tên thiết bị</th>
-			<th class="text-center">Số lượng (cái)</th>
+			<th class="text-center">Số lượng/phòng (cái)</th>
+			<th class="text-center">Số phòng</th>
+			<th class="text-center">Tổng số thiết bị </th>
 			<th class="canhgiua">Sửa</th>
 			<th class="canhgiua">Chi tiết</th>
 			<th class="canhgiua">Xóa</th>
@@ -41,6 +43,8 @@ if (mysqli_num_rows($query1)) {
 				$arr[$row['id_loaiphong']]['printed'] = 'no';
 				$arr[$row['id_loaiphong']]['rowspan'] += 1;
 			}
+			//đem số lượng phòng 
+			$slphong = mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(phong.idphong) AS slphong FROM phong INNER JOIN loai_phong ON phong.id_loaiphong = loai_phong.id_loaiphong WHERE loai_phong.id_loaiphong='$row[id_loaiphong]' AND phong.xoa=0 AND loai_phong.xoa=0"));
 			// in ra bằng dòng lệnh For
 			for ($i = 0; $i < sizeof($tenthietbi); $i++) {
 				$id_loaiPhongNam = $id_loaiphong[$i];
@@ -51,14 +55,17 @@ if (mysqli_num_rows($query1)) {
 						// nếu trùng thi tinh rowpan
 						if ($arr[$id_loaiPhongNam]['printed'] == 'no') {
 							echo "
-								<td class='canhgiua align-middle' rowspan='" . $arr[$id_loaiPhongNam]['rowspan'] . "'   >" . $ten_loai_phong[$i] . "
+								<td class='canhgiua textnamgiua' rowspan='" . $arr[$id_loaiPhongNam]['rowspan'] . "'   >" . $ten_loai_phong[$i] . "
 								</td>";
 							$arr[$id_loaiPhongNam]['printed'] = 'yes';
 						}// ket thuc tính rowspan
-						
+						;
 						echo "
-						<td style=' text-transform: capitalize; text-align: left;'>" . $tenthietbi[$i] . "</td>
-						<td style=' text-transform: capitalize; text-align: left;'>" . $soluong[$i] . "</td>
+						<td class='chuinthuong'>" . $tenthietbi[$i] . "</td>
+						<td class='canhgiua'>" . $soluong[$i] . "</td>
+						<td class='canhgiua'>" . $slphong['slphong'] . "</td>
+						<td class='canhgiua'>" . $tongslthietbi=$soluong[$i]*$slphong['slphong'] . "</td>
+
 					";
 				?>
 				

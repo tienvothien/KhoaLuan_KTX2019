@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 12, 2019 lúc 07:36 PM
+-- Thời gian đã tạo: Th4 13, 2019 lúc 06:28 PM
 -- Phiên bản máy phục vụ: 10.1.29-MariaDB
 -- Phiên bản PHP: 7.2.0
 
@@ -934,8 +934,12 @@ INSERT INTO `khoa` (`id_khoa`, `ma_khoa`, `ten_khoa`, `id_canbothem`, `ngay`, `x
 (55, 'TTT0', 'ewưadsa12123123', 1, '2019-04-11 22:48:05', 0, NULL, NULL),
 (56, 'tttq', 'Ví dụ 2', 1, '2019-04-11 22:51:07', 0, NULL, NULL),
 (57, 'tt39', '145adasd', 1, '2019-04-11 22:51:28', 0, NULL, NULL),
-(58, 'ttt4', 'ew2', 1, '2019-04-11 22:53:08', 1, NULL, NULL),
-(59, 'ttt8', 'ewqw566546565', 1, '2019-04-11 22:54:40', 1, NULL, NULL);
+(58, 'ttt4', 'ew2', 1, '2019-04-11 22:53:08', 1, 1, '2019-04-08 00:00:00'),
+(59, 'ttt8', 'ewqw566546565', 1, '2019-04-11 22:54:40', 1, 1, '2019-04-01 00:00:00'),
+(60, 'ttt3', 'adsda', 1, '2019-04-13 10:15:36', 0, NULL, NULL),
+(61, 'ttt5', 'sadada', 1, '2019-04-13 10:17:41', 0, NULL, NULL),
+(62, 'ttt6', 'wdqed', 1, '2019-04-13 10:23:50', 1, 1, '2019-04-13 10:23:57'),
+(63, 'ttt4', 'aAsaasadad', 1, '2019-04-13 10:28:05', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -944,7 +948,7 @@ INSERT INTO `khoa` (`id_khoa`, `ma_khoa`, `ten_khoa`, `id_canbothem`, `ngay`, `x
 --
 
 CREATE TABLE `loaiphongcothietbi` (
-  `id` int(11) NOT NULL,
+  `idcothietbi` int(11) NOT NULL,
   `id_loaiphong` int(11) NOT NULL,
   `idtb` int(11) NOT NULL,
   `soluong` int(11) NOT NULL,
@@ -954,6 +958,20 @@ CREATE TABLE `loaiphongcothietbi` (
   `id_canboxoa` int(11) DEFAULT NULL,
   `ngay_xoa` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `loaiphongcothietbi`
+--
+
+INSERT INTO `loaiphongcothietbi` (`idcothietbi`, `id_loaiphong`, `idtb`, `soluong`, `ngaythem`, `id_canbothem`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
+(1, 1, 1, 3, '2019-04-13 00:00:00', 1, 0, NULL, NULL),
+(2, 1, 2, 3, '2019-04-13 00:00:00', 1, 1, 1, '2019-04-13 21:33:43'),
+(3, 1, 7, 19, '2019-04-13 17:42:46', 1, 0, NULL, NULL),
+(4, 1, 4, 16, '2019-04-13 17:45:17', 1, 0, NULL, NULL),
+(5, 2, 4, 18, '2019-04-13 20:11:19', 1, 0, NULL, NULL),
+(6, 2, 7, 1, '2019-04-13 20:38:14', 1, 0, NULL, NULL),
+(7, 2, 1, 1, '2019-04-13 22:38:03', 1, 0, NULL, NULL),
+(8, 1, 5, 49, '2019-04-13 22:38:31', 1, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -972,6 +990,14 @@ CREATE TABLE `loai_phong` (
   `id_canboxoa` int(10) DEFAULT NULL,
   `ngay_xoa` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `loai_phong`
+--
+
+INSERT INTO `loai_phong` (`id_loaiphong`, `ma_loai_phong`, `ten_loai_phong`, `sl_nguoi_o`, `id_canbothem`, `ngay_them`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
+(1, 'lp1', 'Phòng Thường 01', 8, 1, '2019-04-13', 0, NULL, NULL),
+(2, 'lp2', 'Phòng Thường 02', 8, 1, '2018-09-20', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1007,7 +1033,31 @@ INSERT INTO `log_sua_dl` (`idlog`, `bangsua`, `tenbang`, `iddulieu`, `cot`, `ten
 (65, 'lop', 'Lớp', 9, 'ten_lop', 'Tên Lớp', 'Ví dụ sửa tên', 'Ví dụ sửa tên231231', 1, '2019-04-12 23:30:01'),
 (66, 'lop', 'Lớp', 9, 'id_khoa', 'Tên Khoa', '55', '1', 1, '2019-04-12 23:32:32'),
 (67, 'lop', 'Lớp', 9, 'khoa', 'Khóa', '1', '2', 1, '2019-04-12 23:34:57'),
-(68, 'lop', 'Lớp', 9, 'nam_BD', 'Năm bắt đầu', '2015', '2023', 1, '2019-04-12 23:36:39');
+(68, 'lop', 'Lớp', 9, 'nam_BD', 'Năm bắt đầu', '2015', '2023', 1, '2019-04-12 23:36:39'),
+(69, 'khoa', 'Khoa', 63, 'ten_khoa', 'tên Khoa', 'aA', 'aAsaas', 1, '2019-04-13 10:28:12'),
+(70, 'khoa', 'Khoa', 63, 'ten_khoa', 'tên Khoa', 'aAsaas', 'aAsaasadad', 1, '2019-04-13 10:29:02'),
+(71, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 21:59:14'),
+(72, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 22:03:35'),
+(73, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 22:07:06'),
+(74, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 5, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 22:07:22'),
+(75, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 22:14:57'),
+(76, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 22:19:49'),
+(77, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 22:30:20'),
+(78, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_tb_ctb_sua', 'Loại phòng', '', '2', 1, '2019-04-13 22:30:20'),
+(79, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_tb_ctb_sua', 'Loại phòng', '', '2', 1, '2019-04-13 22:31:28'),
+(80, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 22:31:51'),
+(81, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_tb_ctb_sua', 'Loại phòng', '', '2', 1, '2019-04-13 22:31:51'),
+(82, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_loaiphong', 'Loại phòng', '1', '2', 1, '2019-04-13 22:32:59'),
+(83, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 8, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 22:41:29'),
+(84, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 8, 'id_loaiphong', 'Loại phòng', '1', '2', 1, '2019-04-13 22:41:36'),
+(85, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 8, 'soluong', 'Số Lượng', '18', '49', 1, '2019-04-13 22:45:09'),
+(86, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 8, 'soluong', 'Số Lượng', '49', '48', 1, '2019-04-13 22:45:31'),
+(87, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 8, 'soluong', 'Số Lượng', '48', '49', 1, '2019-04-13 22:47:06'),
+(88, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 8, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 22:47:34'),
+(89, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 7, 'soluong', 'Số Lượng', '19', '1', 1, '2019-04-13 22:49:59'),
+(90, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 8, 'id_loaiphong', 'Loại phòng', '1', '2', 1, '2019-04-13 22:50:39'),
+(91, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 8, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 23:06:34'),
+(92, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 8, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 23:28:07');
 
 -- --------------------------------------------------------
 
@@ -1147,12 +1197,25 @@ CREATE TABLE `thietbi` (
   `mathietbi` char(5) COLLATE utf8_unicode_ci NOT NULL,
   `tenthietbi` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
   `id_canbothem` int(11) NOT NULL,
-  `gio` time NOT NULL,
-  `ngay` date NOT NULL,
+  `ngaythem` datetime NOT NULL,
   `xoa` int(1) NOT NULL DEFAULT '0',
   `id_canboxoa` int(11) DEFAULT NULL,
   `ngay_xoa` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `thietbi`
+--
+
+INSERT INTO `thietbi` (`idtb`, `mathietbi`, `tenthietbi`, `id_canbothem`, `ngaythem`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
+(1, 'TB001', 'Đèn 1m2', 1, '2019-04-13 00:00:00', 0, NULL, NULL),
+(2, 'tb002', 'đa', 1, '2019-04-13 10:51:38', 0, 1, '2019-04-13 12:21:51'),
+(3, 'tb004', 'sdfs', 1, '2019-04-13 10:53:04', 1, 1, '2019-04-13 12:21:11'),
+(4, 'tb003', 'Đèn 1m2	', 1, '2019-04-13 10:54:11', 1, NULL, NULL),
+(5, 'tb005', 'Đèn 1m22', 1, '2019-04-13 10:54:48', 0, NULL, NULL),
+(6, 'tb022', 'Đèn 1m2	asd', 1, '2019-04-13 10:55:04', 0, NULL, NULL),
+(7, 'tb004', '12', 1, '2019-04-13 12:22:37', 0, NULL, NULL),
+(8, 'tb002', 'Đèn 1ma', 1, '2019-04-13 12:25:01', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -12548,7 +12611,7 @@ ALTER TABLE `khoa`
 -- Chỉ mục cho bảng `loaiphongcothietbi`
 --
 ALTER TABLE `loaiphongcothietbi`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`idcothietbi`),
   ADD KEY `idtb` (`idtb`),
   ADD KEY `id_canbothem` (`id_canbothem`),
   ADD KEY `id_canboxoa` (`id_canboxoa`),
@@ -12623,8 +12686,6 @@ ALTER TABLE `taikhoan`
 --
 ALTER TABLE `thietbi`
   ADD PRIMARY KEY (`idtb`),
-  ADD UNIQUE KEY `mathietbi` (`mathietbi`),
-  ADD UNIQUE KEY `tenthietbi` (`tenthietbi`),
   ADD KEY `id_canbothem` (`id_canbothem`),
   ADD KEY `id_canboxoa` (`id_canboxoa`);
 
@@ -12708,25 +12769,25 @@ ALTER TABLE `dien_uu_tien`
 -- AUTO_INCREMENT cho bảng `khoa`
 --
 ALTER TABLE `khoa`
-  MODIFY `id_khoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id_khoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT cho bảng `loaiphongcothietbi`
 --
 ALTER TABLE `loaiphongcothietbi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcothietbi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `loai_phong`
 --
 ALTER TABLE `loai_phong`
-  MODIFY `id_loaiphong` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_loaiphong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `log_sua_dl`
 --
 ALTER TABLE `log_sua_dl`
-  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT cho bảng `lop`
@@ -12756,7 +12817,7 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT cho bảng `thietbi`
 --
 ALTER TABLE `thietbi`
-  MODIFY `idtb` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idtb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `toa_nha`

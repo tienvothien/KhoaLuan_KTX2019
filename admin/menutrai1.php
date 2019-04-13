@@ -84,6 +84,7 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 			</button>
 			<div class="dropdown-container">
 				<a href="quanlylogDeleteThietbi.php" class="list-group-item">Log Delete Thiết bị</a>
+				<a href="quanlylogDeletelctb.php" class="list-group-item">Log Delete Có thiết bị</a>
 				<a href="quanlylogDeletelop.php" class="list-group-item">Log Delete Thiết Lớp</a>
 				<a href="quanlylogDeletekhoa.php" class="list-group-item">Log Delete Thiết Khoa</a>
 			</div>

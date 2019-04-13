@@ -69,6 +69,22 @@ include './../dulieu/kiemtradangnhap.php';
 							</div>
 						</div>
 						</a> <!-- end het hien thong tin khoa -->
+						<a href="quanlythietbi.php" title=""><!--  hien thoong trinh chi tiet thietbi-->
+						<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+							<div class="thumbnail mua_nen_3">
+								<div class="captionb align-middler">
+									<h3 class="canhgiua"  >Thiết bị</h3>
+									<p  >
+										<h3 class="canhgiua ">
+										<?php include './conn.php';
+										$soluongthietbi = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(thietbi.idtb) AS slthietbi FROM thietbi WHERE thietbi.xoa =0"));
+										echo $soluongthietbi['slthietbi'];
+										?></h3>
+									</p>
+								</div>
+							</div>
+						</div>
+						</a> <!-- end het hien thong tin thietbi-->
 					</div>
 					</div><!-- end thaydoi1 -->
 					</div><!-- end noidungthaydoi -->

@@ -13,7 +13,6 @@ include './../dulieu/kiemtradangnhap.php';
 		<link rel="stylesheet" href="../vendor/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="../css/ad_css.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 	</head>
 	<body >
 		<div class="container-fluid">
@@ -56,7 +55,7 @@ include './../dulieu/kiemtradangnhap.php';
 					</body>
 				</html>
 				
-			</script>
+				</script>
 				<!-- thêm thietbitrongloaiphong mới -->
 				<div class="modal" id="themthietbitrongloaiphong1">
 					<div class="modal-dialog themthietbitrongloaiphong2 themthietbi_moi">
@@ -79,10 +78,9 @@ include './../dulieu/kiemtradangnhap.php';
 										<label for="">Loại Phòng</label>
 										<select name="id_loaiphong_thietbitrongloaiphong_them" id="id_loaiphong_thietbitrongloaiphong_them" class="form-control" required="required">
 											<option value="">Chọn Loại phòng</option>
-											<?php 
+											<?php
 												$ds_lp = mysqli_query($con, "SELECT * FROM loai_phong WHERE loai_phong.xoa=0");
 												if (mysqli_num_rows($ds_lp)) {
-
 													while ($row1 =mysqli_fetch_array($ds_lp)) {
 														echo "<option value='".$row1['id_loaiphong']."'>".$row1['ten_loai_phong']."</option>";
 													}
@@ -93,14 +91,13 @@ include './../dulieu/kiemtradangnhap.php';
 										</select>
 										
 									</div>
-									<div class="form-group">	
+									<div class="form-group">
 										<label for="">Thiết bị</label>
 										<select  name="idtb_thietbitrongloaiphong_them" id="idtb_thietbitrongloaiphong_them" class="form-control" required="required">
 											<option value="">Chọn Thiết bị</option>
-											<?php 
+											<?php
 												$ds_thietbi = mysqli_query($con, "SELECT * FROM thietbi WHERE thietbi.xoa=0 ORDER BY thietbi.tenthietbi");
 												if (mysqli_num_rows($ds_thietbi)) {
-
 													while ($row22 =mysqli_fetch_array($ds_thietbi)) {
 														echo "<option value='".$row22['idtb']."'>".$row22['tenthietbi']."</option>";
 													}
@@ -110,12 +107,12 @@ include './../dulieu/kiemtradangnhap.php';
 											?>
 										</select>
 									</div>
-									<div class="form-group">	
+									<div class="form-group">
 										<label for="">Số lượng</label>
 										<select  name="soluong_thietbitrongloaiphong_them" id="soluong_thietbitrongloaiphong_them" class="form-control" required="required">
 											<option value="">Chọn Thiết bị</option>
-											<?php 
-												for ($i=1; $i <50 ; $i++) { 
+											<?php
+												for ($i=1; $i <50 ; $i++) {
 													echo "<option value='".$i."'>".$i."</option>";
 												}
 											?>
@@ -150,7 +147,7 @@ include './../dulieu/kiemtradangnhap.php';
 				</div>
 				<!-- Cập nhật lại thông tin phòng -->
 				<div id="modal_sua_thietbitrongloaiphong" class="modal fade">
-					<div class="modal-dialog">
+					<div class="modal-dialog themthietbi_moi">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -158,13 +155,47 @@ include './../dulieu/kiemtradangnhap.php';
 							</div>
 							<div class="modal-body">
 								<form method="post" id="from_suathongtin_thietbitrongloaiphong" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
-									<label>Mã Thiết bị cho Loại Phòng</label>
-									<input type="text" name="ma_thietbitrongloaiphong_sua123" id="ma_thietbitrongloaiphong_sua123" class="form-control chuinhoa"  required="" />
+									<label>Loại Phòng</label>
+									<select name="id_loaiphong_sua_ctb" id="id_loaiphong_sua_ctb" class="form-control" required="required">
+										<option value="" id="dulieu_cu_lp"></option>
+											<?php
+													$ds_lp = mysqli_query($con, "SELECT * FROM loai_phong WHERE loai_phong.xoa=0");
+													if (mysqli_num_rows($ds_lp)) {
+														while ($row1 =mysqli_fetch_array($ds_lp)) {
+															echo "<option value='".$row1['id_loaiphong']."'>".$row1['ten_loai_phong']."</option>";
+														}
+													}else{
+														echo "<option value=''>Chưa có loại phòng thích họp</option>";
+													}
+											?>
+									</select>
 									<br />
-									<label>Tên Thiết bị cho Loại Phòng</label>
-									<textarea  name="ten_thietbitrongloaiphongsua_12" id="ten_thietbitrongloaiphongsua_12" class="form-control chuinthuong" rows="1" required=""></textarea>
+									<label>Thiết bị</label>
+									<select name="id_tb_ctb_sua" id="id_tb_ctb_sua" class="form-control" required="required">
+										<option value="" id="dulieu_cu_tb"></option>
+										<?php
+												$ds_thietbi = mysqli_query($con, "SELECT * FROM thietbi WHERE thietbi.xoa=0 ORDER BY thietbi.tenthietbi");
+												if (mysqli_num_rows($ds_thietbi)) {
+													while ($row22 =mysqli_fetch_array($ds_thietbi)) {
+														echo "<option value='".$row22['idtb']."'>".$row22['tenthietbi']."</option>";
+													}
+												}else{
+													echo "<option value=''>Chưa có Thiết bị thích họp</option>";
+												}
+										?>
+									</select>
 									<br />
-									<input type="hidden" name="id_thietbitrongloaiphong_sua_12" id="id_thietbitrongloaiphong_sua_12" />
+									<label>Số lượng</label>
+									<select name="soluong_ctb_sua" id="soluong_ctb_sua" class="form-control" required="required">
+										<option value="" id="dulieu_cu"></option>
+										<?php
+												for ($i=1; $i <50 ; $i++) {
+													echo "<option value='".$i."'>".$i."</option>";
+												}
+										?>
+									</select>
+									<br />
+									<input type="hidden" name="id_ctbtrongloaip_sua" id="id_ctbtrongloaip_sua" />
 									<input type="submit" name="insert" id="insert" value="Insert" class="btn btn-danger capnhattb" />
 								</form>
 							</div>
@@ -177,19 +208,22 @@ include './../dulieu/kiemtradangnhap.php';
 				<!-- Xoa thiêt bị -->
 				<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
 					<div id="modal_xoa_thietbitrongloaiphong" class="modal fade">
-						<div class="modal-dialog">
+						<div class="modal-dialog themthietbi_moi">
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title canhgiua">Xóa Thiết bị cho Loại Phòng</h4>
+									<h4 class="modal-title canhgiua">Xóa Thiết bị của Loại Phòng</h4>
 								</div>
 								<div class="modal-body">
 									<form method="post" id="From_xoa_thietbitrongloaiphong" data-confirm="Bạn có chắn muốn xóa thông tin này?">
-										<label>Mã Thiết bị cho Loại Phòng</label>
-										<input type="text" disabled="" name="ma_thietbitrongloaiphong_xoa123" id="ma_thietbitrongloaiphong_xoa123" class="form-control chuinhoa"  required="" />
+										<label>Loại Phòng</label>
+										<input type="text" disabled="" name="id_loaiphong_xoa" id="id_loaiphong_xoa" class="form-control chuinthuong"  required="" />
 										<br />
-										<label>Tên Thiết bị cho Loại Phòng</label>
-										<textarea  name="ten_thietbitrongloaiphongxoa_12" disabled="" id="ten_thietbitrongloaiphongxoa_12" class="form-control chuinthuong" rows="1" required=""></textarea>
+										<label>Thiết bị</label>
+										<textarea  name="id_tb_xoaloaiphomg" disabled="" id="id_tb_xoaloaiphomg" class="form-control chuinthuong" rows="1" required=""></textarea>
+										<br />
+										<label>Số lượng</label>
+										<input type="text" disabled="" name="soluong_thietbitrongloaiphong_xoa123" id="soluong_thietbitrongloaiphong_xoa123" class="form-control chuinhoa"  required="" />
 										<br />
 										<input type="hidden" name="id_thietbitrongloaiphong_xoa_12" id="id_thietbitrongloaiphong_xoa_12" />
 										<div class="modal-footer">

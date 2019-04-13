@@ -3,6 +3,17 @@
   margin: 0px;
   font-family: "Times New Roman", Times, serif;
 }
+.textnamgiua{
+  vertical-align: middle;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    vertical-align: middle;
+}
+.thumbnail.mua_nen_3 {
+    background-color: #673AB7;
+    color: white;
+}
 
 .menutrai {
     padding-bottom: 10px;
@@ -65,7 +76,7 @@ select.custom-select.custom-select-sm.form-control.form-control-sm,input.form-co
 }
 
 .thumbnail.mua_nen_1 {
-    background-color: red;
+    background-color: #4CAF50;
     color: white;
 }
 .chuinthuong{
@@ -234,4 +245,4 @@ a.list-group-item {}
 .fa-caret-down {
   float: right;
   padding-right: 8px;
-}
+}+

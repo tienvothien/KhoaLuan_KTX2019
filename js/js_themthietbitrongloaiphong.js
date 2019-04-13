@@ -24,16 +24,14 @@ $(document).ready(function () {
                 method:"POST",
                 data:{id_thietbitrongloaiphong_sua:id_thietbitrongloaiphong_sua},
                 dataType:"json",
-                success:function(data_suathietbitrongloaiphong){
-                    $('#ma_thietbitrongloaiphong_sua123').val(data_suathietbitrongloaiphong.ma_thietbitrongloaiphong);
-                    $('#ten_thietbitrongloaiphongsua_12').val(data_suathietbitrongloaiphong.ten_thietbitrongloaiphong);
-                    $('#khoahienra').html(data_suathietbitrongloaiphong.ten_khoa);
-                    $('#khoahienra').val(data_suathietbitrongloaiphong.id_khoa);
-                    $('#dl_nambdat_sua_thietbitrongloaiphong').html(data_suathietbitrongloaiphong.nam_BD);
-                    $('#dl_nambdat_sua_thietbitrongloaiphong').val(data_suathietbitrongloaiphong.nam_BD);
-                    $('#dl_khoa_sua_thietbitrongloaiphong').html(data_suathietbitrongloaiphong.khoa);
-                    $('#dl_khoa_sua_thietbitrongloaiphong').val(data_suathietbitrongloaiphong.khoa);
-                    $('#id_thietbitrongloaiphong_sua_12').val(data_suathietbitrongloaiphong.id_thietbitrongloaiphong);
+                success:function(data_ctb_sua){
+                    $('#dulieu_cu_lp').html(data_ctb_sua.ten_loai_phong);
+                    $('#dulieu_cu_lp').val(data_ctb_sua.id_loaiphong);
+                    $('#dulieu_cu_tb').html(data_ctb_sua.tenthietbi);
+                    $('#dulieu_cu_tb').val(data_ctb_sua.idtb);
+                    $('#dulieu_cu').html(data_ctb_sua.soluong);
+                    $('#dulieu_cu').val(data_ctb_sua.soluong);
+                    $('#id_ctbtrongloaip_sua').val(data_ctb_sua.idcothietbi);
                     $('#insert').val("Cập nhật");
                     $('#modal_sua_thietbitrongloaiphong').modal('show');
                 }
@@ -41,41 +39,35 @@ $(document).ready(function () {
       });
 	// xử lý khi bấn nút cập nhật lại thông tin thietbitrongloaiphong
 	// cap nhat tt thietbitrongloaiphongws
-      	$('#from_suathongtin_thietbitrongloaiphong').on('submit', function(event){
+    $('#from_suathongtin_thietbitrongloaiphong').on('submit', function(event){
           event.preventDefault();
           if(!confirm($(this).data('confirm'))){
 	          e.stopImmediatePropagation();
 	          e.preventDefault();
-	        }else{
-	        	if($('#ma_thietbitrongloaiphong_sua123').val().length==6){
+	        }else{	
 		          	$.ajax({
 						url:"./../dulieu/insert.php",
 						method:"POST",
 						data:$('#from_suathongtin_thietbitrongloaiphong').serialize(),
 						success:function(kq_capnhat_thongtin_thietbitrongloaiphong){
-							alert(kq_capnhat_thongtin_thietbitrongloaiphong);
+							// alert(kq_capnhat_thongtin_thietbitrongloaiphong);
 							if(kq_capnhat_thongtin_thietbitrongloaiphong==1){
-								alert('Mã Lớp hoặc tên Lớp đã tồn tại');
+								alert('Thiết bị này đã có trong Loại phòng này rồi..!');
 								document.getElementById(ma_thietbitrongloaiphong_them).focus();
 							}else {
 								if (kq_capnhat_thongtin_thietbitrongloaiphong==99) {
-									alert('Cập nhật thông tin thietbitrongloaiphong thành công');
+									alert('Cập nhật thông tin trong loại phòng  thành công');
 									$('#from_suathongtin_thietbitrongloaiphong')[0].reset();
 	                                $('#modal_sua_thietbitrongloaiphong').modal('hide');
-	                                $('#dulieuthietbitrongloaiphong').load("./../dulieu/dulieuthietbitrongloaiphongsv.php")
+							$('#dulieuthietbitrongloaiphong').load("./../dulieu/dulieuthietbitrongloaiphong.php");
 								}else {
 									alert('Lỗi cập nhật');
 								}
 							}
 	                    }
 					});
-
-				}else {
-					alert('Độ dài Mã Lớp không đúng');
-					document.getElementById("ma_thietbitrongloaiphong_sua123").focus();
-				}
          	}   
-      	});
+    });
       // hiện thông tin xóa thietbitrongloaiphong
 	$(document).on('click', '.xoa_thietbitrongloaiphong', function(){
            var id_thietbitrongloaiphong_sua = $(this).attr("id");
@@ -86,10 +78,10 @@ $(document).ready(function () {
                 data:{id_thietbitrongloaiphong_sua:id_thietbitrongloaiphong_sua},
                 dataType:"json",
                 success:function(data_xoathietbitrongloaiphong){
-                    $('#ma_thietbitrongloaiphong_xoa123').val(data_xoathietbitrongloaiphong.ma_thietbitrongloaiphong);
-                    $('#ten_thietbitrongloaiphongxoa_12').val(data_xoathietbitrongloaiphong.ten_thietbitrongloaiphong);
-                    $('#khoa_thietbitrongloaiphongxoa_12').val(data_xoathietbitrongloaiphong.ten_khoa);
-                    $('#id_thietbitrongloaiphong_xoa_12').val(data_xoathietbitrongloaiphong.id_thietbitrongloaiphong);
+                    $('#id_loaiphong_xoa').val(data_xoathietbitrongloaiphong.ten_loai_phong);
+                    $('#id_tb_xoaloaiphomg').val(data_xoathietbitrongloaiphong.tenthietbi);
+                    $('#soluong_thietbitrongloaiphong_xoa123').val(data_xoathietbitrongloaiphong.soluong);
+                    $('#id_thietbitrongloaiphong_xoa_12').val(data_xoathietbitrongloaiphong.idcothietbi);
                     $('#insert_xoa').val("Xóa");
                     $('#modal_xoa_thietbitrongloaiphong').modal('show');
                 }
@@ -106,16 +98,16 @@ $(document).ready(function () {
 				$.ajax({
 					url:"./../dulieu/insert.php",
 					method:"POST",
-					data:{id_xoa_thietbitrongloaiphong123:id_xoa_thietbitrongloaiphong123},
+					data:{id_ctb_xoa_trongloaip:id_xoa_thietbitrongloaiphong123},
 					success:function(kq_xoa_thietbitrongloaiphong){
 						if (kq_xoa_thietbitrongloaiphong==99) {
-							alert('Xóa lớp công');
+							alert('Xóa Thiết bị trong Loại phòng thành công');
 							$('#From_xoa_thietbitrongloaiphong')[0].reset();
 							$('#modal_xoa_thietbitrongloaiphong').modal('hide');
-							$('#dulieuthietbitrongloaiphong').load("./../dulieu/dulieuthietbitrongloaiphongsv.php")
+							$('#dulieuthietbitrongloaiphong').load("./../dulieu/dulieuthietbitrongloaiphong.php");
 						}
-	                    }
-					});
+					}
+				});
          	}   
       	});
 	// xuwrt lý nút thêm thietbitrongloaiphong mới
