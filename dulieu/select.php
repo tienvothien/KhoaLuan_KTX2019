@@ -100,4 +100,42 @@ include 'kiemtradangnhap.php';
 ';
   echo $output;
  }// end xử lý hiện thông tin lớp
+ // dữ liệu Thiết bị
+   if (isset($_POST["id_chitietthietbi"])) {
+  $output = '';
+  include 'conn.php';
+  $query = "SELECT thietbi.mathietbi, thietbi.tenthietbi, can_bo.ho_can_bo, can_bo.ten_can_bo, thietbi.ngaythem FROM thietbi INNER JOIN can_bo ON thietbi.id_canbothem = can_bo.id_canbo WHERE thietbi.idtb ='$_POST[id_chitietthietbi]' and thietbi.xoa=0";
+  $result = mysqli_query($con, $query);
+  $output .= '
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped">';
+       while ($sel_dlthitebi = mysqli_fetch_array($result)) {
+        $output .= '
+          <tr>
+            <td width="30%"><label>Mã Lớp</label></td>
+            <td width="70%" style="text-transform: uppercase;">' . $sel_dlthitebi["mathietbi"] . '</td>
+          </tr>
+          <tr>
+            <td width="30%"><label>Tên Lớp</label></td>
+            <td width="70%" style=" text-transform: capitalize;">' . $sel_dlthitebi["tenthietbi"] . '</td>
+          </tr>
+          
+          <tr>
+            <td width="30%"><label>Cán bộ thêm</label></td>
+            <td width="70%" style=" text-transform: capitalize;">' . $sel_dlthitebi["ho_can_bo"] . " " . $sel_dlthitebi["ten_can_bo"] . '</td>
+          </tr>
+          <tr>
+            <td width="30%"><label>Ngày thêm</label></td>
+            <td width="70%">' . date("d/m/Y H:i:s", strtotime($sel_dlthitebi['ngaythem'])) . '</td>
+          </tr>
+          
+            ';
+              }
+        $output .= '
+    </table>
+  </div>
+  ';
+    echo $output;
+  }
+ // end xử lý hiện thông tin Thiết bị
 ?>

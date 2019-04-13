@@ -4,8 +4,32 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+.menutrai {
+    padding-bottom: 10px;
+}
+
+.modal-dialog.themthietbi2.khoa_themmoi.themthietbi_moi, .themthietbi_moi {
+    width: 350px;
+}
+
+.nuthemmoi input.btn.btn-primary.btn-block {
+    font-size: 16px;
+}
+
+#myTable thead tr {
+    border-top: 1px solid #dddddd;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+.menutrai a.navbar-brand {
+    font-size: 16px;
+}
+
 select.custom-select.custom-select-sm.form-control.form-control-sm,input.form-control.form-control-sm {
-    height: 25px;
+    height: 30px;
     font-size: 14px;
 }
 
@@ -99,6 +123,11 @@ hr.ngay_ad {
 
 .col-xs-12.col-sm-2.col-md-2.col-lg-2.menutrai {
     padding-right: 0px;
+}
+@media (min-width: 768px){
+.modal-dialog.themthietbi2.khoa_themmoi.themthietbi_moi, .themthietbi_moi {
+    width: 350px;
+}
 }
 @media (max-width: 768px){
   .modal-dialog.themlop2.lop_themmoi{

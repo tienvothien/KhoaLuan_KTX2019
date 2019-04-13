@@ -39,6 +39,3 @@ include 'conn.php';
 	</table>
 </div>
 <?php } ?>
-<script>$(document).ready( function () {
-    $('#myTable').DataTable();
-} );</script>

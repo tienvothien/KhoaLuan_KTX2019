@@ -3,7 +3,7 @@
 	// kiểm tra và cap nbhat lại thông tin khoa
 	if (isset($_POST['id_khoa_sua_12']) && isset($_POST['ten_khoasua_12']) && isset($_POST['ma_khoa_sua123']) ) {
 		// kiểm tra ma khoa  và tên khoa da tôn tại chưa
-		$kiemtramakhoa = mysqli_query($con,"SELECT * FROM khoa WHERE khoa.id_khoa <> '$_POST[id_khoa_sua_12]' AND (khoa.ma_khoa='$_POST[ma_khoa_sua123]' OR khoa.ten_khoa ='$_POST[ten_khoasua_12]')");
+		$kiemtramakhoa = mysqli_query($con,"SELECT * FROM khoa WHERE khoa.id_khoa <> '$_POST[id_khoa_sua_12]'and khoa.xoa=0 AND (khoa.ma_khoa='$_POST[ma_khoa_sua123]' OR khoa.ten_khoa ='$_POST[ten_khoasua_12]') ");
 		// dlloc
 		//end
 		if(mysqli_num_rows($kiemtramakhoa)){
@@ -125,5 +125,14 @@
 		}
 	} //ket thuc cap nhat thong tin khoa
 	// end xử lý xóa khoa
+	//xủ lý xóa thiết bị
+	if (isset($_POST['id_xoa_thietbi123'])) {
+		$delete_xoa_thietbi = "UPDATE thietbi SET thietbi.xoa=1, thietbi.id_canboxoa='$_SESSION[id_canbo]', thietbi.ngay_xoa='".date('Y/m/d H:i:s')."' WHERE thietbi.idtb = '$_POST[id_xoa_thietbi123]'";
+		if (mysqli_query($con,$delete_xoa_thietbi)) {
+			echo "99";
+		}else{
+			echo "100";
+		}
+	}//end xóa thiết bị
 	mysqli_close($con);
 ?>

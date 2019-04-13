@@ -13,4 +13,11 @@ if (isset($_POST["id_lop_sua"])) {
 	$row = mysqli_fetch_array($result);
 	echo json_encode($row);
 }//end xử lý thông tin lớp
+// xử lý thông tin lớp
+if (isset($_POST["id_thietbi_sua"])) {
+	$query = "SELECT * FROM thietbi  WHERE thietbi.idtb = '" . $_POST["id_thietbi_sua"] . "'";
+	$result = mysqli_query($con, $query);
+	$row = mysqli_fetch_array($result);
+	echo json_encode($row);
+}//end xử lý thông tin lớp
 ?>

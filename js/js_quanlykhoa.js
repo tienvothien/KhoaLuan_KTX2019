@@ -47,20 +47,19 @@ $(document).ready(function () {
 						method:"POST",
 						data:$('#from_suathongtin_khoa').serialize(),
 						success:function(kq_capnhat_thongtin_khoa){
-							alert(kq_capnhat_thongtin_khoa);
-							// if(kq_capnhat_thongtin_khoa==1){
-							// 	alert('Mã Khoa hoặc tên khoa đã tồn tại');
-							// 	document.getElementById(ma_khoa_them).focus();
-							// }else {
-							// 	if (kq_capnhat_thongtin_khoa==99) {
-							// 		alert('Cập nhật thông tin Khoa thành công');
-							// 		$('#from_suathongtin_khoa')[0].reset();
-	      //                           $('#modal_sua_khoa').modal('hide');
-	      //                           $('#dulieukhoa').load("./../dulieu/dulieukhoasv.php")
-							// 	}else {
-							// 		alert('Lỗi cập nhật');
-							// 	}
-							// }
+							if(kq_capnhat_thongtin_khoa==1){
+								alert('Mã Khoa hoặc tên khoa đã tồn tại');
+								document.getElementById(ma_khoa_sua123).focus();
+							}else {
+								if (kq_capnhat_thongtin_khoa==99) {
+									alert('Cập nhật thông tin Khoa thành công');
+									$('#from_suathongtin_khoa')[0].reset();
+	                                $('#modal_sua_khoa').modal('hide');
+	                                $('#dulieukhoa').load("./../dulieu/dulieukhoasv.php")
+								}else {
+									alert('Lỗi cập nhật');
+								}
+							}
 	                    }
 					});
 				}else {

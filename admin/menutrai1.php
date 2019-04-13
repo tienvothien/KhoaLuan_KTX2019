@@ -65,21 +65,27 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 				<a href="qlcanbo.php" class="list-group-item">Cán bộ</a>
 				<a href="qlchucvu.php" class="list-group-item">Chức vụ</a>
 			</div>
-			<button class="dropdown-btn">Quản lý Tài sản
+			<button class="dropdown-btn">Quản lý Thiết bị
 			<i class="fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-container">
-				<a href="quanlythietbi.php" class="list-group-item">Quản lý thiết bị</a>
-				<a href="themtb_vao_lp.php" class="list-group-item">Thiết bị trong loại phòng</a>
-				<a href="kiemtrathietbi.php" class="list-group-item">Kiêm tra thiết bị</a>
+				<a href="quanlythietbi.php" class="list-group-item">Danh sách Thiết bị</a>
+				<a href="quanlythietbitrongloaiphong.php" class="list-group-item">Thiết bị trong Loại phòng</a>
+				<a href="kiemtrathietbi.php" class="list-group-item">Kiêm tra Thiết bị</a>
 			</div>
 			<button class="dropdown-btn">Quản lý Log Edit
 			<i class="fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-container">
 				<a href="quanlyloglop.php" class="list-group-item">Log Edit Lớp</a>
-				<a href="themtb_vao_lp.php" class="list-group-item">Thiết bị trong loại phòng</a>
-				<a href="kiemtrathietbi.php" class="list-group-item">Kiêm tra thiết bị</a>
+			</div>
+			<button class="dropdown-btn">Quản lý Log Delete
+			<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-container">
+				<a href="quanlylogDeleteThietbi.php" class="list-group-item">Log Delete Thiết bị</a>
+				<a href="quanlylogDeletelop.php" class="list-group-item">Log Delete Thiết Lớp</a>
+				<a href="quanlylogDeletekhoa.php" class="list-group-item">Log Delete Thiết Khoa</a>
 			</div>
 		</div>
 	</div>

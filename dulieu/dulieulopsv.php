@@ -33,6 +33,9 @@ include 'conn.php';
 				<th style="text-align:center;">STT</th>
 				<th>Mã Lớp</th>
 				<th>Tên Lớp</th>
+				<th>Khóa</th>
+				<th>Niên Khóa</th>
+				<th>Khoa</th>
 				<th>Số lượng sinh viên</th>
 				<th>Sửa</th>
 				<th>Chi tiết</th>
@@ -45,11 +48,17 @@ include 'conn.php';
 			while ($row_lop = mysqli_fetch_array($selecet_lop)) {
 				// tinh số lượng sinh vien
 				$slsinh_vien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(id_sinhvien) as solsinh_vien FROM sinh_vien WHERE id_lop='$row_lop[id_lop]'"));
+				//tìm khoa
+				$slkhoa = mysqli_fetch_array(mysqli_query($con, "SELECT khoa.ten_khoa FROM khoa WHERE id_khoa='$row_lop[id_khoa]'"));
+				$nam_kt = $row_lop['nam_BD']+4;
 			echo "
 			<tr>
 				<td style='text-align:center;'>$stt</td>
 				<td class='chuinhoa canhgiua'>$row_lop[ma_lop]</td>
 				<td class='chuinthuong'>$row_lop[ten_lop]</td>
+				<td class='chuinthuong canhgiua'>$row_lop[khoa]</td>
+				<td class='chuinthuong canhgiua'>$row_lop[nam_BD] - $nam_kt</td>
+				<td class='canhgiua chuinthuong'>$slkhoa[ten_khoa]</td>
 				<td class='canhgiua'>$slsinh_vien[solsinh_vien]</td>";?>
 				<td class="canhgiuanek12"><input type="button" name="edit" value="Sửa" id="<?php echo $row_lop['id_lop']; ?>" class="btn btn-primary btn-xs id_sua_lop" /></td>
 				<td class="canhgiuanek12"><input type="button" name="view" value="Chi tiết" id="<?php echo $row_lop['id_lop']; ?>" class="btn btn-success btn-xs view_chitietlop" /></td>

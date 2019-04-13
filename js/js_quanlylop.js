@@ -53,20 +53,19 @@ $(document).ready(function () {
 						method:"POST",
 						data:$('#from_suathongtin_lop').serialize(),
 						success:function(kq_capnhat_thongtin_lop){
-							alert(kq_capnhat_thongtin_lop);
-							// if(kq_capnhat_thongtin_lop==1){
-							// 	alert('Mã Lớp hoặc tên Lớp đã tồn tại');
-							// 	document.getElementById(ma_lop_them).focus();
-							// }else {
-							// 	if (kq_capnhat_thongtin_lop==99) {
-							// 		alert('Cập nhật thông tin lop thành công');
-							// 		$('#from_suathongtin_lop')[0].reset();
-	      //                           $('#modal_sua_lop').modal('hide');
-	      //                           $('#dulieulop').load("./../dulieu/dulieulopsv.php")
-							// 	}else {
-							// 		alert('Lỗi cập nhật');
-							// 	}
-							// }
+							if(kq_capnhat_thongtin_lop==1){
+								alert('Mã Lớp hoặc tên Lớp đã tồn tại');
+								document.getElementById(ma_lop_them).focus();
+							}else {
+								if (kq_capnhat_thongtin_lop==99) {
+									alert('Cập nhật thông tin lop thành công');
+									$('#from_suathongtin_lop')[0].reset();
+	                                $('#modal_sua_lop').modal('hide');
+	                                $('#dulieulop').load("./../dulieu/dulieulopsv.php")
+								}else {
+									alert('Lỗi cập nhật');
+								}
+							}
 	                    }
 					});
 

@@ -28,7 +28,7 @@ include './../dulieu/kiemtradangnhap.php';
 			<div class="row">
 				<?php include 'menutrai1.php';?>
 				<div class="col-xs-12 col-sm-8 col-md-10 col-lg-10 benphai">
-					<div class="container-fluid">
+					<div class="container-fluid" style="padding: 0px;">
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 chutieude">
 								<h2>Hệ Thống quản lý</h2>
@@ -75,7 +75,7 @@ include './../dulieu/kiemtradangnhap.php';
 					</div> <!-- end col-9 -->
 					</div> <!-- end row noi dung -->
 					
-					<?php include 'food.php'; mysqli_cloes($con)?>
+					<?php include 'food.php'; ?>
 				</div>
 			</body>
 		</html>
