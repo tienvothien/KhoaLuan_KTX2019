@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 13, 2019 lúc 06:28 PM
+-- Thời gian đã tạo: Th4 14, 2019 lúc 11:30 AM
 -- Phiên bản máy phục vụ: 10.1.29-MariaDB
 -- Phiên bản PHP: 7.2.0
 
@@ -63,7 +63,8 @@ CREATE TABLE `can_bo` (
 --
 
 INSERT INTO `can_bo` (`id_canbo`, `ma_can_bo`, `ho_can_bo`, `ten_can_bo`, `gioitinh`, `ngay_sinh`, `sdt`, `email`, `xoa`, `canbothem`, `ngaythem`, `canboxoa`, `ngayxoa`) VALUES
-(1, 1000000000, 'Võ Thiện', 'Tiên', 'Nam', '1992-03-08', '0799659225', 'vttien8392@gmail.com', 0, 0, '0000-00-00 00:00:00', NULL, NULL);
+(1, 1000000000, 'Võ Thiện', 'Tiên', 'Nam', '1992-03-08', '0799659225', 'vttien8392@gmail.com', 0, 0, '0000-00-00 00:00:00', NULL, NULL),
+(2, 1000000001, 'Trần Thị Quỳnh', 'Giao', 'Nữ', '1997-03-11', '0566837004', 'ttqgiao0311@gmail.com', 0, 1000000000, '2019-04-14 00:00:00', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -75,20 +76,25 @@ CREATE TABLE `chucvu` (
   `idchucvu` int(11) NOT NULL,
   `machucvu` char(3) COLLATE utf8_unicode_ci NOT NULL,
   `tenchucvu` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `canbothem` int(10) NOT NULL,
+  `id_canbothem` int(10) NOT NULL,
   `ngaythem` datetime NOT NULL,
   `xoa` int(1) NOT NULL DEFAULT '0',
-  `ngayxoa` datetime DEFAULT NULL,
-  `canboxoa` int(10) DEFAULT NULL
+  `ngay_xoa` datetime DEFAULT NULL,
+  `id_canboxoa` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `chucvu`
 --
 
-INSERT INTO `chucvu` (`idchucvu`, `machucvu`, `tenchucvu`, `canbothem`, `ngaythem`, `xoa`, `ngayxoa`, `canboxoa`) VALUES
+INSERT INTO `chucvu` (`idchucvu`, `machucvu`, `tenchucvu`, `id_canbothem`, `ngaythem`, `xoa`, `ngay_xoa`, `id_canboxoa`) VALUES
 (1, 'CB3', 'Cán bộ quản lý Phòng', 1, '2019-04-10 00:00:00', 0, NULL, NULL),
-(2, 'CB4', 'Cán bộ Kế toán', 1, '2019-04-10 00:00:00', 0, NULL, NULL);
+(2, 'CB4', 'Cán bộ Kế toán', 1, '2019-04-10 00:00:00', 0, NULL, NULL),
+(3, 'áda', 'Sinh viên VD', 1, '2019-04-14 14:13:00', 0, NULL, NULL),
+(15, 'cb5', 'Chức vụ ví dụ 1', 1, '2019-04-14 14:34:07', 0, NULL, NULL),
+(16, 'cb6', 'Chức vụ ví dụ 2', 1, '2019-04-14 14:35:07', 0, NULL, NULL),
+(17, 'cb7', 'Chức vụ ví dụ 3', 1, '2019-04-14 14:36:15', 0, NULL, NULL),
+(18, 'cb9', 'Chức vụ ví dụ 9', 1, '2019-04-14 14:37:08', 1, '2019-04-14 14:45:36', 1);
 
 -- --------------------------------------------------------
 
@@ -112,7 +118,8 @@ CREATE TABLE `cochucvu` (
 --
 
 INSERT INTO `cochucvu` (`id_cochucvu`, `id_canbo`, `idchucvu`, `id_canbothem`, `ngaythem`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
-(1, 1, 1, 1, '2019-04-10 00:00:00', 0, NULL, NULL);
+(1, 1, 1, 1, '2019-04-10 00:00:00', 0, NULL, NULL),
+(2, 2, 1, 1, '2019-04-14 00:00:00', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -931,15 +938,16 @@ CREATE TABLE `khoa` (
 
 INSERT INTO `khoa` (`id_khoa`, `ma_khoa`, `ten_khoa`, `id_canbothem`, `ngay`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
 (1, 'TTTT', 'Thông Tin - Truyền Thông', 1, '2018-09-13 00:00:00', 0, NULL, NULL),
-(55, 'TTT0', 'ewưadsa12123123', 1, '2019-04-11 22:48:05', 0, NULL, NULL),
-(56, 'tttq', 'Ví dụ 2', 1, '2019-04-11 22:51:07', 0, NULL, NULL),
+(55, 'TTT0', 'ewưadsa12123123', 1, '2019-04-11 22:48:05', 1, 2, '2019-04-14 10:09:13'),
+(56, 'ttt8', 'TTQ2 vis dung suawr', 1, '2019-04-11 22:51:07', 0, NULL, NULL),
 (57, 'tt39', '145adasd', 1, '2019-04-11 22:51:28', 0, NULL, NULL),
 (58, 'ttt4', 'ew2', 1, '2019-04-11 22:53:08', 1, 1, '2019-04-08 00:00:00'),
 (59, 'ttt8', 'ewqw566546565', 1, '2019-04-11 22:54:40', 1, 1, '2019-04-01 00:00:00'),
 (60, 'ttt3', 'adsda', 1, '2019-04-13 10:15:36', 0, NULL, NULL),
 (61, 'ttt5', 'sadada', 1, '2019-04-13 10:17:41', 0, NULL, NULL),
 (62, 'ttt6', 'wdqed', 1, '2019-04-13 10:23:50', 1, 1, '2019-04-13 10:23:57'),
-(63, 'ttt4', 'aAsaasadad', 1, '2019-04-13 10:28:05', 0, NULL, NULL);
+(63, 'ttt4', 'aAsaasadad', 1, '2019-04-13 10:28:05', 0, NULL, NULL),
+(64, 'tt99', 'Khoa mới ví dụ', 1, '2019-04-14 14:26:26', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -969,7 +977,7 @@ INSERT INTO `loaiphongcothietbi` (`idcothietbi`, `id_loaiphong`, `idtb`, `soluon
 (3, 1, 7, 19, '2019-04-13 17:42:46', 1, 0, NULL, NULL),
 (4, 1, 4, 16, '2019-04-13 17:45:17', 1, 0, NULL, NULL),
 (5, 2, 4, 18, '2019-04-13 20:11:19', 1, 0, NULL, NULL),
-(6, 2, 7, 1, '2019-04-13 20:38:14', 1, 0, NULL, NULL),
+(6, 2, 2, 1, '2019-04-13 20:38:14', 1, 0, NULL, NULL),
 (7, 2, 1, 1, '2019-04-13 22:38:03', 1, 0, NULL, NULL),
 (8, 1, 5, 49, '2019-04-13 22:38:31', 1, 0, NULL, NULL);
 
@@ -1023,41 +1031,10 @@ CREATE TABLE `log_sua_dl` (
 --
 
 INSERT INTO `log_sua_dl` (`idlog`, `bangsua`, `tenbang`, `iddulieu`, `cot`, `tencot`, `noidungtruocsua`, `noidungsausua`, `nguoisua`, `ngaysua`) VALUES
-(58, 'lop', 'Lớp', 9, 'ma_lop', 'Mã Lớp', 'ma_lop', 'B13tt3', 1, '2019-04-12 23:24:31'),
-(59, 'lop', 'Lớp', 9, 'ten_lop', 'Tên Lớp', 'ten_lop_sua', 'adsa32', 1, '2019-04-12 23:24:31'),
-(60, 'lop', 'Lớp', 9, 'ma_lop', 'Mã Lớp', 'ma_lop', 'ma2lop', 1, '2019-04-12 23:25:42'),
-(61, 'lop', 'Lớp', 9, 'ma_lop', 'Mã Lớp', 'ma2lop', 'ma2lo2', 1, '2019-04-12 23:26:27'),
-(62, 'lop', 'Lớp', 9, 'ma_lop', 'Mã Lớp', 'ma2lo2', 'ma2lo3', 1, '2019-04-12 23:27:39'),
-(63, 'lop', 'Lớp', 9, 'ten_lop', 'Tên Lớp', 'ten_lop_sua', 'Ví dụ sửa tên', 1, '2019-04-12 23:28:51'),
-(64, 'lop', 'Lớp', 9, 'ma_lop', 'Mã Lớp', 'ma2lo3', 'ma2l33', 1, '2019-04-12 23:29:18'),
-(65, 'lop', 'Lớp', 9, 'ten_lop', 'Tên Lớp', 'Ví dụ sửa tên', 'Ví dụ sửa tên231231', 1, '2019-04-12 23:30:01'),
-(66, 'lop', 'Lớp', 9, 'id_khoa', 'Tên Khoa', '55', '1', 1, '2019-04-12 23:32:32'),
-(67, 'lop', 'Lớp', 9, 'khoa', 'Khóa', '1', '2', 1, '2019-04-12 23:34:57'),
-(68, 'lop', 'Lớp', 9, 'nam_BD', 'Năm bắt đầu', '2015', '2023', 1, '2019-04-12 23:36:39'),
-(69, 'khoa', 'Khoa', 63, 'ten_khoa', 'tên Khoa', 'aA', 'aAsaas', 1, '2019-04-13 10:28:12'),
-(70, 'khoa', 'Khoa', 63, 'ten_khoa', 'tên Khoa', 'aAsaas', 'aAsaasadad', 1, '2019-04-13 10:29:02'),
-(71, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 21:59:14'),
-(72, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 22:03:35'),
-(73, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 22:07:06'),
-(74, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 5, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 22:07:22'),
-(75, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 22:14:57'),
-(76, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 22:19:49'),
-(77, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 22:30:20'),
-(78, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_tb_ctb_sua', 'Loại phòng', '', '2', 1, '2019-04-13 22:30:20'),
-(79, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_tb_ctb_sua', 'Loại phòng', '', '2', 1, '2019-04-13 22:31:28'),
-(80, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 22:31:51'),
-(81, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_tb_ctb_sua', 'Loại phòng', '', '2', 1, '2019-04-13 22:31:51'),
-(82, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 6, 'id_loaiphong', 'Loại phòng', '1', '2', 1, '2019-04-13 22:32:59'),
-(83, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 8, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 22:41:29'),
-(84, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 8, 'id_loaiphong', 'Loại phòng', '1', '2', 1, '2019-04-13 22:41:36'),
-(85, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 8, 'soluong', 'Số Lượng', '18', '49', 1, '2019-04-13 22:45:09'),
-(86, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 8, 'soluong', 'Số Lượng', '49', '48', 1, '2019-04-13 22:45:31'),
-(87, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 8, 'soluong', 'Số Lượng', '48', '49', 1, '2019-04-13 22:47:06'),
-(88, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 8, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 22:47:34'),
-(89, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 7, 'soluong', 'Số Lượng', '19', '1', 1, '2019-04-13 22:49:59'),
-(90, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 8, 'id_loaiphong', 'Loại phòng', '1', '2', 1, '2019-04-13 22:50:39'),
-(91, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 8, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 23:06:34'),
-(92, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 8, 'id_loaiphong', 'Loại phòng', '2', '1', 1, '2019-04-13 23:28:07');
+(112, 'chucvu', 'Chức vụ', 17, 'tenchucvu', 'Tên Chức vụ', 'Chức vụ ví dụ 3', 'Chức vụ ví dụ 7', 1, '2019-04-14 15:23:35'),
+(113, 'chucvu', 'Chức vụ', 17, 'tenchucvu', 'Tên Chức vụ', 'Chức vụ ví dụ 3', 'Chức vụ ví dụ 7', 1, '2019-04-14 15:23:39'),
+(114, 'chucvu', 'Chức vụ', 17, 'tenchucvu', 'Tên Chức vụ', 'Chức vụ ví dụ 3', 'Chức vụ ví dụ 7', 1, '2019-04-14 15:24:38'),
+(115, 'chucvu', 'Chức vụ', 17, 'tenchucvu', 'Tên Chức vụ', 'Chức vụ ví dụ 7', 'Chức vụ ví dụ 3', 1, '2019-04-14 15:25:14');
 
 -- --------------------------------------------------------
 
@@ -1084,7 +1061,7 @@ CREATE TABLE `lop` (
 --
 
 INSERT INTO `lop` (`id_lop`, `ma_lop`, `ten_lop`, `id_khoa`, `khoa`, `nam_BD`, `id_canbothem`, `ngay`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
-(1, 'b15tt3', 'B15 Thông tin 3', 1, 1, 2015, 1, '2019-04-12 00:00:00', 0, 1, '2019-04-12 19:30:20'),
+(1, 'b15tt3', 'B15 Thông tin 2', 1, 1, 2015, 1, '2019-04-12 00:00:00', 0, 1, '2019-04-12 19:30:20'),
 (7, 'qưert', 'asda', 55, 1, 2015, 1, '0000-00-00 00:00:00', 1, 1, '2019-04-12 21:28:34'),
 (8, 'qưer8', 'asdaasdasd', 55, 1, 2015, 1, '2019-04-12 20:46:29', 0, NULL, NULL),
 (9, 'ma2l33', 'Ví dụ sửa tên231231', 1, 2, 2023, 1, '2019-04-12 22:20:08', 0, NULL, NULL);
@@ -1184,7 +1161,8 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`idtk`, `idms`, `matkhau`, `ngaythem`, `idtktao`, `xoa`, `ngayxoa`, `nguoixoa`) VALUES
-(1, 1000000000, '12345678', '2019-04-10 00:00:00', 0, 0, NULL, NULL);
+(1, 1000000000, '12345678', '2019-04-10 00:00:00', 0, 0, NULL, NULL),
+(2, 1000000001, '12345678', '2019-04-14 00:00:00', 1000000001, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1209,13 +1187,13 @@ CREATE TABLE `thietbi` (
 
 INSERT INTO `thietbi` (`idtb`, `mathietbi`, `tenthietbi`, `id_canbothem`, `ngaythem`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
 (1, 'TB001', 'Đèn 1m2', 1, '2019-04-13 00:00:00', 0, NULL, NULL),
-(2, 'tb002', 'đa', 1, '2019-04-13 10:51:38', 0, 1, '2019-04-13 12:21:51'),
+(2, 'tb002', 'Model Wifi1', 1, '2019-04-13 10:51:38', 0, 1, '2019-04-13 12:21:51'),
 (3, 'tb004', 'sdfs', 1, '2019-04-13 10:53:04', 1, 1, '2019-04-13 12:21:11'),
 (4, 'tb003', 'Đèn 1m2	', 1, '2019-04-13 10:54:11', 1, NULL, NULL),
-(5, 'tb005', 'Đèn 1m22', 1, '2019-04-13 10:54:48', 0, NULL, NULL),
-(6, 'tb022', 'Đèn 1m2	asd', 1, '2019-04-13 10:55:04', 0, NULL, NULL),
-(7, 'tb004', '12', 1, '2019-04-13 12:22:37', 0, NULL, NULL),
-(8, 'tb002', 'Đèn 1ma', 1, '2019-04-13 12:25:01', 0, NULL, NULL);
+(5, 'tb005', 'Đèn 1m22', 1, '2019-04-13 10:54:48', 1, 2, '2019-04-14 12:22:48'),
+(6, 'tb022', 'Đèn 1m2	asd', 1, '2019-04-13 10:55:04', 1, 2, '2019-04-14 12:23:03'),
+(7, 'tb004', '12', 1, '2019-04-13 12:22:37', 1, 2, '2019-04-14 12:22:56'),
+(8, 'tb002', 'Đèn 1ma', 1, '2019-04-13 12:25:01', 1, 2, '2019-04-14 12:22:44');
 
 -- --------------------------------------------------------
 
@@ -12546,8 +12524,8 @@ ALTER TABLE `chucvu`
   ADD PRIMARY KEY (`idchucvu`),
   ADD UNIQUE KEY `machucvu` (`machucvu`),
   ADD UNIQUE KEY `tenchucvu` (`tenchucvu`),
-  ADD KEY `canbothem` (`canbothem`),
-  ADD KEY `canboxoa` (`canboxoa`);
+  ADD KEY `canbothem` (`id_canbothem`),
+  ADD KEY `canboxoa` (`id_canboxoa`);
 
 --
 -- Chỉ mục cho bảng `cochucvu`
@@ -12733,19 +12711,19 @@ ALTER TABLE `anhbia`
 -- AUTO_INCREMENT cho bảng `can_bo`
 --
 ALTER TABLE `can_bo`
-  MODIFY `id_canbo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_canbo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `chucvu`
 --
 ALTER TABLE `chucvu`
-  MODIFY `idchucvu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idchucvu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `cochucvu`
 --
 ALTER TABLE `cochucvu`
-  MODIFY `id_cochucvu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_cochucvu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `co_dien_ut`
@@ -12769,7 +12747,7 @@ ALTER TABLE `dien_uu_tien`
 -- AUTO_INCREMENT cho bảng `khoa`
 --
 ALTER TABLE `khoa`
-  MODIFY `id_khoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id_khoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT cho bảng `loaiphongcothietbi`
@@ -12787,7 +12765,7 @@ ALTER TABLE `loai_phong`
 -- AUTO_INCREMENT cho bảng `log_sua_dl`
 --
 ALTER TABLE `log_sua_dl`
-  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 
 --
 -- AUTO_INCREMENT cho bảng `lop`
@@ -12811,7 +12789,7 @@ ALTER TABLE `phong`
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `idtk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idtk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `thietbi`
@@ -12833,8 +12811,8 @@ ALTER TABLE `toa_nha`
 -- Các ràng buộc cho bảng `chucvu`
 --
 ALTER TABLE `chucvu`
-  ADD CONSTRAINT `chucvu_ibfk_1` FOREIGN KEY (`canbothem`) REFERENCES `can_bo` (`id_canbo`),
-  ADD CONSTRAINT `chucvu_ibfk_2` FOREIGN KEY (`canboxoa`) REFERENCES `can_bo` (`id_canbo`);
+  ADD CONSTRAINT `chucvu_ibfk_1` FOREIGN KEY (`id_canbothem`) REFERENCES `can_bo` (`id_canbo`),
+  ADD CONSTRAINT `chucvu_ibfk_2` FOREIGN KEY (`id_canboxoa`) REFERENCES `can_bo` (`id_canbo`);
 
 --
 -- Các ràng buộc cho bảng `cochucvu`

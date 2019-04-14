@@ -19,9 +19,7 @@
     padding-bottom: 10px;
 }
 
-.modal-dialog.themthietbi2.khoa_themmoi.themthietbi_moi, .themthietbi_moi {
-    width: 350px;
-}
+
 
 .nuthemmoi input.btn.btn-primary.btn-block {
     font-size: 16px;
@@ -136,8 +134,8 @@ hr.ngay_ad {
     padding-right: 0px;
 }
 @media (min-width: 768px){
-.modal-dialog.themthietbi2.khoa_themmoi.themthietbi_moi, .themthietbi_moi {
-    width: 350px;
+.modal-dialog.themthietbi2.khoa_themmoi.themthietbi_moi, .themthietbi_moi, .width_350px {
+    width: 350px !important;
 }
 }
 @media (max-width: 768px){
@@ -148,17 +146,21 @@ hr.ngay_ad {
     font-size: 16px  !important;
   }
 
-.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
-    margin-left: 0px;
-}
-.menutrai .navbar-default .navbar-brand,,a.navbar-brand{
-  width: 75%;
-}
+  .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+      margin-left: 16px;
+  }
+  .menutrai .navbar-default .navbar-brand,,a.navbar-brand{
+    width: 75%;
+  }
 
-.food h4{
-  font-size: 10px;
-  margin: 3px 0px 3px 0px;
-}
+  .food h4{
+    font-size: 10px;
+    margin: 3px 0px 3px 0px;
+  }
+  .sidenav a, .dropdown-btn {
+    padding: 15px 20px 15px 30px !important;
+  }
+
 }
 .menutrai .navbar-header {
     width: 100%;
@@ -245,4 +247,4 @@ a.list-group-item {}
 .fa-caret-down {
   float: right;
   padding-right: 8px;
-}+
+}

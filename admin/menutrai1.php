@@ -63,7 +63,7 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 			</button>
 			<div class="dropdown-container">
 				<a href="qlcanbo.php" class="list-group-item">Cán bộ</a>
-				<a href="qlchucvu.php" class="list-group-item">Chức vụ</a>
+				<a href="quanlychucvu.php" class="list-group-item">Chức vụ</a>
 			</div>
 			<button class="dropdown-btn">Quản lý Thiết bị
 			<i class="fa fa-caret-down"></i>
@@ -78,6 +78,9 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 			</button>
 			<div class="dropdown-container">
 				<a href="quanlyloglop.php" class="list-group-item">Log Edit Lớp</a>
+				<a href="quanlylog_edit_khoa.php" class="list-group-item">Log Edit Khoa</a>
+				<a href="quanlylog_edit_thietbi1.php" class="list-group-item">Log Edit Thiết bị</a>
+				<a href="quanlylog_edit_cothietbi.php" class="list-group-item">Log Edit Thiết bị Loại phòng</a>
 			</div>
 			<button class="dropdown-btn">Quản lý Log Delete
 			<i class="fa fa-caret-down"></i>
@@ -85,7 +88,7 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 			<div class="dropdown-container">
 				<a href="quanlylogDeleteThietbi.php" class="list-group-item">Log Delete Thiết bị</a>
 				<a href="quanlylogDeletelctb.php" class="list-group-item">Log Delete Có thiết bị</a>
-				<a href="quanlylogDeletelop.php" class="list-group-item">Log Delete Thiết Lớp</a>
+				<a href="quanlylogDeletelop.php" class="list-group-item">Log Delete Lớp</a>
 				<a href="quanlylogDeletekhoa.php" class="list-group-item">Log Delete Thiết Khoa</a>
 			</div>
 		</div>

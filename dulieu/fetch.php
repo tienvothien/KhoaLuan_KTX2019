@@ -27,4 +27,11 @@ if (isset($_POST["id_thietbitrongloaiphong_sua"])) {
 	$row = mysqli_fetch_array($result);
 	echo json_encode($row);
 }//end xử lý thông tin có thiết bị
+// xử lý xuất thông tin Chức vụ
+if (isset($_POST["id_chucvu_sua"])) {
+	$query = "SELECT * FROM chucvu WHERE chucvu.idchucvu = '" . $_POST["id_chucvu_sua"] . "'";
+	$result = mysqli_query($con, $query);
+	$row = mysqli_fetch_array($result);
+	echo json_encode($row);
+}//end xử lý thông tin Chức vụ
 ?>

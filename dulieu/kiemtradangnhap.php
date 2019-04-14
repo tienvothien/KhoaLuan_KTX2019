@@ -10,6 +10,6 @@ if (isset($_SESSION['macb_dangnhap']) && $_SESSION['kt_dangnhap_cb'] == 1 && iss
 		header("location:./../admin/login");
 	}
 } else {
-	header("location:dangnhap.php");
+	header("location:./../admin/login");
 }
 ?>

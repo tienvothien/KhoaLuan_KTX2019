@@ -1,5 +1,10 @@
 <?php
 	include './../dulieu/kiemtradangnhap.php';
+	if (!isset($_GET['idchucvu'])) {
+		header("location:./login");
+	}else{
+		$chucvutenn = mysqli_fetch_array(mysqli_query($con,"SELECT * FROM chucvu WHERE chucvu.idchucvu='$_GET[idchucvu]'"));
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +21,7 @@
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" />
 		<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="../css/ad_css.css">
-		<script type="text/javascript" src="../js/js_quanlythietbi.js"></script>
+		<script type="text/javascript" src="../js/js_quanlycanbocochucvune.js"></script>
 		<!-- #endregion -->
 	</head>
 	<body >
@@ -37,14 +42,14 @@
 					<div class="col-xs-12 col-sm-8 col-md-10 col-lg-10 benphai">
 						<div class="container-fluid " style="padding: 0px;">
 							<div class="row">
-								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 chutieude">
-									<h2>Quản Lý Thiết bị</h2>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 chutieude">
+									<h2>Quản Lý Cán bộ có Chức vụ: <?php echo $chucvutenn['tenchucvu']; ?></h2>
 								</div>
 							</div>
 						<hr class="ngay_ad"></div>
 						<div class="container-fluid  ">
 							<div class="row"><!-- nho doi ten class -->
-							<div class="dulieu_add_thietbi"  id="dulieu_add_thietbi" style="width: 100%; font-size: 14px;"><?php include './../dulieu/dulieuthietbi.php'; ?></div>
+							<div class="dulieu_add_thietbi"  id="dulieu_add_thietbi" style="width: 100%; font-size: 14px;"><?php include './../dulieu/dulieudscanbocochucvunay.php'; ?></div>
 							<div class="col-xs-11 col-sm-12 col-md-2 col-lg-2">
 								<div class="nuthemmoi"><input type="button" class="btn btn-primary btn-block" name="themthietbi" value="Thêm mới" data-toggle="modal" data-target="#themthietbi1"></div>
 							</div>
@@ -82,7 +87,12 @@
 								<form action="" id="form_themthietbimoi" name="form_themthietbimoi" 	method="POST" role="form" class="_1themphong1 ">
 									<div class="form-group">
 										<label for="">Mã thiết bị</label>
-										<input type="text" name="ma_thietbi_them" id="ma_thietbi_them" class="form-control chuinhoa" value="" required="" placeholder="Nhập mã thietbi" >
+										<select name="" id="input" class="form-control" required="required">
+											<option value="">ad</option>
+											<option value="">ad</option>
+											<option value="">ád</option>
+											<option value="">ád</option>
+										</select>
 									</div>
 									<div class="form-group">
 										<label for="">Tên thiết bị</label>

@@ -41,7 +41,7 @@ $(document).ready(function () {
 	          e.stopImmediatePropagation();
 	          e.preventDefault();
 	        }else{
-	        	if($('#ma_thietbi_sua123').val().length==4){
+	        	if($('#ma_thietbi_sua123').val().length==5){
 		          	$.ajax({
 						url:"./../dulieu/insert.php",
 						method:"POST",
@@ -49,14 +49,14 @@ $(document).ready(function () {
 						success:function(kq_capnhat_thongtin_thietbi){
 							// alert(kq_capnhat_thongtin_thietbi);
 							if(kq_capnhat_thongtin_thietbi==1){
-								alert('Mã thietbi hoặc tên thietbi đã tồn tại');
+								alert('Mã thietbi hoặc tên Thiết bị đã tồn tại');
 								document.getElementById(ma_thietbi_them).focus();
 							}else {
 								if (kq_capnhat_thongtin_thietbi==99) {
-									alert('Cập nhật thông tin thietbi thành công');
+									alert('Cập nhật thông tin Thiết bị thành công');
 									$('#from_suathongtin_thietbi')[0].reset();
 	                                $('#modal_sua_thietbi').modal('hide');
-	                                $('#dulieuthietbi').load("./../dulieu/dulieuthietbisv.php")
+	                                $('#dulieu_add_thietbi').load("./../dulieu/dulieuthietbi.php")
 								}else {
 									alert('Lỗi cập nhật');
 								}
@@ -64,7 +64,7 @@ $(document).ready(function () {
 	                    }
 					});
 				}else {
-					alert('Độ dài Mã thietbi không đúng');
+					alert('Độ dài Mã Thiết bị không đúng');
 					document.getElementById("ma_thietbi_sua123").focus();
 				}
          	}   
@@ -128,7 +128,7 @@ $(document).ready(function () {
 						document.getElementById("ma_thietbi_them").focus();
 	          		}else {
 	          				if (kql_add_thietbi==99) {
-	          					alert('Thêm thietbi mới thành công');
+	          					alert('Thêm Thiết bịs mới thành công');
 	          					$('#ma_thietbi_them').html();
 	          					$('#ten_thietbi_them').html();
 	          					// $('#dulieu_add_lop').load("./../dulieu/dulieuthietbi.php");
@@ -139,7 +139,6 @@ $(document).ready(function () {
 	          				}
 	          			}
 	         	}
-	          
 	         });
       	}else {
       	alert("Độ dài mã thietbi không đúng");

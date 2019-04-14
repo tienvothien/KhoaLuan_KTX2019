@@ -13,6 +13,7 @@ include 'conn.php';
 				<th>Mã thiết bị</th>
 				<th>Tên thiết bị</th>
 				<th>Người xóa</th>
+				<th>Mã Số nhân viên</th>
 				<th>Thời gian</th>
 			</tr>
 		</thead>
@@ -20,13 +21,14 @@ include 'conn.php';
 			<?php
 				$stt = 1;
 				while ($row = mysqli_fetch_array($selecet_khoa)) {
-					$canbotdoi = mysqli_fetch_array(mysqli_query($con, "SELECT  can_bo.ho_can_bo, can_bo.ten_can_bo FROM can_bo WHERE id_canbo='$row[id_canboxoa]'"));
+					$canbotdoi = mysqli_fetch_array(mysqli_query($con, "SELECT  can_bo.ma_can_bo, can_bo.ho_can_bo, can_bo.ten_can_bo FROM can_bo WHERE id_canbo='$row[id_canboxoa]'"));
 					echo "
 					<tr>
 						<td style='text-align:center;'>$stt</td>
 						<td class='chuinhoa canhgiua'>$row[mathietbi]</td>
 						<td class='chuinthuong'>$row[tenthietbi]</td>
 						<td class='chuinthuong'>$canbotdoi[ho_can_bo] $canbotdoi[ten_can_bo]</td>
+						<td class='chuinthuong'>$canbotdoi[ma_can_bo] </td>
 						<td class='canhgiua'>".date("d/m/Y H:i:ss", strtotime($row['ngay_xoa']))."</td>
 					</tr>
 					";

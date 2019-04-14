@@ -137,8 +137,55 @@ include 'kiemtradangnhap.php';
       ';
       echo $output;
   }
+   // dữ liệu Thiết bị
+   if (isset($_POST["id_chitietchucvu"])) {
+      $output = '';
+      include 'conn.php';
+      $query = "SELECT chucvu.machucvu, chucvu.tenchucvu, can_bo.ho_can_bo, can_bo.ten_can_bo, chucvu.ngaythem FROM chucvu INNER JOIN can_bo ON chucvu.id_canbothem = can_bo.id_canbo WHERE chucvu.idchucvu ='$_POST[id_chitietchucvu]' and chucvu.xoa=0";
+      $result = mysqli_query($con, $query);
+      $output .= '
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">';
+           while ($sel_dlthitebi = mysqli_fetch_array($result)) {
+            $slchucvu = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(id_cochucvu) as solcochucvu FROM cochucvu WHERE idchucvu='$_POST[id_chitietchucvu]'"));
+            $output .= '
+              <tr>
+                <td width="30%"><label>Mã Chức vụ</label></td>
+                <td width="70%" style="text-transform: uppercase;" colspan="2">' . $sel_dlthitebi["machucvu"] . '</td>
+                
+              <tr>
+                <td width="30%"><label>Tên Chức vụ</label></td>
+                <td width="70%" colspan="2" style=" text-transform: capitalize;">' . $sel_dlthitebi["tenchucvu"] . '</td>
+                 
+              </tr>
+              <tr>
+                <td width="30%"><label>Số lượng cán bộ</label></td>
+                <td width="70%"  style=" text-transform: capitalize;">' . $slchucvu["solcochucvu"] . '</td>
+                 <td><a href="./../admin/dscanbocochucvucantim.php?idchucvu='.$_POST["id_chitietchucvu"].'" title=""><button type="button" class="btn btn-primary">Chi tiết</button> </a></td>
+              </tr>
+              
+              <tr>
+                <td width="30%"><label>Cán bộ thêm</label></td>
+                <td width="70%" colspan="2" style=" text-transform: capitalize;">' . $sel_dlthitebi["ho_can_bo"] . " " . $sel_dlthitebi["ten_can_bo"] . '</td>
+                 
+              </tr>
+              <tr>
+                <td width="30%"><label>Ngày thêm</label></td>
+                <td width="70%" colspan="2" >' . date("d/m/Y H:i:s", strtotime($sel_dlthitebi['ngaythem'])) . ' </td>
+                 
+              </tr>
+              
+                ';
+                  }
+            $output .= '
+        </table>
+      </div>
+      ';
+      echo $output;
+  }
  // end xử lý hiện thông tin chitet thiet bị trong phòng dữ liệu Thiết bị
-   if (isset($_POST["id_chitietthietbitrongloaiphong"])) {
+
+if (isset($_POST["id_chitietthietbitrongloaiphong"])) {
   $output = '';
   include 'conn.php';
   $query = "SELECT ctb.idcothietbi,ctb.soluong, lp.id_loaiphong,lp.ten_loai_phong,thietbi.idtb, thietbi.tenthietbi, ctb.id_canbothem, can_bo.ho_can_bo, can_bo.ten_can_bo, ctb.ngaythem FROM loaiphongcothietbi ctb INNER JOIN loai_phong lp ON ctb.id_loaiphong = lp.id_loaiphong INNER JOIN thietbi ON thietbi.idtb = ctb.idtb INNER JOIN can_bo ON ctb.id_canbothem=can_bo.id_canbo WHERE thietbi.xoa=0 AND ctb.xoa=0 AND lp.xoa=0 AND ctb.idcothietbi='$_POST[id_chitietthietbitrongloaiphong]'";
