@@ -34,8 +34,12 @@ include 'conn.php';
 						<td class='canhgiua chuinhoa'>$tt_lop[ma_lop]</td>
 						<td class='canhgiua chuinthuong'>$tt_lop[ten_lop]</td>
 						<td class=''>$row[tencot]</td>
-						<td class=''>$row[noidungtruocsua]</td>
-						<td class=''>$row[noidungsausua]</td>
+						<td class='"; if ($row['cot']=='ma_lop') {
+							echo "chuinhoa";
+						}echo "'>$row[noidungtruocsua]</td>
+						<td class='"; if ($row['cot']=='ma_lop') {
+							echo "chuinhoa";
+						}echo "'>$row[noidungsausua]</td>
 						<td class=''>$canbotdoi[ho_can_bo] $canbotdoi[ten_can_bo]</td>
 						<td class='canhgiua'>$canbotdoi[ma_can_bo] </td>
 						<td class='canhgiua'>".date("d/m/Y H:i:s", strtotime($row['ngaysua']))."</td>

@@ -13,6 +13,9 @@ include './../dulieu/kiemtradangnhap.php';
 		<link rel="stylesheet" href="../vendor/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="../css/ad_css.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+				<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" />
+		<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 	</head>
 	<body >
 		<div class="container-fluid">
@@ -54,6 +57,11 @@ include './../dulieu/kiemtradangnhap.php';
 						</div> <!-- end trang admin -->
 					</body>
 				</html>
+				<script>
+				$(document).ready( function () {
+				$('#myTable').DataTable();
+				} );
+				</script>
 				<!-- thêm lop mới -->
 				<div class="modal" id="themlop1">
 					<div class="modal-dialog themlop2 lop_themmoi">

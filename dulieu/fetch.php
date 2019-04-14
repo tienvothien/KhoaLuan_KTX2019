@@ -34,4 +34,11 @@ if (isset($_POST["id_chucvu_sua"])) {
 	$row = mysqli_fetch_array($result);
 	echo json_encode($row);
 }//end xử lý thông tin Chức vụ
+// xử lý xuất thông tin Cán bộ
+if (isset($_POST["id_can_bo_sua"])) {
+	$query = "SELECT * FROM can_bo WHERE can_bo.id_canbo = '" . $_POST["id_can_bo_sua"] . "'";
+	$result = mysqli_query($con, $query);
+	$row = mysqli_fetch_array($result);
+	echo json_encode($row);
+}//end xử lý thông tin Cán bộ
 ?>

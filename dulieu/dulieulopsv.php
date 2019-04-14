@@ -1,33 +1,14 @@
 <?php
 include 'conn.php';
-	$trangbandau = 1; //khởi tạo trang ban đầu
-	$soluongnoidung = 20; //số bản ghi trên 1 trang (2 bản ghi trên 1 trang)
-	$soluongbai = mysqli_query($con, "SELECT * FROM lop WHERE lop.xoa=0");
-	$total_record = mysqli_num_rows($soluongbai); //tính tổng số bản ghi có trong bảng posts
-	$tongsotrang = ceil($total_record / $soluongnoidung); //tính tổng số trang sẽ chia
-	//xem trang có vượt giới hạn không:
-	if (isset($_GET["page"])) {
-		$trangbandau = $_GET["page"];
-	}
-	//nếu biến $_GET["page"] tồn tại thì trang hiện tại là trang $_GET["page"]
-	if ($trangbandau < 1) {
-		$trangbandau = 1;
-	}
-	//nếu trang hiện tại nhỏ hơn 1 thì gán bằng 1
-	if ($trangbandau > $tongsotrang) {
-		$trangbandau = $tongsotrang;
-	}
-	//nếu trang hiện tại vượt quá số trang được chia thì sẽ bằng trang cuối cùng
-	//tính start (vị trí bản ghi sẽ bắt đầu lấy):
-	$start = ($trangbandau - 1) * $soluongnoidung;
-	$selecet_lop = mysqli_query($con, "SELECT * FROM lop WHERE lop.xoa=0 limit $start,$soluongnoidung ");
+	
+	$selecet_lop = mysqli_query($con, "SELECT * FROM lop WHERE lop.xoa=0 order by ten_lop, id_khoa");
 	if (!mysqli_num_rows($selecet_lop)) {
 		echo "<div style='text-align: center;'> Chưa có dữ liệu</div>";
 	} else {
 ?>
 <div class="table-responsive">
 	<h3 class="canhgiua chuinhoa"> Danh Sách Lớp</h3>
-	<table class="table table-hover table-bordered table-striped">
+	<table class="table table-hover table-bordered table-striped" id="myTable">
 		<thead>
 			<tr>
 				<th style="text-align:center;">STT</th>
@@ -71,26 +52,7 @@ include 'conn.php';
 			?>
 		</tbody>
 	</table>
-	<?php if ($total_record > 20) {
-	?>
-	<div style="text-align: center;width: 100%; float: left; padding-right: ">
-		<?php
-		echo " 
-			<ul class='pagination phantrang_1123'>
-				<li ><a href='./../admin/quanlylop.php?page=1'>&nbsp&nbspTrang đầu&nbsp&nbsp</a></li>";
-		for ($trangbandau = 1; $trangbandau <= $tongsotrang; $trangbandau++) {
-			echo "<li ><a href='./../admin/quanlylop.php?page={$trangbandau}'>{$trangbandau}</a></li>";
-		}
-		echo " 
-				<li>
-					<a href='./../admin/quanlylop.php?page=$tongsotrang'>&nbsp&nbspTrang cuối&nbsp&nbsp</a>
-				</li>
-			</ul>";
-		?>
-	</div>
+
 </div>
 <?php
 }?>
-<?php
-}
-?>

@@ -62,7 +62,7 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 			<i class="fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-container">
-				<a href="qlcanbo.php" class="list-group-item">Cán bộ</a>
+				<a href="quanlycanbo.php" class="list-group-item">Cán bộ</a>
 				<a href="quanlychucvu.php" class="list-group-item">Chức vụ</a>
 			</div>
 			<button class="dropdown-btn">Quản lý Thiết bị

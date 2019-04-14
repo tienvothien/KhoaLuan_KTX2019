@@ -9,7 +9,7 @@ include './../dulieu/kiemtradangnhap.php';
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" type="image/jpg" href="./../images/vnkgu.png"/>
 		<script type="text/javascript" src="../vendor/bootstrap.js"></script>
-		<script type="text/javascript" src="../js/js_quanlychucvu.js"></script>
+		<script type="text/javascript" src="../js/js_quanlycanbo.js"></script>
 		<link rel="stylesheet" href="../vendor/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="../css/ad_css.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -36,17 +36,17 @@ include './../dulieu/kiemtradangnhap.php';
 						<div class="container-fluid" style="padding: 0px;">
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 chutieude">
-									<h2>Quản lý Chức vụ</h2>
+									<h2>Quản lý Cán bộ</h2>
 								</div>
 							</div>
 						<hr class="ngay_ad"></div>
 						<div class="container-fluid">
 							<div class="row"><!-- nho doi ten class -->
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-								<div id="dulieuchucvu"><?php include './../dulieu/dulieuchucvu.php';?></div>
+								<div id="dulieucanbo"><?php include './../dulieu/dulieucanbo.php';?></div>
 							</div>
 							<div class="col-xs-11 col-sm-12 col-md-2 col-lg-2">
-								<div class="nuthemmoi"><input type="button" class="btn btn-primary btn-block" name="themchucvu" value="Thêm mới" data-toggle="modal" data-target="#themchucvu1"></div>
+								<div class="nuthemmoi"><input type="button" class="btn btn-primary btn-block" name="themcan_bo" value="Thêm mới" data-toggle="modal" data-target="#themcan_bo1"></div>
 							</div>
 							</div><!-- end thaydoi1 -->
 							</div><!-- end noidungthaydoi -->
@@ -59,18 +59,18 @@ include './../dulieu/kiemtradangnhap.php';
 				</html>
 				<script>
 				$(document).ready( function () {
-			$('#myTable').DataTable();
+				$('#myTable').DataTable();
 				} );
-			</script>
-				<!-- thêm chucvu mới -->
-				<div class="modal" id="themchucvu1">
-					<div class="modal-dialog themchucvu2 chucvu_themmoi width_350px">
+				</script>
+				<!-- thêm can_bo mới -->
+				<div class="modal" id="themcan_bo1">
+					<div class="modal-dialog themcan_bo2 can_bo_themmoi width_350px">
 						<div class="modal-content">
 							<!-- Modal Header -->
 							<div class="modal-header">
 								<div class="row">
 									<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-										<h4 class="modal-title">Thêm Chức vụ</h4>
+										<h4 class="modal-title">Thêm Cán bộ</h4>
 									</div>
 									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 										<button type="button" class="fa fa-times-circle-o btn btn-danger" data-dismiss="modal"></button>
@@ -79,16 +79,16 @@ include './../dulieu/kiemtradangnhap.php';
 							</div>
 							<!-- Modal body -->
 							<div class="modal-body _1themtoanha">
-								<form action="" id="form_themchucvumoi" name="form_themchucvumoi" 	method="POST" role="form" class="_1themphong1 ">
+								<form action="" id="form_themcan_bomoi" name="form_themcan_bomoi" 	method="POST" role="form" class="_1themphong1 ">
 									<div class="form-group">
-										<label for="">Mã Chức vụ</label>
-										<input type="text" name="ma_chucvu_them" id="ma_chucvu_them" class="form-control chuinhoa" value="" required="" placeholder="Nhập mã Chức vụ" >
+										<label for="">Mã Cán bộ</label>
+										<input type="text" name="ma_can_bo_them" id="ma_can_bo_them" class="form-control chuinhoa" value="" required="" placeholder="Nhập mã Cán bộ" >
 									</div>
 									<div class="form-group">
-										<label for="">Tên Chức vụ</label>
-										<input type="text" name="ten_chucvu_them" id="ten_chucvu_them" class="form-control chuinthuong" value="" required=""  placeholder="Nhập tên Chức vụ" >
+										<label for="">Tên Cán bộ</label>
+										<input type="text" name="ten_can_bo_them" id="ten_can_bo_them" class="form-control chuinthuong" value="" required=""  placeholder="Nhập tên Cán bộ" >
 									</div>
-									<p id="thongbao_themchucvu"></p>
+									<p id="thongbao_themcan_bo"></p>
 								</div>
 								<!-- Modal footer -->
 								<div class="modal-footer">
@@ -99,15 +99,15 @@ include './../dulieu/kiemtradangnhap.php';
 					</div>
 				</div>
 				</div><!-- end model -->
-				<!-- xem thông tin chucvu -->
+				<!-- xem thông tin can_bo -->
 				<div id="dataModal" class="modal fade">
-					<div class="modal-dialog">
+					<div class="modal-dialog width_350px">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Thông tin Chức vụ</h4>
+								<h4 class="modal-title">Thông tin Cán bộ</h4>
 							</div>
-							<div class="modal-body" id="thongtin_chitietchucvu">
+							<div class="modal-body" id="thongtin_chitietcan_bo">
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -116,22 +116,45 @@ include './../dulieu/kiemtradangnhap.php';
 					</div>
 				</div>
 				<!-- Cập nhật lại thông tin phòng -->
-				<div id="modal_sua_chucvu" class="modal fade">
-					<div class="modal-dialog">
+				<div id="modal_sua_can_bo" class="modal fade">
+					<div class="modal-dialog width_350px">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Cập nhật thông tin Chức vụ</h4>
+								<h4 class="modal-title">Cập nhật thông tin Cán bộ</h4>
 							</div>
 							<div class="modal-body">
-								<form method="post" id="from_suathongtin_chucvu" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
-									<label>Mã chucvu</label>
-									<input type="text" name="ma_chucvu_sua123" id="ma_chucvu_sua123" class="form-control chuinhoa"  required="" />
+								<form method="post" id="from_suathongtin_can_bo" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
+									<label>Mã cán bộ</label>
+									<input type="text" name="ma_can_bo_sua123" id="ma_can_bo_sua123" class="form-control "  required="" />
 									<br />
-									<label>Tên chucvu</label>
-									<textarea  name="ten_chucvusua_12" id="ten_chucvusua_12" class="form-control chuinthuong" rows="1" required=""></textarea>
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
+										<label>Họ cán bộ</label>
+										<input  name="ho_can_bosua_12" id="ho_can_bosua_12" class="form-control chuinthuong" rows="1" required="">
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
+										<label>Tên cán bộ</label>
+										<input  name="ten_can_bosua_12" id="ten_can_bosua_12" class="form-control chuinthuong" rows="1" required="">
+									</div>
 									<br />
-									<input type="hidden" name="id_chucvu_sua_12" id="id_chucvu_sua_12" />
+									<label>Ngày sinh</label>
+									<input  type="date" name="ngaysinh_can_bosua_12" id="ngaysinh_can_bosua_12" class="form-control " rows="1" required="">
+									<br />
+									<label>Giới tính</label>
+									<select  name="gioitinh_can_bosua_12" id="gioitinh_can_bosua_12" class="form-control chuinthuong" required="required">
+										<option value="" id="dlgioitinhsua"></option>
+										<option value="Nam">Nam</option>
+										<option value="Nữ">Nữ</option>
+									</select>
+									<br>
+									<label>Điện thoại</label>
+									<input  type="number" name="sdt_can_bosua_12" id="sdt_can_bosua_12" class="form-control" rows="1" required="">
+									<br />
+									<label>Email</label>
+									<input  type="email" name="email_can_bosua_12" id="email_can_bosua_12" class="form-control" rows="1" required="">
+									<br />
+									
+									<input type="hidden" name="id_can_bo_sua_12" id="id_can_bo_sua_12" />
 									<input type="submit" name="insert" id="insert" value="Insert" class="btn btn-danger capnhattb" />
 								</form>
 							</div>
@@ -141,24 +164,30 @@ include './../dulieu/kiemtradangnhap.php';
 						</div>
 					</div>
 				</div>
-				<!-- Xoa Chức vụ -->
+				<!-- Xoa Cán bộ -->
 				<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-					<div id="modal_xoa_chucvu" class="modal fade">
+					<div id="modal_xoa_can_bo" class="modal fade">
 						<div class="modal-dialog width_350px">
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title canhgiua">Xóa Chức vụ</h4>
+									<h4 class="modal-title canhgiua">Xóa Cán bộ</h4>
 								</div>
 								<div class="modal-body">
-									<form method="post" id="From_xoa_chucvu" data-confirm="Bạn có chắn muốn xóa thông tin này?">
-										<label>Mã Chức vụ</label>
-										<input type="text" disabled="" name="ma_chucvu_xoa123" id="ma_chucvu_xoa123" class="form-control chuinhoa"  required="" />
+									<form method="post" id="From_xoa_can_bo" data-confirm="Bạn có chắn muốn xóa thông tin này?">
+										<label>Mã Cán bộ</label>
+										<input type="text" disabled="" name="ma_can_bo_xoa123" id="ma_can_bo_xoa123" class="form-control chuinhoa"  required="" />
 										<br />
-										<label>Tên Chức vụ</label>
-										<textarea  name="ten_chucvuxoa_12" disabled="" id="ten_chucvuxoa_12" class="form-control chuinthuong" rows="1" required=""></textarea>
+										<label>Tên Cán bộ</label>
+										<textarea  name="ten_can_boxoa_12" disabled="" id="ten_can_boxoa_12" class="form-control chuinthuong" rows="1" required=""></textarea>
 										<br />
-										<input type="hidden" name="id_chucvu_xoa_12" id="id_chucvu_xoa_12" />
+										<label>Ngày sinh</label>
+										<textarea  name="ngaysinh_can_boxoa_12" disabled="" id="ngaysinh_can_boxoa_12" class="form-control chuinthuong" rows="1" required=""></textarea>
+										<br />
+										<label>Giới tính</label>
+										<textarea  name="gioitinh_can_boxoa_12" disabled="" id="gioitinh_can_boxoa_12" class="form-control chuinthuong" rows="1" required=""></textarea>
+										<br />
+										<input type="hidden" name="id_can_bo_xoa_12" id="id_can_bo_xoa_12" />
 										<div class="modal-footer">
 											<input type="submit" name="insert_xoa" id="insert_xoa" value="Xóa" class="btn btn-danger canhgiua" />
 											<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>

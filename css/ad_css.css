@@ -3,6 +3,16 @@
   margin: 0px;
   font-family: "Times New Roman", Times, serif;
 }
+
+.col-xs-6.col-sm-6.col-md-6.col-lg-6.hoten_cb_sua {
+    padding-left: 0px;
+    padding-right: 4px;
+}
+
+.thumbnail.mua_nen_4 {
+    background-color: #e91e63;
+    color: #f9f9f9;
+}
 .textnamgiua{
   vertical-align: middle;
 }
