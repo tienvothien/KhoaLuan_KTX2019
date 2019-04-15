@@ -17,8 +17,30 @@ $(document).ready(function () {
 				reader.readAsDataURL(this.files[0]);
 			}
 		});
+		$("#file_anh_sua").change(function() {
+			var file = this.files[0];
+			var imagefile = file.type;
+			var match= ["image/jpeg","image/png","image/jpg"];
+			if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]))){
+				$('#previewing_sua').attr('src','ấdasd');
+				alert("Bạn phải chọn file ảnh có đuôi là (jpeg, jpg and png)");
+				// $("#message").html("<p id='error'>Bạn phải chọn pha</p>"+"<h4>Note</h4>"+"<span id='error_message'>Only  Images type allowed</span>");
+				return false;
+			}else{
+				var reader = new FileReader();
+				reader.onload = imageIsLoaded2;
+				reader.readAsDataURL(this.files[0]);
+			}
+		});
 	});
 	
+	function imageIsLoaded2(e) {
+		$("#file_anh").css("color","green");
+		$('#image_preview').css("display", "block");
+		$('#previewing_sua').attr('src', e.target.result);
+		$('#previewing_sua').attr('width', '100px');
+		$('#previewing_sua').attr('height', '130px');
+	};
 	function imageIsLoaded(e) {
 		$("#file_anh").css("color","green");
 		$('#image_preview').css("display", "block");
@@ -57,7 +79,7 @@ $(document).ready(function () {
                     $('#ten_can_bosua_12').val(data_suacan_bo.ten_can_bo);
                     $('#dlgioitinhsua').val(data_suacan_bo.gioitinh);
                     $('#dlgioitinhsua').html(data_suacan_bo.gioitinh);
-                    
+                	$('#previewing_sua').attr('src','./../images/'+data_suacan_bo.hinhanh);
                     $('#ngaysinh_can_bosua_12').val(data_suacan_bo.ngay_sinh);
                     $('#sdt_can_bosua_12').val(data_suacan_bo.sdt);
                     $('#email_can_bosua_12').val(data_suacan_bo.email);
@@ -112,6 +134,7 @@ $(document).ready(function () {
                 dataType:"json",
                 success:function(data_xoacan_bo){
                 	$ten = data_xoacan_bo.ho_can_bo+' '+data_xoacan_bo.ten_can_bo;
+                	$('#anh_can_bo_xoa123').attr('src','./../images/'+data_xoacan_bo.hinhanh);
                     $('#ma_can_bo_xoa123').val(data_xoacan_bo.ma_can_bo);
                     $('#ten_can_boxoa_12').val($ten);
                     $('#gioitinh_can_boxoa_12').val(data_xoacan_bo.gioitinh);

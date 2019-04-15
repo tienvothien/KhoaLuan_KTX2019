@@ -256,6 +256,10 @@ include 'kiemtradangnhap.php';
             }
             $output .= '
               <tr>
+                <td width="40%"><label>Ảnh</label></td>
+                <td width="60%" class=""><img  class ="img-responsive" src="./../images/'.$row_can_bo1["hinhanh"].'" alt=""></td>
+              </tr>
+              <tr>
                 <td width="40%"><label>Mã Cán bộ</label></td>
                 <td width="60%" class="">' .$row_can_bo1["ma_can_bo"] . '</td>
               </tr>

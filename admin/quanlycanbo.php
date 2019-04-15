@@ -86,7 +86,7 @@ include './../dulieu/kiemtradangnhap.php';
 									<br>
 									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
 										<div id="message"></div>
-										 <div id="image_preview"><img id="previewing" class="img-responsive" src="" /></div>
+										 <div id="image_preview"><img id="previewing" class="img-responsive"  src="" /></div>
 									</div>
 									<input id="file_anh" type="file" accept="image/*" name="image12" required="" />
 
@@ -161,10 +161,16 @@ include './../dulieu/kiemtradangnhap.php';
 								<h4 class="modal-title">Cập nhật thông tin Cán bộ</h4>
 							</div>
 							<div class="modal-body">
-								<form method="post" id="from_suathongtin_can_bo" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
+								<form method="post" id="from_suathongtin_can_bo" enctype="multipart/form-data" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
+									<label>Ảnh</label>
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+										 <div id="image_preview_sua" style="padding-left: 30%"><img id="previewing_sua" class="img-responsive" style="width:100px; height: 130px" rc="" /></div>
+									</div>
+									<input id="file_anh_sua" type="file" accept="image/*" name="image12_sua" required="" />
+
 									<label>Mã cán bộ</label>
-									<input type="text" name="ma_can_bo_sua123" id="ma_can_bo_sua123" class="form-control "  required="" />
-									<br />
+									
+									<input  type="text" name="ma_can_bo_sua123" id="ma_can_bo_sua123" class="form-control "  value=""  readonly />
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Họ cán bộ</label>
 										<input  name="ho_can_bosua_12" id="ho_can_bosua_12" class="form-control chuinthuong" rows="1" required="">
@@ -173,23 +179,18 @@ include './../dulieu/kiemtradangnhap.php';
 										<label>Tên cán bộ</label>
 										<input  name="ten_can_bosua_12" id="ten_can_bosua_12" class="form-control chuinthuong" rows="1" required="">
 									</div>
-									<br />
 									<label>Ngày sinh</label>
 									<input  type="date" name="ngaysinh_can_bosua_12" id="ngaysinh_can_bosua_12" class="form-control " rows="1" required="">
-									<br />
 									<label>Giới tính</label>
 									<select  name="gioitinh_can_bosua_12" id="gioitinh_can_bosua_12" class="form-control chuinthuong" required="required">
 										<option value="" id="dlgioitinhsua"></option>
 										<option value="Nam">Nam</option>
 										<option value="Nữ">Nữ</option>
 									</select>
-									<br>
 									<label>Điện thoại</label>
-									<input  type="number" name="sdt_can_bosua_12" id="sdt_can_bosua_12" class="form-control" rows="1" required="">
-									<br />
+									<input  type="number" name="sdt_can_bosua_12" id="sdt_can_bosua_12" class="form-control"  required="">
 									<label>Email</label>
 									<input  type="email" name="email_can_bosua_12" id="email_can_bosua_12" class="form-control" rows="1" required="">
-									<br />
 									
 									<input type="hidden" name="id_can_bo_sua_12" id="id_can_bo_sua_12" />
 									<input type="submit" name="insert" id="insert" value="Insert" class="btn btn-danger capnhattb" />
@@ -212,18 +213,38 @@ include './../dulieu/kiemtradangnhap.php';
 								</div>
 								<div class="modal-body">
 									<form method="post" id="From_xoa_can_bo" data-confirm="Bạn có chắn muốn xóa thông tin này?">
-										<label>Mã Cán bộ</label>
-										<input type="text" disabled="" name="ma_can_bo_xoa123" id="ma_can_bo_xoa123" class="form-control chuinhoa"  required="" />
-										<br />
-										<label>Tên Cán bộ</label>
-										<textarea  name="ten_can_boxoa_12" disabled="" id="ten_can_boxoa_12" class="form-control chuinthuong" rows="1" required=""></textarea>
-										<br />
-										<label>Ngày sinh</label>
-										<textarea  name="ngaysinh_can_boxoa_12" disabled="" id="ngaysinh_can_boxoa_12" class="form-control chuinthuong" rows="1" required=""></textarea>
-										<br />
-										<label>Giới tính</label>
-										<textarea  name="gioitinh_can_boxoa_12" disabled="" id="gioitinh_can_boxoa_12" class="form-control chuinthuong" rows="1" required=""></textarea>
-										<br />
+										<table class="table table-hover">
+											<tr>
+												<td style="width:40%;"><label>Ảnh Cán bộ</label></td>
+												<td style="width:60%;">
+													<img src="" class="img-responsive" id="anh_can_bo_xoa123" alt="">
+													</td>
+											</tr>
+											<tr>
+												<td style="width:40%;"><label>Mã Cán bộ</label></td>
+												<td style="width:60%;"><input type="text" disabled="" name="ma_can_bo_xoa123" id="ma_can_bo_xoa123" class="form-control chuinhoa"  required="" /></td>
+											</tr>
+											<tr>
+												<td style="width:40%;"><label>Tên Cán bộ</label></td>
+												<td style="width:60%;">
+													<textarea  name="ten_can_boxoa_12" disabled="" id="ten_can_boxoa_12" class="form-control chuinthuong" rows="1" required=""></textarea>
+												</td>
+											</tr>
+											<tr>
+												<td style="width:40%;"><label>Ngày sinh</label></td>
+												<td style="width:60%;">
+													<textarea  name="ngaysinh_can_boxoa_12" disabled="" id="ngaysinh_can_boxoa_12" class="form-control chuinthuong" rows="1" required=""></textarea>
+													
+												</td>
+											</tr>
+											<tr>
+												<td style="width:40%;"><label>Giới tính</label></td>
+												<td style="width:60%;">
+													<textarea  name="gioitinh_can_boxoa_12" disabled="" id="gioitinh_can_boxoa_12" class="form-control chuinthuong" rows="1" required=""></textarea>
+													
+												</td>
+											</tr>
+										</table>
 										<input type="hidden" name="id_can_bo_xoa_12" id="id_can_bo_xoa_12" />
 										<div class="modal-footer">
 											<input type="submit" name="insert_xoa" id="insert_xoa" value="Xóa" class="btn btn-danger canhgiua" />
