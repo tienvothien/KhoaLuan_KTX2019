@@ -237,7 +237,7 @@
 			echo $kiemtracapnhatctb;
 		}// end kiểm mã có thay đổi không và cap nhat thông tin lop
 	} //ket thuc kiểm tra và cap nhat thông tin Chức vụ 
-	if (isset($_POST['id_xoa_chucvu123'])) {
+	if (isset($_POST['id_xoa_chucvu123'])) { // xoa chức vụ
 		$delete_xoa_chucvu = "UPDATE chucvu SET chucvu.xoa=1, chucvu.id_canboxoa='$_SESSION[id_canbo]', chucvu.ngay_xoa='".date('Y/m/d H:i:s')."' WHERE chucvu.idchucvu = '$_POST[id_xoa_chucvu123]'";
 		if (mysqli_query($con,$delete_xoa_chucvu)) {
 			echo "99";
@@ -286,5 +286,14 @@
 			echo $kiemtracapnhatcchucvu;
 		}
 	} //ket thuc cap nhat thhông tin thiết bị
+	if (isset($_POST['id_xoa_can_bo123'])) { // xoa Cán bộ
+		$delete_xoa_can_bo = "UPDATE can_bo SET can_bo.xoa=1, can_bo.id_canboxoa='$_SESSION[id_canbo]', can_bo.ngay_xoa='".date('Y/m/d H:i:s')."' WHERE can_bo.id_canbo = '$_POST[id_xoa_can_bo123]'";
+		if (mysqli_query($con,$delete_xoa_can_bo)) {
+			echo "99";
+		}else{
+			echo "100";
+		}
+	}//end xóa Cán bộ
 	mysqli_close($con);
+
 ?>

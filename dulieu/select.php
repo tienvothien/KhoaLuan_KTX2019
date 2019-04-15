@@ -41,11 +41,11 @@ include 'kiemtradangnhap.php';
         }
         $output .= '
     </table>
-  </div>
-  ';
-    echo $output;
-}
-// dữ liệu lớp
+    </div>
+    ';
+      echo $output;
+  }
+  // dữ liệu lớp
   if (isset($_POST["id_chitietlop"])) {
     $output = '';
     include 'conn.php';
@@ -96,10 +96,10 @@ include 'kiemtradangnhap.php';
         }
         $output .= '
     </table>
-  </div>
-  ';
-    echo $output;
- }// end xử lý hiện thông tin lớp
+    </div>
+    ';
+      echo $output;
+   }// end xử lý hiện thông tin lớp
  // dữ liệu Thiết bị
    if (isset($_POST["id_chitietthietbi"])) {
       $output = '';

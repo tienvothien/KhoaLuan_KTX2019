@@ -1,6 +1,6 @@
 <?php
 include 'conn.php';
-	$selecet_khoa = mysqli_query($con, "SELECT cochucvu.id_cochucvu,can_bo.id_canbo, can_bo.ma_can_bo, can_bo.ho_can_bo, can_bo.ten_can_bo, can_bo.gioitinh, can_bo.ngay_sinh, can_bo.ngaythem, can_bo.sdt, can_bo.email FROM can_bo INNER JOIN cochucvu ON can_bo.id_canbo = cochucvu.id_canbo INNER JOIN chucvu ON chucvu.idchucvu = cochucvu.idchucvu WHERE can_bo.xoa=0 AND cochucvu.xoa=0");
+	$selecet_khoa = mysqli_query($con, "SELECT cochucvu.id_cochucvu,can_bo.id_canbo, can_bo.ma_can_bo, can_bo.ho_can_bo, can_bo.ten_can_bo, can_bo.gioitinh, can_bo.ngay_sinh, can_bo.ngaythem, can_bo.sdt, can_bo.email FROM can_bo INNER JOIN cochucvu ON can_bo.id_canbo = cochucvu.id_canbo INNER JOIN chucvu ON chucvu.idchucvu = cochucvu.idchucvu WHERE can_bo.xoa=0 AND cochucvu.xoa=0 and chucvu.idchucvu = '$_GET[idchucvu]'");
 	if (!mysqli_num_rows($selecet_khoa)) {
 		echo "<div style='text-align: center;'> Chưa có dữ liệu</div>";
 	} else {

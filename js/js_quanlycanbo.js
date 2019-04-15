@@ -1,4 +1,31 @@
 $(document).ready(function () {
+	// load anh trước khi cap nhat
+	$(function() {
+		$("#file_anh").change(function() {
+			$("#message").empty(); // To remove the previous error message
+			var file = this.files[0];
+			var imagefile = file.type;
+			var match= ["image/jpeg","image/png","image/jpg"];
+			if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]))){
+				$('#previewing').attr('src','');
+				alert("Bạn phải chọn file ảnh có đuôi là (jpeg, jpg and png)");
+				// $("#message").html("<p id='error'>Bạn phải chọn pha</p>"+"<h4>Note</h4>"+"<span id='error_message'>Only  Images type allowed</span>");
+				return false;
+			}else{
+				var reader = new FileReader();
+				reader.onload = imageIsLoaded;
+				reader.readAsDataURL(this.files[0]);
+			}
+		});
+	});
+	
+	function imageIsLoaded(e) {
+		$("#file_anh").css("color","green");
+		$('#image_preview').css("display", "block");
+		$('#previewing').attr('src', e.target.result);
+		$('#previewing').attr('width', '100px');
+		$('#previewing').attr('height', '130px');
+	}; // en kiem tra truoc khi cap nhat
 	// Xem chi tiet thoong tin can_bo
 	$(document).on('click', '.view_chitietcan_bo', function(){
            var id_chitietcan_bo = $(this).attr("id");
@@ -54,11 +81,11 @@ $(document).ready(function () {
 						data:$('#from_suathongtin_can_bo').serialize(),
 						success:function(kq_capnhat_thongtin_can_bo){
 							if(kq_capnhat_thongtin_can_bo==1){
-								alert('Mã Chức vụ hoặc tên Chức vụ đã tồn tại');
+								alert('Mã Cán bộ hoặc tên Cán bộ đã tồn tại');
 								document.getElementById(ma_can_bo_sua123).focus();
 							}else {
 								if (kq_capnhat_thongtin_can_bo==99) {
-									alert('Cập nhật thông tin Chức vụ thành công');
+									alert('Cập nhật thông tin Cán bộ thành công');
 									$('#from_suathongtin_can_bo')[0].reset();
 	                                $('#modal_sua_can_bo').modal('hide');
 	                                $('#dulieucan_bo').load("./../dulieu/dulieucan_bo.php")
@@ -95,7 +122,7 @@ $(document).ready(function () {
                 }
            });
       });
-	// xử lý xoa can_bo 
+	// xử lý xoa Cán bộ 
 	$('#From_xoa_can_bo').on('submit', function(event){
           event.preventDefault();
           if(!confirm($(this).data('confirm'))){
@@ -109,47 +136,62 @@ $(document).ready(function () {
 					data:{id_xoa_can_bo123:id_xoa_can_bo123},
 					success:function(kq_xoa_can_bo){
 						if (kq_xoa_can_bo==99) {
-							alert('Xóa Chức vụ công');
+							alert('Xóa Cán bộ thành công');
 							$('#From_xoa_can_bo')[0].reset();
 							$('#modal_xoa_can_bo').modal('hide');
-							$('#dulieucan_bo').load("./../dulieu/dulieucan_bo.php")
+							$('#dulieucanbo').load("./../dulieu/dulieucanbo.php")
 						}else {
-							alert('Lỗi xóa Chức vụ');
+							alert('Lỗi xóa Cán bộ');
 						}
-	                    }
-					});
+					}
+				});
          	}   
       	});
-	// xuwrt lý nút thêm can_bo mới
+	// xuwrt lý nút thêm Cán bộ mới
 	$('#form_themcan_bomoi').on('submit', function(event){
 		event.preventDefault();
-		var ma_can_bo_them=$('#ma_can_bo_them').val();
-		var ten_can_bo_them=$('#ten_can_bo_them').val();
-		if(ma_can_bo_them.length==3){
-			$.ajax({
-				url: './../dulieu/add_can_bomoi.php',
-				type: 'POST',
-				data: {ma_can_bo_them12:ma_can_bo_them,ten_can_bo_them12:ten_can_bo_them},
-				success:function (kql_add_can_bo) {
-					if (kql_add_can_bo==1) {
-						alert('Mã Chức vụ hoặc tên chức vụ đã tồn tạo');
-						document.getElementById("ma_can_bo_them").focus();
-	          		}else {
-						if (kql_add_can_bo==99) {
-							alert('Thêm Chức vụ mới thành công');
-							$('#ma_can_bo_them').html();
-							$('#ten_can_bo_them').html();
-							$('#form_themcan_bomoi')[0].reset();
-							$('#dulieucan_bo').load("./../dulieu/dulieucan_bo.php");
-						}else {
-							alert('Lỗi Thêm');
+			var sdt_so_0dau =document.getElementById('sdt_can_bothemmoi_12').value.slice(0, 1);
+			var sdt_dodai = document.getElementById('sdt_can_bothemmoi_12').value.length;
+			var anh1 = document.getElementById('file_anh');
+			var loaianh = anh1.files[0].type;
+			var match= ["image/jpeg","image/png","image/jpg"];
+			if(!((loaianh==match[0]) || (loaianh==match[1]) || (loaianh==match[2]))){
+				alert("Bạn phải chọn file ảnh có đuôi là (jpeg, jpg and png)");
+			}else{
+				if (sdt_so_0dau!=0 || sdt_dodai!=10 ) {
+					alert("Số điện thoại phải bắt đầu bằng số không và phải là 10 số");
+					document.getElementById('sdt_can_bothemmoi_12').focus();
+				}else {
+					$.ajax({
+						url: './../dulieu/add_can_bomoi.php',
+						type:'POST',
+						data:new FormData(this),
+						contentType: false,
+		                cache: false,
+		                processData:false,
+						success:function (kql_add_can_bo) {
+							alert(kql_add_can_bo);0
+							if (kql_add_can_bo==99) {
+								alert('Thêm Cán bộ mới thành công');
+								$('#form_themcan_bomoi')[0].reset();
+								$('#dulieucanbo').load("./../dulieu/dulieucanbo.php");
+							}else {
+								if (kql_add_can_bo==1) {
+									alert('Số điện thoại đã tồn tại..!');
+									document.getElementById('sdt_can_bothemmoi_12').focus();
+								}else{
+									if (kql_add_can_bo==2) {
+										alert('Email đã tồn tại..!');
+										document.getElementById('email_can_bothemmoi_12').focus();
+									}else{
+										alert('Lỗi Thêm');
+									}
+								}
+							}
+
 						}
-	          		}
+					});
 				}
-			});
-     	}else {
-			alert("Độ dài mã Chức vụ không đúng");
-			document.getElementById("ma_can_bo_them").focus();
-		}
+			}
+		});
 	});
-});

@@ -10,6 +10,7 @@ include './../dulieu/kiemtradangnhap.php';
 		<link rel="shortcut icon" type="image/jpg" href="./../images/vnkgu.png"/>
 		<script type="text/javascript" src="../vendor/bootstrap.js"></script>
 		<script type="text/javascript" src="../js/js_quanlycanbo.js"></script>
+		
 		<link rel="stylesheet" href="../vendor/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="../css/ad_css.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -79,21 +80,57 @@ include './../dulieu/kiemtradangnhap.php';
 							</div>
 							<!-- Modal body -->
 							<div class="modal-body _1themtoanha">
-								<form action="" id="form_themcan_bomoi" name="form_themcan_bomoi" 	method="POST" role="form" class="_1themphong1 ">
-									<div class="form-group">
-										<label for="">Mã Cán bộ</label>
-										<input type="text" name="ma_can_bo_them" id="ma_can_bo_them" class="form-control chuinhoa" value="" required="" placeholder="Nhập mã Cán bộ" >
+								<form action="" id="form_themcan_bomoi" name="form_themcan_bomoi" 	method="POST" role="form" class="_1themphong1 " enctype="multipart/form-data">
+									<label>Ảnh</label>
+									
+									<br>
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+										<div id="message"></div>
+										 <div id="image_preview"><img id="previewing" class="img-responsive" src="" /></div>
 									</div>
-									<div class="form-group">
-										<label for="">Tên Cán bộ</label>
-										<input type="text" name="ten_can_bo_them" id="ten_can_bo_them" class="form-control chuinthuong" value="" required=""  placeholder="Nhập tên Cán bộ" >
+									<input id="file_anh" type="file" accept="image/*" name="image12" required="" />
+
+									<br>
+									<label>Mã cán bộ</label>
+									<?php $mscatim = mysqli_query($con, "SELECT can_bo.ma_can_bo FROM can_bo ORDER BY ma_can_bo DESC LIMIT 1"); 
+										$macatiem1 =1000000000;
+										if (mysqli_num_rows($mscatim)) {
+											$ms1 = mysqli_fetch_array($mscatim);
+											$macatiem1=$ms1["ma_can_bo"] +1;
+										}
+									?>
+									<input  type="text" name="ma_can_bo_themmoi123" id="ma_can_bo_themmoi123" class="form-control "  value="<?php echo $macatiem1 ?>"  readonly />
+									<br />
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
+										<label>Họ cán bộ</label>
+										<input  name="ho_can_bothemmoi_12" id="ho_can_bothemmoi_12" class="form-control chuinthuong" rows="1" required="">
 									</div>
-									<p id="thongbao_themcan_bo"></p>
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
+										<label>Tên cán bộ</label>
+										<input  name="ten_can_bothemmoi_12" id="ten_can_bothemmoi_12" class="form-control chuinthuong" rows="1" required="">
+									</div>
+									<br />
+									<label>Ngày sinh</label>
+									<input  type="date" name="ngaysinh_can_bothemmoi_12" id="ngaysinh_can_bothemmoi_12" class="form-control " rows="1" required="">
+									<br />
+									<label>Giới tính</label>
+									<select  name="gioitinh_can_bothemmoi_12" id="gioitinh_can_bothemmoi_12" class="form-control chuinthuong" required="required">
+										<option value="" >Chọn giới tính</option>
+										<option value="Nam">Nam</option>
+										<option value="Nữ">Nữ</option>
+									</select>
+									<br>
+									<label>Điện thoại</label>
+									<input  type="number" name="sdt_can_bothemmoi_12" id="sdt_can_bothemmoi_12" class="form-control"  required="">
+									<br />
+									<label>Email</label>
+									<input  type="email" name="email_can_bothemmoi_12" id="email_can_bothemmoi_12" class="form-control" rows="1" required="">
+									<br />
 								</div>
 								<!-- Modal footer -->
-								<div class="modal-footer">
-									<button type="submit" class="btn btn-danger">Thêm mới</button>
-								</div>
+									<div class="modal-footer">
+										<button type="submit" class="btn btn-danger">Thêm mới</button>
+									</div>
 							</form>
 						</div>
 					</div>

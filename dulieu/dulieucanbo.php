@@ -11,6 +11,7 @@ include 'conn.php';
 		<thead>
 			<tr>
 				<th style="text-align:center;">STT</th>
+				<th>Ảnh</th>
 				<th>Mã Cán bộ</th>
 				<th>Tên Cán bộ</th>
 				<th>Ngày sinh</th>
@@ -37,6 +38,7 @@ include 'conn.php';
 			echo "
 			<tr>
 				<td style='text-align:center;'>$stt</td>
+				<td class='canhgiua'><img class='img-responsive ' style= ' width:100%;'src='./../images/$row_can_bo[hinhanh]'></td>
 				<td class='chuinhoa canhgiua'>$row_can_bo[ma_can_bo]</td>
 				<td class='chuinthuong'>$row_can_bo[ho_can_bo] $row_can_bo[ten_can_bo]</td>
 				<td class=''>".date('d/m/Y', strtotime($row_can_bo["ngay_sinh"]))."</td>
