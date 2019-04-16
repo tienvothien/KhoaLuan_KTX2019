@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 15, 2019 lúc 02:44 PM
+-- Thời gian đã tạo: Th4 16, 2019 lúc 05:05 PM
 -- Phiên bản máy phục vụ: 10.1.29-MariaDB
 -- Phiên bản PHP: 7.2.0
 
@@ -1032,13 +1032,10 @@ CREATE TABLE `log_sua_dl` (
 --
 
 INSERT INTO `log_sua_dl` (`idlog`, `bangsua`, `tenbang`, `iddulieu`, `cot`, `tencot`, `noidungtruocsua`, `noidungsausua`, `nguoisua`, `ngaysua`) VALUES
-(112, 'chucvu', 'Chức vụ', 17, 'tenchucvu', 'Tên Chức vụ', 'Chức vụ ví dụ 3', 'Chức vụ ví dụ 7', 1, '2019-04-14 15:23:35'),
-(113, 'chucvu', 'Chức vụ', 17, 'tenchucvu', 'Tên Chức vụ', 'Chức vụ ví dụ 3', 'Chức vụ ví dụ 7', 1, '2019-04-14 15:23:39'),
-(114, 'chucvu', 'Chức vụ', 17, 'tenchucvu', 'Tên Chức vụ', 'Chức vụ ví dụ 3', 'Chức vụ ví dụ 7', 1, '2019-04-14 15:24:38'),
-(115, 'chucvu', 'Chức vụ', 17, 'tenchucvu', 'Tên Chức vụ', 'Chức vụ ví dụ 7', 'Chức vụ ví dụ 3', 1, '2019-04-14 15:25:14'),
-(116, 'chucvu', 'Chức vụ', 1, 'tenchucvu', 'Tên Chức vụ', 'Cán bộ quản lý Phòng', 'quản lý Phòng', 1, '2019-04-14 19:45:11'),
-(117, 'lop', 'Lớp', 9, 'nam_BD', 'Năm bắt đầu', '2023', '2015', 1, '2019-04-14 21:27:34'),
-(118, 'lop', 'Lớp', 9, 'ma_lop', 'Mã Lớp', 'ma2l33', 'MALVD1', 1, '2019-04-14 21:28:07');
+(1, 'can_bo', 'Cán bộ', 2, 'hinhanh', 'Ảnh cá nhân', '2131a7bca6f843a61ae9.jpg', 'vnkgu.png', 1, '2019-04-16 22:02:05'),
+(137, 'can_bo', 'Cán bộ', 2, 'hinhanh', 'Ảnh cá nhân', 'vnkgu.png', '2131a7bca6f843a61ae9.jpg', 1, '2019-04-16 22:02:18'),
+(138, 'can_bo', 'Cán bộ', 2, 'hinhanh', 'Ảnh cá nhân', '2131a7bca6f843a61ae9.jpg', 'vnkgu.png', 1, '2019-04-16 22:03:36'),
+(139, 'can_bo', 'Cán bộ', 2, 'hinhanh', 'Ảnh cá nhân', 'vnkgu.png', '2131a7bca6f843a61ae9.jpg', 1, '2019-04-16 22:03:47');
 
 -- --------------------------------------------------------
 
@@ -1068,7 +1065,7 @@ INSERT INTO `lop` (`id_lop`, `ma_lop`, `ten_lop`, `id_khoa`, `khoa`, `nam_BD`, `
 (1, 'b15tt3', 'B15 Thông tin 2', 1, 1, 2015, 1, '2019-04-12 00:00:00', 0, 1, '2019-04-12 19:30:20'),
 (7, 'qưert', 'asda', 55, 1, 2015, 1, '0000-00-00 00:00:00', 1, 1, '2019-04-12 21:28:34'),
 (8, 'qưer8', 'asdaasdasd', 55, 1, 2015, 1, '2019-04-12 20:46:29', 0, NULL, NULL),
-(9, 'MALVD1', 'Ví dụ sửa tên231231', 1, 2, 2015, 1, '2019-04-12 22:20:08', 0, NULL, NULL);
+(9, 'MALVD1', 'Lớp VD', 1, 2, 2015, 1, '2019-04-12 22:20:08', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -12715,7 +12712,7 @@ ALTER TABLE `anhbia`
 -- AUTO_INCREMENT cho bảng `can_bo`
 --
 ALTER TABLE `can_bo`
-  MODIFY `id_canbo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_canbo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `chucvu`
@@ -12769,7 +12766,7 @@ ALTER TABLE `loai_phong`
 -- AUTO_INCREMENT cho bảng `log_sua_dl`
 --
 ALTER TABLE `log_sua_dl`
-  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT cho bảng `lop`

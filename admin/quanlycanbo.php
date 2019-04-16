@@ -161,16 +161,16 @@ include './../dulieu/kiemtradangnhap.php';
 								<h4 class="modal-title">Cập nhật thông tin Cán bộ</h4>
 							</div>
 							<div class="modal-body">
-								<form method="post" id="from_suathongtin_can_bo" enctype="multipart/form-data" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
+								<form action="" id="from_suathongtin_can_bo" name="from_suathongtin_can_bo" 	method="POST" role="form" class="_1themphong1 " enctype="multipart/form-data" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
 									<label>Ảnh</label>
 									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-										 <div id="image_preview_sua" style="padding-left: 30%"><img id="previewing_sua" class="img-responsive" style="width:100px; height: 130px" rc="" /></div>
+										 <div id="image_preview_sua" style="padding-left: 30%"><img id="previewing_sua" class="img-responsive" style="width:100px; height: 150px" rc="" /></div>
 									</div>
-									<input id="file_anh_sua" type="file" accept="image/*" name="image12_sua" required="" />
+									<input id="file_anh_sua" type="file" accept="image/*" name="image12_sua123" />
 
 									<label>Mã cán bộ</label>
 									
-									<input  type="text" name="ma_can_bo_sua123" id="ma_can_bo_sua123" class="form-control "  value=""  readonly />
+									<input  type="text" name="ma_can_bo_sua123" id="ma_can_bo_sua123" class="form-control "  value=""   />
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Họ cán bộ</label>
 										<input  name="ho_can_bosua_12" id="ho_can_bosua_12" class="form-control chuinthuong" rows="1" required="">
@@ -191,13 +191,11 @@ include './../dulieu/kiemtradangnhap.php';
 									<input  type="number" name="sdt_can_bosua_12" id="sdt_can_bosua_12" class="form-control"  required="">
 									<label>Email</label>
 									<input  type="email" name="email_can_bosua_12" id="email_can_bosua_12" class="form-control" rows="1" required="">
-									
 									<input type="hidden" name="id_can_bo_sua_12" id="id_can_bo_sua_12" />
-									<input type="submit" name="insert" id="insert" value="Insert" class="btn btn-danger capnhattb" />
-								</form>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>
+								<input type="submit" name="insert" id="insert" value="Insert" class="btn btn-danger capnhattb" />
+								<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button></form>
 							</div>
 						</div>
 					</div>
