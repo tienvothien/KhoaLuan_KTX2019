@@ -29,7 +29,7 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 			<i class=" fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-container">
-				<a href="qltaikhoan.php" class="list-group-item">Quản lý tài khoản</a>
+				<a href="quanlythongtintaikhoandangnhap.php" class="list-group-item">Quản lý tài khoản</a>
 				<a href="../dulieu/dangxuat.php"><span class="glyphicon glyphicon-log-in"></span> Đăng xuất</a>
 			</div>
 			<a href="timkiem.php" class="list-group-item">Tìm kiếm</a>
@@ -45,7 +45,7 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 			<i class="fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-container">
-				<a href="qlsinhvien.php" class="list-group-item">Thông tin Sinh viên</a>
+				<a href="quanlysinhvien.php" class="list-group-item">Thông tin Sinh viên</a>
 				<a href="quanlylop.php" class="list-group-item">Quản lý Lớp</a>
 				<a href="quanlykhoa.php" class="list-group-item">Quản lý Khoa</a>
 			</div>

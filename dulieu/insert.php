@@ -294,6 +294,15 @@
 			echo "100";
 		}
 	}//end xóa Cán bộ
+
+	if (isset($_POST['id_xoa_sinh_vien123'])) { // xoa sinh vien
+		$delete_xoa_can_bo = "UPDATE sinh_vien SET sinh_vien.xoa=1, sinh_vien.id_canboxoa='$_SESSION[id_canbo]', sinh_vien.ngay_xoa='".date('Y/m/d H:i:s')."' WHERE sinh_vien.id_sinhvien = '$_POST[id_xoa_sinh_vien123]'";
+		if (mysqli_query($con,$delete_xoa_can_bo)) {
+			echo "99";
+		}else{
+			echo "100";
+		}
+	}//end xóa sinh vien
 	mysqli_close($con);
 
 ?>

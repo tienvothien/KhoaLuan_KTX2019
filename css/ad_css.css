@@ -8,9 +8,10 @@ div#image_preview {
     padding-left: 30%;
 }
 
-.col-xs-12.col-sm-6.col-md-6.col-lg-6.hoten_cb_sua {
+.hoten_cb_sua {
     padding-left: 0px;
     padding-right: 4px;
+    padding-bottom: 10px;
 }
 
 .thumbnail.mua_nen_4 {
