@@ -100,7 +100,38 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 								</div>
 							</div>
-						</a> <!-- end het hien thong tin Cán bộ-->
+							<a href="quanlytoanha.php" title=""><!--  hien thoong trinh chi tiet Tòa nhà-->
+							<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+								<div class="thumbnail mua_nen_5">
+									<div class="captionb align-middler">
+										<h3 class="canhgiua"  >Tòa nhà</h3>
+										<p  >
+											<h3 class="canhgiua ">
+											<?php include './conn.php';
+											$soluongtoanha = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(toa_nha.id_toanha) AS sltoanha FROM toa_nha WHERE toa_nha.xoa =0"));
+											echo $soluongtoanha['sltoanha'];
+											?></h3>
+										</p>
+									</div>
+								</div>
+							</div>
+						</a> <!-- end het hien thong tin Tòa nhà-->
+						<a href="quanlyloaiphong.php" title=""><!--  hien thoong trinh chi tiet Loại phòng-->
+							<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+								<div class="thumbnail mua_nen_6">
+									<div class="captionb align-middler">
+										<h3 class="canhgiua"  >Loại phòng</h3>
+										<p  >
+											<h3 class="canhgiua ">
+											<?php include './conn.php';
+											$soluongloai_phong = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(loai_phong.id_loaiphong) AS slloai_phong FROM loai_phong WHERE loai_phong.xoa =0"));
+											echo $soluongloai_phong['slloai_phong'];
+											?></h3>
+										</p>
+									</div>
+								</div>
+							</div>
+						</a> <!-- end het hien thong tin Loại phòng-->
 					</div>
 					</div><!-- end thaydoi1 -->
 					</div><!-- end noidungthaydoi -->

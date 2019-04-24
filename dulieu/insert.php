@@ -303,6 +303,99 @@
 			echo "100";
 		}
 	}//end xóa sinh vien
+	// xoas Tòa nhà
+	if (isset($_POST['id_xoa_toa_nha'])) { 
+		// kiểm tra có sinh vien ở tòa nhà đó không
+		$kiemtraophong = mysqli_query($con, "SELECT o_phong.id_ophong FROM phong, o_phong WHERE phong.xoa=0 AND phong.id_toanha ='$_POST[id_xoa_toa_nha]' AND phong.idphong=o_phong.id_phong AND o_phong.ngay_ket_thuc='0'");
+		if (mysqli_num_rows($kiemtraophong)) {
+			echo "101";
+		}else{
+			$delete_xoa_toa_nha = "UPDATE toa_nha SET toa_nha.xoa=1, toa_nha.id_canboxoa='$_SESSION[id_canbo]', toa_nha.ngay_xoa='".date('Y/m/d H:i:s')."' WHERE toa_nha.id_toanha = '$_POST[id_xoa_toa_nha]'";
+			if (mysqli_query($con,$delete_xoa_toa_nha)) {
+				echo "99";
+			}else{
+				echo "100";
+			}
+		}
+	}//end xóa Tòa nhà
+	// kiểm tra và cap nbhat lại thông tin Tòa nhà
+	if (isset($_POST['ma_toa_nha_update_124']) && isset($_POST['ten_toa_nha_update_124']) && isset($_POST['loai_toa_nha_update_124'])&& isset($_POST['id_toa_nha_update_124']) ) {
+		$id_toa_nha_update = $_POST['id_toa_nha_update_124'];
+		$ma_toa_nha_update = $_POST['ma_toa_nha_update_124'];
+		$ten_toa_nha_update = $_POST['ten_toa_nha_update_124'];
+		$loai_toa_nha_update = $_POST['loai_toa_nha_update_124'];
+		// kiểm tra mã tòa nhà tồn tại chưa
+		$kiemtramatoa_nha = mysqli_query($con,"SELECT * FROM toa_nha WHERE toa_nha.xoa=0 AND toa_nha.id_toanha <> '$id_toa_nha_update' and  toa_nha.ma_toa_nha='$ma_toa_nha_update'");
+		// dlog
+		//end
+		if(mysqli_num_rows($kiemtramatoa_nha)){
+			echo "1";// mã đã tồn tại
+		}else{
+			// kiểm tra mã tòa nhà tồn tại chưa
+			$kiemtra_ten_toa_nha = mysqli_query($con,"SELECT * FROM toa_nha WHERE toa_nha.xoa=0 AND toa_nha.id_toanha <> '$id_toa_nha_update' and  toa_nha.ten_toa_nha='$ten_toa_nha_update'");
+			if(mysqli_num_rows($kiemtra_ten_toa_nha)){
+				echo "2";// mã đã tồn tại
+			}else{
+				$kiemtra_update_toa_nha=99;
+				// ghi log
+				$logdl_toa_nha_row = mysqli_fetch_array(mysqli_query($con,"SELECT * FROM toa_nha WHERE toa_nha.xoa=0 and toa_nha.id_toanha ='$id_toa_nha_update'"));
+				if ($ma_toa_nha_update!=$logdl_toa_nha_row["ma_toa_nha"]) { // kiểm mã có thay đổi  mã Tòa nhà
+					$log1 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('toa_nha','Tòa nhà','$id_toa_nha_update','ma_toa_nha','Mã Tòa nhà', '$logdl_toa_nha_row[ma_toa_nha]','$ma_toa_nha_update','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
+					mysqli_query($con, $log1);
+					//cập nhật dữ liệu thay đổi
+					$Update_toa_nha1 ="UPDATE toa_nha  SET toa_nha.ma_toa_nha = '$ma_toa_nha_update' WHERE toa_nha.id_toanha ='$id_toa_nha_update'";
+					if(mysqli_query($con, $Update_toa_nha1)){
+						$kiemtra_update_toa_nha=99;
+					}else{
+						$kiemtra_update_toa_nha=100;
+					}
+				}//end  kiểm mã có thay đổi  mã Tòa nhà
+				if ($ten_toa_nha_update!=$logdl_toa_nha_row["ten_toa_nha"]) { // kiểm mã có thay đổi  Tên Tòa nhà
+					$log2 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('toa_nha','Tòa nhà','$id_toa_nha_update','ten_toa_nha','Tên Tòa nhà', '$logdl_toa_nha_row[ten_toa_nha]','$ten_toa_nha_update','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
+					mysqli_query($con, $log2);
+					//cập nhật dữ liệu thay đổi
+					$Update_toa_nha2 ="UPDATE toa_nha  SET toa_nha.ten_toa_nha = '$ten_toa_nha_update' WHERE toa_nha.id_toanha ='$id_toa_nha_update'";
+					if(mysqli_query($con, $Update_toa_nha2)){
+						$kiemtra_update_toa_nha=99;
+					}else{
+						$kiemtra_update_toa_nha=100;
+					}
+				}//end  kiểm mã có thay đổi  Tên Tòa nhà
+				if ($loai_toa_nha_update!=$logdl_toa_nha_row["loai_toa_nha"]) { // kiểm mã có thay đổi  Loại Tòa nhà
+					$kiemtraophong = mysqli_query($con, "SELECT o_phong.id_ophong FROM phong, o_phong WHERE phong.xoa=0 AND phong.id_toanha ='$id_toa_nha_update' AND phong.idphong=o_phong.id_phong AND o_phong.ngay_ket_thuc='0'");
+					if (mysqli_num_rows($kiemtraophong)) {
+						$kiemtra_update_toa_nha=101;
+					}else{
+						$log3 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('toa_nha','Tòa nhà','$id_toa_nha_update','loai_toa_nha','Loại Tòa nhà', '$logdl_toa_nha_row[loai_toa_nha]','$loai_toa_nha_update','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
+						mysqli_query($con, $log3);
+						//cập nhật dữ liệu thay đổi
+						$Update_toa_nha3 ="UPDATE toa_nha  SET toa_nha.loai_toa_nha = '$loai_toa_nha_update' WHERE toa_nha.id_toanha ='$id_toa_nha_update'";
+						if(mysqli_query($con, $Update_toa_nha3)){
+							$kiemtra_update_toa_nha=99;
+						}else{
+							$kiemtra_update_toa_nha=100;
+						}
+					}
+				}//end  kiểm mã có thay đổi  Loại Tòa nhà
+				echo $kiemtra_update_toa_nha;
+			}
+		}
+	} //ket thuc cap nhat thong tin Tòa nhà
+	// xoas Loại phòng
+	if (isset($_POST['id_xoa_loai_phong'])) { 
+		// kiểm tra có sinh vien ở Loại phòng đó không
+		$kiemtraophong = mysqli_query($con, "SELECT o_phong.id_ophong FROM phong, o_phong WHERE phong.xoa=0 AND phong.id_loaiphong ='$_POST[id_xoa_loai_phong]' AND phong.idphong=o_phong.id_phong AND o_phong.ngay_ket_thuc='0'");
+		if (mysqli_num_rows($kiemtraophong)) {
+			echo "101";
+		}else{
+			$delete_xoa_loai_phong = "UPDATE loai_phong SET loai_phong.xoa=1, loai_phong.id_canboxoa='$_SESSION[id_canbo]', loai_phong.ngay_xoa='".date('Y/m/d H:i:s')."' WHERE loai_phong.id_loaiphong = '$_POST[id_xoa_loai_phong]'";
+			if (mysqli_query($con,$delete_xoa_loai_phong)) {
+				echo "99";
+			}else{
+				echo "100";
+			}
+		}
+	}//end xóa Loại phòng
 	mysqli_close($con);
 
 ?>

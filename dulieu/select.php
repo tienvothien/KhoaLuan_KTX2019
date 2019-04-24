@@ -300,4 +300,130 @@ include 'kiemtradangnhap.php';
       ';
       echo $output;
   } // end xử lý hiện thông tin chitet chuc vu
+  // dữ liệu Tòa nhà
+  if (isset($_POST["id_chitiettoa_nha"])) {
+      $output = '';
+      include 'conn.php';
+      $query = "SELECT toa_nha.id_toanha, toa_nha.ma_toa_nha, toa_nha.ten_toa_nha, toa_nha.loai_toa_nha,toa_nha.ngaythem, can_bo.ma_can_bo, can_bo.ho_can_bo, can_bo.ten_can_bo FROM toa_nha, can_bo WHERE toa_nha.xoa=0 AND toa_nha.id_toanha='$_POST[id_chitiettoa_nha]' AND can_bo.id_canbo=toa_nha.id_canbothem ";
+      // đếm số lượng phòng ở của tòa nhà
+        $slphong = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(idphong) AS slphong FROM phong WHERE phong.xoa=0 AND phong.id_toanha='$_POST[id_chitiettoa_nha]'"));
+        // đếm số lượng gường
+        $slguong = mysqli_fetch_array(mysqli_query($con, "SELECT SUM(loai_phong.sl_nguoi_o) AS slguong FROM phong, loai_phong WHERE phong.xoa=0 AND phong.id_toanha='$_POST[id_chitiettoa_nha]' AND phong.id_loaiphong=loai_phong.id_loaiphong"));
+        // đếm số lượng sinh viên của tòa nhà
+        $slsinhvien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(o_phong.id_ophong) AS slsinhvien FROM phong, o_phong WHERE o_phong.ngay_ket_thuc='' AND phong.id_toanha='$_POST[id_chitiettoa_nha]' AND phong.idphong=o_phong.id_ophong"));
+      $result = mysqli_query($con, $query);
+      $output .= '
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped " id="myTable">';
+           while ($row_toa_nha1 = mysqli_fetch_array($result)) {
+           
+            $output .= '
+              
+              <tr>
+                <td width="50%"><label>Mã Tòa nhà</label></td>
+                <td width="50%" class="">' .$row_toa_nha1["ma_toa_nha"] . '</td>
+              </tr>
+              <tr>
+                <td width="50%"><label>Tên Tòa nhà</label></td>
+                <td width="50%" class="chuinthuong">' .$row_toa_nha1["ten_toa_nha"] . '</td>
+              </tr>
+              <tr>
+                <td width="50%"><label>Loại</label></td>
+                <td width="50%" class="">' .$row_toa_nha1["loai_toa_nha"] . '</td>
+              </tr>
+              <tr>
+                <td width="50%"><label>Số phòng</label></td>
+                <td width="50%" class="">' .$slphong["slphong"] . '</td>
+              </tr>
+              <tr>
+                <td width="50%"><label>Số Gường</label></td>
+                <td width="50%" class="">' .$slguong["slguong"] . '</td>
+              </tr>
+              <tr>
+                <td width="50%"><label>Số sinh viên đang ở</label></td>
+                <td width="50%" class="">' .$slsinhvien["slsinhvien"] . '</td>
+              </tr>
+              
+              <tr>
+                <td width="50%"><label>Người thêm</label></td>
+                <td width="50%" class="chuinthuong">' .$row_toa_nha1["ho_can_bo"] .$row_toa_nha1["ten_can_bo"] .'<br>'. $row_toa_nha1["ma_can_bo"].'</td>
+              </tr>
+              <tr>
+                <td width="50%"><label>Ngày thêm</label></td>
+                <td width="50%" colspan="2" >' . date("d/m/Y", strtotime($row_toa_nha1['ngaythem'])) . ' </td>
+              </tr>
+              
+                ';
+                  }
+            $output .= '
+        </table>
+      </div>
+      ';
+      echo $output;
+  } // end xử lý hiện thông tin chitet Tòa nhà
+  // dữ liệu Loại phòng
+  if (isset($_POST["id_chitietloai_phong"])) {
+      $output = '';
+      include 'conn.php';
+      $query = "SELECT loai_phong.id_loaiphong, loai_phong.ma_loai_phong, loai_phong.ten_loai_phong, loai_phong.gia_loai_phong,loai_phong.ngay_them,loai_phong.sl_nguoi_o, can_bo.ma_can_bo, can_bo.ho_can_bo, can_bo.ten_can_bo FROM loai_phong, can_bo WHERE loai_phong.xoa=0 AND loai_phong.id_loaiphong='$_POST[id_chitietloai_phong]' AND can_bo.id_canbo=loai_phong.id_canbothem ";
+      // đếm số lượng phòng ở của Loại phòng
+        $slphong = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(idphong) AS slphong FROM phong WHERE phong.xoa=0 AND phong.id_loaiphong='$_POST[id_chitietloai_phong]'"));
+        // đếm số lượng gường
+        $slguong = mysqli_fetch_array(mysqli_query($con, "SELECT SUM(loai_phong.sl_nguoi_o) AS slguong FROM phong, loai_phong WHERE phong.xoa=0 AND phong.id_loaiphong='$_POST[id_chitietloai_phong]' AND phong.id_loaiphong=loai_phong.id_loaiphong"));
+        // đếm số lượng sinh viên của Loại phòng
+        $slsinhvien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(o_phong.id_ophong) AS slsinhvien FROM phong, o_phong WHERE o_phong.ngay_ket_thuc='' AND phong.id_loaiphong='$_POST[id_chitietloai_phong]' AND phong.idphong=o_phong.id_ophong"));
+      $result = mysqli_query($con, $query);
+      $output .= '
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped " id="myTable">';
+           while ($row_loai_phong1 = mysqli_fetch_array($result)) {
+           
+            $output .= '
+              
+              <tr>
+                <td width="50%"><label>Mã Loại phòng</label></td>
+                <td width="50%" class="chuinhoa">' .$row_loai_phong1["ma_loai_phong"] . '</td>
+              </tr>
+              <tr>
+                <td width="50%"><label>Tên Loại phòng</label></td>
+                <td width="50%" class="chuinthuong">' .$row_loai_phong1["ten_loai_phong"] . '</td>
+              </tr>
+              <tr>
+                <td width="50%"><label>Giá loại phòng ( VNĐ)</label></td>
+                <td width="50%" class="">' .number_format ( $row_loai_phong1["gia_loai_phong"] , $decimals = 0 , $dec_point = "." , $thousands_sep = ","  ) . '</td>
+              </tr>
+              <tr>
+                <td width="50%"><label>Số người ở tối đa</label></td>
+                <td width="50%" class="">' .$row_loai_phong1["sl_nguoi_o"]. '</td>
+              </tr>
+              <tr>
+                <td width="50%"><label>Số phòng</label></td>
+                <td width="50%" class="">' .$slphong["slphong"] . '</td>
+              </tr>
+              <tr>
+                <td width="50%"><label>Số Gường</label></td>
+                <td width="50%" class="">' .$slguong["slguong"] . '</td>
+              </tr>
+              <tr>
+                <td width="50%"><label>Số sinh viên đang ở</label></td>
+                <td width="50%" class="">' .$slsinhvien["slsinhvien"] . '</td>
+              </tr>
+              
+              <tr>
+                <td width="50%"><label>Người thêm</label></td>
+                <td width="50%" class="chuinthuong">' .$row_loai_phong1["ho_can_bo"] .$row_loai_phong1["ten_can_bo"] .'<br>'. $row_loai_phong1["ma_can_bo"].'</td>
+              </tr>
+              <tr>
+                <td width="50%"><label>Ngày thêm</label></td>
+                <td width="50%" colspan="2" >' . date("d/m/Y", strtotime($row_loai_phong1['ngay_them'])) . ' </td>
+              </tr>
+              
+                ';
+                  }
+            $output .= '
+        </table>
+      </div>
+      ';
+      echo $output;
+  } // end xử lý hiện thông tin chitet Loại phòng
 ?>

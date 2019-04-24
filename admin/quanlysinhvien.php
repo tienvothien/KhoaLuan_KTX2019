@@ -78,6 +78,7 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 								</div>
 							</div>
+
 							<!-- Modal body -->
 							<div class="modal-body _1themtoanha">
 								<form action="" id="form_themsinhvienmoi" name="form_themsinhvienmoi" 	method="POST" role="form" class="_1themphong1 " enctype="multipart/form-data">
@@ -93,14 +94,8 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hoten_cb_sua ">
 										<label>Mã Sinh viên</label>
-										<?php $mscatim = mysqli_query($con, "SELECT sinh_vien.mssv FROM sinh_vien ORDER BY mssv DESC LIMIT 1");
-											$macatiem1 =1000000000;
-											if (mysqli_num_rows($mscatim)) {
-												$ms1 = mysqli_fetch_array($mscatim);
-												$macatiem1=$ms1["mssv"] +1;
-											}
-										?>
-										<input style="width:50%"  name="ma_sinhvien_themmoi123" id="ma_sinhvien_themmoi123" class="form-control "  value="<?php echo $macatiem1 ?>"  readonly />
+										
+										<input style="width:50%" type="number" name="ma_sinhvien_themmoi123" id="ma_sinhvien_themmoi123" class="form-control "  value=""  required="" placeholder="Nhập mã sinh viên"/>
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Họ Sinh viên</label>
@@ -126,7 +121,7 @@ include './../dulieu/kiemtradangnhap.php';
 										
 										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 hoten_cb_sua">
 											<label for="">HKTT: Tỉnh</label>
-											<select name="" id="input" class="form-control" required="required">
+											<select name="tinh_them_sinh_vien" id="tinh_them_sinh_vien" class="form-control" required="required">
 												<option value="">Chọn tỉnh</option>
 												
 												<?php
@@ -139,24 +134,24 @@ include './../dulieu/kiemtradangnhap.php';
 										</div>
 										<div class="col-xs-3 col-sm-3col-md-3 col-lg-3 hoten_cb_sua">
 											<label>Huyện</label>
-											<select name="" id="input" class="form-control" required="required">
+											<select name="huyen_them_sinh_vien" id="huyen_them_sinh_vien" class="form-control" required="required">
 												<option value="">Chọn huyện</option>
 											</select>
 										</div>
 										<div class="col-xs-3 col-sm-3col-md-3 col-lg-3 hoten_cb_sua">
 											<label>xã</label>
-											<select name="" id="input" class="form-control" required="required">
+											<select name="xa_them_sinh_vien" id="xa_them_sinh_vien" class="form-control" required="required">
 												<option value="">Chọn xã</option>
 											</select>
 										</div>
 										<div class="col-xs-3 col-sm-3col-md-3 col-lg-3 hoten_cb_sua">
 											<label>Số nhà</label>
-											<input type="text" name="ten_sinhvienthemmoi_12" id="ten_sinhvienthemmoi_12" class="form-control chuinthuong" rows="1" required="">
+											<input type="text" name="sonha_them_sinh_vien" id="sonha_them_sinh_vien" class="form-control chuinthuong" rows="1" required="">
 										</div>
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Quê quán</label>
-										<select name="" id="input" class="form-control" required="required">
+										<select name="quequan_them_sinh_vien" id="quequan_them_sinh_vien" class="form-control" required="required">
 											<option value="">Chọn quê quán</option>
 											
 											<?php
@@ -169,15 +164,15 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Số CMND</label>
-										<input  type="number" name="email_sinhvienthemmoi_12" id="email_sinhvienthemmoi_12" class="form-control" rows="1" required="">
+										<input  type="number" name="cmnd_them_sinh_vien" id="cmnd_them_sinh_vien" class="form-control" rows="1" required="">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Ngày cấp CMND</label>
-										<input  type="date" name="email_sinhvienthemmoi_12" id="email_sinhvienthemmoi_12" class="form-control" rows="1" required="">
+										<input  type="date" name="ngay_capcnnd_them_sinh_vien" id="ngay_capcnnd_them_sinh_vien" class="form-control" rows="1" required="">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Nơi cấp</label>
-										<select name="" id="input" class="form-control" required="required">
+										<select name="noicap_them_sinh_vien" id="noicap_them_sinh_vien" class="form-control" required="required">
 											<option value="">Chọn quê quán</option>
 											<?php
 												$tinh = mysqli_query($con, 'SELECT * FROM tinh');
@@ -189,15 +184,19 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Điện thoại</label>
-										<input  type="number" name="email_sinhvienthemmoi_12" id="email_sinhvienthemmoi_12" class="form-control" rows="1" required="">
+										<input  type="number" name="so_dt_them_sinh_vien" id="so_dt_them_sinh_vien" class="form-control" rows="1" required="">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Email</label>
-										<input  type="email" name="email_sinhvienthemmoi_12" id="email_sinhvienthemmoi_12" class="form-control" rows="1" required="">
+										<input  type="email" name="email_them_sinh_vien" id="email_them_sinh_vien" class="form-control" rows="1" required="">
+									</div>
+									<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 hoten_cb_sua">
+										<label>Khóa</label>
+										<input  type="number" name="khoa_them_sinh_vien" id="khoa_them_sinh_vien" class="form-control" rows="1" required="">
 									</div>
 									<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 hoten_cb_sua">
 										<label>Khoa</label>
-										<select name="" id="input" class="form-control" required="required">
+										<select name="id_khoa_them_sinh_vien" id="id_khoa_them_sinh_vien" class="form-control" required="required">
 											<option value="">Chọn Khoa</option>
 											<?php
 												$tinh = mysqli_query($con, 'SELECT * FROM tinh');
@@ -209,27 +208,24 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 hoten_cb_sua">
 										<label>Lớp</label>
-										<input  type="text" name="email_sinhvienthemmoi_12" id="email_sinhvienthemmoi_12" class="form-control" rows="1" required="">
+										<input  type="text" name="lop_them_sinh_vien" id="lop_them_sinh_vien" class="form-control" rows="1" required="">
 									</div>
-									<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 hoten_cb_sua">
-										<label>Khóa</label>
-										<input  type="number" name="email_sinhvienthemmoi_12" id="email_sinhvienthemmoi_12" class="form-control" rows="1" required="">
-									</div>
+									
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Họ tên Cha</label>
-										<input  type="text" name="email_sinhvienthemmoi_12" id="email_sinhvienthemmoi_12" class="form-control" rows="1" required="">
+										<input  type="text" name="hotencha_them_sinh_vien" id="hotencha_them_sinh_vien" class="form-control" rows="1" required="">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>SĐT Cha</label>
-										<input  type="text" name="email_sinhvienthemmoi_12" id="email_sinhvienthemmoi_12" class="form-control" rows="1" required="">
+										<input  type="text" name="sdtcha_them_sinh_vien" id="sdtcha_them_sinh_vien" class="form-control" rows="1" required="">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Họ tên Mẹ</label>
-										<input  type="text" name="email_sinhvienthemmoi_12" id="email_sinhvienthemmoi_12" class="form-control" rows="1" required="">
+										<input  type="text" name="hotenme_them_sinh_vien" id="hotenme_them_sinh_vien" class="form-control" rows="1" required="">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>SĐT Mẹ</label>
-										<input  type="text" name="email_sinhvienthemmoi_12" id="email_sinhvienthemmoi_12" class="form-control" rows="1" required="">
+										<input  type="text" name="sdtme_them_sinh_vien" id="sdtme_them_sinh_vien" class="form-control" rows="1" required="">
 									</div>
 								</div>
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hoten_cb_sua text-center">

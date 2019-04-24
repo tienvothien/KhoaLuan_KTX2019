@@ -41,4 +41,21 @@ if (isset($_POST["id_can_bo_sua"])) {
 	$row = mysqli_fetch_array($result);
 	echo json_encode($row);
 }//end xử lý thông tin Cán bộ
+// xử lý xuất thông tin Cán bộ
+if (isset($_POST["id_sua_toa_nha"])) {
+	$query = "SELECT toa_nha.id_toanha, toa_nha.ma_toa_nha, toa_nha.ten_toa_nha, toa_nha.loai_toa_nha FROM toa_nha WHERE toa_nha.id_toanha = '" . $_POST["id_sua_toa_nha"] . "'";
+	$result = mysqli_query($con, $query);
+	$row = mysqli_fetch_array($result);
+	echo json_encode($row);
+}//end xử lý thông tin Cán bộ
+// xử lý xuất thông tin Loại phòng
+if (isset($_POST["id_sua_loai_phong"])) {
+	$query = "SELECT loai_phong.id_loaiphong, loai_phong.ma_loai_phong, loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o, loai_phong.gia_loai_phong FROM loai_phong WHERE loai_phong.id_loaiphong = '" . $_POST["id_sua_loai_phong"] . "'";
+	$result = mysqli_query($con, $query);
+	$row = mysqli_fetch_array($result);
+	echo json_encode($row);
+}//end xử lý thông tin Loại phòng
+
+	mysqli_close($con);
+
 ?>

@@ -11,8 +11,8 @@ include 'conn.php';
 		<thead>
 			<tr>
 				<th style="text-align:center;">STT</th>
-				<th>Mã Cán bộ</th>
-				<th>Tên Cán bộ</th>
+				<th>Mã Sinh viên</th>
+				<th>Tên Sinh viên</th>
 				<th>Ngày sinh</th>
 				<th>Giới tính</th>
 				<th>HKTT</th>
@@ -30,7 +30,7 @@ include 'conn.php';
 				$diachi1='';
 				// lấy địa chỉ
 				$diachi = mysqli_fetch_array(mysqli_query($con, "SELECT xa.tenxa, huyen.tenhuyen, tinh.tentinh FROM tinh INNER JOIN huyen ON tinh.matinh = huyen.matinh INNER JOIN xa ON huyen.mahuyen = xa.mahuyen WHERE xa.maxa = '$row_sinh_vien[maxa]'"));
-				$diachi1=$row_sinh_vien['so_nha'].", Xã ".$diachi['tenxa'].", Huyện ".$diachi['tenhuyen'].", tỉnh ".$diachi['tentinh'];
+				$diachi1=$row_sinh_vien['so_nha'].", xã ".$diachi['tenxa'].", huyện ".$diachi['tenhuyen'].", tỉnh ".$diachi['tentinh'];
 				//end địa chỉ
 				// lấy tên lớp
 				 $lop = mysqli_fetch_array(mysqli_query($con, "SELECT lop.ma_lop FROM lop WHERE lop.xoa =0 AND lop.id_lop ='$row_sinh_vien[id_lop]'"));
@@ -42,7 +42,7 @@ include 'conn.php';
 				<td class='chuinhoa canhgiua'>$row_sinh_vien[mssv]</td>
 				<td class='chuinthuong'>$row_sinh_vien[ho_sv] $row_sinh_vien[ten_sv]</td>
 				<td class=''>".date('d/m/Y', strtotime($row_sinh_vien["ngay_sinh"]))."</td>
-				<td class='canhgiua'>$row_sinh_vien[gioi_tinh]</td>
+				<td class='canhgiua chuinthuong'>$row_sinh_vien[gioi_tinh]</td>
 				<td class='canhgiua'>$diachi1</td>
 
 				<td class='canhgiua chuinhoa'>$row_sinh_vien[so_dt]</td>

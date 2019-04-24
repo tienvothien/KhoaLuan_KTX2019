@@ -11,7 +11,7 @@ if (isset($_POST['tendangnhap']) && isset($_POST['matkhaudangnhap'])) {
 		// nếu có tồn tài tên đang nhập thì kiểm tra mật khẩu
 		$ktrataikhoan_MK = mysqli_query($con, "SELECT taikhoan.idtk FROM taikhoan WHERE taikhoan.idms ='$tendangnhap' and taikhoan.xoa=0  and taikhoan.matkhau='$matkhau'");
 		if (mysqli_num_rows($ktrataikhoan_MK)) {
-			$qrquyen = (mysqli_query($con, "SELECT * FROM can_bo, cochucvu WHERE can_bo.id_canbo = cochucvu.id_canbo AND can_bo.ma_can_bo ='$tendangnhap'"));
+			$qrquyen = (mysqli_query($con, "SELECT * FROM can_bo, cochucvu WHERE can_bo.xoa=0 and can_bo.id_canbo = cochucvu.id_canbo AND can_bo.ma_can_bo ='$tendangnhap'"));
 			if (mysqli_num_rows($qrquyen)) {
 				$row = mysqli_fetch_array($qrquyen);
 				session_start();

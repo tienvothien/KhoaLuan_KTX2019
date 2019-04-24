@@ -53,9 +53,9 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 			<i class="fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-container">
-				<a href="qltoanha.php" class="list-group-item">Quản lý Tòa nhà</a>
+				<a href="quanlytoanha.php" class="list-group-item">Quản lý Tòa nhà</a>
 				<a href="qlphong.php" class="list-group-item">Quản lý Phòng</a>
-				<a href="qlloaiphong.php" class="list-group-item">Quản lý Loại Phòng</a>
+				<a href="quanlyloaiphong.php" class="list-group-item">Quản lý Loại Phòng</a>
 				<a href="themsinhvienvaophong.php" class="list-group-item">Thêm Sinh viên vào phòng</a>
 			</div>
 			<button class="dropdown-btn">Quản lý Cán bộ

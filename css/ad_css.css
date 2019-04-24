@@ -4,6 +4,24 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+.thumbnail.mua_nen_6 {
+    background-color: #FF5722;
+    color: white;
+}
+
+.ds_phong_cualoaiphong {
+    margin-top: 3px;
+}
+
+table {
+    margin-bottom: 0px !important;
+}
+
+.thumbnail.mua_nen_5 {
+    background-color: #FF9800;
+    color: white;
+}
+
 div#image_preview {
     padding-left: 30%;
 }
