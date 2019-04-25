@@ -156,7 +156,7 @@ include './../dulieu/kiemtradangnhap.php';
 											<?php
 												$tinh = mysqli_query($con, 'SELECT * FROM tinh');
 												while ($row_tinh= mysqli_fetch_array($tinh)) {
-													echo "<option value='row_tinh[matinh]'>$row_tinh[tentinh]</option>";
+													echo "<option value='$row_tinh[matinh]'>$row_tinh[tentinh]</option>";
 												}
 											?>
 										</select>
@@ -176,7 +176,7 @@ include './../dulieu/kiemtradangnhap.php';
 											<?php
 												$tinh = mysqli_query($con, 'SELECT * FROM tinh');
 												while ($row_tinh= mysqli_fetch_array($tinh)) {
-													echo "<option value='row_tinh[matinh]'>$row_tinh[tentinh]</option>";
+													echo "<option value='$row_tinh[matinh]'>$row_tinh[tentinh]</option>";
 												}
 											?>
 										</select>
