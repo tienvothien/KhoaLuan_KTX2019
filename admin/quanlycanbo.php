@@ -69,13 +69,12 @@ include './../dulieu/kiemtradangnhap.php';
 						<div class="modal-content">
 							<!-- Modal Header -->
 							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
 								<div class="row">
 									<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
 										<h4 class="modal-title">Thêm Cán bộ</h4>
 									</div>
-									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-										<button type="button" class="fa fa-times-circle-o btn btn-danger" data-dismiss="modal"></button>
-									</div>
+									
 								</div>
 							</div>
 							<!-- Modal body -->
@@ -103,11 +102,11 @@ include './../dulieu/kiemtradangnhap.php';
 									<br />
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Họ cán bộ</label>
-										<input  name="ho_can_bothemmoi_12" id="ho_can_bothemmoi_12" class="form-control chuinthuong" rows="1" required="">
+										<input  name="ho_can_bothemmoi_12" id="ho_can_bothemmoi_12" class="form-control chuinthuong" rows="1" required="" placeholder="Nhập họ cán bộ">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Tên cán bộ</label>
-										<input  name="ten_can_bothemmoi_12" id="ten_can_bothemmoi_12" class="form-control chuinthuong" rows="1" required="">
+										<input  name="ten_can_bothemmoi_12" id="ten_can_bothemmoi_12" class="form-control chuinthuong" rows="1" required="" placeholder="Nhập tên cán bộ">
 									</div>
 									<br />
 									<label>Ngày sinh</label>
@@ -121,10 +120,10 @@ include './../dulieu/kiemtradangnhap.php';
 									</select>
 									<br>
 									<label>Điện thoại</label>
-									<input  type="number" name="sdt_can_bothemmoi_12" id="sdt_can_bothemmoi_12" class="form-control"  required="">
+									<input  type="number" name="sdt_can_bothemmoi_12" id="sdt_can_bothemmoi_12" class="form-control"  required="" placeholder="Nhập số điện thoại">
 									<br />
 									<label>Email</label>
-									<input  type="email" name="email_can_bothemmoi_12" id="email_can_bothemmoi_12" class="form-control" rows="1" required="">
+									<input  type="email" name="email_can_bothemmoi_12" id="email_can_bothemmoi_12" class="form-control" rows="1" required="" placeholder="Nhập Email">
 									<br />
 								</div>
 								<!-- Modal footer -->

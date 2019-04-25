@@ -7,7 +7,6 @@ include 'conn.php';
 	} else {
 ?>
 <div class="table-responsive">
-	<h3 class="canhgiua chuinhoa"> Danh Sách Lớp</h3>
 	<table class="table table-hover table-bordered table-striped" id="myTable">
 		<thead>
 			<tr>

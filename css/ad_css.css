@@ -32,6 +32,10 @@ div#image_preview {
     padding-bottom: 10px;
 }
 
+.col-xs-12.col-sm-12.col-md-12.col-lg-12.hoten_cb_sua {
+    padding: 0px;
+}
+
 .thumbnail.mua_nen_4 {
     background-color: #e91e63;
     color: #f9f9f9;

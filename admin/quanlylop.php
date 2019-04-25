@@ -134,7 +134,7 @@ include './../dulieu/kiemtradangnhap.php';
 					<!-- xem thông tin lop -->
 					<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
 						<div id="dataModal" class="modal fade">
-							<div class="modal-dialog ">
+							<div class="modal-dialog width_350px">
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -212,7 +212,7 @@ include './../dulieu/kiemtradangnhap.php';
 					<!-- Xoa thiêt bị -->
 					<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
 						<div id="modal_xoa_lop" class="modal fade">
-							<div class="modal-dialog">
+							<div class="modal-dialog width_350px">
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close btn btn-danger" data-dismiss="modal">&times;</button>

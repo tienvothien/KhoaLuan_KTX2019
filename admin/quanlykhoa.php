@@ -101,7 +101,7 @@ include './../dulieu/kiemtradangnhap.php';
 				</div><!-- end model -->
 				<!-- xem thông tin khoa -->
 				<div id="dataModal" class="modal fade">
-					<div class="modal-dialog">
+					<div class="modal-dialog width_350px">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -117,7 +117,7 @@ include './../dulieu/kiemtradangnhap.php';
 				</div>
 				<!-- Cập nhật lại thông tin phòng -->
 				<div id="modal_sua_khoa" class="modal fade">
-					<div class="modal-dialog">
+					<div class="modal-dialog width_350px">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -144,7 +144,7 @@ include './../dulieu/kiemtradangnhap.php';
 				<!-- Xoa thiêt bị -->
 				<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
 					<div id="modal_xoa_khoa" class="modal fade">
-						<div class="modal-dialog">
+						<div class="modal-dialog width_350px">
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>

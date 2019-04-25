@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	$(function() {
+	$(function() {	
 		$("#file_anh_sv").change(function() {
 			var file = this.files[0];
 			var imagefile = file.type;
@@ -15,14 +15,76 @@ $(document).ready(function () {
 				reader.readAsDataURL(this.files[0]);
 			}
 		});
-	function imageIsLoaded(e) {
-		$("#file_anh_sv").css("color","green");
-		$('#image_preview_themssv').css("display", "block");
-		$('#previewing_themsvload').attr('src', e.target.result);
-		$('#previewing_themsvload').attr('width', '100px');
-		$('#previewing_themsvload').attr('height', '130px');
-	}; // en kiem tra truoc khi cap nhat
-});
+		function imageIsLoaded(e) {
+			$("#file_anh_sv").css("color","green");
+			$('#image_preview_themssv').css("display", "block");
+			$('#previewing_themsvload').attr('src', e.target.result);
+			$('#previewing_themsvload').attr('width', '100px');
+			$('#previewing_themsvload').attr('height', '130px');
+		}; // en kiem tra truoc khi cap nhat
+		// nêu tỉnh thay đổi sẽ  chọn huyện thay đổi
+		$('#tinh_them_sinh_vien').change(function() {
+			var tinh_them_sinh_vien=$('#tinh_them_sinh_vien').val();
+			$.ajax({
+				url:"../dulieu/xuly_chon_hktt.php",
+				type: "post",
+				data: {tinh_them_sinh_vien:tinh_them_sinh_vien},
+				async:true,
+				success:function(kq){
+					$("#huyen_them_sinh_vien").html(kq);
+					$("#xa_them_sinh_vien").html('<option value="0">Chọn xã</option>');
+				}
+			});
+		}); // end nêu tỉnh thay đổi sẽ  chọn huyện thay đổi
+		// nêu tỉnh , huyện thay đổi sẽ  chọn xã thay đổi
+		$('#huyen_them_sinh_vien').change(function() {
+			var huyen_them_sinh_vien=$('#huyen_them_sinh_vien').val();
+			$.ajax({
+				url:"../dulieu/xuly_chon_hktt.php",
+				type: "post",
+				data: {huyen_them_sinh_vien:huyen_them_sinh_vien},
+				async:true,
+				success:function(kq){
+					$("#xa_them_sinh_vien").html(kq);
+				}
+			});
+		});// nêu tỉnh , huyện thay đổi sẽ  chọn xã thay đổi
+		// nêu khóa thay đổi sẽ  chọn xã thay đổi
+		$('#khoa_them_sinh_vien').change(function() {
+			var khoa_them_sinh_vien=$('#khoa_them_sinh_vien').val();
+			$.ajax({
+				url:"../dulieu/xuly_chon_hktt.php",
+				type: "post",
+				data: {khoa_them_sinh_vien1:khoa_them_sinh_vien},
+				async:true,
+				success:function(kq){
+					$("#id_khoa_them_sinh_vien").html(kq);
+					$("#lop_them_sinh_vien").html('<option value="0">Chọn lớp</option>');
+				}
+			});
+		});// nêu khóa thay đổi sẽ  chọn xã thay đổi
+		// nêu khoa thay đổi sẽ  chọn lớp thay đổi
+		$('#id_khoa_them_sinh_vien').change(function() {
+			var khoa_them_sinh_vien=$('#khoa_them_sinh_vien').val();
+			var id_khoa_them_sinh_vien=$('#id_khoa_them_sinh_vien').val();
+			alert(khoa_them_sinh_vien+'--'+id_khoa_them_sinh_vien);
+			if (khoa_them_sinh_vien=='') {
+				alert('Bạn phải chọn khóa học trước');
+				document.getElementById('khoa_them_sinh_vien').focus();
+			}else {
+				$.ajax({
+					url:"../dulieu/xuly_chon_hktt.php",
+					type: "post",
+					data: {id_khoa_them_sinh_vien:id_khoa_them_sinh_vien,
+						khoa_them_sinh_vien:khoa_them_sinh_vien},
+					async:true,
+					success:function(kq){
+						$("#lop_them_sinh_vien").html(kq);
+					}
+				});
+			}
+		});	// nêu khoa thay đổi sẽ  chọn lớp thay đổi
+	});
 	// Xem chi tiet thoong tin sinh_vien
 	$(document).on('click', '.view_chitietsinh_vien', function(){
 		var id_chitietsinh_vien = $(this).attr("id");

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 24, 2019 lúc 04:42 PM
+-- Thời gian đã tạo: Th4 25, 2019 lúc 12:57 PM
 -- Phiên bản máy phục vụ: 10.1.29-MariaDB
 -- Phiên bản PHP: 7.2.0
 
@@ -941,15 +941,15 @@ CREATE TABLE `khoa` (
 INSERT INTO `khoa` (`id_khoa`, `ma_khoa`, `ten_khoa`, `id_canbothem`, `ngay`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
 (1, 'TTTT', 'Thông Tin - Truyền Thông', 1, '2018-09-13 00:00:00', 0, NULL, NULL),
 (55, 'TTT0', 'ewưadsa12123123', 1, '2019-04-11 22:48:05', 1, 2, '2019-04-14 10:09:13'),
-(56, 'ttt8', 'TTQ2 vis dung suawr', 1, '2019-04-11 22:51:07', 0, NULL, NULL),
+(56, 'ttt8', 'TTQ2 vis dung suawr', 1, '2019-04-11 22:51:07', 1, 2, '2019-04-25 15:41:46'),
 (57, 'tt39', '145adasd', 1, '2019-04-11 22:51:28', 1, 2, '2019-04-24 21:18:54'),
 (58, 'ttt4', 'ew2', 1, '2019-04-11 22:53:08', 1, 1, '2019-04-08 00:00:00'),
 (59, 'ttt8', 'ewqw566546565', 1, '2019-04-11 22:54:40', 1, 1, '2019-04-01 00:00:00'),
-(60, 'ttt3', 'adsda', 1, '2019-04-13 10:15:36', 0, NULL, NULL),
+(60, 'ttt3', 'adsda', 1, '2019-04-13 10:15:36', 1, 2, '2019-04-25 15:41:40'),
 (61, 'ttt5', 'sadada', 1, '2019-04-13 10:17:41', 1, 2, '2019-04-24 21:18:48'),
 (62, 'ttt6', 'wdqed', 1, '2019-04-13 10:23:50', 1, 1, '2019-04-13 10:23:57'),
-(63, 'ttt4', 'aAsaasadad', 1, '2019-04-13 10:28:05', 0, NULL, NULL),
-(64, 'tt99', 'Khoa mới ví dụ', 1, '2019-04-14 14:26:26', 0, NULL, NULL);
+(63, 'ttt4', 'aAsaasadad', 1, '2019-04-13 10:28:05', 1, 2, '2019-04-25 15:41:36'),
+(64, 'kvd1', 'Khoa mới ví dụ 1', 1, '2019-04-14 14:26:26', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1010,7 +1010,8 @@ INSERT INTO `loai_phong` (`id_loaiphong`, `ma_loai_phong`, `ten_loai_phong`, `sl
 (1, 'lp1', 'Phòng Thường 01', 8, 100000, 1, '2019-04-13', 0, 2, '2019-04-24 14:29:27'),
 (2, 'lp2', 'Phòng Thường 02', 8, 50000, 1, '2018-09-20', 0, 2, '2019-04-24 14:29:35'),
 (3, 'lp3', 'phòng thường 03', 2, 50000, 2, '2019-04-24', 0, NULL, NULL),
-(4, 'lp5', 'phòng thường 04', 3, 50000, 2, '2019-04-24', 0, NULL, NULL);
+(4, 'lp5', 'phòng thường 04', 3, 50000, 2, '2019-04-24', 0, NULL, NULL),
+(5, '123', '123', 1, 51000, 2, '2019-04-25', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1066,7 +1067,13 @@ INSERT INTO `log_sua_dl` (`idlog`, `bangsua`, `tenbang`, `iddulieu`, `cot`, `ten
 (163, 'toa_nha', 'Tòa nhà', 2, 'loai_toa_nha', 'Loại Tòa nhà', 'Nam', 'Nữ', 2, '2019-04-24 18:51:55'),
 (164, 'loai_phong', 'Loại phòng', 4, 'sl_nguoi_o', 'Số lượng người ở', '2', '3', 2, '2019-04-24 21:14:53'),
 (165, 'loai_phong', 'Loại phòng', 4, 'ma_loai_phong', 'Mã Loại phòng', 'lp4', 'lp5', 2, '2019-04-24 21:15:21'),
-(166, 'loai_phong', 'Loại phòng', 2, 'gia_loai_phong', 'Giá phòng', '0', '50000', 2, '2019-04-24 21:18:00');
+(166, 'loai_phong', 'Loại phòng', 2, 'gia_loai_phong', 'Giá phòng', '0', '50000', 2, '2019-04-24 21:18:00'),
+(167, 'thietbi', 'Thiết bị', 2, 'tenthietbi', 'Tên Thiết bị', 'Model Wifi1', 'Model Wifi', 2, '2019-04-25 15:36:58'),
+(168, 'khoa', 'Khoa', 64, 'ma_khoa', 'Mã Khoa', 'tt99', 'kvd1', 2, '2019-04-25 15:42:02'),
+(169, 'khoa', 'Khoa', 64, 'ten_khoa', 'tên Khoa', 'Khoa mới ví dụ', 'Khoa mới ví dụ 1', 2, '2019-04-25 15:42:02'),
+(170, 'lop', 'Lớp', 9, 'id_khoa', 'Tên Khoa', '1', '64', 2, '2019-04-25 16:03:07'),
+(171, 'lop', 'Lớp', 9, 'ma_lop', 'Mã Lớp', 'MALVD1', 'malVD2', 2, '2019-04-25 16:05:31'),
+(172, 'lop', 'Lớp', 9, 'ten_lop', 'Tên Lớp', 'Lớp VD', 'Lớp VD1', 2, '2019-04-25 16:13:24');
 
 -- --------------------------------------------------------
 
@@ -1095,8 +1102,8 @@ CREATE TABLE `lop` (
 INSERT INTO `lop` (`id_lop`, `ma_lop`, `ten_lop`, `id_khoa`, `khoa`, `nam_BD`, `id_canbothem`, `ngay`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
 (1, 'b15tt3', 'B15 Thông tin 3', 1, 1, 2015, 1, '2019-04-12 00:00:00', 0, 2, '2019-04-23 20:34:45'),
 (7, 'qưert', 'asda', 55, 1, 2015, 1, '0000-00-00 00:00:00', 1, 1, '2019-04-12 21:28:34'),
-(8, 'qưer8', 'asdaasdasd', 55, 1, 2015, 1, '2019-04-12 20:46:29', 0, NULL, NULL),
-(9, 'MALVD1', 'Lớp VD', 1, 2, 2015, 1, '2019-04-12 22:20:08', 0, NULL, NULL);
+(8, 'qưer8', 'asdaasdasd', 55, 1, 2015, 1, '2019-04-12 20:46:29', 1, 2, '2019-04-25 15:41:14'),
+(9, 'malVD2', 'Lớp VD1', 64, 2, 2015, 1, '2019-04-12 22:20:08', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1106,7 +1113,7 @@ INSERT INTO `lop` (`id_lop`, `ma_lop`, `ten_lop`, `id_khoa`, `khoa`, `nam_BD`, `
 
 CREATE TABLE `o_phong` (
   `id_ophong` int(11) NOT NULL,
-  `mssv` int(10) NOT NULL,
+  `id_sinhvien` int(10) NOT NULL,
   `id_phong` int(3) NOT NULL,
   `hoc_ky` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
   `nam_hoc` varchar(9) COLLATE utf8_unicode_ci NOT NULL,
@@ -1237,7 +1244,7 @@ CREATE TABLE `thietbi` (
 
 INSERT INTO `thietbi` (`idtb`, `mathietbi`, `tenthietbi`, `id_canbothem`, `ngaythem`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
 (1, 'TB001', 'Đèn 1m2', 1, '2019-04-13 00:00:00', 0, NULL, NULL),
-(2, 'tb002', 'Model Wifi1', 1, '2019-04-13 10:51:38', 0, 1, '2019-04-13 12:21:51'),
+(2, 'tb002', 'Model Wifi', 1, '2019-04-13 10:51:38', 0, 1, '2019-04-13 12:21:51'),
 (3, 'tb004', 'sdfs', 1, '2019-04-13 10:53:04', 1, 1, '2019-04-13 12:21:11'),
 (4, 'tb003', 'Đèn 1m2	', 1, '2019-04-13 10:54:11', 1, NULL, NULL),
 (5, 'tb005', 'Đèn 1m22', 1, '2019-04-13 10:54:48', 1, 2, '2019-04-14 12:22:48'),
@@ -12687,7 +12694,10 @@ ALTER TABLE `lop`
 --
 ALTER TABLE `o_phong`
   ADD PRIMARY KEY (`id_ophong`),
-  ADD KEY `id_phong` (`id_phong`);
+  ADD KEY `id_phong` (`id_phong`),
+  ADD KEY `id_canboxoa` (`id_canboxoa`),
+  ADD KEY `id_canbothem` (`id_canbothem`),
+  ADD KEY `id_sinhvien` (`id_sinhvien`);
 
 --
 -- Chỉ mục cho bảng `phong`
@@ -12818,13 +12828,13 @@ ALTER TABLE `loaiphongcothietbi`
 -- AUTO_INCREMENT cho bảng `loai_phong`
 --
 ALTER TABLE `loai_phong`
-  MODIFY `id_loaiphong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_loaiphong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `log_sua_dl`
 --
 ALTER TABLE `log_sua_dl`
-  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
+  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
 
 --
 -- AUTO_INCREMENT cho bảng `lop`
@@ -12945,7 +12955,10 @@ ALTER TABLE `lop`
 -- Các ràng buộc cho bảng `o_phong`
 --
 ALTER TABLE `o_phong`
-  ADD CONSTRAINT `o_phong_ibfk_1` FOREIGN KEY (`id_phong`) REFERENCES `phong` (`idphong`);
+  ADD CONSTRAINT `o_phong_ibfk_1` FOREIGN KEY (`id_phong`) REFERENCES `phong` (`idphong`),
+  ADD CONSTRAINT `o_phong_ibfk_2` FOREIGN KEY (`id_canboxoa`) REFERENCES `can_bo` (`id_canbo`),
+  ADD CONSTRAINT `o_phong_ibfk_3` FOREIGN KEY (`id_canbothem`) REFERENCES `can_bo` (`id_canbo`),
+  ADD CONSTRAINT `o_phong_ibfk_4` FOREIGN KEY (`id_sinhvien`) REFERENCES `sinh_vien` (`id_sinhvien`);
 
 --
 -- Các ràng buộc cho bảng `phong`

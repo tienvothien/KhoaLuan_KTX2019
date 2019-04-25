@@ -12,30 +12,31 @@ include 'kiemtradangnhap.php';
           //dem số lượng lớp đang có sinh viên ở
           $sllop = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(id_lop) as sollop FROM lop WHERE lop.xoa =0 and id_khoa='$row[id_khoa]'"));
           //đếm số lượng sinh viên đang ở trong ký túc xá
+          $slsinhvien = mysqli_fetch_array(mysqli_query($con, "SELECT DISTINCT COUNT(o_phong.id_sinhvien) AS slsinhvien FROM sinh_vien, lop, o_phong WHERE sinh_vien.xoa=0 AND lop.xoa=0 AND o_phong.ngay_ket_thuc='' AND sinh_vien.id_lop=lop.id_lop AND lop.id_khoa='$row[id_khoa]' AND sinh_vien.id_sinhvien=o_phong.id_sinhvien"));
           $output .= '
       <tr>
-        <td width="30%"><label>Mã khoa</label></td>
-        <td width="70%" style="text-transform: uppercase;">' . $row["ma_khoa"] . '</td>
+        <td width="40%"><label>Mã khoa</label></td>
+        <td width="60%" style="text-transform: uppercase;">' . $row["ma_khoa"] . '</td>
       </tr>
       <tr>
-        <td width="30%"><label>Tên khoa</label></td>
-        <td width="70%" style=" text-transform: capitalize;">' . $row["ten_khoa"] . '</td>
+        <td width="40%"><label>Tên khoa</label></td>
+        <td width="60%" style=" text-transform: capitalize;">' . $row["ten_khoa"] . '</td>
       </tr>
       <tr>
-        <td width="30%"><label>Cán bộ thêm</label></td>
-        <td width="70%" style=" text-transform: capitalize;">' . $row["ho_can_bo"] . " " . $row["ten_can_bo"] . '</td>
+        <td width="40%"><label>Cán bộ thêm</label></td>
+        <td width="60%" style=" text-transform: capitalize;">' . $row["ho_can_bo"] . " " . $row["ten_can_bo"] . '</td>
       </tr>
       <tr>
-        <td width="30%"><label>Ngày thêm</label></td>
-        <td width="70%">' . date('d/m/Y', strtotime($row["ngay"])) . '</td>
+        <td width="40%"><label>Ngày thêm</label></td>
+        <td width="60%">' . date('d/m/Y', strtotime($row["ngay"])) . '</td>
       </tr>
       <tr>
-        <td width="30%"><label>Số lượng lớp</label></td>
+        <td width="40%"><label>Số lượng lớp</label></td>
         <td>'.$sllop['sollop'].'</td>
       </tr>
       <tr>
-        <td width="30%"><label>Số lượng sinh viên</label></td>
-        <td width="70%" style=" text-transform: capitalize;">nhó viets thuat toán</td>
+        <td width="40%"><label>Số lượng sinh viên</label></td>
+        <td width="60%" style=" text-transform: capitalize;">'.$slsinhvien['slsinhvien'].'</td>
       </tr>
       ';
         }
