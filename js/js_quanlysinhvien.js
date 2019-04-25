@@ -52,6 +52,30 @@ $(document).ready(function () {
 				document.getElementById('cmnd_them_sinh_vien').focus();
 			}
 		}); // end nêu Số cmnd thay đổi sẽ 
+		// nêu Số điện thoại thay đổi sẽ 
+		$('#so_dt_them_sinh_vien').change(function() {
+			var so_dt_them_sinh_vien=$('#so_dt_them_sinh_vien').val();
+			if (so_dt_them_sinh_vien.length!=10) {
+				alert('Số điện thoại phải 10 chữ số');
+				document.getElementById('so_dt_them_sinh_vien').focus();
+			}
+		}); // end nêu Số điện thoại thay đổi sẽ 
+		// nêu Số điện thoại cha thay đổi sẽ 
+		$('#sdtcha_them_sinh_vien').change(function() {
+			var sdtcha_them_sinh_vien=$('#sdtcha_them_sinh_vien').val();
+			if (sdtcha_them_sinh_vien.length!=10 && sdtcha_them_sinh_vien!='') {
+				alert('Số điện thoại phải 10 chữ số');
+				document.getElementById('sdtcha_them_sinh_vien').focus();
+			}
+		}); // end nêu Số điện thoại cha thay đổi sẽ 
+		// nêu Số điện thoại mẹ thay đổi sẽ 
+		$('#sdtme_them_sinh_vien').change(function() {
+			var sdtme_them_sinh_vien=$('#sdtme_them_sinh_vien').val();
+			if (sdtme_them_sinh_vien.length!=10 && sdtme_them_sinh_vien!='') {
+				alert('Số điện thoại phải 10 chữ số');
+				document.getElementById('sdtme_them_sinh_vien').focus();
+			}
+		}); // end nêu Số điện thoại mẹ thay đổi sẽ 
 		// nêu tỉnh thay đổi sẽ  chọn huyện thay đổi
 		$('#tinh_them_sinh_vien').change(function() {
 			var tinh_them_sinh_vien=$('#tinh_them_sinh_vien').val();
