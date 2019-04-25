@@ -249,33 +249,45 @@ $(document).ready(function () {
 		}   
 	});
 	// xuwrt lý nút thêm sinh_vien mới
-	$('#form_themsinh_vienmoi').on('submit', function(event){
+	$('#form_themsinhvienmoi').on('submit', function(event){
 		event.preventDefault();
-		if(ma_sinh_vien_them.length==3){
-			$.ajax({
-				url: './../dulieu/add_sinh_vienmoi.php',
-				type: 'POST',
-				data: {ma_sinh_vien_them12:ma_sinh_vien_them,ten_sinh_vien_them12:ten_sinh_vien_them},
-				success:function (kql_add_sinh_vien) {
-					if (kql_add_sinh_vien==1) {
-						alert('Mã Chức vụ hoặc tên chức vụ đã tồn tạo');
-						document.getElementById("ma_sinh_vien_them").focus();
-	          		}else {
-						if (kql_add_sinh_vien==99) {
-							alert('Thêm Chức vụ mới thành công');
-							$('#ma_sinh_vien_them').html();
-							$('#ten_sinh_vien_them').html();
-							$('#form_themsinh_vienmoi')[0].reset();
-							$('#dulieusinh_vien').load("./../dulieu/dulieusinh_vien.php");
-						}else {
-							alert('Lỗi Thêm');
-						}
-	          		}
-				}
-			});
-     	}else {
-			alert("Độ dài mã Chức vụ không đúng");
-			document.getElementById("ma_sinh_vien_them").focus();
+		var anh1 = document.getElementById('file_anh_sv');
+		var loaianh = anh1.files[0].type;
+		var match= ["image/jpeg","image/png","image/jpg"];
+		if(!((loaianh==match[0]) || (loaianh==match[1]) || (loaianh==match[2]))){
+				alert("Bạn phải chọn file ảnh có đuôi là (jpeg, jpg and png)");
+		}else{
+			var ma_sinhvien_themmoi123=$('#ma_sinhvien_themmoi123').val();
+			if (ma_sinhvien_themmoi123.length!=10) {
+				alert('MSSV phải 10 chữ số');
+				document.getElementById('ma_sinhvien_themmoi123').focus();
+			}else {
+				$.ajax({
+					url:"./../dulieu/add_sinh_vien_moi.php",
+					type:'POST',
+					data:new FormData(this),
+					contentType: false,
+					cache: false,
+					processData:false,
+					success:function (kql_add_sinh_vien) {
+						alert(kql_add_sinh_vien);
+						// if (kql_add_sinh_vien==1) {
+						// 	alert('Mã Chức vụ hoặc tên chức vụ đã tồn tạo');
+						// 	document.getElementById("ma_sinh_vien_them").focus();
+		    //       		}else {
+						// 	if (kql_add_sinh_vien==99) {
+						// 		alert('Thêm Chức vụ mới thành công');
+						// 		$('#ma_sinh_vien_them').html();
+						// 		$('#ten_sinh_vien_them').html();
+						// 		$('#form_themsinh_vienmoi')[0].reset();
+						// 		$('#dulieusinh_vien').load("./../dulieu/dulieusinh_vien.php");
+						// 	}else {
+						// 		alert('Lỗi Thêm');
+						// 	}
+		    //       		}
+					}
+				});
+	     	}
 		}
 	});
 });
