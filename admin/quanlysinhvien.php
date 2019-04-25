@@ -93,7 +93,7 @@ include './../dulieu/kiemtradangnhap.php';
 									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hoten_cb_sua ">
 										<label>Mã Sinh viên</label>
 										
-										<input style="width:50%" type="number" name="ma_sinhvien_themmoi123" id="ma_sinhvien_themmoi123" class="form-control " min="1000000000" max="9999999999" value=""  required="" placeholder="Nhập mã sinh viên"/>
+										<input style="width:50%" type="number" name="ma_sinhvien_themmoi123" id="ma_sinhvien_themmoi123" class="form-control " value=""  required="" placeholder="Nhập mã sinh viên"/>
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Họ Sinh viên</label>
@@ -218,7 +218,7 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>SĐT Cha</label>
-										<input  type="number" name="sdtcha_them_sinh_vien" id="sdtcha_them_sinh_vien" class="form-control" rows="1" required="" placeholder="Nhập SĐT của cha">
+										<input  type="number" name="sdtcha_them_sinh_vien" id="sdtcha_them_sinh_vien" class="form-control" rows="1" placeholder="Nhập SĐT của cha">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Họ tên Mẹ</label>
@@ -226,7 +226,7 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>SĐT Mẹ</label>
-										<input  type="number" name="sdtme_them_sinh_vien" id="sdtme_them_sinh_vien" class="form-control" rows="1" required="" placeholder="Nhập SĐT Mẹ">
+										<input  type="number" name="sdtme_them_sinh_vien" id="sdtme_them_sinh_vien" class="form-control" rows="1" placeholder="Nhập SĐT Mẹ">
 									</div>
 								</div>
 								

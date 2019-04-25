@@ -22,6 +22,36 @@ $(document).ready(function () {
 			$('#previewing_themsvload').attr('width', '100px');
 			$('#previewing_themsvload').attr('height', '130px');
 		}; // en kiem tra truoc khi cap nhat
+		// nêu Số cmnd thay đổi sẽ 
+		$('#ma_sinhvien_themmoi123').change(function() {
+			var ma_sinhvien_themmoi123=$('#ma_sinhvien_themmoi123').val();
+			if (ma_sinhvien_themmoi123.length!=10) {
+				alert('MSSV phải 10 chữ số');
+				document.getElementById('ma_sinhvien_themmoi123').focus();
+			}else {
+				$.ajax({
+					url:"../dulieu/xuly_chon_hktt.php",
+					type: "post",
+					data: {ma_sinhvien_themmoi123:ma_sinhvien_themmoi123},
+					async:true,
+					success:function(kq){
+						if (kq==1) {
+							alert('MSSV đã tồn tại');
+							document.getElementById('ma_sinhvien_themmoi123').focus();
+						}
+						
+					}
+				});
+			}
+		}); // end nêu Số cmnd thay đổi sẽ 
+		// nêu Số cmnd thay đổi sẽ 
+		$('#cmnd_them_sinh_vien').change(function() {
+			var cmnd_them_sinh_vien=$('#cmnd_them_sinh_vien').val();
+			if (cmnd_them_sinh_vien.length!=9) {
+				alert('Chứ minh nhân dân phải 9 chữ số');
+				document.getElementById('cmnd_them_sinh_vien').focus();
+			}
+		}); // end nêu Số cmnd thay đổi sẽ 
 		// nêu tỉnh thay đổi sẽ  chọn huyện thay đổi
 		$('#tinh_them_sinh_vien').change(function() {
 			var tinh_them_sinh_vien=$('#tinh_them_sinh_vien').val();
@@ -32,7 +62,7 @@ $(document).ready(function () {
 				async:true,
 				success:function(kq){
 					$("#huyen_them_sinh_vien").html(kq);
-					$("#xa_them_sinh_vien").html('<option value="0">Chọn xã</option>');
+					$("#xa_them_sinh_vien").html('<option value="">Chọn xã</option>');
 				}
 			});
 		}); // end nêu tỉnh thay đổi sẽ  chọn huyện thay đổi
@@ -59,7 +89,7 @@ $(document).ready(function () {
 				async:true,
 				success:function(kq){
 					$("#id_khoa_them_sinh_vien").html(kq);
-					$("#lop_them_sinh_vien").html('<option value="0">Chọn lớp</option>');
+					$("#lop_them_sinh_vien").html('<option value="">Chọn lớp</option>');
 				}
 			});
 		});// nêu khóa thay đổi sẽ  chọn xã thay đổi
@@ -197,8 +227,6 @@ $(document).ready(function () {
 	// xuwrt lý nút thêm sinh_vien mới
 	$('#form_themsinh_vienmoi').on('submit', function(event){
 		event.preventDefault();
-		var ma_sinh_vien_them=$('#ma_sinh_vien_them').val();
-		var ten_sinh_vien_them=$('#ten_sinh_vien_them').val();
 		if(ma_sinh_vien_them.length==3){
 			$.ajax({
 				url: './../dulieu/add_sinh_vienmoi.php',

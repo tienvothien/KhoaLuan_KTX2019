@@ -5,7 +5,7 @@
 		include 'conn.php';
 		$sqlhuyen = "SELECT * FROM huyen where matinh ='$matinh' ORDER by mahuyen ASC";
 		$queryhuyen = mysqli_query($con, $sqlhuyen);
-		echo " <option value='0'>Chọn huyện</option>";
+		echo " <option value=''>Chọn huyện</option>";
 		while ($rowhuyen = mysqli_fetch_array($queryhuyen)) {
 			$tenhuyen = $rowhuyen['tenhuyen'];
 			$caphuyen = $rowhuyen['caphuyen'];
@@ -17,7 +17,7 @@
 		include 'conn.php';
 		$sqlxa = "SELECT * FROM xa where mahuyen ='$mahuyen' ORDER by maxa ASC";
 		$queryxa = mysqli_query($con, $sqlxa);
-		echo " <option value='0'>Chọn Xã</option>";
+		echo " <option value=''>Chọn Xã</option>";
 		while ($rowxa = mysqli_fetch_array($queryxa)) {
 			$tenxa = $rowxa['tenxa'];
 			$capxa = $rowxa['capxa'];
@@ -30,7 +30,7 @@
 		include 'conn.php';
 		$sqlxa = "SELECT lop.id_lop,lop.ma_lop, lop.ten_lop FROM lop where lop.id_khoa ='$id_khoa1' and lop.khoa= '$khoa1' and lop.xoa=0 ORDER by ma_lop ASC";
 		$queryxa = mysqli_query($con, $sqlxa);
-		echo " <option value='0'>Chọn lớp</option>";
+		echo " <option value=''>Chọn lớp</option>";
 		while ($rowxa = mysqli_fetch_array($queryxa)) {
 			$id_lop = $rowxa['id_lop'];
 			$ten_lop = $rowxa['ten_lop'];
@@ -41,11 +41,21 @@
 		include 'conn.php';
 		$sqlkhoa = "SELECT khoa.id_khoa,khoa.ma_khoa, khoa.ten_khoa FROM khoa where khoa.xoa=0 ORDER by ma_khoa ASC";
 		$querykhoa = mysqli_query($con, $sqlkhoa);
-		echo " <option value='0'>Chọn Khoa </option>";
+		echo " <option value=''>Chọn Khoa </option>";
 		while ($rowkhoa = mysqli_fetch_array($querykhoa)) {
 			$id_khoa = $rowkhoa['id_khoa'];
 			$ten_khoa = $rowkhoa['ten_khoa'];
 			echo "<option value='$id_khoa'>$ten_khoa</option>";}
 	}// end Khóa thay đổi Khoa sẽ thay đổi
-
+		// tỉnh thay đổi mssv
+	if (isset($_POST['ma_sinhvien_themmoi123'])) {
+		$ma_sinhvien_themmoi123 = $_POST['ma_sinhvien_themmoi123'];
+		include 'conn.php';
+		$sqlsv = "SELECT sinh_vien.id_sinhvien FROM sinh_vien WHERE sinh_vien.mssv='$ma_sinhvien_themmoi123'";
+		$querysv = mysqli_query($con, $sqlsv);
+		if (mysqli_num_rows($querysv)) {
+			echo "1";
+		}
+	}//end tỉnh thay đổi mssv
+	
  ?>
