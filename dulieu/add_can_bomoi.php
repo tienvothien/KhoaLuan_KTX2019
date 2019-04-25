@@ -28,7 +28,7 @@
 					move_uploaded_file($_FILES["image12"]["tmp_name"], $target_file);
 					echo "99";
 				}else {
-					echo var_dump(mysqli_query($con, $insert_canbo_moi));
+					echo "100";;
 				}
 			}	
 		}//end kiem tra số điện thoại
