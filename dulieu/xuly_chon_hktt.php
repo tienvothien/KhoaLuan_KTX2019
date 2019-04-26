@@ -3,7 +3,7 @@
 	if (isset($_POST['tinh_them_sinh_vien'])) {
 		$matinh = $_POST['tinh_them_sinh_vien'];
 		include 'conn.php';
-		$sqlhuyen = "SELECT * FROM huyen where matinh ='$matinh' ORDER by mahuyen ASC";
+		$sqlhuyen = "SELECT * FROM huyen where matinh ='$matinh' ORDER by tenhuyen ASC";
 		$queryhuyen = mysqli_query($con, $sqlhuyen);
 		echo " <option value=''>Chọn huyện</option>";
 		while ($rowhuyen = mysqli_fetch_array($queryhuyen)) {
@@ -15,7 +15,7 @@
 	if (isset($_POST['huyen_them_sinh_vien'])) {// huyện thay đổi xã sẽ thay đổi
 		$mahuyen = $_POST['huyen_them_sinh_vien'];
 		include 'conn.php';
-		$sqlxa = "SELECT * FROM xa where mahuyen ='$mahuyen' ORDER by maxa ASC";
+		$sqlxa = "SELECT * FROM xa where mahuyen ='$mahuyen' ORDER by tenxa ASC";
 		$queryxa = mysqli_query($con, $sqlxa);
 		echo " <option value=''>Chọn Xã</option>";
 		while ($rowxa = mysqli_fetch_array($queryxa)) {

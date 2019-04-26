@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 25, 2019 lúc 12:57 PM
+-- Thời gian đã tạo: Th4 26, 2019 lúc 05:25 PM
 -- Phiên bản máy phục vụ: 10.1.29-MariaDB
 -- Phiên bản PHP: 7.2.0
 
@@ -1086,8 +1086,8 @@ CREATE TABLE `lop` (
   `ma_lop` char(6) COLLATE utf8_unicode_ci NOT NULL,
   `ten_lop` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `id_khoa` int(11) NOT NULL,
-  `khoa` int(11) NOT NULL,
   `nam_BD` int(11) NOT NULL,
+  `khoa` int(11) NOT NULL,
   `id_canbothem` int(11) DEFAULT NULL,
   `ngay` datetime NOT NULL,
   `xoa` int(1) DEFAULT '0',
@@ -1099,11 +1099,11 @@ CREATE TABLE `lop` (
 -- Đang đổ dữ liệu cho bảng `lop`
 --
 
-INSERT INTO `lop` (`id_lop`, `ma_lop`, `ten_lop`, `id_khoa`, `khoa`, `nam_BD`, `id_canbothem`, `ngay`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
-(1, 'b15tt3', 'B15 Thông tin 3', 1, 1, 2015, 1, '2019-04-12 00:00:00', 0, 2, '2019-04-23 20:34:45'),
-(7, 'qưert', 'asda', 55, 1, 2015, 1, '0000-00-00 00:00:00', 1, 1, '2019-04-12 21:28:34'),
-(8, 'qưer8', 'asdaasdasd', 55, 1, 2015, 1, '2019-04-12 20:46:29', 1, 2, '2019-04-25 15:41:14'),
-(9, 'malVD2', 'Lớp VD1', 64, 2, 2015, 1, '2019-04-12 22:20:08', 0, NULL, NULL);
+INSERT INTO `lop` (`id_lop`, `ma_lop`, `ten_lop`, `id_khoa`, `nam_BD`, `khoa`, `id_canbothem`, `ngay`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
+(1, 'b15tt3', 'B15 Thông tin 3', 1, 0, 1, 1, '2019-04-12 00:00:00', 0, 2, '2019-04-23 20:34:45'),
+(7, 'qưert', 'asda', 55, 0, 1, 1, '0000-00-00 00:00:00', 1, 1, '2019-04-12 21:28:34'),
+(8, 'qưer8', 'asdaasdasd', 55, 0, 1, 1, '2019-04-12 20:46:29', 1, 2, '2019-04-25 15:41:14'),
+(9, 'malVD2', 'Lớp VD1', 64, 0, 2, 1, '2019-04-12 22:20:08', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1160,15 +1160,15 @@ INSERT INTO `phong` (`idphong`, `ma_phong`, `stt_tang`, `id_toanha`, `id_loaipho
 CREATE TABLE `sinh_vien` (
   `id_sinhvien` int(11) NOT NULL,
   `mssv` int(10) NOT NULL,
-  `anh_ca_nhan` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `anh_ca_nhan` text COLLATE utf8_unicode_ci NOT NULL,
   `ho_sv` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `ten_sv` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
   `ngay_sinh` date NOT NULL,
   `gioi_tinh` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
-  `que_quan` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `que_quan` int(11) NOT NULL,
   `so_cmnd` int(12) NOT NULL,
   `ngay_cap` date NOT NULL,
-  `noi_cap` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `noi_cap` int(11) NOT NULL,
   `matinh` int(11) NOT NULL,
   `mahuyen` int(11) NOT NULL,
   `maxa` int(11) NOT NULL,
@@ -1176,10 +1176,9 @@ CREATE TABLE `sinh_vien` (
   `so_dt` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `hotencha` varchar(70) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdtcha` int(10) DEFAULT NULL,
+  `sdtcha` varchar(10) COLLATE utf8_unicode_ci DEFAULT 'Chưa có',
   `hotenme` varchar(70) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdtme` int(10) DEFAULT NULL,
-  `nam_vao` int(4) NOT NULL,
+  `sdtme` varchar(10) COLLATE utf8_unicode_ci DEFAULT 'Chưa có',
   `id_lop` int(11) NOT NULL,
   `id_canbothem` int(11) NOT NULL,
   `ngay_them` datetime NOT NULL,
@@ -1192,9 +1191,11 @@ CREATE TABLE `sinh_vien` (
 -- Đang đổ dữ liệu cho bảng `sinh_vien`
 --
 
-INSERT INTO `sinh_vien` (`id_sinhvien`, `mssv`, `anh_ca_nhan`, `ho_sv`, `ten_sv`, `ngay_sinh`, `gioi_tinh`, `que_quan`, `so_cmnd`, `ngay_cap`, `noi_cap`, `matinh`, `mahuyen`, `maxa`, `so_nha`, `so_dt`, `email`, `hotencha`, `sdtcha`, `hotenme`, `sdtme`, `nam_vao`, `id_lop`, `id_canbothem`, `ngay_them`, `xoa`, `ngay_xoa`, `id_canboxoa`) VALUES
-(0, 1501206027, '2131a7bca6f843a61ae9.jpg', 'trần thị quỳnh', 'giao', '1997-11-03', 'nữ', '91', 100000000, '2019-04-01', '91', 91, 909, 31021, 'Ấp 9B', '0566837004', 'ttqgiao0311@gmail.com', 'Trần Văn phan', NULL, 'Nguyễn thị hằng', NULL, 2015, 1, 1, '2019-04-22 00:00:00', 0, '2019-04-22 19:40:13', 1),
-(1, 1501206121, 'VÕ THIỆN TIÊN   08.03.1992.JPG', 'Võ Thiện', 'Tiên', '1992-03-08', 'Nam', '91', 371590523, '2012-05-05', '91', 91, 904, 30853, 'Số 191, Ấp Tân Hội', '0799659225', 'votien8392@gmail.com', 'Nguyễn Văn A', 352924462, 'Nguyễn Văn B', NULL, 2015, 1, 1, '2019-04-17 00:00:00', 0, '2019-04-17 19:57:39', 1);
+INSERT INTO `sinh_vien` (`id_sinhvien`, `mssv`, `anh_ca_nhan`, `ho_sv`, `ten_sv`, `ngay_sinh`, `gioi_tinh`, `que_quan`, `so_cmnd`, `ngay_cap`, `noi_cap`, `matinh`, `mahuyen`, `maxa`, `so_nha`, `so_dt`, `email`, `hotencha`, `sdtcha`, `hotenme`, `sdtme`, `id_lop`, `id_canbothem`, `ngay_them`, `xoa`, `ngay_xoa`, `id_canboxoa`) VALUES
+(1, 1501206027, '2131a7bca6f843a61ae9.jpg', 'trần thị quỳnh', 'giao', '1997-11-03', 'nữ', 91, 100000000, '2019-04-01', 91, 91, 909, 31021, 'Ấp 9B', '0566837004', 'ttqgiao0311@gmail.com', 'Trần Văn phan', 'Chưa có', 'Nguyễn thị hằng', 'Chưa có', 1, 1, '2019-04-22 00:00:00', 0, '2019-04-22 19:40:13', 1),
+(2, 1501206121, 'VÕ THIỆN TIÊN   08.03.1992.JPG', 'Võ Thiện', 'Tiên', '1992-03-08', 'Nam', 91, 371590523, '2012-05-05', 91, 91, 904, 30853, 'Số 191, Ấp Tân Hội', '0799659225', 'votien8392@gmail.com', 'Nguyễn Văn A', '352924462', 'Nguyễn Văn B', 'Chưa có', 1, 1, '2019-04-17 00:00:00', 0, '2019-04-17 19:57:39', 1),
+(6, 1501206129, 'vnkgu.png', 'Vo thiện', 'Tiên 2', '2019-12-31', 'Nam', 89, 123456789, '2019-04-12', 89, 89, 886, 30337, 'Số 191', '1234567890', 'vttien8392@gmail.com', 'Nguyên Văn A', '1234567890', 'Nguyễn Văn E', 'Chưa có', 1, 2, '2019-04-26 21:46:13', 0, NULL, NULL),
+(7, 1501206120, 'vnkgu.png', 'Vo thiện', 'Tiên 2', '2019-12-31', 'Nam', 89, 123456780, '2019-04-12', 89, 89, 886, 30337, 'Số 191', '1234567891', 'vttien8392@gmail.com1', 'Nguyên Văn A', '1234567891', 'Nguyễn Văn E', '', 1, 2, '2019-04-26 21:52:29', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -12610,7 +12611,6 @@ ALTER TABLE `cochucvu`
 --
 ALTER TABLE `co_dien_ut`
   ADD PRIMARY KEY (`id_codienuutien`),
-  ADD KEY `mssv` (`mssv`),
   ADD KEY `id_dienuutien` (`id_dienuutien`);
 
 --
@@ -12635,7 +12635,6 @@ ALTER TABLE `dien_uu_tien`
 --
 ALTER TABLE `don_dang_ky`
   ADD PRIMARY KEY (`ma_don_dang_ky`),
-  ADD KEY `mssv` (`mssv`),
   ADD KEY `id_canbo` (`id_canbo`);
 
 --
@@ -12713,16 +12712,7 @@ ALTER TABLE `phong`
 -- Chỉ mục cho bảng `sinh_vien`
 --
 ALTER TABLE `sinh_vien`
-  ADD PRIMARY KEY (`id_sinhvien`),
-  ADD UNIQUE KEY `mssv` (`mssv`) USING BTREE,
-  ADD UNIQUE KEY `so_dt` (`so_dt`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD KEY `id_canbo` (`id_canbothem`),
-  ADD KEY `idcanboxoa` (`id_canboxoa`),
-  ADD KEY `tinh` (`matinh`),
-  ADD KEY `huyen` (`mahuyen`),
-  ADD KEY `xa` (`maxa`),
-  ADD KEY `id_lop` (`id_lop`);
+  ADD PRIMARY KEY (`id_sinhvien`);
 
 --
 -- Chỉ mục cho bảng `taikhoan`
@@ -12855,6 +12845,12 @@ ALTER TABLE `phong`
   MODIFY `idphong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT cho bảng `sinh_vien`
+--
+ALTER TABLE `sinh_vien`
+  MODIFY `id_sinhvien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
@@ -12896,7 +12892,6 @@ ALTER TABLE `cochucvu`
 -- Các ràng buộc cho bảng `co_dien_ut`
 --
 ALTER TABLE `co_dien_ut`
-  ADD CONSTRAINT `co_dien_ut_ibfk_1` FOREIGN KEY (`mssv`) REFERENCES `sinh_vien` (`mssv`),
   ADD CONSTRAINT `co_dien_ut_ibfk_2` FOREIGN KEY (`id_dienuutien`) REFERENCES `dien_uu_tien` (`id_dienuutien`);
 
 --
@@ -12911,7 +12906,6 @@ ALTER TABLE `co_gia_phong`
 -- Các ràng buộc cho bảng `don_dang_ky`
 --
 ALTER TABLE `don_dang_ky`
-  ADD CONSTRAINT `don_dang_ky_ibfk_1` FOREIGN KEY (`mssv`) REFERENCES `sinh_vien` (`mssv`),
   ADD CONSTRAINT `don_dang_ky_ibfk_2` FOREIGN KEY (`id_canbo`) REFERENCES `can_bo` (`id_canbo`);
 
 --
@@ -12957,8 +12951,7 @@ ALTER TABLE `lop`
 ALTER TABLE `o_phong`
   ADD CONSTRAINT `o_phong_ibfk_1` FOREIGN KEY (`id_phong`) REFERENCES `phong` (`idphong`),
   ADD CONSTRAINT `o_phong_ibfk_2` FOREIGN KEY (`id_canboxoa`) REFERENCES `can_bo` (`id_canbo`),
-  ADD CONSTRAINT `o_phong_ibfk_3` FOREIGN KEY (`id_canbothem`) REFERENCES `can_bo` (`id_canbo`),
-  ADD CONSTRAINT `o_phong_ibfk_4` FOREIGN KEY (`id_sinhvien`) REFERENCES `sinh_vien` (`id_sinhvien`);
+  ADD CONSTRAINT `o_phong_ibfk_3` FOREIGN KEY (`id_canbothem`) REFERENCES `can_bo` (`id_canbo`);
 
 --
 -- Các ràng buộc cho bảng `phong`
@@ -12968,17 +12961,6 @@ ALTER TABLE `phong`
   ADD CONSTRAINT `phong_ibfk_2` FOREIGN KEY (`id_canboxoa`) REFERENCES `can_bo` (`id_canbo`),
   ADD CONSTRAINT `phong_ibfk_3` FOREIGN KEY (`id_loaiphong`) REFERENCES `loai_phong` (`id_loaiphong`),
   ADD CONSTRAINT `phong_ibfk_4` FOREIGN KEY (`id_toanha`) REFERENCES `toa_nha` (`id_toanha`);
-
---
--- Các ràng buộc cho bảng `sinh_vien`
---
-ALTER TABLE `sinh_vien`
-  ADD CONSTRAINT `sinh_vien_ibfk_1` FOREIGN KEY (`id_canbothem`) REFERENCES `can_bo` (`id_canbo`),
-  ADD CONSTRAINT `sinh_vien_ibfk_2` FOREIGN KEY (`id_canboxoa`) REFERENCES `can_bo` (`id_canbo`),
-  ADD CONSTRAINT `sinh_vien_ibfk_3` FOREIGN KEY (`matinh`) REFERENCES `tinh` (`matinh`),
-  ADD CONSTRAINT `sinh_vien_ibfk_4` FOREIGN KEY (`mahuyen`) REFERENCES `huyen` (`mahuyen`),
-  ADD CONSTRAINT `sinh_vien_ibfk_5` FOREIGN KEY (`maxa`) REFERENCES `xa` (`maxa`),
-  ADD CONSTRAINT `sinh_vien_ibfk_6` FOREIGN KEY (`id_lop`) REFERENCES `lop` (`id_lop`);
 
 --
 -- Các ràng buộc cho bảng `thietbi`

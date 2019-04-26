@@ -187,11 +187,11 @@ $(document).ready(function () {
 					data:$('#from_suathongtin_sinh_vien').serialize(),
 					success:function(kq_capnhat_thongtin_sinh_vien){
 						if(kq_capnhat_thongtin_sinh_vien==1){
-							alert('Mã Chức vụ hoặc tên Chức vụ đã tồn tại');
+							alert('Mã sinh viên hoặc tên sinh viên đã tồn tại');
 							document.getElementById(ma_sinh_vien_sua123).focus();
 						}else {
 							if (kq_capnhat_thongtin_sinh_vien==99) {
-								alert('Cập nhật thông tin Chức vụ thành công');
+								alert('Cập nhật thông tin sinh viên thành công');
 								$('#from_suathongtin_sinh_vien')[0].reset();
 								$('#modal_sua_sinh_vien').modal('hide');
 								$('#dulieusinh_vien').load("./../dulieu/dulieusinh_vien.php")
@@ -270,21 +270,34 @@ $(document).ready(function () {
 					cache: false,
 					processData:false,
 					success:function (kql_add_sinh_vien) {
-						alert(kql_add_sinh_vien);
-						// if (kql_add_sinh_vien==1) {
-						// 	alert('Mã Chức vụ hoặc tên chức vụ đã tồn tạo');
-						// 	document.getElementById("ma_sinh_vien_them").focus();
-		    //       		}else {
-						// 	if (kql_add_sinh_vien==99) {
-						// 		alert('Thêm Chức vụ mới thành công');
-						// 		$('#ma_sinh_vien_them').html();
-						// 		$('#ten_sinh_vien_them').html();
-						// 		$('#form_themsinh_vienmoi')[0].reset();
-						// 		$('#dulieusinh_vien').load("./../dulieu/dulieusinh_vien.php");
-						// 	}else {
-						// 		alert('Lỗi Thêm');
-						// 	}
-		    //       		}
+						if (kql_add_sinh_vien==1) {
+							alert('Mã sinh viên đã tồn tạo');
+							document.getElementById("ma_sinhvien_themmoi123").focus();
+		          		}else if (kql_add_sinh_vien==6) {
+		          			alert('Số CMND viên đã tồn tạo');
+							document.getElementById("cmnd_them_sinh_vien").focus();
+		          		}else if (kql_add_sinh_vien==2) {
+		          			alert('Số điện thoại sinh viên đã tồn tạo');
+							document.getElementById("so_dt_them_sinh_vien").focus();
+		          		}else if (kql_add_sinh_vien==3) {
+		          			alert('Email sinh viên đã tồn tạo');
+							document.getElementById("email_them_sinh_vien").focus();
+		          		}else if (kql_add_sinh_vien==4) {
+		          			alert('Số điện thoại Cha sinh viên đã tồn tạo');
+							document.getElementById("sdtcha_them_sinh_vien").focus();
+		          		}else if (kql_add_sinh_vien==5) {
+		          			alert('Số điện thoại Mẹ sinh viên đã tồn tạo');
+							document.getElementById("sdtme_them_sinh_vien").focus();
+		          		}else if (kql_add_sinh_vien==99) {
+								alert('Thêm sinh viên mới thành công');
+								$('#ma_sinh_vien_them').html();
+								$('#ten_sinh_vien_them').html();
+								$('#form_themsinh_vienmoi')[0].reset();
+								$('#dulieusinhvien').load("./../dulieu/dulieusinhvien.php");
+						}else {
+								alert('Lỗi Thêm');
+						}
+		          		
 					}
 				});
 	     	}

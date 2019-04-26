@@ -3,7 +3,7 @@
 	if (isset($_POST["id_chitietsinh_vien"])) {
     $output = '';
     include 'conn.php';
-    $query = "SELECT sv.mssv, sv.anh_ca_nhan, sv.ho_sv, sv.ten_sv, sv.ngay_sinh, sv.gioi_tinh, sv.que_quan, sv.so_cmnd, sv.ngay_cap, sv.noi_cap, sv.matinh, sv.mahuyen, sv.maxa, sv.so_nha,sv.so_dt, sv.email, sv.hotencha, sv.sdtcha, sv.hotenme, sv.sdtme, sv.nam_vao, sv.id_lop, sv.id_canbothem, sv.ngay_them FROM sinh_vien sv WHERE sv.id_sinhvien ='$_POST[id_chitietsinh_vien]' and sv.xoa=0";
+    $query = "SELECT sv.mssv, sv.anh_ca_nhan, sv.ho_sv, sv.ten_sv, sv.ngay_sinh, sv.gioi_tinh, sv.que_quan, sv.so_cmnd, sv.ngay_cap, sv.noi_cap, sv.matinh, sv.mahuyen, sv.maxa, sv.so_nha,sv.so_dt, sv.email, sv.hotencha, sv.sdtcha, sv.hotenme, sv.sdtme, sv.id_lop, sv.id_canbothem, sv.ngay_them FROM sinh_vien sv WHERE sv.id_sinhvien ='$_POST[id_chitietsinh_vien]' and sv.xoa=0";
     $result = mysqli_query($con, $query);
     $output .= '
 		<div class="table-responsive">

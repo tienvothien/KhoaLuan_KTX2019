@@ -124,7 +124,7 @@ include './../dulieu/kiemtradangnhap.php';
 											<option value="">Chọn tỉnh</option>
 											
 											<?php
-												$tinh = mysqli_query($con, 'SELECT * FROM tinh');
+												$tinh = mysqli_query($con, 'SELECT * FROM tinh ORDER BY tinh.tentinh ASC');
 												while ($row_tinh= mysqli_fetch_array($tinh)) {
 													echo "<option value='$row_tinh[matinh]'>$row_tinh[tentinh]</option>";
 												}
@@ -154,7 +154,7 @@ include './../dulieu/kiemtradangnhap.php';
 											<option value="">Chọn quê quán</option>
 											
 											<?php
-												$tinh = mysqli_query($con, 'SELECT * FROM tinh');
+												$tinh = mysqli_query($con, 'SELECT * FROM tinh ORDER BY tinh.tentinh ASC');
 												while ($row_tinh= mysqli_fetch_array($tinh)) {
 													echo "<option value='$row_tinh[matinh]'>$row_tinh[tentinh]</option>";
 												}
@@ -174,7 +174,7 @@ include './../dulieu/kiemtradangnhap.php';
 										<select name="noicap_them_sinh_vien" id="noicap_them_sinh_vien" class="form-control" required="required">
 											<option value="">Chọn quê quán</option>
 											<?php
-												$tinh = mysqli_query($con, 'SELECT * FROM tinh');
+												$tinh = mysqli_query($con, 'SELECT * FROM tinh ORDER BY tinh.tentinh ASC');
 												while ($row_tinh= mysqli_fetch_array($tinh)) {
 													echo "<option value='$row_tinh[matinh]'>$row_tinh[tentinh]</option>";
 												}
@@ -187,7 +187,7 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Email</label>
-										<input  type="email" name="email_them_sinh_vien" id="email_them_sinh_vien" class="form-control" rows="1" required="" placeholder="Nhập Email">
+										<input  type="email" name="email_them_sinh_vien" id="email_them_sinh_vien" class="form-control" rows="1"  placeholder="Nhập Email">
 									</div>
 									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 hoten_cb_sua">
 										<label>Khóa</label>
@@ -265,34 +265,154 @@ include './../dulieu/kiemtradangnhap.php';
 							</div>
 							<div class="modal-body">
 								<form action="" id="from_suathongtin_sinhvien" name="from_suathongtin_sinhvien" 	method="POST" role="form" class="_1themphong1 " enctype="multipart/form-data" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
-									<label>Ảnh</label>
-									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-										<div id="image_preview_sua" style="padding-left: 30%"><img id="previewing_sua" class="img-responsive" style="width:100px; height: 150px" rc="" /></div>
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
+										<label>Ảnh</label>
+										<input id="file_anh_sv_sua" type="file" accept="image/*" name="image123" required="" />
 									</div>
-									<input id="file_anh_sua" type="file" accept="image/*" name="image12_sua123" />
-									<label>Mã Sinh viên</label>
-									
-									<input  type="text" name="ma_sinhvien_sua123" id="ma_sinhvien_sua123" class="form-control "  value=""   />
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua text-center">
+										<div id="message"></div>
+										<div id="image_preview_sinhvien_sua123">
+											<img id="previewing_sinhvien_sua123_load" class="img-responsive"  src="" />
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hoten_cb_sua ">
+										<label>Mã Sinh viên</label>
+										
+										<input style="width:50%" type="number" name="ma_sinhvien_sua123" id="ma_sinhvien_sua123" class="form-control " value=""  required="" placeholder="Nhập mã sinh viên"/>
+									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Họ Sinh viên</label>
-										<input  name="ho_sinhviensua_12" id="ho_sinhviensua_12" class="form-control chuinthuong" rows="1" required="">
+										<input  name="ho_sinhviensua_12" id="ho_sinhviensua_12" class="form-control chuinthuong" rows="1" required="" placeholder="Nhập họ sinh viên">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Tên Sinh viên</label>
-										<input  name="ten_sinhviensua_12" id="ten_sinhviensua_12" class="form-control chuinthuong" rows="1" required="">
+										<input  name="ten_sinhviensua_12" id="ten_sinhviensua_12" class="form-control chuinthuong" rows="1" required="" placeholder="Nhập tên sinh viên">
 									</div>
-									<label>Ngày sinh</label>
-									<input  type="date" name="ngaysinh_sinhviensua_12" id="ngaysinh_sinhviensua_12" class="form-control " rows="1" required="">
-									<label>Giới tính</label>
-									<select  name="gioitinh_sinhviensua_12" id="gioitinh_sinhviensua_12" class="form-control chuinthuong" required="required">
-										<option value="" id="dlgioitinhsua"></option>
-										<option value="Nam">Nam</option>
-										<option value="Nữ">Nữ</option>
-									</select>
-									<label>Điện thoại</label>
-									<input  type="number" name="sdt_sinhviensua_12" id="sdt_sinhviensua_12" class="form-control"  required="">
-									<label>Email</label>
-									<input  type="email" name="email_sinhviensua_12" id="email_sinhviensua_12" class="form-control" rows="1" required="">
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
+										<label>Ngày sinh</label>
+										<input  type="date" name="ngaysinh_sinhviensua_12" id="ngaysinh_sinhviensua_12" class="form-control " rows="1" required="">
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
+										<label>Giới tính</label>
+										<select  name="gioitinh_sinhviensua_12" id="gioitinh_sinhviensua_12" class="form-control chuinthuong" required="required">
+											<option value="" >Chọn giới tính</option>
+											<option value="Nam">Nam</option>
+											<option value="Nữ">Nữ</option>
+										</select>
+									</div>
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hoten_cb_sua">
+										<label for="">Hộ khẩu thường trú </label>
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
+										<label>Tỉnh</label>
+										<select name="tinh_sua_sinh_vien" id="tinh_sua_sinh_vien" class="form-control" required="required">
+											<option value="">Chọn tỉnh</option>
+											
+											<?php
+												$tinh = mysqli_query($con, 'SELECT * FROM tinh ORDER BY tinh.tentinh ASC');
+												while ($row_tinh= mysqli_fetch_array($tinh)) {
+													echo "<option value='$row_tinh[matinh]'>$row_tinh[tentinh]</option>";
+												}
+											?>
+										</select>
+									</div>
+									<div class="col-xs-12 col-sm-6col-md-6 col-lg-6 hoten_cb_sua">
+										<label> Quận/Huyện</label>
+										<select name="huyen_sua_sinh_vien" id="huyen_sua_sinh_vien" class="form-control" required="required">
+											<option value="">Chọn huyện</option>
+										</select>
+									</div>
+									<div class="col-xs-12 col-sm-6col-md-6 col-lg-6 hoten_cb_sua">
+										<label>Xã/Phường</label>
+										<select name="xa_sua_sinh_vien" id="xa_sua_sinh_vien" class="form-control" required="required">
+											<option value="">Chọn Xã</option>
+										</select>
+									</div>
+									<div class="col-xs-12 col-sm-6col-md-6 col-lg-6 hoten_cb_sua">
+										<label>Số nhà-Tổ-Ấp </label>
+										<input type="text" name="sonha_sua_sinh_vien" id="sonha_sua_sinh_vien" class="form-control chuinthuong" rows="1" required="" placeholder="Nhập số nhà">
+									</div>
+									
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
+										<label>Quê quán</label>
+										<select name="quequan_sua_sinh_vien" id="quequan_sua_sinh_vien" class="form-control" required="required">
+											<option value="">Chọn quê quán</option>
+											
+											<?php
+												$tinh = mysqli_query($con, 'SELECT * FROM tinh ORDER BY tinh.tentinh ASC');
+												while ($row_tinh= mysqli_fetch_array($tinh)) {
+													echo "<option value='$row_tinh[matinh]'>$row_tinh[tentinh]</option>";
+												}
+											?>
+										</select>
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
+										<label>Số CMND</label>
+										<input  type="number" name="cmnd_sua_sinh_vien" id="cmnd_sua_sinh_vien" class="form-control" rows="1" required="" placeholder="Nhập số CMND" >
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
+										<label>Ngày cấp CMND</label>
+										<input  type="date" name="ngay_capcnnd_sua_sinh_vien" id="ngay_capcnnd_sua_sinh_vien" class="form-control" rows="1" required="">
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
+										<label>Nơi cấp</label>
+										<select name="noicap_sua_sinh_vien" id="noicap_sua_sinh_vien" class="form-control" required="required">
+											<option value="">Chọn quê quán</option>
+											<?php
+												$tinh = mysqli_query($con, 'SELECT * FROM tinh ORDER BY tinh.tentinh ASC');
+												while ($row_tinh= mysqli_fetch_array($tinh)) {
+													echo "<option value='$row_tinh[matinh]'>$row_tinh[tentinh]</option>";
+												}
+											?>
+										</select>
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
+										<label>Điện thoại</label>
+										<input  type="number" name="so_dt_sua_sinh_vien" id="so_dt_sua_sinh_vien" class="form-control" rows="1" required="" placeholder="Nhập nhập số điện thoại">
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
+										<label>Email</label>
+										<input  type="email" name="email_sua_sinh_vien" id="email_sua_sinh_vien" class="form-control" rows="1" required="" placeholder="Nhập Email">
+									</div>
+									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 hoten_cb_sua">
+										<label>Khóa</label>
+										<input  type="number" name="khoa_sua_sinh_vien" id="khoa_sua_sinh_vien" class="form-control" rows="1" required="" placeholder="khóa">
+									</div>
+									<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 hoten_cb_sua">
+										<label>Khoa</label>
+										<select name="id_khoa_sua_sinh_vien" id="id_khoa_sua_sinh_vien" class="form-control" required="required">
+											<option value="">Chọn Khoa</option>
+											<?php
+												$khoa = mysqli_query($con, 'SELECT * FROM khoa where khoa.xoa =0');
+												while ($row_khoa= mysqli_fetch_array($khoa)) {
+													echo "<option value='$row_khoa[id_khoa]'>$row_khoa[ten_khoa]</option>";
+												}
+											?>
+										</select>
+									</div>
+									<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 hoten_cb_sua">
+										<label>Lớp</label>
+										<select name="lop_sua_sinh_vien" id="lop_sua_sinh_vien" class="form-control" required="required">
+											<option value="">Chọn Lớp</option>
+										</select>
+									</div>
+									
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
+										<label>Họ tên Cha</label>
+										<input  type="text" name="hotencha_sua_sinh_vien" id="hotencha_sua_sinh_vien" class="form-control" rows="1" required="" placeholder="Nhập họ tên cha">
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
+										<label>SĐT Cha</label>
+										<input  type="number" name="sdtcha_sua_sinh_vien" id="sdtcha_sua_sinh_vien" class="form-control" rows="1" placeholder="Nhập SĐT của cha">
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
+										<label>Họ tên Mẹ</label>
+										<input  type="text" name="hotenme_sua_sinh_vien" id="hotenme_sua_sinh_vien" class="form-control" rows="1" required="" placeholder="Nhập họ tên Mẹ">
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
+										<label>SĐT Mẹ</label>
+										<input  type="number" name="sdtme_sua_sinh_vien" id="sdtme_sua_sinh_vien" class="form-control" rows="1" placeholder="Nhập SĐT Mẹ">
+									</div>
 									<input type="hidden" name="id_sinhvien_sua_12" id="id_sinhvien_sua_12" />
 								</div>
 								<div class="modal-footer">

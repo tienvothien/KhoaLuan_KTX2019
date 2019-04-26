@@ -38,7 +38,7 @@ include './../dulieu/kiemtradangnhap.php';
 					<div class="container-fluid">
 						<div class="row"><!-- nho doi ten class -->
 						<a href="quanlykhoa.php" title=""><!--  hien thoong trinh chi tiet khoa -->
-						<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 							<div class="thumbnail mua_nen_1">
 								<div class="captionb align-middler">
 									<h3 class="canhgiua"  >Khoa</h3>
@@ -54,7 +54,7 @@ include './../dulieu/kiemtradangnhap.php';
 						</div>
 						</a> <!-- end het hien thong tin khoa -->
 						<a href="quanlylop.php" title=""><!--  hien thoong trinh chi tiet khoa -->
-						<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 							<div class="thumbnail mua_nen_2">
 								<div class="captionb align-middler">
 									<h3 class="canhgiua"  >Lớp</h3>
@@ -70,7 +70,7 @@ include './../dulieu/kiemtradangnhap.php';
 						</div>
 						</a> <!-- end het hien thong tin khoa -->
 						<a href="quanlythietbi.php" title=""><!--  hien thoong trinh chi tiet thietbi-->
-							<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 								<div class="thumbnail mua_nen_3">
 									<div class="captionb align-middler">
 										<h3 class="canhgiua"  >Thiết bị</h3>
@@ -86,7 +86,7 @@ include './../dulieu/kiemtradangnhap.php';
 							</div>
 						</a> <!-- end het hien thong tin thietbi-->
 						<a href="quanlycanbo.php" title=""><!--  hien thoong trinh chi tiet Cán bộ-->
-							<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 								<div class="thumbnail mua_nen_4">
 									<div class="captionb align-middler">
 										<h3 class="canhgiua"  >Cán bộ</h3>
@@ -101,7 +101,7 @@ include './../dulieu/kiemtradangnhap.php';
 								</div>
 							</div>
 							<a href="quanlytoanha.php" title=""><!--  hien thoong trinh chi tiet Tòa nhà-->
-							<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 								<div class="thumbnail mua_nen_5">
 									<div class="captionb align-middler">
 										<h3 class="canhgiua"  >Tòa nhà</h3>
@@ -117,7 +117,7 @@ include './../dulieu/kiemtradangnhap.php';
 							</div>
 						</a> <!-- end het hien thong tin Tòa nhà-->
 						<a href="quanlyloaiphong.php" title=""><!--  hien thoong trinh chi tiet Loại phòng-->
-							<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 								<div class="thumbnail mua_nen_6">
 									<div class="captionb align-middler">
 										<h3 class="canhgiua"  >Loại phòng</h3>
@@ -132,6 +132,22 @@ include './../dulieu/kiemtradangnhap.php';
 								</div>
 							</div>
 						</a> <!-- end het hien thong tin Loại phòng-->
+						<a href="quanlysinhvien.php" title=""><!--  hien thoong trinh chi tiet Sinh viên-->
+							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+								<div class="thumbnail mua_nen_7">
+									<div class="captionb align-middler">
+										<h3 class="canhgiua"  >Sinh viên</h3>
+										<p  >
+											<h3 class="canhgiua ">
+											<?php include './conn.php';
+											$soluongsinh_vien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(sinh_vien.id_sinhvien) AS slsinh_vien FROM sinh_vien WHERE sinh_vien.xoa =0"));
+											echo $soluongsinh_vien['slsinh_vien'];
+											?></h3>
+										</p>
+									</div>
+								</div>
+							</div>
+						</a> <!-- end het hien thong tin Sinh viên-->
 					</div>
 					</div><!-- end thaydoi1 -->
 					</div><!-- end noidungthaydoi -->
