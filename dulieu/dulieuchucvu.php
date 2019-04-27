@@ -42,7 +42,10 @@ include 'conn.php';
 					</a>
 				</td>
 				<td class="canhgiuanek12">
-					<input type="button" name="delete" value="Xóa" id="<?php echo $row_chucvu['idchucvu']; ?>" class="btn btn-info btn-danger btn-xs xoa_chucvu" />
+					<?php if ($row_chucvu['idchucvu']!=19) {
+						?><input type="button" name="delete" value="Xóa" id="<?php echo $row_chucvu['idchucvu']; ?>" class="btn btn-info btn-danger btn-xs xoa_chucvu" />
+					<?php } ?>
+					
 				</td>
 				<?php echo "
 			</tr>

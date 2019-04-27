@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 27, 2019 lúc 10:33 AM
+-- Thời gian đã tạo: Th4 27, 2019 lúc 05:30 PM
 -- Phiên bản máy phục vụ: 10.1.29-MariaDB
 -- Phiên bản PHP: 7.2.0
 
@@ -91,11 +91,7 @@ CREATE TABLE `chucvu` (
 INSERT INTO `chucvu` (`idchucvu`, `machucvu`, `tenchucvu`, `id_canbothem`, `ngaythem`, `xoa`, `ngay_xoa`, `id_canboxoa`) VALUES
 (1, 'CB3', 'quản lý Phòng', 1, '2019-04-10 00:00:00', 0, NULL, NULL),
 (2, 'CB4', 'Cán bộ Kế toán', 1, '2019-04-10 00:00:00', 0, NULL, NULL),
-(3, 'áda', 'Sinh viên VD', 1, '2019-04-14 14:13:00', 0, NULL, NULL),
-(15, 'cb5', 'Chức vụ ví dụ 1', 1, '2019-04-14 14:34:07', 0, NULL, NULL),
-(16, 'cb6', 'Chức vụ ví dụ 2', 1, '2019-04-14 14:35:07', 0, NULL, NULL),
-(17, 'cb7', 'Chức vụ ví dụ 3', 1, '2019-04-14 14:36:15', 0, NULL, NULL),
-(18, 'cb9', 'Chức vụ ví dụ 9', 1, '2019-04-14 14:37:08', 1, '2019-04-14 14:45:36', 1);
+(19, 'SV1', 'Sinh Viên', 2, '2019-04-27 18:57:25', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1217,16 +1213,18 @@ CREATE TABLE `taikhoan` (
   `idtktao` int(11) NOT NULL,
   `xoa` int(11) NOT NULL DEFAULT '0',
   `ngayxoa` datetime DEFAULT NULL,
-  `nguoixoa` int(11) DEFAULT NULL
+  `nguoixoa` int(11) DEFAULT NULL,
+  `is_sinhvien` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `taikhoan`
 --
 
-INSERT INTO `taikhoan` (`idtk`, `idms`, `matkhau`, `ngaythem`, `idtktao`, `xoa`, `ngayxoa`, `nguoixoa`) VALUES
-(1, 1000000000, '12345678', '2019-04-10 00:00:00', 0, 0, NULL, NULL),
-(2, 1000000001, '12345678', '2019-04-14 00:00:00', 1000000001, 0, NULL, NULL);
+INSERT INTO `taikhoan` (`idtk`, `idms`, `matkhau`, `ngaythem`, `idtktao`, `xoa`, `ngayxoa`, `nguoixoa`, `is_sinhvien`) VALUES
+(1, 1000000000, '12345678', '2019-04-10 00:00:00', 0, 0, NULL, NULL, 0),
+(2, 1000000001, '12345678', '2019-04-14 00:00:00', 1000000001, 0, NULL, NULL, 0),
+(3, 1501206121, '12345678', '2019-04-27 00:00:00', 1000000000, 0, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -12782,7 +12780,7 @@ ALTER TABLE `can_bo`
 -- AUTO_INCREMENT cho bảng `chucvu`
 --
 ALTER TABLE `chucvu`
-  MODIFY `idchucvu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idchucvu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `cochucvu`
@@ -12860,7 +12858,7 @@ ALTER TABLE `sinh_vien`
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `idtk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idtk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `thietbi`

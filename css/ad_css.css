@@ -4,6 +4,16 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+a.width_100px:hover, a:focus {
+    text-decoration: none;
+}
+
+.width_100px {
+    width: 100%;
+}
+
+.caption.text-center.mauchu123 {color: white;}
+
 img#previewing_sinhvien_sua123_load {
     border: 1px solid #d8d8d8;
 }
@@ -17,7 +27,7 @@ img#previewing_sinhvien_sua123_load {
     color: white;
 }
 
-.thumbnail.mua_nen_6 {
+.thumbnail.mua_nen_6,.thumbnail.maunen-3 {
     background-color: #FF5722;
     color: white;
 }
@@ -30,7 +40,7 @@ table {
     margin-bottom: 0px !important;
 }
 
-.thumbnail.mua_nen_5 {
+.thumbnail.mua_nen_5, .thumbnail.maunen-1 {
     background-color: #FF9800;
     color: white;
 }
@@ -60,7 +70,7 @@ div#image_preview {
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
     vertical-align: middle;
 }
-.thumbnail.mua_nen_3 {
+.thumbnail.mua_nen_3,.thumbnail.maunen-2 {
     background-color: #673AB7;
     color: white;
 }
@@ -183,9 +193,12 @@ hr.ngay_ad {
     padding-right: 0px;
 }
 @media (min-width: 768px){
-.modal-dialog.themthietbi2.khoa_themmoi.themthietbi_moi, .themthietbi_moi, .width_350px {
-    width: 350px !important;
-}
+  .modal-dialog.themthietbi2.khoa_themmoi.themthietbi_moi, .themthietbi_moi, .width_350px {
+      width: 350px !important;
+  }
+  .col-xs-12.col-sm-12.col-md-12.col-lg-12.benphai {
+      height: 234px;
+  }
 }
 @media (max-width: 768px){
   .modal-dialog.themlop2.lop_themmoi{

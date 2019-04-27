@@ -29,11 +29,11 @@ $(document).ready(function () {
 	          		}else {
 	          			if (kqlogin==0) {
 	          				 window.location="./../";
-	          			}else {
-	          				if (kqlogin==3) {
-	          					alert("Tài khoản của bạn không đủ quyền truy cập trang Website này..!");
-	          				}
-	          			}
+	          			}else if(kqlogin==9){
+	          				window.location='./../../sinhvien/index.php'
+	          			}else if (kqlogin==3) {
+                                        alert("Tài khoản của bạn không đủ quyền truy cập trang Website này..!");
+                              }
 	          		}
           		}
          	}
