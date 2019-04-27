@@ -163,7 +163,9 @@ include './../dulieu/kiemtradangnhap.php';
 								<form action="" id="from_suathongtin_can_bo" name="from_suathongtin_can_bo" 	method="POST" role="form" class="_1themphong1 " enctype="multipart/form-data" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
 									<label>Ảnh</label>
 									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-										 <div id="image_preview_sua" style="padding-left: 30%"><img id="previewing_sua" class="img-responsive" style="width:100px; height: 150px" rc="" /></div>
+										 <div id="image_preview_sua" style="padding-left: 30%">
+										 	<img id="previewing_sua" class="img-responsive" style="width:100px; height: 150px" rc="" />
+										 </div>
 									</div>
 									<input id="file_anh_sua" type="file" accept="image/*" name="image12_sua123" />
 

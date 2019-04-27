@@ -272,7 +272,7 @@ include './../dulieu/kiemtradangnhap.php';
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua text-center">
 										<div id="message"></div>
 										<div id="image_preview_sinhvien_sua123">
-											<img id="previewing_sinhvien_sua123_load" class="img-responsive"  src="" />
+											<img id="previewing_sinhvien_sua123_load" class="img-responsive" style="width:100px;" rc="" />
 										</div>
 									</div>
 									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hoten_cb_sua ">
@@ -317,15 +317,15 @@ include './../dulieu/kiemtradangnhap.php';
 										</select>
 									</div>
 									<div class="col-xs-12 col-sm-6col-md-6 col-lg-6 hoten_cb_sua">
-										<label> Quận/Huyện</label>
+										<label> Quận/Huyện/TP</label>
 										<select name="huyen_sua_sinh_vien" id="huyen_sua_sinh_vien" class="form-control" required="required">
 											<option value="" id="id_huyensua">Chọn huyện</option>
 										</select>
 									</div>
 									<div class="col-xs-12 col-sm-6col-md-6 col-lg-6 hoten_cb_sua">
-										<label>Xã/Phường</label>
+										<label>Xã/Phường/Thị trấn</label>
 										<select name="xa_sua_sinh_vien" id="xa_sua_sinh_vien" class="form-control" required="required">
-											<option value="" id="id_xa_sua">Chọn Xã</option>
+											<option value="" >Chọn Xã</option>
 										</select>
 									</div>
 									<div class="col-xs-12 col-sm-6col-md-6 col-lg-6 hoten_cb_sua">

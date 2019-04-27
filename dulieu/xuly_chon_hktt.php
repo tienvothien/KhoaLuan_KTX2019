@@ -57,5 +57,30 @@
 			echo "1";
 		}
 	}//end tỉnh thay đổi mssv
-	
+	if (isset($_POST['id_sinh_vien_sua'])) {// hiện tt xã sẽ thay đổi sửa tt sinh viên
+		$id_sinh_vien_sua = $_POST['id_sinh_vien_sua'];
+		include 'conn.php';
+		$sqlxa = "SELECT xa.maxa, xa.capxa, xa.tenxa FROM sinh_vien , huyen, xa WHERE sinh_vien.id_sinhvien='$id_sinh_vien_sua' AND sinh_vien.mahuyen= huyen.mahuyen AND huyen.mahuyen=xa.mahuyen ORDER by xa.capxa,xa.tenxa ASC";
+		$sqlxahien = mysqli_fetch_array(mysqli_query($con,"SELECT xa.maxa, xa.capxa, xa.tenxa FROM sinh_vien , xa WHERE sinh_vien.id_sinhvien='$id_sinh_vien_sua' AND sinh_vien.maxa= xa.maxa ORDER by xa.capxa, xa.tenxa ASC"));
+		$queryxa = mysqli_query($con, $sqlxa);
+		echo " <option value='".$sqlxahien['maxa']."'>".$sqlxahien['capxa']. $sqlxahien['tenxa']."</option>";
+		while ($rowxa = mysqli_fetch_array($queryxa)) {
+			$tenxa = $rowxa['tenxa'];
+			$capxa = $rowxa['capxa'];
+			$maxa = $rowxa['maxa'];
+			echo "<option value='$maxa'>$capxa $tenxa</option>";}
+	}// end hiện tt xã sẽ thay đổi sửa tt sinh viên
+	if (isset($_POST['id_sinh_vien_sua_huyen'])) {// hiện tt xã sẽ thay đổi sửa tt sinh viên
+		$id_sinh_vien_sua_huyen = $_POST['id_sinh_vien_sua_huyen'];
+		include 'conn.php';
+		$sqlhuyen = "SELECT huyen.mahuyen, huyen.caphuyen, huyen.tenhuyen FROM sinh_vien , huyen, tinh WHERE sinh_vien.id_sinhvien='$id_sinh_vien_sua_huyen' AND sinh_vien.matinh=tinh.matinh AND huyen.matinh=tinh.matinh  ORDER by huyen.caphuyen, huyen.tenhuyen ASC";
+		$sqlhuyenhien = mysqli_fetch_array(mysqli_query($con,"SELECT huyen.mahuyen, huyen.caphuyen, huyen.tenhuyen FROM sinh_vien , huyen WHERE sinh_vien.id_sinhvien='$id_sinh_vien_sua_huyen' AND sinh_vien.mahuyen= huyen.mahuyen ORDER by huyen.caphuyen, huyen.tenhuyen ASC"));
+		$queryhuyen = mysqli_query($con, $sqlhuyen);
+		echo " <option value='".$sqlhuyenhien['mahuyen']."'>".$sqlhuyenhien['caphuyen']. $sqlhuyenhien['tenhuyen']."</option>";
+		while ($rowhuyen = mysqli_fetch_array($queryhuyen)) {
+			$tenhuyen = $rowhuyen['tenhuyen'];
+			$caphuyen = $rowhuyen['caphuyen'];
+			$mahuyen = $rowhuyen['mahuyen'];
+			echo "<option value='$mahuyen'>$caphuyen $tenhuyen</option>";}
+	}// end hiện tt xã sẽ thay đổi sửa tt sinh viên
  ?>

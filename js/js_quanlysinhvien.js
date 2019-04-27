@@ -22,6 +22,31 @@ $(document).ready(function () {
 			$('#previewing_themsvload').attr('width', '100px');
 			$('#previewing_themsvload').attr('height', '130px');
 		}; // en kiem tra truoc khi cap nhat
+		$("#file_anh_sv_sua").change(function() {
+			var file = this.files[0];
+			var imagefile = file.type;
+			var match= ["image/jpeg","image/png","image/jpg"];
+			if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2]))){
+				$('#previewing_sinhvien_sua123_load').attr('src','ấdasd');
+				alert("Bạn phải chọn file ảnh có đuôi là (jpeg, jpg and png)");
+				// $("#message").html("<p id='error'>Bạn phải chọn pha</p>"+"<h4>Note</h4>"+"<span id='error_message'>Only  Images type allowed</span>");
+				return false;
+			}else{
+				var reader = new FileReader();
+				reader.onload = imageIsLoaded2;
+				reader.readAsDataURL(this.files[0]);
+			}
+		});
+	
+	
+	function imageIsLoaded2(e) {
+		$("#file_anh_sv_sua").css("color","green");
+		$('#image_preview_sinhvien_sua123').css("display", "block");
+		$('#previewing_sinhvien_sua123_load').attr('src', e.target.result);
+		$('#previewing_sinhvien_sua123_load').attr('width', '100px');
+		$('#previewing_sinhvien_sua123_load').attr('height', '130px');
+		$('#previewing_sinhvien_sua123_load').attr('border', '1px solid #d8d8d8');
+	};
 		// nêu Số cmnd thay đổi sẽ 
 		$('#ma_sinhvien_themmoi123').change(function() {
 			var ma_sinhvien_themmoi123=$('#ma_sinhvien_themmoi123').val();
@@ -156,12 +181,36 @@ $(document).ready(function () {
 	// sửa thông tin sinh_vien
 	$(document).on('click', '.id_sua_sinh_vien', function(){
 		var id_sinh_vien_sua = $(this).attr("id");
+		// hiện thông tin xã
+		$.ajax({
+				url:"../dulieu/xuly_chon_hktt.php",
+				type: "post",
+				data: {id_sinh_vien_sua:id_sinh_vien_sua},
+				async:true,
+				success:function(kq){
+					$("#xa_sua_sinh_vien").html(kq);
+				}
+			});
+		// end hiện thông tin xã
+		// hiện thông tin huyện
+		$.ajax({
+				url:"../dulieu/xuly_chon_hktt.php",
+				type: "post",
+				data: {id_sinh_vien_sua_huyen:id_sinh_vien_sua},
+				async:true,
+				success:function(kq){
+					$("#huyen_sua_sinh_vien").html(kq);
+				}
+			});
+		// end hiện thông tin huyện
 		$.ajax({
 			url:"../dulieu/fetch_tt_sinh_vien.php",
 			method:"POST",
 			data:{id_sinh_vien_sua:id_sinh_vien_sua},
 			dataType:"json",
 			success:function(data_suasinh_vien){
+				$('#file_anh_sv_sua').attr("value",data_suasinh_vien.anh_ca_nhan);// tt hinh ảnh
+				$('#previewing_sinhvien_sua123_load').attr('src','./../images/'+data_suasinh_vien.anh_ca_nhan);
 				$('#ma_sinhvien_sua123').val(data_suasinh_vien.mssv);// tt mssv
 				$('#ho_sinhviensua_12').val(data_suasinh_vien.ho_sv);// tt ho sv
 				$('#ten_sinhviensua_12').val(data_suasinh_vien.ten_sv);// tt tên sinh viên
@@ -174,10 +223,11 @@ $(document).ready(function () {
 				$('#noicap_sua_sinh_vien').val(data_suasinh_vien.noi_cap);// tt nơi cấp cmnd
 				// tt hộ khẩu thường trú
 				$('#tinh_sua_sinh_vien').val(data_suasinh_vien.matinh);// tt tỉnh
-				$('#id_huyensua').val(data_suasinh_vien.mahuyen);// tt huyện
-				$('#id_huyensua').html(data_suasinh_vien.caphuyen+data_suasinh_vien.tenhuyen);// tt huyện
-				$('#id_xa_sua').val(data_suasinh_vien.maxa);// tt xã
-				$('#id_xa_sua').html(data_suasinh_vien.capxa+data_suasinh_vien.tenxa);// tt xã
+				// $('#id_huyensua').val(data_suasinh_vien.mahuyen);// tt huyện
+				// $('#id_huyensua').html(data_suasinh_vien.caphuyen+data_suasinh_vien.tenhuyen);// tt huyện
+				// $('#xa_sua_sinh_vien').val(data_suasinh_vien.maxa);// tt xã
+				// $('#id_xa_sua').val(data_suasinh_vien.maxa);// tt xã
+				// $('#id_xa_sua').html(data_suasinh_vien.capxa+data_suasinh_vien.tenxa);// tt xã
 				$('#sonha_sua_sinh_vien').val(data_suasinh_vien.so_nha);// tt số nhà
 				//end tt hộ khẩu thường trú
 				$('#so_dt_sua_sinh_vien').val(data_suasinh_vien.so_dt);// tt sdt

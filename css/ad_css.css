@@ -4,6 +4,14 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+img#previewing_sinhvien_sua123_load {
+    border: 1px solid #d8d8d8;
+}
+
+.modal-footer {
+    border: none;
+}
+
 .thumbnail.mua_nen_7 {
     background-color: #8BC34A;
     color: white;
