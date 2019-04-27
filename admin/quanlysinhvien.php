@@ -257,7 +257,7 @@ include './../dulieu/kiemtradangnhap.php';
 				</div>
 				<!-- Cập nhật lại thông tin phòng -->
 				<div id="modal_sua_sinhvien" class="modal fade">
-					<div class="modal-dialog width_350px">
+					<div class="modal-dialog ">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -295,7 +295,7 @@ include './../dulieu/kiemtradangnhap.php';
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Giới tính</label>
 										<select  name="gioitinh_sinhviensua_12" id="gioitinh_sinhviensua_12" class="form-control chuinthuong" required="required">
-											<option value="" >Chọn giới tính</option>
+											<option value="" id="id_gioitinhsua">Chọn giới tính</option>
 											<option value="Nam">Nam</option>
 											<option value="Nữ">Nữ</option>
 										</select>
@@ -306,7 +306,7 @@ include './../dulieu/kiemtradangnhap.php';
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Tỉnh</label>
 										<select name="tinh_sua_sinh_vien" id="tinh_sua_sinh_vien" class="form-control" required="required">
-											<option value="">Chọn tỉnh</option>
+											<option value="" id="id_tinhsua">Chọn tỉnh</option>
 											
 											<?php
 												$tinh = mysqli_query($con, 'SELECT * FROM tinh ORDER BY tinh.tentinh ASC');
@@ -319,13 +319,13 @@ include './../dulieu/kiemtradangnhap.php';
 									<div class="col-xs-12 col-sm-6col-md-6 col-lg-6 hoten_cb_sua">
 										<label> Quận/Huyện</label>
 										<select name="huyen_sua_sinh_vien" id="huyen_sua_sinh_vien" class="form-control" required="required">
-											<option value="">Chọn huyện</option>
+											<option value="" id="id_huyensua">Chọn huyện</option>
 										</select>
 									</div>
 									<div class="col-xs-12 col-sm-6col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Xã/Phường</label>
 										<select name="xa_sua_sinh_vien" id="xa_sua_sinh_vien" class="form-control" required="required">
-											<option value="">Chọn Xã</option>
+											<option value="" id="id_xa_sua">Chọn Xã</option>
 										</select>
 									</div>
 									<div class="col-xs-12 col-sm-6col-md-6 col-lg-6 hoten_cb_sua">
@@ -393,7 +393,7 @@ include './../dulieu/kiemtradangnhap.php';
 									<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 hoten_cb_sua">
 										<label>Lớp</label>
 										<select name="lop_sua_sinh_vien" id="lop_sua_sinh_vien" class="form-control" required="required">
-											<option value="">Chọn Lớp</option>
+											<option value="" id="id_lop_sua_sv">Chọn Lớp</option>
 										</select>
 									</div>
 									

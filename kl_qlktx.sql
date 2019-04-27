@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 26, 2019 lúc 05:25 PM
+-- Thời gian đã tạo: Th4 27, 2019 lúc 10:33 AM
 -- Phiên bản máy phục vụ: 10.1.29-MariaDB
 -- Phiên bản PHP: 7.2.0
 
@@ -1073,7 +1073,9 @@ INSERT INTO `log_sua_dl` (`idlog`, `bangsua`, `tenbang`, `iddulieu`, `cot`, `ten
 (169, 'khoa', 'Khoa', 64, 'ten_khoa', 'tên Khoa', 'Khoa mới ví dụ', 'Khoa mới ví dụ 1', 2, '2019-04-25 15:42:02'),
 (170, 'lop', 'Lớp', 9, 'id_khoa', 'Tên Khoa', '1', '64', 2, '2019-04-25 16:03:07'),
 (171, 'lop', 'Lớp', 9, 'ma_lop', 'Mã Lớp', 'MALVD1', 'malVD2', 2, '2019-04-25 16:05:31'),
-(172, 'lop', 'Lớp', 9, 'ten_lop', 'Tên Lớp', 'Lớp VD', 'Lớp VD1', 2, '2019-04-25 16:13:24');
+(172, 'lop', 'Lớp', 9, 'ten_lop', 'Tên Lớp', 'Lớp VD', 'Lớp VD1', 2, '2019-04-25 16:13:24'),
+(173, 'lop', 'Lớp', 1, 'nam_BD', 'Năm bắt đầu', '0', '2015', 2, '2019-04-27 14:28:25'),
+(174, 'lop', 'Lớp', 9, 'nam_BD', 'Năm bắt đầu', '0', '2016', 2, '2019-04-27 14:28:35');
 
 -- --------------------------------------------------------
 
@@ -1100,10 +1102,10 @@ CREATE TABLE `lop` (
 --
 
 INSERT INTO `lop` (`id_lop`, `ma_lop`, `ten_lop`, `id_khoa`, `nam_BD`, `khoa`, `id_canbothem`, `ngay`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
-(1, 'b15tt3', 'B15 Thông tin 3', 1, 0, 1, 1, '2019-04-12 00:00:00', 0, 2, '2019-04-23 20:34:45'),
+(1, 'b15tt3', 'B15 Thông tin 3', 1, 2015, 1, 1, '2019-04-12 00:00:00', 0, 2, '2019-04-23 20:34:45'),
 (7, 'qưert', 'asda', 55, 0, 1, 1, '0000-00-00 00:00:00', 1, 1, '2019-04-12 21:28:34'),
 (8, 'qưer8', 'asdaasdasd', 55, 0, 1, 1, '2019-04-12 20:46:29', 1, 2, '2019-04-25 15:41:14'),
-(9, 'malVD2', 'Lớp VD1', 64, 0, 2, 1, '2019-04-12 22:20:08', 0, NULL, NULL);
+(9, 'malVD2', 'Lớp VD1', 64, 2016, 2, 1, '2019-04-12 22:20:08', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1195,7 +1197,11 @@ INSERT INTO `sinh_vien` (`id_sinhvien`, `mssv`, `anh_ca_nhan`, `ho_sv`, `ten_sv`
 (1, 1501206027, '2131a7bca6f843a61ae9.jpg', 'trần thị quỳnh', 'giao', '1997-11-03', 'nữ', 91, 100000000, '2019-04-01', 91, 91, 909, 31021, 'Ấp 9B', '0566837004', 'ttqgiao0311@gmail.com', 'Trần Văn phan', 'Chưa có', 'Nguyễn thị hằng', 'Chưa có', 1, 1, '2019-04-22 00:00:00', 0, '2019-04-22 19:40:13', 1),
 (2, 1501206121, 'VÕ THIỆN TIÊN   08.03.1992.JPG', 'Võ Thiện', 'Tiên', '1992-03-08', 'Nam', 91, 371590523, '2012-05-05', 91, 91, 904, 30853, 'Số 191, Ấp Tân Hội', '0799659225', 'votien8392@gmail.com', 'Nguyễn Văn A', '352924462', 'Nguyễn Văn B', 'Chưa có', 1, 1, '2019-04-17 00:00:00', 0, '2019-04-17 19:57:39', 1),
 (6, 1501206129, 'vnkgu.png', 'Vo thiện', 'Tiên 2', '2019-12-31', 'Nam', 89, 123456789, '2019-04-12', 89, 89, 886, 30337, 'Số 191', '1234567890', 'vttien8392@gmail.com', 'Nguyên Văn A', '1234567890', 'Nguyễn Văn E', 'Chưa có', 1, 2, '2019-04-26 21:46:13', 0, NULL, NULL),
-(7, 1501206120, 'vnkgu.png', 'Vo thiện', 'Tiên 2', '2019-12-31', 'Nam', 89, 123456780, '2019-04-12', 89, 89, 886, 30337, 'Số 191', '1234567891', 'vttien8392@gmail.com1', 'Nguyên Văn A', '1234567891', 'Nguyễn Văn E', '', 1, 2, '2019-04-26 21:52:29', 0, NULL, NULL);
+(7, 1501206120, 'vnkgu.png', 'Vo thiện', 'Tiên 2', '2019-12-31', 'Nam', 89, 123456780, '2019-04-12', 89, 89, 886, 30337, 'Số 191', '1234567891', 'vttien8392@gmail.com1', 'Nguyên Văn A', '1234567891', 'Nguyễn Văn E', '', 1, 2, '2019-04-26 21:52:29', 0, NULL, NULL),
+(8, 1501206128, 'vnkgu.png', 'Trần', 'Võ', '2019-12-31', 'Nam', 89, 123456788, '2019-12-31', 89, 89, 883, 30289, 'Số 191', '1234567899', '', 'Nguyên Văn A', '', 'Nguyễn Văn E', '', 1, 2, '2019-04-27 13:12:50', 0, NULL, NULL),
+(9, 1501206127, 'vnkgu.png', 'Trần', 'Võ', '2019-12-31', 'Nam', 89, 123456787, '2019-12-31', 89, 89, 883, 30289, 'Số 191', '1234567898', '', 'Nguyên Văn A', '', 'Nguyễn Văn E', '', 1, 2, '2019-04-27 13:13:12', 0, NULL, NULL),
+(10, 1501206123, 'VÕ THIỆN TIÊN   08.03.1992.JPG', 'Vo thiện', 'Tiên 2', '2019-12-31', 'Nam', 89, 123456786, '2019-12-31', 89, 89, 886, 30337, 'Số 191', '123456789', 'vttien8392@gmail.com5', 'Nguyên Văn A', '', 'Nguyễn Văn E', '', 1, 2, '2019-04-27 13:16:27', 0, NULL, NULL),
+(11, 1501206666, 'vnkgu.png', 'Trần Bổn', 'Bổn', '2019-12-31', 'Nam', 92, 123456777, '2019-12-31', 27, 89, 886, 30337, 'Số 899/1', '1234567800', 'vttien8392@gmail.com4', 'Nguyên Văn C', '', 'Nguyễn Văn V', '', 1, 2, '2019-04-27 14:31:13', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -12824,7 +12830,7 @@ ALTER TABLE `loai_phong`
 -- AUTO_INCREMENT cho bảng `log_sua_dl`
 --
 ALTER TABLE `log_sua_dl`
-  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
+  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
 
 --
 -- AUTO_INCREMENT cho bảng `lop`
@@ -12848,7 +12854,7 @@ ALTER TABLE `phong`
 -- AUTO_INCREMENT cho bảng `sinh_vien`
 --
 ALTER TABLE `sinh_vien`
-  MODIFY `id_sinhvien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_sinhvien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`

@@ -41,15 +41,15 @@ if (isset($_POST['ma_sinhvien_themmoi123'])) {
 				echo "2";// sđt đã tồn tại
 			}else{
 				$kiemtra_email_sv = (mysqli_query($con,"SELECT sinh_vien.id_sinhvien FROM sinh_vien WHERE sinh_vien.email='$email_them_sinh_vien'"));
-				if (mysqli_num_rows($kiemtra_email_sv)) {
+				if (mysqli_num_rows($kiemtra_email_sv) && $email_them_sinh_vien!='') {
 					echo "3";// email đã tồn tại
 				}else{
 					$kiemtra_sdt_cha_sv = (mysqli_query($con,"SELECT sinh_vien.id_sinhvien FROM sinh_vien WHERE sinh_vien.so_dt='$sdtcha_them_sinh_vien'  OR sinh_vien.sdtcha='$sdtcha_them_sinh_vien' OR sinh_vien.sdtme='$sdtcha_them_sinh_vien'"));
-					if (mysqli_num_rows($kiemtra_sdt_cha_sv)) {
+					if (mysqli_num_rows($kiemtra_sdt_cha_sv)&& $sdtcha_them_sinh_vien!='') {
 						echo "4";// sdt cha hoặc mẹ đã tồn tại
 					}else{
 						$kiemtra_me_sv = (mysqli_query($con,"SELECT sinh_vien.id_sinhvien FROM sinh_vien WHERE sinh_vien.so_dt='$sdtme_them_sinh_vien'  OR sinh_vien.sdtcha='$sdtme_them_sinh_vien' OR sinh_vien.sdtme='$sdtme_them_sinh_vien'"));
-						if (mysqli_num_rows($kiemtra_me_sv)) {
+						if (mysqli_num_rows($kiemtra_me_sv)&& $sdtme_them_sinh_vien!='') {
 							echo "5";// sdt me hoặc mẹ đã tồn tại
 						}else{
 							$insert_sinhvien ="INSERT INTO sinh_vien(mssv,anh_ca_nhan,ho_sv,ten_sv,ngay_sinh,gioi_tinh,que_quan,so_cmnd,ngay_cap,noi_cap,matinh,mahuyen,maxa,so_nha,so_dt,email,hotencha,sdtcha,hotenme,sdtme,id_lop,id_canbothem,ngay_them) VALUES ('$ma_sinhvien_themmoi123','$hinhanhthem','$ho_sinhvienthemmoi_12','$ten_sinhvienthemmoi_12','$ngaysinh_sinhvienthemmoi_12','$gioitinh_sinhvienthemmoi_12','$quequan_them_sinh_vien','$cmnd_them_sinh_vien','$ngay_capcnnd_them_sinh_vien','$noicap_them_sinh_vien','$tinh_them_sinh_vien','$huyen_them_sinh_vien','$xa_them_sinh_vien','$sonha_them_sinh_vien','$so_dt_them_sinh_vien','$email_them_sinh_vien','$hotencha_them_sinh_vien','$sdtcha_them_sinh_vien','$hotenme_them_sinh_vien','$sdtme_them_sinh_vien','$lop_them_sinh_vien','$_SESSION[id_canbo]','$ngay')";

@@ -121,7 +121,6 @@ $(document).ready(function () {
 		$('#id_khoa_them_sinh_vien').change(function() {
 			var khoa_them_sinh_vien=$('#khoa_them_sinh_vien').val();
 			var id_khoa_them_sinh_vien=$('#id_khoa_them_sinh_vien').val();
-			alert(khoa_them_sinh_vien+'--'+id_khoa_them_sinh_vien);
 			if (khoa_them_sinh_vien=='') {
 				alert('Bạn phải chọn khóa học trước');
 				document.getElementById('khoa_them_sinh_vien').focus();
@@ -157,18 +156,45 @@ $(document).ready(function () {
 	// sửa thông tin sinh_vien
 	$(document).on('click', '.id_sua_sinh_vien', function(){
 		var id_sinh_vien_sua = $(this).attr("id");
-		// alert(id_sinh_vien_sua);
 		$.ajax({
-			url:"../dulieu/fetch.php",
+			url:"../dulieu/fetch_tt_sinh_vien.php",
 			method:"POST",
 			data:{id_sinh_vien_sua:id_sinh_vien_sua},
 			dataType:"json",
 			success:function(data_suasinh_vien){
-				$('#ma_sinh_vien_sua123').val(data_suasinh_vien.masinh_vien);
-				$('#ten_sinh_viensua_12').val(data_suasinh_vien.tensinh_vien);
-				$('#id_sinh_vien_sua_12').val(data_suasinh_vien.idsinh_vien);
+				$('#ma_sinhvien_sua123').val(data_suasinh_vien.mssv);// tt mssv
+				$('#ho_sinhviensua_12').val(data_suasinh_vien.ho_sv);// tt ho sv
+				$('#ten_sinhviensua_12').val(data_suasinh_vien.ten_sv);// tt tên sinh viên
+				$('#ngaysinh_sinhviensua_12').val(data_suasinh_vien.ngay_sinh);// tt ngày sinh
+				$('#id_gioitinhsua').val(data_suasinh_vien.gioi_tinh);// thông tinh giới tính
+				$('#id_gioitinhsua').html(data_suasinh_vien.gioi_tinh);// thông tinh giới tính
+				$('#quequan_sua_sinh_vien').val(data_suasinh_vien.que_quan);// tt quê quán
+				$('#cmnd_sua_sinh_vien').val(data_suasinh_vien.so_cmnd);// tt số cmnd
+				$('#ngay_capcnnd_sua_sinh_vien').val(data_suasinh_vien.ngay_cap); // tt ngay cấp cmnd
+				$('#noicap_sua_sinh_vien').val(data_suasinh_vien.noi_cap);// tt nơi cấp cmnd
+				// tt hộ khẩu thường trú
+				$('#tinh_sua_sinh_vien').val(data_suasinh_vien.matinh);// tt tỉnh
+				$('#id_huyensua').val(data_suasinh_vien.mahuyen);// tt huyện
+				$('#id_huyensua').html(data_suasinh_vien.caphuyen+data_suasinh_vien.tenhuyen);// tt huyện
+				$('#id_xa_sua').val(data_suasinh_vien.maxa);// tt xã
+				$('#id_xa_sua').html(data_suasinh_vien.capxa+data_suasinh_vien.tenxa);// tt xã
+				$('#sonha_sua_sinh_vien').val(data_suasinh_vien.so_nha);// tt số nhà
+				//end tt hộ khẩu thường trú
+				$('#so_dt_sua_sinh_vien').val(data_suasinh_vien.so_dt);// tt sdt
+				$('#email_sua_sinh_vien').val(data_suasinh_vien.email); // tt email
+				$('#hotencha_sua_sinh_vien').val(data_suasinh_vien.hotencha);// tt họ tên cha sinh viên
+				$('#sdtcha_sua_sinh_vien').val(data_suasinh_vien.sdtcha);// tt sdt cha sinh viên
+				$('#hotenme_sua_sinh_vien').val(data_suasinh_vien.hotenme);// tt họ tên mẹ sinh viên
+				$('#sdtme_sua_sinh_vien').val(data_suasinh_vien.sdtme);// tt sđt mẹ sinh viên
+				$('#khoa_sua_sinh_vien').val(data_suasinh_vien.khoa);// thông tin khóa sinh viên
+				$('#id_khoa_sua_sinh_vien').val(data_suasinh_vien.id_khoa);// thông tin khoa sinh viên
+
+				$('#id_lop_sua_sv').val(data_suasinh_vien.id_lop);// thông tin lớp sinh viên
+				$('#id_lop_sua_sv').html(data_suasinh_vien.ten_lop);// thông tin lớp sinh viên
+
+				$('#id_sinhvien_sua_12').val(data_suasinh_vien.id_sinhvien);// id sửa tt sinnh vien
 				$('#insert').val("Cập nhật");
-				$('#modal_sua_sinh_vien').modal('show');
+				$('#modal_sua_sinhvien').modal('show');
 			}
 		});
 	});
@@ -290,9 +316,7 @@ $(document).ready(function () {
 							document.getElementById("sdtme_them_sinh_vien").focus();
 		          		}else if (kql_add_sinh_vien==99) {
 								alert('Thêm sinh viên mới thành công');
-								$('#ma_sinh_vien_them').html();
-								$('#ten_sinh_vien_them').html();
-								$('#form_themsinh_vienmoi')[0].reset();
+								$('#form_themsinhvienmoi')[0].reset();
 								$('#dulieusinhvien').load("./../dulieu/dulieusinhvien.php");
 						}else {
 								alert('Lỗi Thêm');
