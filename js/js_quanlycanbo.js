@@ -218,11 +218,11 @@ $(document).ready(function () {
 		                cache: false,
 		                processData:false,
 						success:function (kql_add_can_bo) {
-							alert(kql_add_can_bo);0
 							if (kql_add_can_bo==99) {
 								alert('Thêm Cán bộ mới thành công');
 								$('#form_themcan_bomoi')[0].reset();
 								$('#dulieucanbo').load("./../dulieu/dulieucanbo.php");
+								location.reload()
 							}else {
 								if (kql_add_can_bo==1) {
 									alert('Số điện thoại đã tồn tại..!');

@@ -1,5 +1,6 @@
 <?php
 include './../dulieu/kiemtradangnhap.php';
+include './../dulieu/kirmtra_quantrivien.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,14 +83,12 @@ include './../dulieu/kiemtradangnhap.php';
 								<form action="" id="form_themcan_bomoi" name="form_themcan_bomoi" 	method="POST" role="form" class="_1themphong1 " enctype="multipart/form-data">
 									<label>Ảnh</label>
 									
-									<br>
 									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
 										<div id="message"></div>
 										 <div id="image_preview"><img id="previewing" class="img-responsive"  src="" /></div>
 									</div>
 									<input id="file_anh" type="file" accept="image/*" name="image12" required="" />
 
-									<br>
 									<label>Mã cán bộ</label>
 									<?php $mscatim = mysqli_query($con, "SELECT can_bo.ma_can_bo FROM can_bo ORDER BY ma_can_bo DESC LIMIT 1"); 
 										$macatiem1 =1000000000;
@@ -99,7 +98,6 @@ include './../dulieu/kiemtradangnhap.php';
 										}
 									?>
 									<input  type="text" name="ma_can_bo_themmoi123" id="ma_can_bo_themmoi123" class="form-control "  value="<?php echo $macatiem1 ?>"  readonly />
-									<br />
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Họ cán bộ</label>
 										<input  name="ho_can_bothemmoi_12" id="ho_can_bothemmoi_12" class="form-control chuinthuong" rows="1" required="" placeholder="Nhập họ cán bộ">
@@ -108,20 +106,16 @@ include './../dulieu/kiemtradangnhap.php';
 										<label>Tên cán bộ</label>
 										<input  name="ten_can_bothemmoi_12" id="ten_can_bothemmoi_12" class="form-control chuinthuong" rows="1" required="" placeholder="Nhập tên cán bộ">
 									</div>
-									<br />
 									<label>Ngày sinh</label>
 									<input  type="date" name="ngaysinh_can_bothemmoi_12" id="ngaysinh_can_bothemmoi_12" class="form-control " rows="1" required="">
-									<br />
 									<label>Giới tính</label>
 									<select  name="gioitinh_can_bothemmoi_12" id="gioitinh_can_bothemmoi_12" class="form-control chuinthuong" required="required">
 										<option value="" >Chọn giới tính</option>
 										<option value="Nam">Nam</option>
 										<option value="Nữ">Nữ</option>
 									</select>
-									<br>
 									<label>Điện thoại</label>
 									<input  type="number" name="sdt_can_bothemmoi_12" id="sdt_can_bothemmoi_12" class="form-control"  required="" placeholder="Nhập số điện thoại">
-									<br />
 									<label>Email</label>
 									<input  type="email" name="email_can_bothemmoi_12" id="email_can_bothemmoi_12" class="form-control" rows="1" required="" placeholder="Nhập Email">
 									<br />
@@ -164,14 +158,14 @@ include './../dulieu/kiemtradangnhap.php';
 									<label>Ảnh</label>
 									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
 										 <div id="image_preview_sua" style="padding-left: 30%">
-										 	<img id="previewing_sua" class="img-responsive" style="width:100px; height: 150px" rc="" />
+										 	<img id="previewing_sua" class="img-responsive" style="width:100px;" rc="" />
 										 </div>
 									</div>
 									<input id="file_anh_sua" type="file" accept="image/*" name="image12_sua123" />
 
 									<label>Mã cán bộ</label>
 									
-									<input  type="text" name="ma_can_bo_sua123" id="ma_can_bo_sua123" class="form-control "  value=""   />
+									<input  type="text" name="ma_can_bo_sua123" id="ma_can_bo_sua123" class="form-control "  value=""   readonly/>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Họ cán bộ</label>
 										<input  name="ho_can_bosua_12" id="ho_can_bosua_12" class="form-control chuinthuong" rows="1" required="">

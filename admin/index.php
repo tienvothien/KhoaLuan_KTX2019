@@ -1,5 +1,5 @@
 <?php
-include './../dulieu/kiemtradangnhap.php';
+	include './../dulieu/kiemtradangnhap.php';
 ?>
 <!DOCTYPE html>
 <html lang="en"><head>

@@ -13,7 +13,7 @@ include './../dulieu/kiemtradangnhap.php';
 		<link rel="stylesheet" href="../vendor/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="../css/ad_css.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-				<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+		<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" />
 		<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 	</head>
@@ -68,14 +68,8 @@ include './../dulieu/kiemtradangnhap.php';
 						<div class="modal-content">
 							<!-- Modal Header -->
 							<div class="modal-header">
-								<div class="row">
-									<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-										<h4 class="modal-title">Thêm Lớp</h4>
-									</div>
-									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-										<button type="button" class="fa fa-times-circle-o btn btn-danger" data-dismiss="modal"></button>
-									</div>
-								</div>
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">Thêm Lớp</h4>
 							</div>
 							<!-- Modal body -->
 							<div class="modal-body _1themtoanha">
@@ -110,7 +104,7 @@ include './../dulieu/kiemtradangnhap.php';
 											<label for="">Khóa</label>
 											<select id="stt_khoa_lopthem" name="stt_khoa_lopthem" class="form-control" required="required">
 												<option value="">Chọn khóa</option>
-												<?php for ($i=1; $i <=70 ; $i++) { 
+												<?php for ($i=1; $i <=70 ; $i++) {
 													echo "<option value='$i'>$i</option>";
 												} ?>
 											</select>
@@ -119,13 +113,13 @@ include './../dulieu/kiemtradangnhap.php';
 											<label for="">Năm bắt đầu</label>
 											<select name="nam_BD_themlopm" id="nam_BD_themlopm" class="form-control" required="required">
 												<option value="">Chọn năm</option>
-												<?php for ($i=2015; $i <=2070 ; $i++) { 
+												<?php for ($i=2015; $i <=2070 ; $i++) {
 													echo "<option value='$i'>$i</option>";
 												} ?>
 											</select>
 										</div>
 									</div>
-										<button type="submit" class="btn btn-danger">Thêm Lớp mới</button>
+									<button type="submit" class="btn btn-danger">Thêm Lớp mới</button>
 								</form>
 							</div>
 						</div>
@@ -185,7 +179,7 @@ include './../dulieu/kiemtradangnhap.php';
 											<label for="">Khóa</label>
 											<select id="stt_khoa_lopsua" name="stt_khoa_lopsua" class="form-control" required="required">
 												<option value="" id="dl_khoa_sua_lop"></option>
-												<?php for ($i=1; $i <=70 ; $i++) { 
+												<?php for ($i=1; $i <=70 ; $i++) {
 													echo "<option value='$i'>$i</option>";
 												} ?>
 											</select>
@@ -194,7 +188,7 @@ include './../dulieu/kiemtradangnhap.php';
 											<label for="">Năm bắt đầu</label>
 											<select name="nam_BD_sualopm" id="nam_BD_sualopm" class="form-control" required="required">
 												<option value="" id="dl_nambdat_sua_lop"></option>
-												<?php for ($i=2015; $i <=2070 ; $i++) { 
+												<?php for ($i=2015; $i <=2070 ; $i++) {
 													echo "<option value='$i'>$i</option>";
 												} ?>
 											</select>

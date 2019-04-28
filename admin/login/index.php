@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/jpg" href="./../../images/vnkgu.png"/>
     <script type="text/javascript" src="vendor/bootstrap.js"></script>
+    <script type="text/javascript" src="./../../js/js_md5.js"></script>
     <script type="text/javascript" src="1.js"></script>
     <link rel="stylesheet" href="vendor/bootstrap.css">
     <link rel="stylesheet" href="1.css">

@@ -16,7 +16,7 @@ include 'conn.php';
 				<th>Khóa</th>
 				<th>Niên Khóa</th>
 				<th>Khoa</th>
-				<th>Số lượng sinh viên</th>
+				<th>Số lượng <br> sinh viên</th>
 				<th>Sửa</th>
 				<th>Chi tiết</th>
 				<th>Xóa</th>
@@ -38,7 +38,7 @@ include 'conn.php';
 				<td class='chuinthuong'>$row_lop[ten_lop]</td>
 				<td class='chuinthuong canhgiua'>$row_lop[khoa]</td>
 				<td class='chuinthuong canhgiua'>$row_lop[nam_BD] - $nam_kt</td>
-				<td class='canhgiua chuinthuong'>$slkhoa[ten_khoa]</td>
+				<td class=' chuinthuong'>$slkhoa[ten_khoa]</td>
 				<td class='canhgiua'>$slsinh_vien[solsinh_vien]</td>";?>
 				<td class="canhgiuanek12"><input type="button" name="edit" value="Sửa" id="<?php echo $row_lop['id_lop']; ?>" class="btn btn-primary btn-xs id_sua_lop" /></td>
 				<td class="canhgiuanek12"><input type="button" name="view" value="Chi tiết" id="<?php echo $row_lop['id_lop']; ?>" class="btn btn-success btn-xs view_chitietlop" /></td>

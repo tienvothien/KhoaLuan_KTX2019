@@ -18,6 +18,8 @@ if (isset($_POST['tendangnhap']) && isset($_POST['matkhaudangnhap'])) {
 				if (mysqli_num_rows($qr_quyen_sv)) {
 					$row1 = mysqli_fetch_array($qr_quyen_sv);
 					session_start();
+					$_SESSION['idtk'] = $ktram_is_sinhvien['idtk'];
+					$_SESSION['id_sinhvien'] = $row1['id_sinhvien'];
 					$_SESSION['mssv'] = $row1['mssv'];
 					$_SESSION['ho_sv'] = $row1['ho_sv'];
 					$_SESSION['ten_sv'] = $row1['ten_sv'];
@@ -33,6 +35,8 @@ if (isset($_POST['tendangnhap']) && isset($_POST['matkhaudangnhap'])) {
 				if (mysqli_num_rows($qrquyen)) {
 					$row = mysqli_fetch_array($qrquyen);
 					session_start();
+					$_SESSION['idtk'] = $ktram_is_sinhvien['idtk'];
+					$_SESSION['macb_dangnhap'] = $row['ma_can_bo'];
 					$_SESSION['macb_dangnhap'] = $row['ma_can_bo'];
 					$_SESSION['id_cochucvulogin'] = $row['id_cochucvu'];
 					$_SESSION['id_canbo'] = $row['id_canbo'];

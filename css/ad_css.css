@@ -150,6 +150,7 @@ select.custom-select.custom-select-sm.form-control.form-control-sm,input.form-co
 }
 .nuthemmoi {
     padding-bottom: 10px;
+    padding-top: 3px;
 }
 
 button.fa.fa-times-circle-o.btn.btn-danger {
@@ -273,7 +274,7 @@ hr.ngay_ad {
 /* On mouse-over */
 .sidenav a:hover, .dropdown-btn:hover ,a.navbar-brand:hover{
   color: #f9f9f9;
-  background-color: #337ab7;
+  background-color: #03A9F4;
 }
 
 /* Main content */
@@ -292,14 +293,14 @@ hr.ngay_ad {
 /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
 .dropdown-container {
   display: none;
-  background-color: #726e6e;
+  background-color: #b7e3e3;
   /* padding-left: 8px; */
 }
 
 .dropdown-container>a{
-    color: #337ab7;
+    color: #ffffff;
     border-top: 1px solid white;
-    background-color: #b7e3e3;
+    background-color: #3F51B5;
     margin-left: 9px;
 }
 

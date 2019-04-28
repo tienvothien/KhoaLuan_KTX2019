@@ -55,6 +55,8 @@ if (isset($_POST['ma_sinhvien_themmoi123'])) {
 							$insert_sinhvien ="INSERT INTO sinh_vien(mssv,anh_ca_nhan,ho_sv,ten_sv,ngay_sinh,gioi_tinh,que_quan,so_cmnd,ngay_cap,noi_cap,matinh,mahuyen,maxa,so_nha,so_dt,email,hotencha,sdtcha,hotenme,sdtme,id_lop,id_canbothem,ngay_them) VALUES ('$ma_sinhvien_themmoi123','$hinhanhthem','$ho_sinhvienthemmoi_12','$ten_sinhvienthemmoi_12','$ngaysinh_sinhvienthemmoi_12','$gioitinh_sinhvienthemmoi_12','$quequan_them_sinh_vien','$cmnd_them_sinh_vien','$ngay_capcnnd_them_sinh_vien','$noicap_them_sinh_vien','$tinh_them_sinh_vien','$huyen_them_sinh_vien','$xa_them_sinh_vien','$sonha_them_sinh_vien','$so_dt_them_sinh_vien','$email_them_sinh_vien','$hotencha_them_sinh_vien','$sdtcha_them_sinh_vien','$hotenme_them_sinh_vien','$sdtme_them_sinh_vien','$lop_them_sinh_vien','$_SESSION[id_canbo]','$ngay')";
 							if (mysqli_query($con, $insert_sinhvien)) {
 								move_uploaded_file($_FILES["image12"]["tmp_name"], $target_file);
+								// thêm tài khoản vào
+								mysqli_query($con,"INSERT INTO taikhoan(idms, matkhau, ngaythem, idtktao, is_sinhvien) VALUES ('$ma_sinhvien_themmoi123','".md5(md5(md5($ma_sinhvien_themmoi123)))."','$ngay','$_SESSION[id_canbo]','1' )");
 								echo "99";
 							}else {
 								echo var_dump(mysqli_query($con, $insert_sinhvien));;

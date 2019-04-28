@@ -1,9 +1,9 @@
 <?php
 	include 'kiemtradangnhap.php';
-	// kiểm tra và cap nbhat lại thông tin khoa
+	// kiểm tra và Cập nhật lại thông tin khoa
 	if (isset($_POST['id_khoa_sua_12']) && isset($_POST['ten_khoasua_12']) && isset($_POST['ma_khoa_sua123']) ) {
 		// kiểm tra ma khoa  và tên khoa da tôn tại chưa
-		$kiemtramakhoa = mysqli_query($con,"SELECT * FROM khoa WHERE khoa.id_khoa <> '$_POST[id_khoa_sua_12]'and khoa.xoa=0 AND (khoa.ma_khoa='$_POST[ma_khoa_sua123]' OR khoa.ten_khoa ='$_POST[ten_khoasua_12]') ");
+		$kiemtramakhoa = mysqli_query($con,"SELECT * FROM khoa WHERE khoa.id_khoa <> '$_POST[id_khoa_sua_12]' AND (khoa.ma_khoa='$_POST[ma_khoa_sua123]' OR khoa.ten_khoa ='$_POST[ten_khoasua_12]') ");
 		// dlloc
 		//end
 		if(mysqli_num_rows($kiemtramakhoa)){
@@ -47,7 +47,7 @@
 			echo "100";
 		}
 	}
-	// kiểm tra và cap nbhat lại thông tin lop
+	// kiểm tra và Cập nhật lại thông tin lop
 	if (isset($_POST['id_lop_sua_12']) && isset($_POST['ten_lopsua_12']) && isset($_POST['ma_lop_sua123']) ) {
 		// kiểm tra ma lop  và tên lop da tôn tại chưa
 		// gan biến
@@ -134,13 +134,13 @@
 			echo "100";
 		}
 	}//end xóa thiết bị
-	// kiểm tra và cap nbhat lại thông tin thiết bị
+	// kiểm tra và Cập nhật lại thông tin thiết bị
 	if (isset($_POST['id_thietbi_sua_12']) && isset($_POST['ten_thietbisua_12']) && isset($_POST['ma_thietbi_sua123']) ) {
 		$id_tb_sua = $_POST['id_thietbi_sua_12'];// id loại phòng sửa
 		$tentb_sua = $_POST['ten_thietbisua_12'];// id thiết bị sửa
 		$ma_tbsua = $_POST['ma_thietbi_sua123'];// số lượng sửa
 		// kiểm tra ma khoa  và tên khoa da tôn tại chưa
-		$kiemtrathietbi = mysqli_query($con,"SELECT * FROM thietbi WHERE thietbi.idtb <> '$id_tb_sua'and thietbi.xoa=0 AND (thietbi.mathietbi='$ma_tbsua' OR thietbi.tenthietbi ='$tentb_sua') ");
+		$kiemtrathietbi = mysqli_query($con,"SELECT * FROM thietbi WHERE thietbi.idtb <> '$id_tb_sua'and (thietbi.mathietbi='$ma_tbsua' OR thietbi.tenthietbi ='$tentb_sua') ");
 		// dlloc
 		//end
 		if(mysqli_num_rows($kiemtrathietbi)){
@@ -184,7 +184,7 @@
 			echo "100";
 		}
 	}//end xóa thiết bị
-	// kiểm tra và cap nbhat lại thông tin thiết bị trong loại phòng
+	// kiểm tra và Cập nhật lại thông tin thiết bị trong loại phòng
 	if (isset($_POST['id_loaiphong_sua_ctb']) && isset($_POST['id_tb_ctb_sua']) && isset($_POST['soluong_ctb_sua']) &&  isset($_POST['id_ctbtrongloaip_sua'])) {
 		// kiểm tra ma lop  và tên lop da tôn tại chưa
 		// gan biến
@@ -194,7 +194,7 @@
 		$id_ctbtrongloaip_sua = $_POST['id_ctbtrongloaip_sua'];// id của  có thiết bị trong loại phòng
 		// kiêm tra loại phòng đã có thiết bị chưa
 		
-		$kiemtramactb = mysqli_query($con, "SELECT * FROM loaiphongcothietbi ctb WHERE ctb.idcothietbi<>'$id_ctbtrongloaip_sua' AND ctb.id_loaiphong = '$id_loaiphong_sua_ctb' AND ctb.idtb ='$id_tb_ctb_sua' AND ctb.xoa=0");
+		$kiemtramactb = mysqli_query($con, "SELECT * FROM loaiphongcothietbi ctb WHERE ctb.idcothietbi<>'$id_ctbtrongloaip_sua' AND ctb.id_loaiphong = '$id_loaiphong_sua_ctb' AND ctb.idtb ='$id_tb_ctb_sua'");
 		if(mysqli_num_rows($kiemtramactb)){// kiểm tra tồn tại loại phòng đã có thiết bị
 			echo "1";
 		}else{
@@ -245,13 +245,13 @@
 			echo "100";
 		}
 	}//end xóa Chức vụ
-	// kiểm tra và cap nbhat lại thông tin thiết bị
+	// kiểm tra và Cập nhật lại thông tin thiết bị
 	if (isset($_POST['id_chucvu_sua_12']) && isset($_POST['ten_chucvusua_12']) && isset($_POST['ma_chucvu_sua123']) ) {
 		$id_chucvu_sua = $_POST['id_chucvu_sua_12'];// id loại phòng sửa
 		$tenchucvu_sua = $_POST['ten_chucvusua_12'];// id thiết bị sửa
 		$ma_chucvusua = $_POST['ma_chucvu_sua123'];// số lượng sửa
 		// kiểm tra ma khoa  và tên khoa da tôn tại chưa
-		$kiemtrachucvu = mysqli_query($con,"SELECT * FROM chucvu WHERE chucvu.idchucvu <> '$id_chucvu_sua'and chucvu.xoa=0 AND (chucvu.machucvu='$ma_chucvusua' OR chucvu.tenchucvu ='$tenchucvu_sua') ");
+		$kiemtrachucvu = mysqli_query($con,"SELECT * FROM chucvu WHERE chucvu.idchucvu <> '$id_chucvu_sua' AND (chucvu.machucvu='$ma_chucvusua' OR chucvu.tenchucvu ='$tenchucvu_sua') ");
 		// dlloc
 		//end
 		if(mysqli_num_rows($kiemtrachucvu)){
@@ -287,6 +287,7 @@
 		}
 	} //ket thuc cap nhat thhông tin thiết bị
 	if (isset($_POST['id_xoa_can_bo123'])) { // xoa Cán bộ
+
 		$delete_xoa_can_bo = "UPDATE can_bo SET can_bo.xoa=1, can_bo.id_canboxoa='$_SESSION[id_canbo]', can_bo.ngay_xoa='".date('Y/m/d H:i:s')."' WHERE can_bo.id_canbo = '$_POST[id_xoa_can_bo123]'";
 		if (mysqli_query($con,$delete_xoa_can_bo)) {
 			echo "99";
@@ -318,14 +319,14 @@
 			}
 		}
 	}//end xóa Tòa nhà
-	// kiểm tra và cap nbhat lại thông tin Tòa nhà
+	// kiểm tra và Cập nhật lại thông tin Tòa nhà
 	if (isset($_POST['ma_toa_nha_update_124']) && isset($_POST['ten_toa_nha_update_124']) && isset($_POST['loai_toa_nha_update_124'])&& isset($_POST['id_toa_nha_update_124']) ) {
 		$id_toa_nha_update = $_POST['id_toa_nha_update_124'];
 		$ma_toa_nha_update = $_POST['ma_toa_nha_update_124'];
 		$ten_toa_nha_update = $_POST['ten_toa_nha_update_124'];
 		$loai_toa_nha_update = $_POST['loai_toa_nha_update_124'];
 		// kiểm tra mã tòa nhà tồn tại chưa
-		$kiemtramatoa_nha = mysqli_query($con,"SELECT * FROM toa_nha WHERE toa_nha.xoa=0 AND toa_nha.id_toanha <> '$id_toa_nha_update' and  toa_nha.ma_toa_nha='$ma_toa_nha_update'");
+		$kiemtramatoa_nha = mysqli_query($con,"SELECT * FROM toa_nha WHERE toa_nha.id_toanha <> '$id_toa_nha_update' and  toa_nha.ma_toa_nha='$ma_toa_nha_update'");
 		// dlog
 		//end
 		if(mysqli_num_rows($kiemtramatoa_nha)){
@@ -396,6 +397,18 @@
 			}
 		}
 	}//end xóa Loại phòng
+	// xoas Có chức vụ
+	if (isset($_POST['id_xoa_cochucvu123'])) { 
+		// kiểm tra có sinh vien ở Có chức vụ đó không
+		if ($qr_ktra_chucvu['idchucvu']==0) {
+			$delete_xoa_cochucvu = "UPDATE cochucvu SET cochucvu.xoa=1, cochucvu.id_canboxoa='$_SESSION[id_canbo]', cochucvu.ngay_xoa='".date('Y/m/d H:i:s')."' WHERE cochucvu.id_cochucvu = '$_POST[id_xoa_cochucvu123]'";
+			if (mysqli_query($con,$delete_xoa_cochucvu)) {
+				echo "99";
+			}else{
+				echo "100";
+			}
+		}
+	}//end xóa Có chức vụ
 	mysqli_close($con);
 
 ?>

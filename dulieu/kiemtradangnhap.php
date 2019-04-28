@@ -1,13 +1,13 @@
 <?php
 session_start();
 if (isset($_SESSION['macb_dangnhap']) && $_SESSION['kt_dangnhap_cb'] == 1 && isset($_SESSION['id_cochucvulogin'])) {
-	//kiem tra có được quyền đang nhâp hay không
+	// echo "kiem tra có được quyền đang nhâp hay không";
 	include 'conn.php';
-	$qr1 = mysqli_query($con, "SELECT id_cochucvu FROm cochucvu  WHERE id_cochucvu='$_SESSION[id_cochucvulogin])' ");
-	if (!mysqli_num_rows($qr1)) {
-		echo "
-			<script>alert('Không đủ quyền truy cận')</script>";
-		header("location:./../admin/login");
+	$qr_ktra_chucvu = mysqli_fetch_array(mysqli_query($con, "SELECT DISTINCT chucvu.idchucvu, chucvu.tenchucvu FROM chucvu, cochucvu WHERE cochucvu.id_canbo='$_SESSION[id_canbo]' AND chucvu.idchucvu=cochucvu.idchucvu ORDER BY chucvu.idchucvu LIMIT 1"));
+	if ($qr_ktra_chucvu['idchucvu']==1 || $qr_ktra_chucvu['idchucvu']==0) {
+	}else{	
+		echo "<script>alert('Bạn chưc có đủ quyền truy cập');</script>";
+			header("location:./../admin/login");
 	}
 } else {
 	header("location:./../admin/login");

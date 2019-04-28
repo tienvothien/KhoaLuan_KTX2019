@@ -10,7 +10,7 @@ $(document).ready(function () {
 	$('#formdangnhap').on('submit', function(event){
           event.preventDefault();
           var tendangnhap = $('#tendangnhap').val();
-          var matkhaudangnhap = $('#matkhaudangnhap').val();
+          var matkhaudangnhap = MD5(MD5(MD5($('#matkhaudangnhap').val())));
           // alert(tendangnhap+'--'+matkhaudangnhap);
           $.ajax({
           	url: './../../dulieu/login.php',

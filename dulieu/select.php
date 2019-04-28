@@ -239,7 +239,7 @@ include 'kiemtradangnhap.php';
         echo $output;
   }
  // end xử lý hiện thông tin Thiết bị
-   // dữ liệu chuc vu
+   // dữ liệu ccán bộ
   if (isset($_POST["id_chitietcan_bo"])) {
       $output = '';
       include 'conn.php';
@@ -250,15 +250,11 @@ include 'kiemtradangnhap.php';
         <table class="table table-bordered table-hover table-striped">';
            while ($row_can_bo1 = mysqli_fetch_array($result)) {
             $tenchucvune='';
-            $ktra =(mysqli_query($con, "SELECT * FROM chucvu INNER JOIN cochucvu ON chucvu.idchucvu = cochucvu.idchucvu WHERE cochucvu.id_canbo = '$_POST[id_chitietcan_bo]' AND cochucvu.xoa =0"));
-            if (mysqli_num_rows($ktra)) {
-              $slchucvu = mysqli_fetch_array($ktra);
-              $tenchucvune=$slchucvu['tenchucvu'];
-            }
+            
             $output .= '
               <tr>
                 <td width="40%"><label>Ảnh</label></td>
-                <td width="60%" class=""><img  class ="img-responsive" src="./../images/'.$row_can_bo1["hinhanh"].'" alt=""></td>
+                <td width="60%" class=""><img  class ="img-responsive" src="./../images/'.$row_can_bo1["hinhanh"].'" alt="" style="width:100px"></td>
               </tr>
               <tr>
                 <td width="40%"><label>Mã Cán bộ</label></td>
@@ -286,7 +282,18 @@ include 'kiemtradangnhap.php';
               </tr>
               <tr>
                 <td width="40%"><label>Chức vụ</label></td>
-                <td width="60%" class="chuinthuong">' .$tenchucvune . '</td>
+                <td width="60%" class="chuinthuong">'; 
+                  $ktra_chucv =(mysqli_query($con, "SELECT * FROM chucvu INNER JOIN cochucvu ON chucvu.idchucvu = cochucvu.idchucvu WHERE cochucvu.id_canbo = '$_POST[id_chitietcan_bo]' AND cochucvu.xoa =0 ORDER BY chucvu.idchucvu" ));
+                  if (mysqli_num_rows($ktra_chucv)) {
+                    while ($slchucvu = mysqli_fetch_array($ktra_chucv)){
+                        $output .= '- '. $tenchucvune=$slchucvu['tenchucvu'].'<br>'; 
+
+                    }
+                  }else{
+                    $output .= ''.$tenchucvune;
+
+                  }
+               $output .= ' </td>
               </tr>
               <tr>
                 <td width="40%"><label>Ngày thêm</label></td>
@@ -300,7 +307,7 @@ include 'kiemtradangnhap.php';
       </div>
       ';
       echo $output;
-  } // end xử lý hiện thông tin chitet chuc vu
+  } // end xử lý hiện thông tin chitet cán bộ
   // dữ liệu Tòa nhà
   if (isset($_POST["id_chitiettoa_nha"])) {
       $output = '';
@@ -427,4 +434,115 @@ include 'kiemtradangnhap.php';
       ';
       echo $output;
   } // end xử lý hiện thông tin chitet Loại phòng
+   // dữ liệucán bộ có chức vụ
+  if (isset($_POST["id_cochucvu_sua"])) {
+      $output = '';
+      include 'conn.php';
+      $query = "SELECT can_bo.ma_can_bo, can_bo.id_canbo, can_bo.hinhanh,can_bo.ho_can_bo, can_bo.ten_can_bo, can_bo.gioitinh, can_bo.ngay_sinh, can_bo.sdt, can_bo.email, chucvu.tenchucvu, cochucvu.ngaythem FROM can_bo, cochucvu, chucvu WHERE cochucvu.id_cochucvu='$_POST[id_cochucvu_sua]' AND can_bo.id_canbo=cochucvu.id_canbo AND cochucvu.idchucvu= chucvu.idchucvu";
+      $result = mysqli_query($con, $query);
+      $output .= '
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">';
+           while ($row_can_bo1 = mysqli_fetch_array($result)) {
+            
+            $output .= '
+              <tr>
+                <td width="40%"><label>Ảnh</label></td>
+                <td width="60%" class=""><img  class ="img-responsive" src="./../images/'.$row_can_bo1["hinhanh"].'" alt="" style="width:100px"></td>
+              </tr>
+              <tr>
+                <td width="40%"><label>Mã Cán bộ</label></td>
+                <td width="60%" class="">' .$row_can_bo1["ma_can_bo"] . '</td>
+              </tr>
+              <tr>
+                <td width="40%"><label>Tên Cán bộ</label></td>
+                <td width="60%" class="chuinthuong">' .$row_can_bo1["ho_can_bo"] .'&nbsp;'.$row_can_bo1["ten_can_bo"] . '</td>
+              </tr>
+              <tr>
+                <td width="40%"><label>Giới tính</label></td>
+                <td width="60%" class="">' .$row_can_bo1["gioitinh"] . '</td>
+              </tr>
+              <tr>
+                <td width="40%"><label>Ngày sinh</label></td>
+                <td width="60%" class="">' .date('d/m/Y', strtotime($row_can_bo1["ngay_sinh"])) . '</td>
+              </tr>
+              <tr>
+                <td width="40%"><label>Điện thoại</label></td>
+                <td width="60%" class="">' .$row_can_bo1["sdt"] . '</td>
+              </tr>
+              <tr>
+                <td width="40%"><label>Email</label></td>
+                <td width="60%" class="">' .$row_can_bo1["email"] . '</td>
+              </tr>
+              <tr>
+                <td width="40%"><label>Chức vụ</label></td>
+                <td width="60%" class="chuinthuong">'.$row_can_bo1["tenchucvu"].' </td>
+              </tr>
+              <tr>
+                <td width="40%"><label>Ngày thêm</label></td>
+                <td width="60%" colspan="2" >' . date("d/m/Y", strtotime($row_can_bo1['ngaythem'])) . ' </td>
+              </tr>
+              
+                ';
+                  }
+            $output .= '
+        </table>
+      </div>
+      ';
+      echo $output;
+  } // end xử lý hiện thông tin chitet cán bộ có chức vụ
+     // dữ liệu thông tin can bộ thêm có cán bộ có chức vụ
+  if (isset($_POST["id_mscsb"])) {
+      $output = '';
+      include 'conn.php';
+      $query = "SELECT can_bo.ma_can_bo, can_bo.id_canbo, can_bo.hinhanh,can_bo.ho_can_bo, can_bo.ten_can_bo, can_bo.gioitinh, can_bo.ngay_sinh, can_bo.sdt, can_bo.email FROM can_bo WHERE can_bo.ma_can_bo='$_POST[id_mscsb]'";
+
+      $result = mysqli_query($con, $query);
+      if (!mysqli_num_rows($result)) {
+           $output = 'Chưa có dữ liệu';
+      }else{
+      $output .= '
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">';
+           while ($row_can_bo1 = mysqli_fetch_array($result)) {
+            
+            $output .= '
+              <tr>
+                <td width="40%"><label>Ảnh</label></td>
+                <td width="60%" class=""><img  class ="img-responsive" src="./../images/'.$row_can_bo1["hinhanh"].'" alt="" style="width:100px"></td>
+              </tr>
+              <tr>
+                <td width="40%"><label>Mã Cán bộ</label></td>
+                <td width="60%" class="">' .$row_can_bo1["ma_can_bo"] . '</td>
+              </tr>
+              <tr>
+                <td width="40%"><label>Tên Cán bộ</label></td>
+                <td width="60%" class="chuinthuong">' .$row_can_bo1["ho_can_bo"] .'&nbsp;'.$row_can_bo1["ten_can_bo"] . '</td>
+              </tr>
+              <tr>
+                <td width="40%"><label>Giới tính</label></td>
+                <td width="60%" class="">' .$row_can_bo1["gioitinh"] . '</td>
+              </tr>
+              <tr>
+                <td width="40%"><label>Ngày sinh</label></td>
+                <td width="60%" class="">' .date('d/m/Y', strtotime($row_can_bo1["ngay_sinh"])) . '</td>
+              </tr>
+              <tr>
+                <td width="40%"><label>Điện thoại</label></td>
+                <td width="60%" class="">' .$row_can_bo1["sdt"] . '</td>
+              </tr>
+              <tr>
+                <td width="40%"><label>Email</label></td>
+                <td width="60%" class="">' .$row_can_bo1["email"] . '</td>
+              </tr>
+              
+              
+                ';
+                  }
+            $output .= '
+        </table>
+      </div>
+      ';}
+      echo $output;
+  } // end xử lý hiện thông tin chitet thông tin can bộ thêm có cán bộ có chức vụ
 ?>
