@@ -38,7 +38,7 @@
 				<td style='text-align:center;'>$stt</td>
 				<td class='chuinhoa canhgiua'>$row_loai_phong[ma_loai_phong]</td>
 				<td class='chuinthuong'>$row_loai_phong[ten_loai_phong] </td>
-				<td class='chuinthuong canhgiua'>". number_format ( $row_loai_phong["gia_loai_phong"] , $decimals = 0 , $dec_point = "." , $thousands_sep = ","  )."</td>
+				<td class='chuinthuong canhgiua'>". number_format ($row_loai_phong["gia_loai_phong"] , $decimals = 0 , $dec_point = "." , $thousands_sep = "," )."</td>
 				<td class='chuinthuong canhgiua'>$row_loai_phong[sl_nguoi_o] </td>
 				<td class='chuinthuong canhgiua'>$slphong[slphong] </td>
 				<td class='chuinthuong canhgiua'>$slguong[slguong] </td>

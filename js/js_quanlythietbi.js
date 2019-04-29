@@ -49,7 +49,7 @@ $(document).ready(function () {
 						success:function(kq_capnhat_thongtin_thietbi){
 							// alert(kq_capnhat_thongtin_thietbi);
 							if(kq_capnhat_thongtin_thietbi==1){
-								alert('Mã thietbi hoặc tên Thiết bị đã tồn tại');
+								alert('Mã Thiết bị hoặc tên Thiết bị đã tồn tại');
 								document.getElementById(ma_thietbi_them).focus();
 							}else {
 								if (kq_capnhat_thongtin_thietbi==99) {
@@ -101,7 +101,7 @@ $(document).ready(function () {
 					data:{id_xoa_thietbi123:id_xoa_thietbi123},
 					success:function(kq_xoa_thietbi){
 						if (kq_xoa_thietbi==99) {
-							alert('Xóa thietbi công');
+							alert('Xóa Thiết bị thành công');
 							$('#From_xoa_thietbi')[0].reset();
 							$('#modal_xoa_thietbi').modal('hide');
 							document.location.reload(true);
@@ -124,11 +124,11 @@ $(document).ready(function () {
 	          	},
 	          	success:function (kql_add_thietbi) {
 	          		if (kql_add_thietbi==1) {
-	          			alert('Mã Thiết bị hoặc Tên thiết bí đã tồn tạo');
+	          			alert('Mã Thiết bị hoặc Tên thiết bị đã tồn tạo');
 						document.getElementById("ma_thietbi_them").focus();
 	          		}else {
 	          				if (kql_add_thietbi==99) {
-	          					alert('Thêm Thiết bịs mới thành công');
+	          					alert('Thêm Thiết bị mới thành công');
 	          					$('#ma_thietbi_them').html();
 	          					$('#ten_thietbi_them').html();
 	          					// $('#dulieu_add_lop').load("./../dulieu/dulieuthietbi.php");

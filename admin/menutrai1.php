@@ -32,15 +32,15 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 				<a href="quanlythongtintaikhoandangnhap.php" class="list-group-item">Quản lý tài khoản</a>
 				<a href="../dulieu/dangxuat.php"><span class="glyphicon glyphicon-log-in"></span> Đăng xuất</a>
 			</div>
-			<a href="timkiem.php" class="list-group-item">Tìm kiếm</a>
-			<a href="thongke.php" class="list-group-item">Thống kê</a>
-			<button class="dropdown-btn">Quản lý Đăng ký
+			<!-- <a href="timkiem.php" class="list-group-item">Tìm kiếm</a> -->
+			<!-- <a href="thongke.php" class="list-group-item">Thống kê</a> -->
+			<!-- <button class="dropdown-btn">Quản lý Đăng ký
 			<i class="fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-container">
-				<!-- <a href="dangkyad.php" class="list-group-item">Đăng ký ở ktx SV </a> -->
+				<a href="dangkyad.php" class="list-group-item">Đăng ký ở ktx SV </a>
 				<a href="qldondangky.php" class="list-group-item">Quản lý Đơn đăng ký</a>
-			</div>
+			</div> -->
 			<button class="dropdown-btn">Quản lý sinh viên
 			<i class="fa fa-caret-down"></i>
 			</button>
@@ -54,7 +54,7 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 			</button>
 			<div class="dropdown-container">
 				<a href="quanlytoanha.php" class="list-group-item">Quản lý Tòa nhà</a>
-				<a href="qlphong.php" class="list-group-item">Quản lý Phòng</a>
+				<a href="quanlyphong.php" class="list-group-item">Quản lý Phòng</a>
 				<a href="quanlyloaiphong.php" class="list-group-item">Quản lý Loại Phòng</a>
 				<a href="themsinhvienvaophong.php" class="list-group-item">Thêm Sinh viên vào phòng</a>
 			</div>
@@ -79,6 +79,8 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 				<a href="quanlythietbitrongloaiphong.php" class="list-group-item">Thiết bị trong Loại phòng</a>
 				<a href="kiemtrathietbi.php" class="list-group-item">Kiêm tra Thiết bị</a>
 			</div>
+			<?php 
+				if ($qr_ktra_chucvu['idchucvu']==0){ ?>
 			<button class="dropdown-btn">Quản lý Log Edit
 			<i class="fa fa-caret-down"></i>
 			</button>
@@ -97,6 +99,7 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 				<a href="quanlylogDeletelop.php" class="list-group-item">Log Delete Lớp</a>
 				<a href="quanlylogDeletekhoa.php" class="list-group-item">Log Delete Thiết Khoa</a>
 			</div>
+			<?php } ?>
 		</div>
 	</div>
 

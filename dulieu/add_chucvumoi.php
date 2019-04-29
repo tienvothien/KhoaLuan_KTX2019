@@ -2,7 +2,7 @@
 //neut tôn tại mãi thêm chucvu thì thêm không thì thoát
 if (isset($_POST['ma_chucvu_them12'])) {
 	// kiểm tra ma chucvu va ten chucvu có trrung không
-	$kiemtramachucvu = mysqli_query($con, "SELECT * FROM chucvu WHERE chucvu.xoa=0 and chucvu.machucvu='$_POST[ma_chucvu_them12]' OR chucvu.tenchucvu='$_POST[ten_chucvu_them12]'");
+	$kiemtramachucvu = mysqli_query($con, "SELECT * FROM chucvu WHERE chucvu.machucvu='$_POST[ma_chucvu_them12]' OR chucvu.tenchucvu='$_POST[ten_chucvu_them12]'");
 	if (mysqli_num_rows($kiemtramachucvu)) {
 		// neu ma chucvu da tonn tai
 		echo "1";

@@ -62,14 +62,8 @@ include './../dulieu/kiemtradangnhap.php';
 						<div class="modal-content">
 							<!-- Modal Header -->
 							<div class="modal-header">
-								<div class="row">
-									<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-										<h4 class="modal-title">Thêm Thiết bị cho Loại Phòng</h4>
-									</div>
-									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-										<button type="button" class="fa fa-times-circle-o btn btn-danger" data-dismiss="modal"></button>
-									</div>
-								</div>
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">Thêm Thiết bị cho Loại Phòng</h4>
 							</div>
 							<!-- Modal body -->
 							<div class="modal-body _1themtoanha">
@@ -158,16 +152,16 @@ include './../dulieu/kiemtradangnhap.php';
 									<label>Loại Phòng</label>
 									<select name="id_loaiphong_sua_ctb" id="id_loaiphong_sua_ctb" class="form-control" required="required">
 										<option value="" id="dulieu_cu_lp"></option>
-											<?php
-													$ds_lp = mysqli_query($con, "SELECT * FROM loai_phong WHERE loai_phong.xoa=0");
-													if (mysqli_num_rows($ds_lp)) {
-														while ($row1 =mysqli_fetch_array($ds_lp)) {
-															echo "<option value='".$row1['id_loaiphong']."'>".$row1['ten_loai_phong']."</option>";
-														}
-													}else{
-														echo "<option value=''>Chưa có loại phòng thích họp</option>";
+										<?php
+												$ds_lp = mysqli_query($con, "SELECT * FROM loai_phong WHERE loai_phong.xoa=0");
+												if (mysqli_num_rows($ds_lp)) {
+													while ($row1 =mysqli_fetch_array($ds_lp)) {
+														echo "<option value='".$row1['id_loaiphong']."'>".$row1['ten_loai_phong']."</option>";
 													}
-											?>
+												}else{
+													echo "<option value=''>Chưa có loại phòng thích họp</option>";
+												}
+										?>
 									</select>
 									<br />
 									<label>Thiết bị</label>

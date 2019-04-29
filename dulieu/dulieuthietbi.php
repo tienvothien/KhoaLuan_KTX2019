@@ -6,13 +6,12 @@ include 'conn.php';
 	} else {
 ?>
 <div class="table-responsive">
-	<h3 class="canhgiua chuinhoa">Danh sách thiết bị trong ký túc xá</h3>
 	<table class="table table-hover table-bordered table-striped" id="myTable">
 		<thead>
 			<tr>
 				<th style="text-align:center;">STT</th>
 				<th>Mã Thiết bị</th>
-				<th>Tên thiết bịc</th>
+				<th>Tên thiết bị</th>
 				<th>Ngày Thêm</th>
 				<th>Sửa</th>
 				<th>Chi tiết</th>

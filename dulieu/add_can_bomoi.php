@@ -13,12 +13,12 @@
 		$email_can_bothemmoi_12 = $_POST['email_can_bothemmoi_12'];
 
 		// kiểm tra Số điện thoại Cán bộ trùng không
-		$kiemtra_sdt = mysqli_query($con, "SELECT * FROM can_bo WHERE can_bo.xoa =0 AND can_bo.sdt='$sdt_can_bothemmoi_12'");
+		$kiemtra_sdt = mysqli_query($con, "SELECT * FROM can_bo WHERE can_bo.sdt='$sdt_can_bothemmoi_12'");
 		if (mysqli_num_rows($kiemtra_sdt)) {// neu Số điện thoại Cán bộ da tonn tai
 			echo "1";
 		} else {
 			// kiểm tra Email thoại Cán bộ trùng không
-			$kiemtra_email1 = mysqli_query($con, "SELECT * FROM can_bo WHERE can_bo.xoa =0 AND can_bo.email='$email_can_bothemmoi_12'");
+			$kiemtra_email1 = mysqli_query($con, "SELECT * FROM can_bo WHERE can_bo.email='$email_can_bothemmoi_12'");
 			if (mysqli_num_rows($kiemtra_email1)) {// neu Số điện thoại Cán bộ da tonn tai
 				echo "2";
 			}else{

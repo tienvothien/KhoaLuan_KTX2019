@@ -7,7 +7,7 @@
 		$ma_loai_phong_update = $_POST['ma_loai_phong_update_124'];
 		$ten_loai_phong_update = $_POST['ten_loai_phong_update_124'];
 		$slnguoio_loai_phong_update = $_POST['slnguoio_loai_phong_update_124'];
-		$gia_loai_phong_update = $_POST['gia_loai_phong_update_124'];
+		$gia_loai_phong_update = preg_replace('/(,)/u', '', strip_tags($_POST['gia_loai_phong_update_124']));
 		// kiểm tra mã Loại phòng tồn tại chưa
 		$kiemtramaloai_phong = mysqli_query($con,"SELECT * FROM loai_phong WHERE loai_phong.xoa=0 AND loai_phong.id_loaiphong <> '$id_loai_phong_update' and  loai_phong.ma_loai_phong='$ma_loai_phong_update'");
 		// dlog

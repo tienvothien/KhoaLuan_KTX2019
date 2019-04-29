@@ -53,7 +53,6 @@ $(document).ready(function () {
 							// alert(kq_capnhat_thongtin_thietbitrongloaiphong);
 							if(kq_capnhat_thongtin_thietbitrongloaiphong==1){
 								alert('Thiết bị này đã có trong Loại phòng này rồi..!');
-								document.getElementById(ma_thietbitrongloaiphong_them).focus();
 							}else {
 								if (kq_capnhat_thongtin_thietbitrongloaiphong==99) {
 									alert('Cập nhật thông tin trong loại phòng  thành công');

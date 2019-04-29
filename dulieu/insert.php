@@ -333,7 +333,7 @@
 			echo "1";// mã đã tồn tại
 		}else{
 			// kiểm tra mã tòa nhà tồn tại chưa
-			$kiemtra_ten_toa_nha = mysqli_query($con,"SELECT * FROM toa_nha WHERE toa_nha.xoa=0 AND toa_nha.id_toanha <> '$id_toa_nha_update' and  toa_nha.ten_toa_nha='$ten_toa_nha_update'");
+			$kiemtra_ten_toa_nha = mysqli_query($con,"SELECT * FROM toa_nha WHERE toa_nha.id_toanha <> '$id_toa_nha_update' and  toa_nha.ten_toa_nha='$ten_toa_nha_update'");
 			if(mysqli_num_rows($kiemtra_ten_toa_nha)){
 				echo "2";// mã đã tồn tại
 			}else{

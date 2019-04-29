@@ -5,7 +5,7 @@ if (isset($_POST['ma_toa_nha_themmoi123']) && isset($_POST['ten_toa_nha_themmoi1
 	 $ten_toa_nha_themmoi123=$_POST['ten_toa_nha_themmoi123'];
 	 $loai_toa_nha_themmoi123=$_POST['loai_toa_nha_themmoi123'];
 	// kiểm tra Tòa nhà có trrung không
-	$kiemtratoa_nha = mysqli_query($con, "SELECT * FROM toa_nha WHERE toa_nha.xoa =0 AND ( toa_nha.ma_toa_nha = '$ma_toa_nha_themmoi123' OR toa_nha.ten_toa_nha ='$ten_toa_nha_themmoi123')");
+	$kiemtratoa_nha = mysqli_query($con, "SELECT * FROM toa_nha WHERE ( toa_nha.ma_toa_nha = '$ma_toa_nha_themmoi123' OR toa_nha.ten_toa_nha ='$ten_toa_nha_themmoi123')");
 	if (mysqli_num_rows($kiemtratoa_nha)) {
 		// neu ma  Tòa nhà da tonn tai
 		echo "1";

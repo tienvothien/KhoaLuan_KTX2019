@@ -4,9 +4,9 @@ if (isset($_POST['ma_loai_phong_themmoi123']) && isset($_POST['ten_loai_phong_th
 	 $ma_loai_phong_themmoi123=$_POST['ma_loai_phong_themmoi123'];
 	 $ten_loai_phong_themmoi123=$_POST['ten_loai_phong_themmoi123'];
 	 $slnguoio_loai_phong_themmoi123=$_POST['slnguoio_loai_phong_themmoi123'];
-	 $gia_loai_phong_themmoi123=$_POST['gia_loai_phong_themmoi123'];
+	 $gia_loai_phong_themmoi123=preg_replace('/(,)/u', '', strip_tags($_POST['gia_loai_phong_themmoi123']));
 	// kiểm tra Loại phòng có trrung không
-	$kiemtraloai_phong = mysqli_query($con, "SELECT * FROM loai_phong WHERE loai_phong.xoa =0 AND ( loai_phong.ma_loai_phong = '$ma_loai_phong_themmoi123' OR loai_phong.ten_loai_phong ='$ten_loai_phong_themmoi123')");
+	$kiemtraloai_phong = mysqli_query($con, "SELECT * FROM loai_phong WHERE ( loai_phong.ma_loai_phong = '$ma_loai_phong_themmoi123' OR loai_phong.ten_loai_phong ='$ten_loai_phong_themmoi123')");
 	if (mysqli_num_rows($kiemtraloai_phong)) {
 		// neu ma  Loại phòng da tonn tai
 		echo "1";

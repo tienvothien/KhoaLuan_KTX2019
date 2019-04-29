@@ -69,16 +69,10 @@ include './../dulieu/kiemtradangnhap.php';
 						<div class="modal-content">
 							<!-- Modal Header -->
 							<div class="modal-header">
-								<div class="row">
-									<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-										<h4 class="modal-title">Thêm Loại phòng</h4>
-									</div>
-									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-										<button type="button" class="fa fa-times-circle-o btn btn-danger" data-dismiss="modal"></button>
-									</div>
-								</div>
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								
+								<h4 class="modal-title">Thêm Loại phòng</h4>
 							</div>
-
 							<!-- Modal body -->
 							<div class="modal-body _1themtoanha">
 								<form action="" id="form_them_loai_phong_moi" name="form_them_loai_phong_moi" 	method="POST" role="form" class="_1themphong1 " enctype="multipart/form-data" data-confirm="Bạn có chắn muốn thêm thông tin này?">
@@ -95,7 +89,7 @@ include './../dulieu/kiemtradangnhap.php';
 										<label>Số người</label>
 										<select name="slnguoio_loai_phong_themmoi123" id="slnguoio_loai_phong_themmoi123" class="form-control" required="required">
 											<option value="">Chọn số người</option>
-											<?php for ($i=1; $i <15 ; $i++) { 
+											<?php for ($i=1; $i <15 ; $i++) {
 												echo "<option value='$i'>$i</option>";
 											} ?>
 										</select>
@@ -103,101 +97,102 @@ include './../dulieu/kiemtradangnhap.php';
 									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hoten_cb_sua ">
 										<label>Giá Loại phòng</label>
 										<div class="form-group">
-											<input type="number" name="gia_loai_phong_themmoi123" id="gia_loai_phong_themmoi123" class="form-control" value="" min="50000" max="1000000" required="required" placeholder="Nhập giá Loại phòng" title="">
+											<input type="text" name="gia_loai_phong_themmoi123" id="gia_loai_phong_themmoi123" class="form-control" value=""  required="required" placeholder="Nhập giá Loại phòng" title="" onkeyup="this.value=FormatNumber(this.value);">
 										</div>
 									</div>
 									
-								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  text-center">
-									<button  type="submit" class="btn btn-danger" name="ktra_them_loai_phong_moi">Thêm mới</button>
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  text-center">
+										<button  type="submit" class="btn btn-danger" name="ktra_them_loai_phong_moi">Thêm mới</button>
+									</div>
+								</form>
+								<!-- Modal footer -->
+								<div class="modal-footer " style="border: none">
+									
 								</div>
-							</form>
-							<!-- Modal footer -->
-							<div class="modal-footer " style="border: none">
 								
 							</div>
-							   
 						</div>
 					</div>
-				</div>
-				</div><!-- end model -->
-				<!-- xem thông tin _loai_phong_ -->
-				<div id="dataModal" class="modal fade">
-					<div class="modal-dialog width_350px">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Thông tin Loại phòng</h4>
-							</div>
-							<div class="modal-body" id="thongtin_chitietloai_phong">
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Cập nhật lại thông tin phòng -->
-				<div id="modal_sua_loai_phong_" class="modal fade">
-					<div class="modal-dialog width_350px">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Cập nhật thông tin Loại phòng</h4>
-							</div>
-							<div class="modal-body">
-								<form action="" id="from_suathongtin_loai_phong_" name="from_suathongtin_loai_phong_" 	method="POST" role="form" class="_1themphong1 " enctype="multipart/form-data" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
-									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hoten_cb_sua ">
-										<label>Mã Loại phòng</label>
-										<input type="text" name="ma_loai_phong_update_124" id="ma_loai_phong_update_124" class="form-control chuinhoa"  value=""  required="" placeholder="Nhập mã Loại phòng"/>
-									</div>
-									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hoten_cb_sua ">
-										<label>Tên Loại phòng</label>
-										<input type="text" name="ten_loai_phong_update_124" id="ten_loai_phong_update_124" class="form-control chuinthuong"  value=""  required="" placeholder="Nhập tên Loại phòng"/>
-									</div>
-									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hoten_cb_sua ">
-										<label>Số người</label>
-										<select name="slnguoio_loai_phong_update_124" id="slnguoio_loai_phong_update_124" class="form-control" required="required">
-											<option value="" id="giatri_slnguoio_loai_phong_update_124"></option>
-											<?php for ($i=1; $i <15 ; $i++) { 
-												echo "<option value='$i'>$i</option>";
-											} ?>
-										</select>
-									</div>
-									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hoten_cb_sua ">
-										<label>Giá Loại phòng</label>
-										<div class="form-group">
-											<input type="number" name="gia_loai_phong_update_124" id="gia_loai_phong_update_124" class="form-control" value="" min="50000" max="1000000" required="required" placeholder="Nhập giá Loại phòng" title="">
-										</div>
-									</div>
-									<input type="hidden" name="id_loai_phong_update_124" id="id_loai_phong_update_124" />
-								</div>
-									<div class="modal-footer">
-										<input type="submit" name="insert" id="insert" value="Cập nhật" class="btn btn-danger capnhattb" />
-										<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>
-								</form>
-									</div>
-						</div>
-					</div>
-				</div>
-				<!-- Xoa Loại phòng -->
-				<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-					<div id="modal_xoa_loai_phong_" class="modal fade">
+					</div><!-- end model -->
+					<!-- xem thông tin _loai_phong_ -->
+					<div id="dataModal" class="modal fade">
 						<div class="modal-dialog width_350px">
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title canhgiua">Xóa Loại phòng</h4>
+									<h4 class="modal-title">Thông tin Loại phòng</h4>
 								</div>
-								<div class="modal-body" id="thongtinsv_xoa12">
+								<div class="modal-body" id="thongtin_chitietloai_phong">
 								</div>
-								<form method="post" id="From_xoa_loai_phong_" data-confirm="Bạn có chắn muốn xóa thông tin này?">
-									<input type="hidden" name="id_loai_phong_xoa_12" id="id_loai_phong_xoa_12" />
-									<div class="modal-footer">
-										<input type="submit" name="insert_xoa" id="insert_xoa" value="Xóa" class="btn btn-danger canhgiua" />
-										<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>
-									</div>
-								</form>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+					<!-- Cập nhật lại thông tin phòng -->
+					<div id="modal_sua_loai_phong_" class="modal fade">
+						<div class="modal-dialog width_350px">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">Cập nhật thông tin Loại phòng</h4>
+								</div>
+								<div class="modal-body">
+									<form action="" id="from_suathongtin_loai_phong_" name="from_suathongtin_loai_phong_" 	method="POST" role="form" class="_1themphong1 " enctype="multipart/form-data" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hoten_cb_sua ">
+											<label>Mã Loại phòng</label>
+											<input type="text" name="ma_loai_phong_update_124" id="ma_loai_phong_update_124" class="form-control chuinhoa"  value=""  required="" placeholder="Nhập mã Loại phòng"/>
+										</div>
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hoten_cb_sua ">
+											<label>Tên Loại phòng</label>
+											<input type="text" name="ten_loai_phong_update_124" id="ten_loai_phong_update_124" class="form-control chuinthuong"  value=""  required="" placeholder="Nhập tên Loại phòng"/>
+										</div>
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hoten_cb_sua ">
+											<label>Số người</label>
+											<select name="slnguoio_loai_phong_update_124" id="slnguoio_loai_phong_update_124" class="form-control" required="required">
+												<option value="" id="giatri_slnguoio_loai_phong_update_124"></option>
+												<?php for ($i=1; $i <15 ; $i++) {
+													echo "<option value='$i'>$i</option>";
+												} ?>
+											</select>
+										</div>
+										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hoten_cb_sua ">
+											<label>Giá Loại phòng ( VNĐ)</label>
+											<div class="form-group">
+												<input type="text" name="gia_loai_phong_update_124" id="gia_loai_phong_update_124" class="form-control" value=""  required="required" placeholder="Nhập giá Loại phòng" title="" onkeyup="this.value=FormatNumber(this.value);">
+												
+											</div>
+										</div>
+										<input type="hidden" name="id_loai_phong_update_124" id="id_loai_phong_update_124" />
+									</div>
+									<div class="modal-footer">
+										<input type="submit" name="insert" id="insert" value="Cập nhật" class="btn btn-danger capnhattb" />
+										<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Xoa Loại phòng -->
+					<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+						<div id="modal_xoa_loai_phong_" class="modal fade">
+							<div class="modal-dialog width_350px">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title canhgiua">Xóa Loại phòng</h4>
+									</div>
+									<div class="modal-body" id="thongtinsv_xoa12">
+									</div>
+									<form method="post" id="From_xoa_loai_phong_" data-confirm="Bạn có chắn muốn xóa thông tin này?">
+										<input type="hidden" name="id_loai_phong_xoa_12" id="id_loai_phong_xoa_12" />
+										<div class="modal-footer">
+											<input type="submit" name="insert_xoa" id="insert_xoa" value="Xóa" class="btn btn-danger canhgiua" />
+											<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>

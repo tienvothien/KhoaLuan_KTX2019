@@ -2,7 +2,7 @@
 //neut tôn tại mãi thêm khoa thì thêm không thì thoát
 if (isset($_POST['ma_khoa_them']) && isset($_POST['ten_khoa_them'])) {
 	// kiểm tra ma	 khoa có trrung không
-	$kiemtramakhoa = mysqli_query($con, "SELECT * FROM khoa WHERE khoa.ma_khoa='$_POST[ma_khoa_them]' and khoa.xoa = 0");
+	$kiemtramakhoa = mysqli_query($con, "SELECT * FROM khoa WHERE khoa.ma_khoa='$_POST[ma_khoa_them]'");
 	if (mysqli_num_rows($kiemtramakhoa)) {
 		// neu ma khoa da tonn tai
 		echo "1";

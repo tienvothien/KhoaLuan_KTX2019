@@ -2,7 +2,7 @@
 //neut tôn tại mãi thêm thietbi thì thêm không thì thoát
 if (isset($_POST['ma_thietbi_them']) && isset($_POST['ten_thietbi_them'])) {
 	// kiểm tra ma	 thietbi có trrung không
-	$kiemtramathietbi = mysqli_query($con, "SELECT * FROM thietbi WHERE ( thietbi.mathietbi = '$_POST[ma_thietbi_them]' OR thietbi.tenthietbi ='$_POST[ten_thietbi_them]') AND thietbi.xoa =0");
+	$kiemtramathietbi = mysqli_query($con, "SELECT * FROM thietbi WHERE ( thietbi.mathietbi = '$_POST[ma_thietbi_them]' OR thietbi.tenthietbi ='$_POST[ten_thietbi_them]') ");
 	if (mysqli_num_rows($kiemtramathietbi)) {
 		// neu ma thietbi da tonn tai
 		echo "1";
