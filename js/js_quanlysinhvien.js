@@ -342,15 +342,21 @@ $(document).ready(function () {
 			}else if ($('#cmnd_sua_sinh_vien').val().length!=9) {
 				alert('Chứ minh nhân dân phải 9 chữ số');
 				document.getElementById('cmnd_sua_sinh_vien').focus();
-			}else if ($('#so_dt_sua_sinh_vien').val().length!=10) {
-				alert('Số điện thoại sinh viên phải 10 số');
+			}else if ($('#so_dt_sua_sinh_vien').val().length!=10 || document.getElementById('so_dt_sua_sinh_vien').value.slice(0, 1)!=0) {
+				alert('Số điện thoại sinh viên phải 10 số và bất đầu là số "0"');
 				document.getElementById('so_dt_sua_sinh_vien').focus();
-			}else if ($('#sdtme_sua_sinh_vien').val().length!=10 && $('#sdtme_sua_sinh_vien').val()!='') {
-				alert('Số điện thoại phải 10 số');
+			}else if ($('#sdtme_sua_sinh_vien').val().length!=10 && $('#sdtme_sua_sinh_vien').val()!='' || document.getElementById('sdtme_sua_sinh_vien').value.slice(0, 1)!=0) {
+				alert('Số điện thoại Mẹ phải 10 số và bất đầu là số "0"');
 				document.getElementById('sdtme_sua_sinh_vien').focus();
-			}else if ($('#sdtcha_sua_sinh_vien').val().length!=10 && $('#sdtcha_sua_sinh_vien').val()!='') {
-				alert('Số điện thoại phải 10 số');
+			}else if ($('#sdtcha_sua_sinh_vien').val().length!=10 && $('#sdtcha_sua_sinh_vien').val()!='' || document.getElementById('sdtcha_sua_sinh_vien').value.slice(0, 1)!=0) {
+				alert('Số điện thoại phải Cha 10 số và bất đầu là số "0"');
 				document.getElementById('sdtcha_sua_sinh_vien').focus();
+			}else if ($('#sdtcha_sua_sinh_vien').val()==$('#so_dt_sua_sinh_vien').val() || $('#sdtcha_sua_sinh_vien').val()==$('#sdtme_sua_sinh_vien').val() ) {
+				alert('Số điện thoại Cha sinh viên đã tồn tại');
+				document.getElementById('sdtcha_sua_sinh_vien').focus();
+			}else if ($('#sdtme_sua_sinh_vien').val()==$('#so_dt_sua_sinh_vien').val() || $('#sdtme_sua_sinh_vien').val()==$('#sdtcha_sua_sinh_vien').val() ) {
+				alert('Số điện thoại Mẹ sinh viên đã tồn tại');
+				document.getElementById('sdtme_sua_sinh_vien').focus();
 			}else {
 				$.ajax({
 					url:"./../dulieu/update_sinh_vien_moi.php",
@@ -360,34 +366,35 @@ $(document).ready(function () {
 					cache: false,
 					processData:false,
 					success:function (kql_update_sinh_vien) {
-						alert(kql_update_sinh_vien);
-						// if (kql_update_sinh_vien==1) {
-						// 	alert('Mã sinh viên đã tồn tạo');
-						// 	document.getElementById("ma_sinhvien_sua123").focus();
-			   //     		}else if (kql_update_sinh_vien==6) {
-			   //     			alert('Số CMND viên đã tồn tạo');
-						// 	document.getElementById("cmnd_them_sinh_vien").focus();
-			   //     		}else if (kql_update_sinh_vien==2) {
-			   //     			alert('Số điện thoại sinh viên đã tồn tạo');
-						// 	document.getElementById("so_dt_them_sinh_vien").focus();
-			   //     		}else if (kql_update_sinh_vien==3) {
-			   //     			alert('Email sinh viên đã tồn tạo');
-						// 	document.getElementById("email_them_sinh_vien").focus();
-			   //      	}else if (kql_update_sinh_vien==4) {
-			   //      		alert('Số điện thoại Cha sinh viên đã tồn tạo');
-						// 	document.getElementById("sdtcha_them_sinh_vien").focus();
-			   //        	}else if (kql_update_sinh_vien==5) {
-			   //        		alert('Số điện thoại Mẹ sinh viên đã tồn tạo');
-						// 	document.getElementById("sdtme_them_sinh_vien").focus();
-			   //        	}else if (kql_update_sinh_vien==99) {
-						// 	alert('Thêm sinh viên mới thành công');
-						// 	$('#from_suathongtin_sinhvien')[0].reset();
-						// 	$('#dulieusinhvien').load("./../dulieu/dulieusinhvien.php");
-						// }else if (kql_update_sinh_vien==88) {
-						// 	alert('Bạn phải chọn file ảnh');
-						// }else{
-						// 	alert('Lỗi Thêm');
-						// }
+						// alert(kql_update_sinh_vien);
+						if (kql_update_sinh_vien==1) {
+							alert('Mã sinh viên đã tồn tạo');
+							document.getElementById("ma_sinhvien_sua123").focus();
+			       		}else if (kql_update_sinh_vien==6) {
+			       			alert('Số CMND viên đã tồn tạo');
+							document.getElementById("cmnd_sua_sinh_vien").focus();
+			       		}else if (kql_update_sinh_vien==2) {
+			       			alert('Số điện thoại sinh viên đã tồn tạo');
+							document.getElementById("so_dt_sua_sinh_vien").focus();
+			       		}else if (kql_update_sinh_vien==3) {
+			       			alert('Email sinh viên đã tồn tạo');
+							document.getElementById("email_sua_sinh_vien").focus();
+			        	}else if (kql_update_sinh_vien==4) {
+			        		alert('Số điện thoại Cha sinh viên đã tồn tạo');
+							document.getElementById("sdtcha_sua_sinh_vien").focus();
+			          	}else if (kql_update_sinh_vien==5) {
+			          		alert('Số điện thoại Mẹ sinh viên đã tồn tạo');
+							document.getElementById("sdtme_sua_sinh_vien").focus();
+			          	}else if (kql_update_sinh_vien==99) {
+							alert('Cập nhật thông tin sinh viên mới thành công');
+							$('#modal_sua_sinhvien').modal('hide');
+							$('#from_suathongtin_sinhvien')[0].reset();
+							$('#dulieusinhvien').load("./../dulieu/dulieusinhvien.php");
+						}else if (kql_update_sinh_vien==88) {
+							alert('Bạn phải chọn file ảnh');
+						}else{
+							alert('Lỗi Cập nhật thông tin');
+						}
 			          		
 						}
 					});
@@ -447,21 +454,27 @@ $(document).ready(function () {
 		if(!((loaianh==match[0]) || (loaianh==match[1]) || (loaianh==match[2]))){
 				alert("Bạn phải chọn file ảnh có đuôi là (jpeg, jpg and png)");
 		}else{
-			var ma_sinhvien_themmoi123=$('#ma_sinhvien_themmoi123').val();
+						var ma_sinhvien_themmoi123=$('#ma_sinhvien_themmoi123').val();
 			if (ma_sinhvien_themmoi123.length!=10) {
 				alert('MSSV phải 10 chữ số');
 				document.getElementById('ma_sinhvien_themmoi123').focus();
 			}else if ($('#cmnd_them_sinh_vien').val().length!=9) {
 				alert('Chứ minh nhân dân phải 9 chữ số');
 				document.getElementById('cmnd_them_sinh_vien').focus();
-			}else if ($('#so_dt_them_sinh_vien').val().length!=10) {
-				alert('Số điện thoại phải 10 số');
+			}else if ($('#so_dt_them_sinh_vien').val().length!=10 || $('#so_dt_them_sinh_vien').val().slice(0, 1)!=0) {
+				alert('Số điện thoại phải 10 số và bất đầu là số "0" và bất đầu là số "0"');
 				document.getElementById('so_dt_them_sinh_vien').focus();
-			}else if ($('#sdtcha_them_sinh_vien').val().length!=10 && $('#sdtcha_them_sinh_vien').val()!='') {
-				alert('Số điện thoại phải 10 số');
+			}else if ($('#sdtcha_them_sinh_vien').val().length!=10 && $('#sdtcha_them_sinh_vien').val()!='' || document.getElementById('sdtcha_them_sinh_vien').value.slice(0, 1)!=0 ) {
+				alert('Số điện thoại Cha phải 10 số và bất đầu là số "0"');
 				document.getElementById('sdtcha_them_sinh_vien').focus();
-			}else if ($('#sdtme_them_sinh_vien').val().length!=10 && $('#sdtme_them_sinh_vien').val()!='') {
-				alert('Số điện thoại phải 10 số');
+			}else if ($('#sdtme_them_sinh_vien').val().length!=10 && $('#sdtme_them_sinh_vien').val()!='' || document.getElementById('sdtme_them_sinh_vien').value.slice(0, 1)!=0) {
+				alert('Số điện thoại Mẹ phải 10 số và bất đầu là số "0"');
+				document.getElementById('sdtme_them_sinh_vien').focus();
+			}else if ($('#sdtcha_them_sinh_vien').val()==$('#so_dt_them_sinh_vien').val() || $('#sdtcha_them_sinh_vien').val()==$('#sdtme_them_sinh_vien').val() ) {
+				alert('Số điện thoại Cha sinh viên đã tồn tại');
+				document.getElementById('sdtcha_them_sinh_vien').focus();
+			}else if ($('#sdtme_them_sinh_vien').val()==$('#so_dt_them_sinh_vien').val() || $('#sdtme_them_sinh_vien').val()==$('#sdtcha_them_sinh_vien').val() ) {
+				alert('Số điện thoại Mẹ sinh viên đã tồn tại');
 				document.getElementById('sdtme_them_sinh_vien').focus();
 			}else {
 				$.ajax({

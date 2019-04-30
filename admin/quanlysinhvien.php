@@ -187,7 +187,7 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 hoten_cb_sua">
 										<label>Khóa</label>
-										<input  type="number" name="khoa_them_sinh_vien" id="khoa_them_sinh_vien" class="form-control" rows="1" required="" placeholder="khóa">
+										<input  type="number" name="khoa_them_sinh_vien" id="khoa_them_sinh_vien" class="form-control" rows="1" min="1" required="" step="0" placeholder="khóa">
 									</div>
 									<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 hoten_cb_sua">
 										<label>Khoa</label>
@@ -372,7 +372,7 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 hoten_cb_sua">
 										<label>Khóa</label>
-										<input  type="number" name="khoa_sua_sinh_vien" id="khoa_sua_sinh_vien" class="form-control" rows="1" required="" min="1" placeholder="khóa">
+										<input  type="number" name="khoa_sua_sinh_vien" id="khoa_sua_sinh_vien" class="form-control" rows="1" required="" min="1" step="0" placeholder="khóa">
 									</div>
 									<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 hoten_cb_sua">
 										<label>Khoa</label>
