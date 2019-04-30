@@ -112,11 +112,10 @@ include './../dulieu/kiemtradangnhap.php';
 											?>
 										</select>
 									</div>
-									<p id="thongbao_themthietbitrongloaiphong"></p>
 								</div>
 								<!-- Modal footer -->
 								<div class="modal-footer">
-									<button type="submit" class="btn btn-danger">Thêm Thiết bị cho Loại Phòng mới</button>
+									<button type="submit" class="btn btn-danger">Thêm</button>
 								</div>
 							</form>
 						</div>

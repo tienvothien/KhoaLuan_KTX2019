@@ -1,6 +1,6 @@
 <?php
 	include 'conn.php';
-	$selecet_toa_nha = mysqli_query($con, "SELECT * FROM toa_nha WHERE toa_nha.xoa=0 ");
+	$selecet_toa_nha = mysqli_query($con, "SELECT * FROM toa_nha WHERE toa_nha.xoa=0 ORDER BY toa_nha.loai_toa_nha, toa_nha.ten_toa_nha");
 	if (!mysqli_num_rows($selecet_toa_nha)) {
 		echo "<div style='text-align: center;'> Chưa có dữ liệu</div>";
 	} else {

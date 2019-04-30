@@ -85,6 +85,8 @@
 								</div>
 							</div>
 						</a> <!-- end het hien thong tin thietbi-->
+						<?php 
+						if ($qr_ktra_chucvu['idchucvu']==0){ ?>
 						<a href="quanlycanbo.php" title=""><!--  hien thoong trinh chi tiet Cán bộ-->
 							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 								<div class="thumbnail mua_nen_4">
@@ -100,6 +102,8 @@
 									</div>
 								</div>
 							</div>
+						</a>
+						<?php } ?>
 							<a href="quanlytoanha.php" title=""><!--  hien thoong trinh chi tiet Tòa nhà-->
 							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 								<div class="thumbnail mua_nen_5">
@@ -148,6 +152,7 @@
 								</div>
 							</div>
 						</a> <!-- end het hien thong tin Sinh viên-->
+
 					</div>
 					</div><!-- end thaydoi1 -->
 					</div><!-- end noidungthaydoi -->

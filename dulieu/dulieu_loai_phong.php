@@ -15,8 +15,6 @@
 				<th>Giá phòng/ <br> người/tháng <br> (VNĐ)</th>
 				<th>Người ở</th>
 				<th>Số phòng</th>
-				<th>Số Gường</th>
-				<th>Sinh Viên <br>đang ở</th>
 				<th>Sửa</th>
 				<th>Chi tiết</th>
 				<th>Danh sách</th>
@@ -29,10 +27,6 @@
 			while ($row_loai_phong = mysqli_fetch_array($selecet_loai_phong)) {
 				// đếm số lượng phòng ở của tòa nhà
 				$slphong = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(idphong) AS slphong FROM phong WHERE phong.xoa=0 AND phong.id_loaiphong='$row_loai_phong[id_loaiphong]'"));
-				// đếm số lượng gường
-				$slguong = mysqli_fetch_array(mysqli_query($con, "SELECT SUM(loai_phong.sl_nguoi_o) AS slguong FROM phong, loai_phong WHERE phong.xoa=0 AND phong.id_loaiphong='$row_loai_phong[id_loaiphong]' AND phong.id_loaiphong=loai_phong.id_loaiphong"));
-				// đếm số lượng sinh viên của tòa nhà
-				$slsinhvien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(o_phong.id_ophong) AS slsinhvien FROM phong, o_phong WHERE phong.xoa=0 and o_phong.ngay_ket_thuc='' AND phong.id_loaiphong='$row_loai_phong[id_loaiphong]' AND phong.idphong=o_phong.id_ophong"));
 			echo "
 			<tr>
 				<td style='text-align:center;'>$stt</td>
@@ -41,8 +35,6 @@
 				<td class='chuinthuong canhgiua'>". number_format ($row_loai_phong["gia_loai_phong"] , $decimals = 0 , $dec_point = "." , $thousands_sep = "," )."</td>
 				<td class='chuinthuong canhgiua'>$row_loai_phong[sl_nguoi_o] </td>
 				<td class='chuinthuong canhgiua'>$slphong[slphong] </td>
-				<td class='chuinthuong canhgiua'>$slguong[slguong] </td>
-				<td class='chuinthuong canhgiua'>$slsinhvien[slsinhvien] </td>
 			";?>
 				<td class="canhgiuanek12">
 					<input type="button" name="edit" value="Sửa" id="<?php echo $row_loai_phong['id_loaiphong']; ?>" class="btn btn-primary btn-xs id_sua_loai_phong" /></td>

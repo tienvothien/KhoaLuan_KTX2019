@@ -55,6 +55,14 @@ if (isset($_POST["id_sua_loai_phong"])) {
 	$row = mysqli_fetch_array($result);
 	echo json_encode($row);
 }//end xử lý thông tin Loại phòng
+// xử lý xuất thông tin  phòng
+if (isset($_POST["id_phong_sua_12"])) {
+	$query = "SELECT phong.idphong, phong. ma_phong, phong.stt_tang, phong.id_canbothem, phong.thoigianthem, toa_nha.ten_toa_nha, toa_nha.id_toanha, loai_phong.id_loaiphong, loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o, loai_phong.gia_loai_phong , can_bo.ma_can_bo, can_bo.ten_can_bo, can_bo.ho_can_bo FROM phong, toa_nha, loai_phong, can_bo WHERE phong.xoa=0 AND phong.idphong='$_POST[id_phong_sua_12]' AND phong.id_toanha= toa_nha.id_toanha AND phong.id_loaiphong= loai_phong.id_loaiphong AND can_bo.id_canbo= phong.id_canbothem
+";
+	$result = mysqli_query($con, $query);
+	$row = mysqli_fetch_array($result);
+	echo json_encode($row);
+}//end xử lý thông tin  phòng
 
 	mysqli_close($con);
 

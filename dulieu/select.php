@@ -545,4 +545,140 @@ include 'kiemtradangnhap.php';
       ';}
       echo $output;
   } // end xử lý hiện thông tin chitet thông tin can bộ thêm có cán bộ có chức vụ
+  // xử lý hiện thông tin loại phòng chon thêm phòng mới
+  if (isset($_POST["loai_phong_phong_themmoi"])) {
+      $output = '';
+      include 'conn.php';
+      $query = "SELECT  loai_phong.id_loaiphong, loai_phong.ten_loai_phong, loai_phong.gia_loai_phong, loai_phong.sl_nguoi_o FROM loai_phong WHERE loai_phong.xoa=0 AND loai_phong.id_loaiphong='$_POST[loai_phong_phong_themmoi]'ORDER BY loai_phong.ten_loai_phong";
+
+      $result = mysqli_query($con, $query);
+      if (!mysqli_num_rows($result)) {
+           $output = 'Chưa có dữ liệu';
+      }else{
+      $output .= '
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">';
+           while ($row_tt_lp = mysqli_fetch_array($result)) {
+            
+            $output .= '
+              <tr>
+                <td width="50%"><label>Loại phòng</label></td>
+                <td width="50%" class="">' .$row_tt_lp["ten_loai_phong"] . '</td>
+              </tr>
+               <tr>
+                <td width="50%"><label>Số người ở</label></td>
+                <td width="50%" class="">' .$row_tt_lp["sl_nguoi_o"] . '</td>
+              </tr>
+              <tr>
+                <td width="50%"><label>Giá /người/tháng (VNĐ)</label></td>
+                <td width="50%" class="">' .number_format ( $row_tt_lp["gia_loai_phong"], $decimals = 0 , $dec_point = "." , $thousands_sep = ","  )  . '</td>
+              </tr>
+              
+                ';
+                  }
+            $output .= '
+        </table>
+      </div>
+      ';}
+      echo $output;
+  } // end ử lý hiện thông tin loại phòng chon thêm phòng mới  
+  if (isset($_POST["id_phong_sua_12"])) {
+      $output = '';
+      include 'conn.php';
+      $query = "SELECT  loai_phong.id_loaiphong, loai_phong.ten_loai_phong, loai_phong.gia_loai_phong, loai_phong.sl_nguoi_o FROM loai_phong, phong WHERE phong.id_loaiphong=loai_phong.id_loaiphong and loai_phong.xoa=0 AND phong.idphong='$_POST[id_phong_sua_12]' ORDER BY loai_phong.ten_loai_phong";
+
+      $result = mysqli_query($con, $query);
+      if (!mysqli_num_rows($result)) {
+           $output = 'Chưa có dữ liệu';
+      }else{
+      $output .= '
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">';
+           while ($row_tt_lp = mysqli_fetch_array($result)) {
+            
+            $output .= '
+              <tr>
+                <td width="50%"><label>Loại phòng</label></td>
+                <td width="50%" class="">' .$row_tt_lp["ten_loai_phong"] . '</td>
+              </tr>
+               <tr>
+                <td width="50%"><label>Số người ở</label></td>
+                <td width="50%" class="">' .$row_tt_lp["sl_nguoi_o"] . '</td>
+              </tr>
+              <tr>
+                <td width="50%"><label>Giá /người/tháng (VNĐ)</label></td>
+                <td width="50%" class="">' .number_format ( $row_tt_lp["gia_loai_phong"], $decimals = 0 , $dec_point = "." , $thousands_sep = ","  )  . '</td>
+              </tr>
+              
+                ';
+                  }
+            $output .= '
+        </table>
+      </div>
+      ';}
+      echo $output;
+  } // end ử lý hiện thông tin loại phòng chon thêm phòng mới
+  // hiện thông tin chi tiết phòng
+  if (isset($_POST["id_chitiet_phong"])) {
+      $output = '';
+      include 'conn.php';
+      $query = "SELECT phong.idphong, phong. ma_phong, phong.stt_tang, phong.id_canbothem, phong.thoigianthem, toa_nha.ten_toa_nha, loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o, loai_phong.gia_loai_phong , can_bo.ma_can_bo, can_bo.ten_can_bo, can_bo.ho_can_bo FROM phong, toa_nha, loai_phong, can_bo WHERE phong.xoa=0 AND phong.idphong='$_POST[id_chitiet_phong]' AND phong.id_toanha= toa_nha.id_toanha AND phong.id_loaiphong= loai_phong.id_loaiphong AND can_bo.id_canbo= phong.id_canbothem";
+
+      $result = mysqli_query($con, $query);
+      if (!mysqli_num_rows($result)) {
+           $output = 'Chưa có dữ liệu';
+      }else{
+      $output .= '
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">';
+           $row_tt_phong_ct = mysqli_fetch_array($result); 
+            
+            $output .= '
+              <tr>
+                <td width="50%"><label>Số phòng</label></td>
+                <td width="50%" class="">' .$row_tt_phong_ct["ma_phong"] . '</td>
+              </tr>
+               <tr>
+                <td width="50%"><label>Tầng</label></td>
+                <td width="50%" class="">' .$row_tt_phong_ct["stt_tang"] . '</td>
+              </tr>
+
+               <tr>
+                <td width="50%"><label>Tòa nhà</label></td>
+                <td width="50%" class="">' .$row_tt_phong_ct["ten_toa_nha"] . '</td>
+              </tr>
+               <tr>
+                <td width="50%"><label>Loại phòng</label></td>
+                <td width="50%" class="">' .$row_tt_phong_ct["ten_loai_phong"] . '</td>
+              </tr>
+              <tr>
+                <td width="50%"><label>Giá /người/tháng (VNĐ)</label></td>
+                <td width="50%" class="">' .number_format ( $row_tt_phong_ct["gia_loai_phong"], $decimals = 0 , $dec_point = "." , $thousands_sep = ","  )  . '</td>
+              </tr>
+               <tr>
+                <td width="50%"><label>Số người được ở</label></td>
+                <td width="50%" class="">' .$row_tt_phong_ct["sl_nguoi_o"] . '</td>
+              </tr>
+               <tr>
+                <td width="50%"><label>Đang ở</label></td>
+                <td width="50%" class="">' ."Viết thuật toán" . '</td>
+              </tr>
+               <tr>
+                <td width="50%"><label>Người thêm</label></td>
+                <td width="50%" class="">' .$row_tt_phong_ct["ho_can_bo"] .$row_tt_phong_ct["ten_can_bo"] .'<br>'.$row_tt_phong_ct["ma_can_bo"]  . '</td>
+              </tr>
+               <tr>
+                <td width="50%"><label>Thời gian thêm</label></td>
+                <td width="50%" class="">' .date('d/m/Y', strtotime($row_tt_phong_ct["thoigianthem"])) . '</td>
+              </tr>
+              
+              
+                ';
+            $output .= '
+        </table>
+      </div>
+      ';}
+      echo $output;
+  } // end iện thông tin chi tiết phòng
+
 ?>

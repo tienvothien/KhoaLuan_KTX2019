@@ -79,8 +79,7 @@ include './../dulieu/kirmtra_quantrivien.php';
 										<label for="">Mã mã Cán bộ</label>
 										<input type="number" name="macanbo_cochucvu_them" id="macanbo_cochucvu_them" class="form-control chuinhoa" value="" required="" placeholder="Nhập mã Chức vụ" >
 									</div>
-									<div class="form-group" id="tt_canbo">
-									</div>
+									
 									<div class="form-group">
 										<label for="">Chức vụ</label>
 										<select name="id_chucvuthem_cochucvu" id="id_chucvuthem_cochucvu" class="form-control chuinthuong" required="required">
@@ -93,6 +92,8 @@ include './../dulieu/kirmtra_quantrivien.php';
 
 											 ?>
 										</select>
+									</div>
+									<div class="form-group" id="tt_canbo">
 									</div>
 									<p id="thongbao_themcochucvu"></p>
 								</div>
