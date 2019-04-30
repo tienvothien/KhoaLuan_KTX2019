@@ -105,17 +105,160 @@ if (isset($_POST['id_sinhvien_sua_12'])) {
 										$kiemtracapnhatcsinh_vien=100;
 									}
 								}//end kiểm mã có thay đổi  Tên sinh viên
-								if ($ten_sinhviensua_12!=$logdl_sinh_vien_cu_row["ten_sv"] ) { // kiểm mã có thay đổi  Tên sinh viên
-									$log1 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('sinh_vien','Sinh viên','$id_sinhvien_sua_12','ten_sv','Tên sinh viên', '$logdl_sinh_vien_cu_row[ten_sv]','$ten_sinhviensua_12','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
+								if ($ngaysinh_sinhviensua_12!=$logdl_sinh_vien_cu_row["ngay_sinh"] ) { // kiểm mã có thay đổi  Ngày sinh sinh viên
+									$log1 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('sinh_vien','Sinh viên','$id_sinhvien_sua_12','ngay_sinh','Ngày sinh sinh viên', '$logdl_sinh_vien_cu_row[ngay_sinh]','$ngaysinh_sinhviensua_12','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
 									mysqli_query($con, $log1); // ghi log edit
 									//cập nhật dữ liệu thay đổi
-									$Update_sinh_vien1 ="UPDATE sinh_vien  SET sinh_vien.ten_sv = '$ten_sinhviensua_12' WHERE sinh_vien.id_sinhvien ='$id_sinhvien_sua_12'";
+									$Update_sinh_vien1 ="UPDATE sinh_vien  SET sinh_vien.ngay_sinh = '$ngaysinh_sinhviensua_12' WHERE sinh_vien.id_sinhvien ='$id_sinhvien_sua_12'";
 									if(mysqli_query($con, $Update_sinh_vien1)){
 										$kiemtracapnhatcsinh_vien=99;
 									}else{
 										$kiemtracapnhatcsinh_vien=100;
 									}
-								}//end kiểm mã có thay đổi  Tên sinh viên
+								}//end kiểm mã có thay đổi  Ngày sinh sinh viên
+								if ($gioitinh_sinhviensua_12!=$logdl_sinh_vien_cu_row["gioi_tinh"] ) { // kiểm mã có thay đổi  Giới tính sinh viên
+									$log1 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('sinh_vien','Sinh viên','$id_sinhvien_sua_12','gioi_tinh','Giới tính sinh viên', '$logdl_sinh_vien_cu_row[gioi_tinh]','$gioitinh_sinhviensua_12','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
+									mysqli_query($con, $log1); // ghi log edit
+									//cập nhật dữ liệu thay đổi
+									$Update_sinh_vien1 ="UPDATE sinh_vien  SET sinh_vien.gioi_tinh = '$gioitinh_sinhviensua_12' WHERE sinh_vien.id_sinhvien ='$id_sinhvien_sua_12'";
+									if(mysqli_query($con, $Update_sinh_vien1)){
+										$kiemtracapnhatcsinh_vien=99;
+									}else{
+										$kiemtracapnhatcsinh_vien=100;
+									}
+								}//end kiểm mã có thay đổi  Giới tính sinh viên
+								if ($quequan_sua_sinh_vien!=$logdl_sinh_vien_cu_row["que_quan"] ) { // kiểm mã có thay đổi  Quê quán sinh viên
+									$log1 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('sinh_vien','Sinh viên','$id_sinhvien_sua_12','que_quan','Quê quán sinh viên', '$logdl_sinh_vien_cu_row[que_quan]','$quequan_sua_sinh_vien','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
+									mysqli_query($con, $log1); // ghi log edit
+									//cập nhật dữ liệu thay đổi
+									$Update_sinh_vien1 ="UPDATE sinh_vien  SET sinh_vien.que_quan = '$quequan_sua_sinh_vien' WHERE sinh_vien.id_sinhvien ='$id_sinhvien_sua_12'";
+									if(mysqli_query($con, $Update_sinh_vien1)){
+										$kiemtracapnhatcsinh_vien=99;
+									}else{
+										$kiemtracapnhatcsinh_vien=100;
+									}
+								}//end kiểm mã có thay đổi  Quê quán sinh viên
+								if ($cmnd_sua_sinh_vien!=$logdl_sinh_vien_cu_row["so_cmnd"] ) { // kiểm mã có thay đổi  Số CMND sinh viên
+									$log1 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('sinh_vien','Sinh viên','$id_sinhvien_sua_12','so_cmnd','Số CMND sinh viên', '$logdl_sinh_vien_cu_row[so_cmnd]','$cmnd_sua_sinh_vien','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
+									mysqli_query($con, $log1); // ghi log edit
+									//cập nhật dữ liệu thay đổi
+									$Update_sinh_vien1 ="UPDATE sinh_vien  SET sinh_vien.so_cmnd = '$cmnd_sua_sinh_vien' WHERE sinh_vien.id_sinhvien ='$id_sinhvien_sua_12'";
+									if(mysqli_query($con, $Update_sinh_vien1)){
+										$kiemtracapnhatcsinh_vien=99;
+									}else{
+										$kiemtracapnhatcsinh_vien=100;
+									}
+								}//end kiểm mã có thay đổi  Số CMND sinh viên
+								if ($ngay_capcnnd_sua_sinh_vien!=$logdl_sinh_vien_cu_row["ngay_cap"] ) { // kiểm mã có thay đổi  Ngày cấp CMND sinh viên
+									$log1 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('sinh_vien','Sinh viên','$id_sinhvien_sua_12','ngay_cap','Ngày cấp CMND sinh viên', '$logdl_sinh_vien_cu_row[ngay_cap]','$ngay_capcnnd_sua_sinh_vien','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
+									mysqli_query($con, $log1); // ghi log edit
+									//cập nhật dữ liệu thay đổi
+									$Update_sinh_vien1 ="UPDATE sinh_vien  SET sinh_vien.ngay_cap = '$ngay_capcnnd_sua_sinh_vien' WHERE sinh_vien.id_sinhvien ='$id_sinhvien_sua_12'";
+									if(mysqli_query($con, $Update_sinh_vien1)){
+										$kiemtracapnhatcsinh_vien=99;
+									}else{
+										$kiemtracapnhatcsinh_vien=100;
+									}
+								}//end kiểm mã có thay đổi  Ngày cấp CMND sinh viên
+								if ($noicap_sua_sinh_vien!=$logdl_sinh_vien_cu_row["noi_cap"] ) { // kiểm mã có thay đổi  Nơi CMND sinh viên
+									$log1 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('sinh_vien','Sinh viên','$id_sinhvien_sua_12','noi_cap','Nơi CMND sinh viên', '$logdl_sinh_vien_cu_row[noi_cap]','$noicap_sua_sinh_vien','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
+									mysqli_query($con, $log1); // ghi log edit
+									//cập nhật dữ liệu thay đổi
+									$Update_sinh_vien1 ="UPDATE sinh_vien  SET sinh_vien.noi_cap = '$noicap_sua_sinh_vien' WHERE sinh_vien.id_sinhvien ='$id_sinhvien_sua_12'";
+									if(mysqli_query($con, $Update_sinh_vien1)){
+										$kiemtracapnhatcsinh_vien=99;
+									}else{
+										$kiemtracapnhatcsinh_vien=100;
+									}
+								}//end kiểm mã có thay đổi  Nơi CMND sinh viên
+								if ($tinh_sua_sinh_vien!=$logdl_sinh_vien_cu_row["matinh"] ) { // kiểm mã có thay đổi  HKTT tỉnh sinh viên
+									$log1 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('sinh_vien','Sinh viên','$id_sinhvien_sua_12','matinh','HKTT tỉnh sinh viên', '$logdl_sinh_vien_cu_row[matinh]','$tinh_sua_sinh_vien','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
+									mysqli_query($con, $log1); // ghi log edit
+									//cập nhật dữ liệu thay đổi
+									$Update_sinh_vien1 ="UPDATE sinh_vien  SET sinh_vien.matinh = '$tinh_sua_sinh_vien' WHERE sinh_vien.id_sinhvien ='$id_sinhvien_sua_12'";
+									if(mysqli_query($con, $Update_sinh_vien1)){
+										$kiemtracapnhatcsinh_vien=99;
+									}else{
+										$kiemtracapnhatcsinh_vien=100;
+									}
+								}//end kiểm mã có thay đổi  HKTT tỉnh sinh viên
+								if ($huyen_sua_sinh_vien!=$logdl_sinh_vien_cu_row["mahuyen"] ) { // kiểm mã có thay đổi  HKTT huyện sinh viên
+									$log1 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('sinh_vien','Sinh viên','$id_sinhvien_sua_12','mahuyen','HKTT huyện sinh viên', '$logdl_sinh_vien_cu_row[mahuyen]','$huyen_sua_sinh_vien','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
+									mysqli_query($con, $log1); // ghi log edit
+									//cập nhật dữ liệu thay đổi
+									$Update_sinh_vien1 ="UPDATE sinh_vien  SET sinh_vien.mahuyen = '$huyen_sua_sinh_vien' WHERE sinh_vien.id_sinhvien ='$id_sinhvien_sua_12'";
+									if(mysqli_query($con, $Update_sinh_vien1)){
+										$kiemtracapnhatcsinh_vien=99;
+									}else{
+										$kiemtracapnhatcsinh_vien=100;
+									}
+								}//end kiểm mã có thay đổi  HKTT huyện sinh viên
+								if ($xa_sua_sinh_vien!=$logdl_sinh_vien_cu_row["maxa"] ) { // kiểm mã có thay đổi  HKTT Xã sinh viên
+									$log1 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('sinh_vien','Sinh viên','$id_sinhvien_sua_12','maxa','HKTT Xã sinh viên', '$logdl_sinh_vien_cu_row[maxa]','$xa_sua_sinh_vien','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
+									mysqli_query($con, $log1); // ghi log edit
+									//cập nhật dữ liệu thay đổi
+									$Update_sinh_vien1 ="UPDATE sinh_vien  SET sinh_vien.maxa = '$xa_sua_sinh_vien' WHERE sinh_vien.id_sinhvien ='$id_sinhvien_sua_12'";
+									if(mysqli_query($con, $Update_sinh_vien1)){
+										$kiemtracapnhatcsinh_vien=99;
+									}else{
+										$kiemtracapnhatcsinh_vien=100;
+									}
+								}//end kiểm mã có thay đổi  HKTT Xã sinh viên
+								if ($sonha_sua_sinh_vien!=$logdl_sinh_vien_cu_row["so_nha"] ) { // kiểm mã có thay đổi  HKTT Số nhà sinh viên
+									$log1 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('sinh_vien','Sinh viên','$id_sinhvien_sua_12','so_nha','HKTT Số nhà sinh viên', '$logdl_sinh_vien_cu_row[so_nha]','$sonha_sua_sinh_vien','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
+									mysqli_query($con, $log1); // ghi log edit
+									//cập nhật dữ liệu thay đổi
+									$Update_sinh_vien1 ="UPDATE sinh_vien  SET sinh_vien.so_nha = '$sonha_sua_sinh_vien' WHERE sinh_vien.id_sinhvien ='$id_sinhvien_sua_12'";
+									if(mysqli_query($con, $Update_sinh_vien1)){
+										$kiemtracapnhatcsinh_vien=99;
+									}else{
+										$kiemtracapnhatcsinh_vien=100;
+									}
+								}//end kiểm mã có thay đổi  HKTT Số nhà sinh viên
+								if ($so_dt_sua_sinh_vien!=$logdl_sinh_vien_cu_row["so_dt"] ) { // kiểm mã có thay đổi  SĐT sinh viên
+									$log1 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('sinh_vien','Sinh viên','$id_sinhvien_sua_12','so_dt','SĐT sinh viên', '$logdl_sinh_vien_cu_row[so_dt]','$so_dt_sua_sinh_vien','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
+									mysqli_query($con, $log1); // ghi log edit
+									//cập nhật dữ liệu thay đổi
+									$Update_sinh_vien1 ="UPDATE sinh_vien  SET sinh_vien.so_dt = '$so_dt_sua_sinh_vien' WHERE sinh_vien.id_sinhvien ='$id_sinhvien_sua_12'";
+									if(mysqli_query($con, $Update_sinh_vien1)){
+										$kiemtracapnhatcsinh_vien=99;
+									}else{
+										$kiemtracapnhatcsinh_vien=100;
+									}
+								}//end kiểm mã có thay đổi  SĐT sinh viên
+								if ($email_sua_sinh_vien!=$logdl_sinh_vien_cu_row["email"] ) { // kiểm mã có thay đổi  Email sinh viên
+									$log1 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('sinh_vien','Sinh viên','$id_sinhvien_sua_12','email','Email sinh viên', '$logdl_sinh_vien_cu_row[email]','$email_sua_sinh_vien','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
+									mysqli_query($con, $log1); // ghi log edit
+									//cập nhật dữ liệu thay đổi
+									$Update_sinh_vien1 ="UPDATE sinh_vien  SET sinh_vien.email = '$email_sua_sinh_vien' WHERE sinh_vien.id_sinhvien ='$id_sinhvien_sua_12'";
+									if(mysqli_query($con, $Update_sinh_vien1)){
+										$kiemtracapnhatcsinh_vien=99;
+									}else{
+										$kiemtracapnhatcsinh_vien=100;
+									}
+								}//end kiểm mã có thay đổi  Email sinh viên
+								if ($hotencha_sua_sinh_vien!=$logdl_sinh_vien_cu_row["hotencha"] ) { // kiểm mã có thay đổi  Họ tên cha sinh viên
+									$log1 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('sinh_vien','Sinh viên','$id_sinhvien_sua_12','hotencha','Họ tên cha sinh viên', '$logdl_sinh_vien_cu_row[hotencha]','$hotencha_sua_sinh_vien','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
+									mysqli_query($con, $log1); // ghi log edit
+									//cập nhật dữ liệu thay đổi
+									$Update_sinh_vien1 ="UPDATE sinh_vien  SET sinh_vien.hotencha = '$hotencha_sua_sinh_vien' WHERE sinh_vien.id_sinhvien ='$id_sinhvien_sua_12'";
+									if(mysqli_query($con, $Update_sinh_vien1)){
+										$kiemtracapnhatcsinh_vien=99;
+									}else{
+										$kiemtracapnhatcsinh_vien=100;
+									}
+								}//end kiểm mã có thay đổi  Họ tên cha sinh viên
+								if ($sdtcha_sua_sinh_vien!=$logdl_sinh_vien_cu_row["sdtcha"] && $sdtcha_sua_sinh_vien!='' ) { // kiểm mã có thay đổi  SĐT cha sinh viên
+									$log1 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('sinh_vien','Sinh viên','$id_sinhvien_sua_12','sdtcha','SĐT cha sinh viên', '$logdl_sinh_vien_cu_row[sdtcha]','$sdtcha_sua_sinh_vien','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
+									mysqli_query($con, $log1); // ghi log edit
+									//cập nhật dữ liệu thay đổi
+									$Update_sinh_vien1 ="UPDATE sinh_vien  SET sinh_vien.sdtcha = '$sdtcha_sua_sinh_vien' WHERE sinh_vien.id_sinhvien ='$id_sinhvien_sua_12'";
+									if(mysqli_query($con, $Update_sinh_vien1)){
+										$kiemtracapnhatcsinh_vien=99;
+									}else{
+										$kiemtracapnhatcsinh_vien=100;
+									}
+								}//end kiểm mã có thay đổi  SĐT cha sinh viên
 
 								echo $kiemtracapnhat_sinh_vien;
 							}

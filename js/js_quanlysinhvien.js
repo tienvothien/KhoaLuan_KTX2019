@@ -339,6 +339,18 @@ $(document).ready(function () {
 			if (ma_sinhvien_sua123.length!=10) {
 				alert('MSSV phải 10 chữ số');
 				document.getElementById('ma_sinhvien_sua123').focus();
+			}else if ($('#cmnd_sua_sinh_vien').val().length!=9) {
+				alert('Chứ minh nhân dân phải 9 chữ số');
+				document.getElementById('cmnd_sua_sinh_vien').focus();
+			}else if ($('#so_dt_sua_sinh_vien').val().length!=10) {
+				alert('Số điện thoại sinh viên phải 10 số');
+				document.getElementById('so_dt_sua_sinh_vien').focus();
+			}else if ($('#sdtme_sua_sinh_vien').val().length!=10 && $('#sdtme_sua_sinh_vien').val()!='') {
+				alert('Số điện thoại phải 10 số');
+				document.getElementById('sdtme_sua_sinh_vien').focus();
+			}else if ($('#sdtcha_sua_sinh_vien').val().length!=10 && $('#sdtcha_sua_sinh_vien').val()!='') {
+				alert('Số điện thoại phải 10 số');
+				document.getElementById('sdtcha_sua_sinh_vien').focus();
 			}else {
 				$.ajax({
 					url:"./../dulieu/update_sinh_vien_moi.php",
@@ -439,6 +451,18 @@ $(document).ready(function () {
 			if (ma_sinhvien_themmoi123.length!=10) {
 				alert('MSSV phải 10 chữ số');
 				document.getElementById('ma_sinhvien_themmoi123').focus();
+			}else if ($('#cmnd_them_sinh_vien').val().length!=9) {
+				alert('Chứ minh nhân dân phải 9 chữ số');
+				document.getElementById('cmnd_them_sinh_vien').focus();
+			}else if ($('#so_dt_them_sinh_vien').val().length!=10) {
+				alert('Số điện thoại phải 10 số');
+				document.getElementById('so_dt_them_sinh_vien').focus();
+			}else if ($('#sdtcha_them_sinh_vien').val().length!=10 && $('#sdtcha_them_sinh_vien').val()!='') {
+				alert('Số điện thoại phải 10 số');
+				document.getElementById('sdtcha_them_sinh_vien').focus();
+			}else if ($('#sdtme_them_sinh_vien').val().length!=10 && $('#sdtme_them_sinh_vien').val()!='') {
+				alert('Số điện thoại phải 10 số');
+				document.getElementById('sdtme_them_sinh_vien').focus();
 			}else {
 				$.ajax({
 					url:"./../dulieu/add_sinh_vien_moi.php",
