@@ -37,16 +37,14 @@ $(document).ready(function () {
 				reader.readAsDataURL(this.files[0]);
 			}
 		});
-	
-	
-	function imageIsLoaded2(e) {
-		$("#file_anh_sv_sua").css("color","green");
-		$('#image_preview_sinhvien_sua123').css("display", "block");
-		$('#previewing_sinhvien_sua123_load').attr('src', e.target.result);
-		$('#previewing_sinhvien_sua123_load').attr('width', '100px');
-		$('#previewing_sinhvien_sua123_load').attr('height', '130px');
-		$('#previewing_sinhvien_sua123_load').attr('border', '1px solid #d8d8d8');
-	};
+		function imageIsLoaded2(e) {
+			$("#file_anh_sv_sua").css("color","green");
+			$('#image_preview_sinhvien_sua123').css("display", "block");
+			$('#previewing_sinhvien_sua123_load').attr('src', e.target.result);
+			$('#previewing_sinhvien_sua123_load').attr('width', '100px');
+			$('#previewing_sinhvien_sua123_load').attr('height', '130px');
+			$('#previewing_sinhvien_sua123_load').attr('border', '1px solid #d8d8d8');
+		};
 		// nêu Số cmnd thay đổi sẽ 
 		$('#ma_sinhvien_themmoi123').change(function() {
 			var ma_sinhvien_themmoi123=$('#ma_sinhvien_themmoi123').val();
@@ -127,7 +125,7 @@ $(document).ready(function () {
 					$("#xa_them_sinh_vien").html(kq);
 				}
 			});
-		});// nêu tỉnh , huyện thay đổi sẽ  chọn xã thay đổi
+		});//end  nêu tỉnh , huyện thay đổi sẽ  chọn xã thay đổi
 		// nêu khóa thay đổi sẽ  chọn xã thay đổi
 		$('#khoa_them_sinh_vien').change(function() {
 			var khoa_them_sinh_vien=$('#khoa_them_sinh_vien').val();
@@ -141,7 +139,7 @@ $(document).ready(function () {
 					$("#lop_them_sinh_vien").html('<option value="">Chọn lớp</option>');
 				}
 			});
-		});// nêu khóa thay đổi sẽ  chọn xã thay đổi
+		});// end nêu khóa thay đổi sẽ  chọn xã thay đổi
 		// nêu khoa thay đổi sẽ  chọn lớp thay đổi
 		$('#id_khoa_them_sinh_vien').change(function() {
 			var khoa_them_sinh_vien=$('#khoa_them_sinh_vien').val();
@@ -161,7 +159,67 @@ $(document).ready(function () {
 					}
 				});
 			}
-		});	// nêu khoa thay đổi sẽ  chọn lớp thay đổi
+		});	//end  nêu khoa thay đổi sẽ  chọn lớp thay đổi
+		$('#tinh_sua_sinh_vien').change(function() {
+			var tinh_sua_sinh_vien=$('#tinh_sua_sinh_vien').val();
+			$.ajax({
+				url:"../dulieu/xuly_chon_hktt.php",
+				type: "post",
+				data: {tinh_them_sinh_vien:tinh_sua_sinh_vien},
+				async:true,
+				success:function(kq){
+					$("#huyen_sua_sinh_vien").html(kq);
+					$("#xa_sua_sinh_vien").html('<option value="">Chọn xã</option>');
+				}
+			});
+		}); // end nêu tỉnh phần cập nhật sinh viên thay đổi sẽ  chọn huyện thay đổi
+		// nêu tỉnh , huyện phần cập nhật sinh viên thay đổi sẽ  chọn xã thay đổi
+		$('#huyen_sua_sinh_vien').change(function() {
+			var huyen_sua_sinh_vien=$('#huyen_sua_sinh_vien').val();
+			$.ajax({
+				url:"../dulieu/xuly_chon_hktt.php",
+				type: "post",
+				data: {huyen_them_sinh_vien:huyen_sua_sinh_vien},
+				async:true,
+				success:function(kq){
+					$("#xa_sua_sinh_vien").html(kq);
+				}
+			});
+		});//end nêu tỉnh , huyện thay phần cập nhật sinh viên đổi sẽ  chọn xã thay đổi
+		// nêu id khoa của phần sửa sinh viên thay đổi sẽ  chọn lớp thay đổi
+		// nêu khóa của phần sửa sinh viên thay đổi sẽ  chọn xã thay đổi
+		$('#khoa_sua_sinh_vien').change(function() {
+			var khoa_sua_sinh_vien=$('#khoa_sua_sinh_vien').val();
+			$.ajax({
+				url:"../dulieu/xuly_chon_hktt.php",
+				type: "post",
+				data: {khoa_them_sinh_vien1:khoa_sua_sinh_vien},
+				async:true,
+				success:function(kq){
+					$("#id_khoa_sua_sinh_vien").html(kq);
+					$("#lop_sua_sinh_vien").html('<option value="">Chọn lớp</option>');
+				}
+			});
+		});// end nêu khóa thay đổi sẽ  chọn xã thay đổi
+		$('#id_khoa_sua_sinh_vien').change(function() {
+			var khoa_sua_sinh_vien=$('#khoa_sua_sinh_vien').val();
+			var id_khoa_sua_sinh_vien=$('#id_khoa_sua_sinh_vien').val();
+			if (khoa_sua_sinh_vien=='') {
+				alert('Bạn phải chọn khóa học trước');
+				document.getElementById('khoa_sua_sinh_vien').focus();
+			}else {
+				$.ajax({
+					url:"../dulieu/xuly_chon_hktt.php",
+					type: "post",
+					data: {id_khoa_them_sinh_vien:id_khoa_sua_sinh_vien,
+						khoa_them_sinh_vien:khoa_sua_sinh_vien},
+					async:true,
+					success:function(kq){
+						$("#lop_sua_sinh_vien").html(kq);
+					}
+				});
+			}
+		});	// end nêu id khoa của phần sửa sinh viênthay đổi sẽ  chọn lớp thay đổi
 	});
 	// Xem chi tiet thoong tin sinh_vien
 	$(document).on('click', '.view_chitietsinh_vien', function(){
@@ -203,6 +261,27 @@ $(document).ready(function () {
 				}
 			});
 		// end hiện thông tin huyện
+		// hiện thông tin lớp
+		$.ajax({
+				url:"../dulieu/xuly_chon_hktt.php",
+				type: "post",
+				data: {id_sinh_vien_sua_id_lop:id_sinh_vien_sua},
+				async:true,
+				success:function(kq){
+					$("#lop_sua_sinh_vien").html(kq);
+				}
+			});
+		// end hiện thông tin id Khoa
+		$.ajax({
+				url:"../dulieu/xuly_chon_hktt.php",
+				type: "post",
+				data: {id_sinh_vien_sua_id_lop:id_sinh_vien_sua},
+				async:true,
+				success:function(kq){
+					$("#lop_sua_sinh_vien").html(kq);
+				}
+			});
+		// end hiện thông tin id Khoa
 		$.ajax({
 			url:"../dulieu/fetch_tt_sinh_vien.php",
 			method:"POST",
@@ -237,10 +316,11 @@ $(document).ready(function () {
 				$('#hotenme_sua_sinh_vien').val(data_suasinh_vien.hotenme);// tt họ tên mẹ sinh viên
 				$('#sdtme_sua_sinh_vien').val(data_suasinh_vien.sdtme);// tt sđt mẹ sinh viên
 				$('#khoa_sua_sinh_vien').val(data_suasinh_vien.khoa);// thông tin khóa sinh viên
-				$('#id_khoa_sua_sinh_vien').val(data_suasinh_vien.id_khoa);// thông tin khoa sinh viên
+				$('#id_khoa_dl_khoa_sua_sv').val(data_suasinh_vien.id_khoa);// thông tin khoa sinh viên
+				$('#id_khoa_dl_khoa_sua_sv').html(data_suasinh_vien.ten_khoa);// thông tin khoa sinh viên
 
-				$('#id_lop_sua_sv').val(data_suasinh_vien.id_lop);// thông tin lớp sinh viên
-				$('#id_lop_sua_sv').html(data_suasinh_vien.ten_lop);// thông tin lớp sinh viên
+				// $('#id_lop_sua_sv').val(data_suasinh_vien.id_lop);// thông tin lớp sinh viên
+				// $('#lop_sua_sinh_vien').val(data_suasinh_vien.ten_lop);// thông tin lớp sinh viên
 
 				$('#id_sinhvien_sua_12').val(data_suasinh_vien.id_sinhvien);// id sửa tt sinnh vien
 				$('#insert').val("Cập nhật");
@@ -248,41 +328,62 @@ $(document).ready(function () {
 			}
 		});
 	});
-	// xử lý khi bấn nút cập nhật lại thông tin sinh_vien
-	// cap nhat tt thiết bi
-    $('#from_suathongtin_sinh_vien').on('submit', function(event){
+	// cap nhat tt sinh viên
+	$('#from_suathongtin_sinhvien').on('submit', function(event){
 		event.preventDefault();
 		if(!confirm($(this).data('confirm'))){
 			event.stopImmediatePropagation();
 			event.preventDefault();
 		}else{
-			if($('#ma_sinh_vien_sua123').val().length==3){
-				$.ajax({
-					url:"./../dulieu/insert.php",
-					method:"POST",
-					data:$('#from_suathongtin_sinh_vien').serialize(),
-					success:function(kq_capnhat_thongtin_sinh_vien){
-						if(kq_capnhat_thongtin_sinh_vien==1){
-							alert('Mã sinh viên hoặc tên sinh viên đã tồn tại');
-							document.getElementById(ma_sinh_vien_sua123).focus();
-						}else {
-							if (kq_capnhat_thongtin_sinh_vien==99) {
-								alert('Cập nhật thông tin sinh viên thành công');
-								$('#from_suathongtin_sinh_vien')[0].reset();
-								$('#modal_sua_sinh_vien').modal('hide');
-								$('#dulieusinh_vien').load("./../dulieu/dulieusinh_vien.php")
-							}else {
-								alert('Lỗi cập nhật');
-							}
-						}
-					}
-				});
+			var ma_sinhvien_sua123=$('#ma_sinhvien_sua123').val();
+			if (ma_sinhvien_sua123.length!=10) {
+				alert('MSSV phải 10 chữ số');
+				document.getElementById('ma_sinhvien_sua123').focus();
 			}else {
-				alert('Độ dài Mã sinh_vien không đúng');
-				document.getElementById("ma_sinh_vien_sua123").focus();
-			}
-		}   
+				$.ajax({
+					url:"./../dulieu/update_sinh_vien_moi.php",
+					type:'POST',
+					data:new FormData(this),
+					contentType: false,
+					cache: false,
+					processData:false,
+					success:function (kql_update_sinh_vien) {
+						alert(kql_update_sinh_vien);
+						// if (kql_update_sinh_vien==1) {
+						// 	alert('Mã sinh viên đã tồn tạo');
+						// 	document.getElementById("ma_sinhvien_sua123").focus();
+			   //     		}else if (kql_update_sinh_vien==6) {
+			   //     			alert('Số CMND viên đã tồn tạo');
+						// 	document.getElementById("cmnd_them_sinh_vien").focus();
+			   //     		}else if (kql_update_sinh_vien==2) {
+			   //     			alert('Số điện thoại sinh viên đã tồn tạo');
+						// 	document.getElementById("so_dt_them_sinh_vien").focus();
+			   //     		}else if (kql_update_sinh_vien==3) {
+			   //     			alert('Email sinh viên đã tồn tạo');
+						// 	document.getElementById("email_them_sinh_vien").focus();
+			   //      	}else if (kql_update_sinh_vien==4) {
+			   //      		alert('Số điện thoại Cha sinh viên đã tồn tạo');
+						// 	document.getElementById("sdtcha_them_sinh_vien").focus();
+			   //        	}else if (kql_update_sinh_vien==5) {
+			   //        		alert('Số điện thoại Mẹ sinh viên đã tồn tạo');
+						// 	document.getElementById("sdtme_them_sinh_vien").focus();
+			   //        	}else if (kql_update_sinh_vien==99) {
+						// 	alert('Thêm sinh viên mới thành công');
+						// 	$('#from_suathongtin_sinhvien')[0].reset();
+						// 	$('#dulieusinhvien').load("./../dulieu/dulieusinhvien.php");
+						// }else if (kql_update_sinh_vien==88) {
+						// 	alert('Bạn phải chọn file ảnh');
+						// }else{
+						// 	alert('Lỗi Thêm');
+						// }
+			          		
+						}
+					});
+		     	}
+		     
+		}
 	});
+	// end cập nhật thông tin sinh viên
       // hiện thông tin xóa sinh_vien
 	$(document).on('click', '.xoa_sinh_vien', function(){
 		var id_sinh_vien_sua = $(this).attr("id");
@@ -324,6 +425,7 @@ $(document).ready(function () {
 			});
 		}   
 	});
+
 	// xuwrt lý nút thêm sinh_vien mới
 	$('#form_themsinhvienmoi').on('submit', function(event){
 		event.preventDefault();
@@ -376,5 +478,5 @@ $(document).ready(function () {
 				});
 	     	}
 		}
-	});
+	});// end xử lý thêm sinh viên
 });

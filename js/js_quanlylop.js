@@ -58,7 +58,7 @@ $(document).ready(function () {
 								document.getElementById(ma_lop_them).focus();
 							}else {
 								if (kq_capnhat_thongtin_lop==99) {
-									alert('Cập nhật thông tin lop thành công');
+									alert('Cập nhật thông tin lớp thành công');
 									$('#from_suathongtin_lop')[0].reset();
 	                                $('#modal_sua_lop').modal('hide');
 	                                $('#dulieulop').load("./../dulieu/dulieulopsv.php")
@@ -135,8 +135,10 @@ $(document).ready(function () {
 							$('#form_themlopmoi')[0].reset();
 	          				$('#modal_xoa_lop').modal('hide');
 							$('#dulieulop').load("./../dulieu/dulieulopsv.php")
+	          			}else {
+	          				alert('lỗi thêm Lớp');
 	          			}
-	          		}
+	          		} 
 	         	}
 	         });
       	}else {

@@ -12,10 +12,10 @@ include 'conn.php';
 			<tr>
 				<th style="text-align:center;">STT</th>
 				<th>Mã Lớp</th>
-				<th>Tên Lớp</th>
+				<th style="    width: 80px;">Tên Lớp</th>
 				<th>Khóa</th>
 				<th>Niên Khóa</th>
-				<th>Khoa</th>
+				<th style="    width: 140px;">Khoa</th>
 				<th>Số lượng <br> sinh viên</th>
 				<th>Sửa</th>
 				<th>Chi tiết</th>

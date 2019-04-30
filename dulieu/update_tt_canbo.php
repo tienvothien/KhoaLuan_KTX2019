@@ -14,6 +14,7 @@
 		$sdt_can_bosua_12 = $_POST['sdt_can_bosua_12'];// lấy sdt
 		$email_can_bosua_12 = $_POST['email_can_bosua_12'];// lấy email
 		// kiểm tra ma khoa  và tên khoa da tôn tại chưa
+	
 		$kiemtra_ma_can_bo = mysqli_query($con,"SELECT * FROM can_bo WHERE can_bo.id_canbo <> '$id_can_bo_sua' and can_bo.xoa=0 AND can_bo.ma_can_bo='$ma_can_bo_sua123'");
 		if(mysqli_num_rows($kiemtra_ma_can_bo)){
 			echo "1";

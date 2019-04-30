@@ -32,10 +32,6 @@ include './../dulieu/kiemtradangnhap.php';
 			<br>
 			<div class="container-fluid">
 				<div class="row">
-					<?php include 'menutrai1.php';?>
-					<div class="col-xs-12 col-sm-8 col-md-10 col-lg-10 benphai">
-						<div class="container-fluid" style="padding: 0px;">
-							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 chutieude">
 									<h2>Quản lý Sinh viên</h2>
 								</div>
@@ -267,7 +263,7 @@ include './../dulieu/kiemtradangnhap.php';
 								<form action="" id="from_suathongtin_sinhvien" name="from_suathongtin_sinhvien" 	method="POST" role="form" class="_1themphong1 " enctype="multipart/form-data" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Ảnh</label>
-										<input id="file_anh_sv_sua" type="file" accept="image/*" name="image123" required="" />
+										<input id="file_anh_sv_sua" type="file" accept="image/*" name="image_123" />
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua text-center">
 										<div id="message"></div>
@@ -372,16 +368,16 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Email</label>
-										<input  type="email" name="email_sua_sinh_vien" id="email_sua_sinh_vien" class="form-control" rows="1" required="" placeholder="Nhập Email">
+										<input  type="email" name="email_sua_sinh_vien" id="email_sua_sinh_vien" class="form-control" rows="1" placeholder="Nhập Email">
 									</div>
 									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 hoten_cb_sua">
 										<label>Khóa</label>
-										<input  type="number" name="khoa_sua_sinh_vien" id="khoa_sua_sinh_vien" class="form-control" rows="1" required="" placeholder="khóa">
+										<input  type="number" name="khoa_sua_sinh_vien" id="khoa_sua_sinh_vien" class="form-control" rows="1" required="" min="1" placeholder="khóa">
 									</div>
 									<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 hoten_cb_sua">
 										<label>Khoa</label>
-										<select name="id_khoa_sua_sinh_vien" id="id_khoa_sua_sinh_vien" class="form-control" required="required">
-											<option value="">Chọn Khoa</option>
+										<select name="id_khoa_sua_sinh_vien" id="id_khoa_sua_sinh_vien" class="form-control chuinthuong" required="required">
+											<option value="" id="id_khoa_dl_khoa_sua_sv"></option>
 											<?php
 												$khoa = mysqli_query($con, 'SELECT * FROM khoa where khoa.xoa =0');
 												while ($row_khoa= mysqli_fetch_array($khoa)) {
@@ -392,8 +388,7 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 hoten_cb_sua">
 										<label>Lớp</label>
-										<select name="lop_sua_sinh_vien" id="lop_sua_sinh_vien" class="form-control" required="required">
-											<option value="" id="id_lop_sua_sv">Chọn Lớp</option>
+										<select name="lop_sua_sinh_vien" id="lop_sua_sinh_vien" class="form-control chuinthuong" required="required">
 										</select>
 									</div>
 									

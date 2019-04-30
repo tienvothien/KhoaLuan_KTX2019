@@ -99,8 +99,8 @@ $(document).ready(function () {
 	          e.stopImmediatePropagation();
 	          e.preventDefault();
 	        }else{
-	        	var sdt_so_0dau_sua =document.getElementById('sdt_can_bosua_12').value.slice(0, 1);
-				var sdt_dodai_sua = document.getElementById('sdt_can_bosua_12').value.length;
+		        	var sdt_so_0dau_sua =document.getElementById('sdt_can_bosua_12').value.slice(0, 1);
+					var sdt_dodai_sua = document.getElementById('sdt_can_bosua_12').value.length;
 					if (sdt_so_0dau_sua!=0 || sdt_dodai_sua!=10 ) {
 						alert("Số điện thoại phải bắt đầu bằng số không và phải là 10 số");
 						document.getElementById('sdt_can_bothemmoi_12').focus();
@@ -145,7 +145,7 @@ $(document).ready(function () {
 								}
 		                    }
 						});
-					}
+					}	
          	}   
       	});
       // hiện thông tin xóa can_bo

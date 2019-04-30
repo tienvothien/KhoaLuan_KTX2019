@@ -2,7 +2,7 @@
 //neut tôn tại mãi thêm lop thì thêm không thì thoát
 if (isset($_POST['ma_lop_them'])) {
 	// kiểm tra ma lop va ten lop có trrung không
-	$kiemtramalop = mysqli_query($con, "SELECT * FROM lop WHERE llop.ma_lop='$_POST[ma_lop_them]' OR lop.ten_lop='$_POST[ten_lop_them]'");
+	$kiemtramalop = mysqli_query($con, "SELECT * FROM lop WHERE lop.ma_lop='$_POST[ma_lop_them]' OR lop.ten_lop='$_POST[ten_lop_them]'");
 	if (mysqli_num_rows($kiemtramalop)) {
 		// neu ma lop da tonn tai
 		echo "1";
