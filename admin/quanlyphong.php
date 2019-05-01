@@ -152,6 +152,29 @@ include './../dulieu/kiemtradangnhap.php';
 						</div>
 					</div>
 				</div>
+				<!-- Xoa Phòng -->
+				<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+					<div id="modal_xoa_phong" class="modal fade">
+						<div class="modal-dialog width_350px">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title canhgiua">Xóa Phòng</h4>
+								</div>
+								<div class="modal-body" id="dulieu_xoa_phong"></div>
+								<form method="post" id="From_xoa_phong" data-confirm="Bạn có chắn muốn xóa thông tin này?">
+									<input type="hidden" name="id_phong_xoa_12" id="id_phong_xoa_12" />
+									<div class="modal-footer">
+										<input type="submit" name="insert_xoa" id="insert_xoa" value="Xóa" class="btn btn-danger canhgiua" />
+									</div>
+								</form>
+								
+								
+							</div>
+						</div>
+					</div>
+					
+				</div>
 				<!-- Cập nhật lại thông tin phòng -->
 				<div id="modal_sua_phong" class="modal fade">
 					<div class="modal-dialog ">
@@ -219,28 +242,6 @@ include './../dulieu/kiemtradangnhap.php';
 										<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>
 									</form>
 								</div>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Xoa Phòng -->
-				<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-					<div id="modal_xoa_phong" class="modal fade">
-						<div class="modal-dialog width_350px">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title canhgiua">Xóa Phòng</h4>
-								</div>
-								<div class="modal-body" id="dulieu_xoa_phong"></div>
-								<form method="post" id="From_xoa_phong" data-confirm="Bạn có chắn muốn xóa thông tin này?">
-									<input type="hidden" name="id_phong_xoa_12" id="id_phong_xoa_12" />
-									<div class="modal-footer">
-										<input type="submit" name="insert_xoa" id="insert_xoa" value="Xóa" class="btn btn-danger canhgiua" />
-									</div>
-								</form>
-								
 								
 							</div>
 						</div>

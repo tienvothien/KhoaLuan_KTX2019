@@ -30,7 +30,7 @@
 				// đếm số lượng gường
 				$slguong = mysqli_fetch_array(mysqli_query($con, "SELECT SUM(loai_phong.sl_nguoi_o) AS slguong FROM phong, loai_phong WHERE phong.xoa=0 AND phong.id_toanha='$row_toa_nha[id_toanha]' AND phong.id_loaiphong=loai_phong.id_loaiphong"));
 				// đếm số lượng sinh viên của tòa nhà
-				$slsinhvien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(o_phong.id_ophong) AS slsinhvien FROM phong, o_phong WHERE o_phong.ngay_ket_thuc='' AND phong.id_toanha='$row_toa_nha[id_toanha]' AND phong.idphong=o_phong.id_ophong"));
+				$slsinhvien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(o_phong.id_ophong) AS slsinhvien FROM phong, o_phong WHERE o_phong.ngay_ket_thuc is NULL AND phong.id_toanha='$row_toa_nha[id_toanha]' AND phong.idphong=o_phong.id_ophong"));
 			echo "
 			<tr>
 				<td style='text-align:center;'>$stt</td>

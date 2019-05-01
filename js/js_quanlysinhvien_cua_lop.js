@@ -389,7 +389,7 @@ $(document).ready(function () {
 							alert('Cập nhật thông tin sinh viên mới thành công');
 							$('#modal_sua_sinhvien').modal('hide');
 							$('#from_suathongtin_sinhvien')[0].reset();
-							$('#dulieusinhvien').load("./../dulieu/dulieusinhvien.php");
+							location.reload();
 						}else if (kql_update_sinh_vien==88) {
 							alert('Bạn phải chọn file ảnh');
 						}else{
@@ -436,8 +436,7 @@ $(document).ready(function () {
 						alert('Xóa sinh viên thành công công');
 						$('#From_xoa_sinhvien')[0].reset();
 						$('#modal_xoa_sinhvien').modal('hide');
-						$('#dulieusinhvien').load("./../dulieu/dulieusinhvien.php")
-					}else {
+						location.reload();					}else {
 						alert('Lỗi xóa sinh viên');
 					}
 				}
@@ -506,7 +505,7 @@ $(document).ready(function () {
 		          		}else if (kql_add_sinh_vien==99) {
 								alert('Thêm sinh viên mới thành công');
 								$('#form_themsinhvienmoi')[0].reset();
-								$('#dulieusinhvien').load("./../dulieu/dulieusinhvien.php");
+								location.reload();
 						}else {
 								alert('Lỗi Thêm');
 						}

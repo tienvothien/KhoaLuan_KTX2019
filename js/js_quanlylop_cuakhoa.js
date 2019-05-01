@@ -27,8 +27,8 @@ $(document).ready(function () {
                 success:function(data_sualop){
                     $('#ma_lop_sua123').val(data_sualop.ma_lop);
                     $('#ten_lopsua_12').val(data_sualop.ten_lop);
-                    $('#khoahienra').html(data_sualop.ten_khoa);
-                    $('#khoahienra').val(data_sualop.id_khoa);
+                    // $('#khoahienra').html(data_sualop.ten_khoa);?\
+                    $('#id_khoa_sua_lopt').val(data_sualop.id_khoa);
                     $('#dl_nambdat_sua_lop').html(data_sualop.nam_BD);
                     $('#dl_nambdat_sua_lop').val(data_sualop.nam_BD);
                     $('#dl_khoa_sua_lop').html(data_sualop.khoa);
@@ -61,7 +61,7 @@ $(document).ready(function () {
 									alert('Cập nhật thông tin lớp thành công');
 									$('#from_suathongtin_lop')[0].reset();
 	                                $('#modal_sua_lop').modal('hide');
-	                                $('#dulieulop').load("./../dulieu/dulieulopsv.php")
+	                                location.reload();
 								}else {
 									alert('Lỗi cập nhật');
 								}
@@ -111,10 +111,10 @@ $(document).ready(function () {
 							alert('Xóa lớp công');
 							$('#From_xoa_lop')[0].reset();
 							$('#modal_xoa_lop').modal('hide');
-							$('#dulieulop').load("./../dulieu/dulieulopsv.php")
+							location.reload();
 						}
-	                    }
-					});
+	                }
+				});
          	}   
       	});
 	// xuwrt lý nút thêm lop mới
@@ -134,7 +134,7 @@ $(document).ready(function () {
 	          				alert('Thêm Lớp thành công');
 							$('#form_themlopmoi')[0].reset();
 	          				$('#modal_xoa_lop').modal('hide');
-							$('#dulieulop').load("./../dulieu/dulieulopsv.php")
+	          				location.reload();
 	          			}else {
 	          				alert('lỗi thêm Lớp');
 	          			}

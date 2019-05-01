@@ -12,7 +12,7 @@ include 'kiemtradangnhap.php';
           //dem số lượng lớp đang có sinh viên ở
           $sllop = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(id_lop) as sollop FROM lop WHERE lop.xoa =0 and id_khoa='$row[id_khoa]'"));
           //đếm số lượng sinh viên đang ở trong ký túc xá
-          $slsinhvien = mysqli_fetch_array(mysqli_query($con, "SELECT DISTINCT COUNT(o_phong.id_sinhvien) AS slsinhvien FROM sinh_vien, lop, o_phong WHERE sinh_vien.xoa=0 AND lop.xoa=0 AND o_phong.ngay_ket_thuc='' AND sinh_vien.id_lop=lop.id_lop AND lop.id_khoa='$row[id_khoa]' AND sinh_vien.id_sinhvien=o_phong.id_sinhvien"));
+          $slsinhvien = mysqli_fetch_array(mysqli_query($con, "SELECT DISTINCT COUNT(o_phong.id_sinhvien) AS slsinhvien FROM sinh_vien, lop, o_phong WHERE sinh_vien.xoa=0 AND lop.xoa=0 AND o_phong.ngay_ket_thuc is NULL AND sinh_vien.id_lop=lop.id_lop AND lop.id_khoa='$row[id_khoa]' AND sinh_vien.id_sinhvien=o_phong.id_sinhvien"));
           $output .= '
       <tr>
         <td width="40%"><label>Mã khoa</label></td>
@@ -318,7 +318,7 @@ include 'kiemtradangnhap.php';
         // đếm số lượng gường
         $slguong = mysqli_fetch_array(mysqli_query($con, "SELECT SUM(loai_phong.sl_nguoi_o) AS slguong FROM phong, loai_phong WHERE phong.xoa=0 AND phong.id_toanha='$_POST[id_chitiettoa_nha]' AND phong.id_loaiphong=loai_phong.id_loaiphong"));
         // đếm số lượng sinh viên của tòa nhà
-        $slsinhvien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(o_phong.id_ophong) AS slsinhvien FROM phong, o_phong WHERE o_phong.ngay_ket_thuc='' AND phong.id_toanha='$_POST[id_chitiettoa_nha]' AND phong.idphong=o_phong.id_ophong"));
+        $slsinhvien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(o_phong.id_ophong) AS slsinhvien FROM phong, o_phong WHERE o_phong.ngay_ket_thuc is NULL AND phong.id_toanha='$_POST[id_chitiettoa_nha]' AND phong.idphong=o_phong.id_ophong"));
       $result = mysqli_query($con, $query);
       $output .= '
       <div class="table-responsive">
@@ -379,7 +379,7 @@ include 'kiemtradangnhap.php';
         // đếm số lượng gường
         $slguong = mysqli_fetch_array(mysqli_query($con, "SELECT SUM(loai_phong.sl_nguoi_o) AS slguong FROM phong, loai_phong WHERE phong.xoa=0 AND phong.id_loaiphong='$_POST[id_chitietloai_phong]' AND phong.id_loaiphong=loai_phong.id_loaiphong"));
         // đếm số lượng sinh viên của Loại phòng
-        $slsinhvien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(o_phong.id_ophong) AS slsinhvien FROM phong, o_phong WHERE o_phong.ngay_ket_thuc='' AND phong.id_loaiphong='$_POST[id_chitietloai_phong]' AND phong.idphong=o_phong.id_ophong"));
+        $slsinhvien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(o_phong.id_ophong) AS slsinhvien FROM phong, o_phong WHERE o_phong.ngay_ket_thuc is NULL AND phong.id_loaiphong='$_POST[id_chitietloai_phong]' AND phong.idphong=o_phong.id_ophong"));
       $result = mysqli_query($con, $query);
       $output .= '
       <div class="table-responsive">
@@ -628,11 +628,12 @@ include 'kiemtradangnhap.php';
       if (!mysqli_num_rows($result)) {
            $output = 'Chưa có dữ liệu';
       }else{
+
       $output .= '
       <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped">';
            $row_tt_phong_ct = mysqli_fetch_array($result); 
-            
+            $slsinhvien = mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(o_phong.id_sinhvien) AS slsinhvien FROM o_phong WHERE o_phong.ngay_ket_thuc is NULL AND o_phong.id_phong ='$_POST[id_chitiet_phong]'"));
             $output .= '
               <tr>
                 <td width="50%"><label>Số phòng</label></td>
@@ -661,7 +662,7 @@ include 'kiemtradangnhap.php';
               </tr>
                <tr>
                 <td width="50%"><label>Đang ở</label></td>
-                <td width="50%" class="">' ."Viết thuật toán" . '</td>
+                <td width="50%" class="">' .$slsinhvien["slsinhvien"] . '</td>
               </tr>
                <tr>
                 <td width="50%"><label>Người thêm</label></td>

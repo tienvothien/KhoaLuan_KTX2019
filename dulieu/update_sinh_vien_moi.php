@@ -65,6 +65,7 @@ if (isset($_POST['id_sinhvien_sua_12'])) {
 									//cập nhật dữ liệu thay đổi
 									$Update_sinh_vien1 ="UPDATE sinh_vien  SET sinh_vien.mssv = '$ma_sinhvien_sua123' WHERE sinh_vien.id_sinhvien ='$id_sinhvien_sua_12'";
 									if(mysqli_query($con, $Update_sinh_vien1)){
+										mysqli_query($con,"UPDATE taikhoan SET idms ='$ma_sinhvien_sua123' WHERE idms='$logdl_sinh_vien_cu_row[mssv]'");
 										$kiemtracapnhatcsinh_vien=99;
 									}else{
 										$kiemtracapnhatcsinh_vien=100;

@@ -4,6 +4,11 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+.thumbnail.mua_nen_8 {
+    background-color: #795548;
+    color: white;
+}
+
 a.width_100px:hover, a:focus {
     text-decoration: none;
 }
@@ -23,12 +28,12 @@ img#previewing_sinhvien_sua123_load {
 }
 
 .thumbnail.mua_nen_7 {
-    background-color: #8BC34A;
-    color: white;
+    background-color: #4CAF50;
+    color: #fdfdfd;
 }
 
 .thumbnail.mua_nen_6,.thumbnail.maunen-3 {
-    background-color: #FF5722;
+    background-color: #2196F3;
     color: white;
 }
 
@@ -41,7 +46,7 @@ table {
 }
 
 .thumbnail.mua_nen_5, .thumbnail.maunen-1 {
-    background-color: #FF9800;
+    background-color: #E91E63;
     color: white;
 }
 
@@ -60,7 +65,7 @@ div#image_preview {
 }
 
 .thumbnail.mua_nen_4 {
-    background-color: #e91e63;
+    background-color: #F44336;
     color: #f9f9f9;
 }
 .textnamgiua{
@@ -71,8 +76,8 @@ div#image_preview {
     vertical-align: middle;
 }
 .thumbnail.mua_nen_3,.thumbnail.maunen-2 {
-    background-color: #673AB7;
-    color: white;
+    background-color: #FFC107;
+    color: black;
 }
 
 .menutrai {
@@ -112,8 +117,8 @@ select.custom-select.custom-select-sm.form-control.form-control-sm,input.form-co
 }
 
 .thumbnail.mua_nen_2 {
-    background-color: #03A9F4;
-    color: black;
+    background-color: #9C27B0;
+    color: white;
 }
 
 .table-striped > tbody > tr:nth-of-type(odd) {
@@ -133,7 +138,7 @@ select.custom-select.custom-select-sm.form-control.form-control-sm,input.form-co
 }
 
 .thumbnail.mua_nen_1 {
-    background-color: #4CAF50;
+    background-color: #3F51B5;
     color: white;
 }
 .chuinthuong{

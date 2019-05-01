@@ -21,7 +21,7 @@
         <div class="row text-right">
             <div class="login1">
                 <div class="anhbia">
-                    <img src="images/profile.png" class="img-responsive" alt="Image">
+                    <img src="images/vnkgu.png" class="img-responsive" alt="Image">
                 </div>
                 <form action="index.php" method="POST" role="form" id="formdangnhap">
                     <legend >Đăng nhập</legend>

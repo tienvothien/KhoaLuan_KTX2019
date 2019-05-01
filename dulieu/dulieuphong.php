@@ -17,6 +17,7 @@ include 'conn.php';
 				<th>Sinh viên <br> đang ở</th>
 				<th>Sửa</th>
 				<th>Chi tiết</th>
+				<th>Danh sách</th>
 				<th>Xóa</th>
 			</tr>
 		</thead>
@@ -24,6 +25,9 @@ include 'conn.php';
 			<?php
 			$stt = 1;
 			while ($row_phong = mysqli_fetch_array($selecet_phong)) {
+				// đêm số sinh viên ở trong phong
+				$slsinhvien = mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(o_phong.id_sinhvien) AS slsinhvien FROM o_phong WHERE o_phong.ngay_ket_thuc is NULL AND o_phong.id_phong ='$row_phong[idphong]'"));
+
 			echo "
 			<tr>
 					<td style='text-align:center;'>$stt</td>
@@ -31,7 +35,7 @@ include 'conn.php';
 					<td class='chuinhoa canhgiua'>$row_phong[ma_phong]</td>
 					<td class='canhgiua'>$row_phong[stt_tang]</td>
 					<td class='chuinthuong'>$row_phong[ten_loai_phong]</td>
-					<td class='canhgiua'>Chưa viet thuat toan/$row_phong[sl_nguoi_o]</td>
+					<td class='canhgiua'>$slsinhvien[slsinhvien]/$row_phong[sl_nguoi_o]</td>
 					";
 				?>
 				<td class="canhgiuanek12">
@@ -39,6 +43,11 @@ include 'conn.php';
 				</td>
 				<td class="canhgiuanek12">
 					<input type="button" name="view" value="Chi  tiết" id="<?php echo $row_phong['idphong']; ?>" class="btn btn-success btn-xs view_chitietphong" />
+				</td>
+				<td class="canhgiuanek12">
+					<a href="./../admin/dssinhvie_o_trongphong?phongo=<?php echo $row_phong['idphong']; ?>" title="">
+						<input type="button" name="view" value="Danh sách" id="" class="btn btn-warning btn-xs" />
+					</a>
 				</td>
 				<td class="canhgiuanek12">
 					<input type="button" name="delete" value="Xóa" id="<?php echo $row_phong['idphong']; ?>" class="btn btn-info btn-danger btn-xs xoa_phong" />

@@ -10,17 +10,15 @@ include 'conn.php';
 		<thead>
 			<tr>
 				<th style="text-align:center;">STT</th>
-				<th>Ảnh</th>
-				<th>Mã Cán bộ</th>
-				<th>Tên Cán bộ</th>
+				<th style="width: 150px">Tên Cán bộ <br>  và MS</th>
 				<th>Ngày sinh</th>
 				<th>Giới tính</th>
 				<th>Điện thoại
-					<th>Email</th>
-					<th>Chức vụ</th>
-					<th>Sửa</th>
-					<th>Chi tiết</th>
-					<th>Xóa</th>
+				<th>Email</th>
+				<th style="width: 120px;">Chức vụ</th>
+				<th>Sửa</th>
+				<th>Chi tiết</th>
+				<th>Xóa</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -35,9 +33,7 @@ include 'conn.php';
 					echo "
 						<tr>
 							<td style='text-align:center;'>$stt</td>
-							<td class='canhgiua'><img class='img-responsive ' style= ' width:100%;'src='./../images/$row_can_bo[hinhanh]'></td>
-							<td class='chuinhoa canhgiua'>$row_can_bo[ma_can_bo]</td>
-							<td class='chuinthuong'>$row_can_bo[ho_can_bo] $row_can_bo[ten_can_bo]</td>
+							<td class='chuinthuong'>$row_can_bo[ho_can_bo] $row_can_bo[ten_can_bo] <br> $row_can_bo[ma_can_bo]</td>
 							<td class=''>".date('d/m/Y', strtotime($row_can_bo["ngay_sinh"]))."</td>
 							<td class='canhgiua'>$row_can_bo[gioitinh]</td>
 							<td class='canhgiua'>$row_can_bo[sdt]</td>

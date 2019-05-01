@@ -409,6 +409,22 @@
 			}
 		}
 	}//end xóa Có chức vụ
+	// xoas Có Phòng
+	if (isset($_POST['id_phong_xoa_12'])) { 
+		// kiểm tra có sinh vien ở Có Phòng đó không
+		$slsinhvien = mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(o_phong.id_sinhvien) AS slsinhvien FROM o_phong WHERE o_phong.ngay_ket_thuc is NULL AND o_phong.id_phong ='$_POST[id_phong_xoa_12]'"));
+
+		if ($slsinhvien['slsinhvien']==0) {
+			$delete_xoa_phong = "UPDATE phong SET phong.xoa=1, phong.id_canboxoa='$_SESSION[id_canbo]', phong.ngay_xoa='".date('Y/m/d H:i:s')."' WHERE phong.idphong = '$_POST[id_phong_xoa_12]'";
+			if (mysqli_query($con,$delete_xoa_phong)) {
+				echo "99";
+			}else{
+				echo "100";
+			}
+		}else{
+			echo "101";
+		}
+	}//end xóa Có Phòng
 	mysqli_close($con);
 
 ?>

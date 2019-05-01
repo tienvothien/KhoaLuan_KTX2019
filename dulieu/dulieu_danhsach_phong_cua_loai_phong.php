@@ -24,13 +24,13 @@
 			while ($row_loai_phong = mysqli_fetch_array($selecet_loai_phong)) {
 				// đếm số lượng phòng ở của tòa nhà
 				
-				$slsinhvien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(o_phong.id_ophong) AS slsinhvien FROM phong, o_phong WHERE phong.xoa=0 and o_phong.ngay_ket_thuc='' AND phong.idphong='$row_loai_phong[idphong]' "));
+				$slsinhvien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(o_phong.id_ophong) AS slsinhvien FROM  o_phong WHERE o_phong.ngay_ket_thuc is NULL AND o_phong.id_phong='$row_loai_phong[idphong]'"));
 			echo "
 			<tr>
 				<td style='text-align:center;'>$stt</td>
 				<td class='chuinhoa canhgiua'>$row_loai_phong[ma_phong]</td>
 				<td class='chuinthuong'>$row_loai_phong[ten_toa_nha] </td>
-				<td class='chuinthuong canhgiua'>$slsinhvien[slsinhvien] </td>
+				<td class='chuinthuong canhgiua'>$slsinhvien[slsinhvien]</td>
 			";?>
 				<td class="canhgiuanek12"><input type="button" name="edit" value="Sửa" id="<?php echo $row_loai_phong['id_loaiphong']; ?>" class="btn btn-primary btn-xs id_sua_loai_phong" /></td>
 				<td class="canhgiuanek12">

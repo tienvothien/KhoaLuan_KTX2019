@@ -26,6 +26,7 @@
 				$insert_canbo_moi="INSERT INTO can_bo(hinhanh,ma_can_bo, ho_can_bo, ten_can_bo, gioitinh, ngay_sinh, sdt, email, id_canbothem, ngaythem) VALUES ('$hinhanhthem','$ma_can_bo_themmoi123', '$ho_can_bothemmoi_12', '$ten_can_bothemmoi_12', '$gioitinh_can_bothemmoi_12','$ngaysinh_can_bothemmoi_12','$sdt_can_bothemmoi_12', '$email_can_bothemmoi_12','$_SESSION[id_canbo]', '$ngay')";
 				if (mysqli_query($con, $insert_canbo_moi)) {
 					move_uploaded_file($_FILES["image12"]["tmp_name"], $target_file);
+
 					mysqli_query($con,"INSERT INTO taikhoan(idms, matkhau, ngaythem, idtktao) VALUES ('$ma_can_bo_themmoi123','".md5(md5(md5($ma_can_bo_themmoi123)))."','$ngay','$_SESSION[id_canbo]')");
 					echo "99";
 				}else {

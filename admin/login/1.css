@@ -62,8 +62,8 @@
     top: -50px;
     left: calc(35%);
     border-color: #fff;
-    border-radius: 50%;
-    border: 2px solid #fff;
+    /* border-radius: 50%; */
+    /* border: 2px solid #fff; */
 }
 @media(max-width: 576px) {
 .login1{

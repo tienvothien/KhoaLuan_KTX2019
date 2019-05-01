@@ -39,6 +39,8 @@
 						$Update_can_bo1 ="UPDATE can_bo  SET can_bo.ma_can_bo = '$ma_can_bo_sua123' WHERE can_bo.id_canbo ='$id_can_bo_sua'";
 						if(mysqli_query($con, $Update_can_bo1)){
 							$kiemtracapnhatccan_bo=99;
+							mysqli_query($con,"UPDATE taikhoan SET idms ='$ma_can_bo_sua123' WHERE idms='$logdl_can_bocu_row[ma_can_bo]'");
+
 						}else{
 							$kiemtracapnhatccan_bo=100;
 						}

@@ -37,129 +37,144 @@
 					<hr class="ngay_ad"></div>
 					<div class="container-fluid">
 						<div class="row"><!-- nho doi ten class -->
-						<a href="quanlykhoa.php" title=""><!--  hien thoong trinh chi tiet khoa -->
-						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-							<div class="thumbnail mua_nen_1">
-								<div class="captionb align-middler">
-									<h3 class="canhgiua"  >Khoa</h3>
-									<p  >
-										<h3 class="canhgiua ">
-										<?php include './conn.php';
-										$soluongkhoa = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(khoa.id_khoa) AS slkhoa FROM khoa WHERE khoa.xoa =0"));
-										echo $soluongkhoa['slkhoa'];
-										?></h3>
-									</p>
-								</div>
-							</div>
-						</div>
-						</a> <!-- end het hien thong tin khoa -->
-						<a href="quanlylop.php" title=""><!--  hien thoong trinh chi tiet khoa -->
-						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-							<div class="thumbnail mua_nen_2">
-								<div class="captionb align-middler">
-									<h3 class="canhgiua"  >Lớp</h3>
-									<p  >
-										<h3 class="canhgiua ">
-										<?php include './conn.php';
-										$soluonglop = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(lop.id_lop) AS sllop FROM lop WHERE lop.xoa =0"));
-										echo $soluonglop['sllop'];
-										?></h3>
-									</p>
-								</div>
-							</div>
-						</div>
-						</a> <!-- end het hien thong tin khoa -->
-						<a href="quanlythietbi.php" title=""><!--  hien thoong trinh chi tiet thietbi-->
-							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-								<div class="thumbnail mua_nen_3">
-									<div class="captionb align-middler">
-										<h3 class="canhgiua"  >Thiết bị</h3>
-										<p  >
-											<h3 class="canhgiua ">
-											<?php include './conn.php';
-											$soluongthietbi = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(thietbi.idtb) AS slthietbi FROM thietbi WHERE thietbi.xoa =0"));
-											echo $soluongthietbi['slthietbi'];
-											?></h3>
-										</p>
-									</div>
-								</div>
-							</div>
-						</a> <!-- end het hien thong tin thietbi-->
-						<?php 
+						<?php
 						if ($qr_ktra_chucvu['idchucvu']==0){ ?>
 						<a href="quanlycanbo.php" title=""><!--  hien thoong trinh chi tiet Cán bộ-->
-							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-								<div class="thumbnail mua_nen_4">
-									<div class="captionb align-middler">
-										<h3 class="canhgiua"  >Cán bộ</h3>
-										<p  >
-											<h3 class="canhgiua ">
-											<?php include './conn.php';
-											$soluongcanbo = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(can_bo.id_canbo) AS slcanbo FROM can_bo WHERE can_bo.xoa =0"));
-											echo $soluongcanbo['slcanbo'];
-											?></h3>
-										</p>
-									</div>
+						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+							<div class="thumbnail mua_nen_4">
+								<div class="captionb align-middler">
+									<h3 class="canhgiua"  >Cán bộ</h3>
+									<p  >
+										<h3 class="canhgiua ">
+										<?php include './conn.php';
+										$soluongcanbo = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(can_bo.id_canbo) AS slcanbo FROM can_bo WHERE can_bo.xoa =0"));
+										echo $soluongcanbo['slcanbo'];
+										?></h3>
+									</p>
 								</div>
 							</div>
-						</a>
-						<?php } ?>
-							<a href="quanlytoanha.php" title=""><!--  hien thoong trinh chi tiet Tòa nhà-->
-							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-								<div class="thumbnail mua_nen_5">
-									<div class="captionb align-middler">
-										<h3 class="canhgiua"  >Tòa nhà</h3>
-										<p  >
-											<h3 class="canhgiua ">
-											<?php include './conn.php';
-											$soluongtoanha = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(toa_nha.id_toanha) AS sltoanha FROM toa_nha WHERE toa_nha.xoa =0"));
-											echo $soluongtoanha['sltoanha'];
-											?></h3>
-										</p>
-									</div>
-								</div>
+						</div>
+					</a>
+					<?php } ?>
+					<a href="quanlytoanha.php" title=""><!--  hien thoong trinh chi tiet Tòa nhà-->
+					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+						<div class="thumbnail mua_nen_5">
+							<div class="captionb align-middler">
+								<h3 class="canhgiua"  >Tòa nhà</h3>
+								<p  >
+									<h3 class="canhgiua ">
+									<?php include './conn.php';
+									$soluongtoanha = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(toa_nha.id_toanha) AS sltoanha FROM toa_nha WHERE toa_nha.xoa =0"));
+									echo $soluongtoanha['sltoanha'];
+									?></h3>
+								</p>
 							</div>
-						</a> <!-- end het hien thong tin Tòa nhà-->
-						<a href="quanlyloaiphong.php" title=""><!--  hien thoong trinh chi tiet Loại phòng-->
-							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-								<div class="thumbnail mua_nen_6">
-									<div class="captionb align-middler">
-										<h3 class="canhgiua"  >Loại phòng</h3>
-										<p  >
-											<h3 class="canhgiua ">
-											<?php include './conn.php';
-											$soluongloai_phong = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(loai_phong.id_loaiphong) AS slloai_phong FROM loai_phong WHERE loai_phong.xoa =0"));
-											echo $soluongloai_phong['slloai_phong'];
-											?></h3>
-										</p>
-									</div>
-								</div>
-							</div>
-						</a> <!-- end het hien thong tin Loại phòng-->
-						<a href="quanlysinhvien.php" title=""><!--  hien thoong trinh chi tiet Sinh viên-->
-							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-								<div class="thumbnail mua_nen_7">
-									<div class="captionb align-middler">
-										<h3 class="canhgiua"  >Sinh viên</h3>
-										<p  >
-											<h3 class="canhgiua ">
-											<?php include './conn.php';
-											$soluongsinh_vien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(sinh_vien.id_sinhvien) AS slsinh_vien FROM sinh_vien WHERE sinh_vien.xoa =0"));
-											echo $soluongsinh_vien['slsinh_vien'];
-											?></h3>
-										</p>
-									</div>
-								</div>
-							</div>
-						</a> <!-- end het hien thong tin Sinh viên-->
-
+						</div>
 					</div>
-					</div><!-- end thaydoi1 -->
-					</div><!-- end noidungthaydoi -->
-					</div> <!-- end col-9 -->
-					</div> <!-- end row noi dung -->
-					
-					<?php include 'food.php'; ?>
+					</a> <!-- end het hien thong tin Tòa nhà-->
+					<a href="quanlyphong.php" title=""><!--  hien thoong trinh chi tiet Phòng-->
+					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+						<div class="thumbnail mua_nen_2">
+							<div class="captionb align-middler">
+								<h3 class="canhgiua"  >Phòng</h3>
+								<p  >
+									<h3 class="canhgiua ">
+									<?php include './conn.php';
+									$soluongphong = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(phong.idphong) AS slphong FROM phong WHERE phong.xoa =0"));
+									echo $soluongphong['slphong'];
+									?></h3>
+								</p>
+							</div>
+						</div>
+					</div>
+					</a> <!-- end het hien thong tin Phòng-->
+					<a href="quanlyloaiphong.php" title=""><!--  hien thoong trinh chi tiet Loại phòng-->
+					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+						<div class="thumbnail mua_nen_6">
+							<div class="captionb align-middler">
+								<h3 class="canhgiua"  >Loại phòng</h3>
+								<p  >
+									<h3 class="canhgiua ">
+									<?php include './conn.php';
+									$soluongloai_phong = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(loai_phong.id_loaiphong) AS slloai_phong FROM loai_phong WHERE loai_phong.xoa =0"));
+									echo $soluongloai_phong['slloai_phong'];
+									?></h3>
+								</p>
+							</div>
+						</div>
+					</div>
+					</a> <!-- end het hien thong tin Loại phòng-->
+					<a href="quanlykhoa.php" title=""><!--  hien thoong trinh chi tiet khoa -->
+					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+						<div class="thumbnail mua_nen_1">
+							<div class="captionb align-middler">
+								<h3 class="canhgiua"  >Khoa</h3>
+								<p  >
+									<h3 class="canhgiua ">
+									<?php include './conn.php';
+									$soluongkhoa = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(khoa.id_khoa) AS slkhoa FROM khoa WHERE khoa.xoa =0"));
+									echo $soluongkhoa['slkhoa'];
+									?></h3>
+								</p>
+							</div>
+						</div>
+					</div>
+					</a> <!-- end het hien thong tin khoa -->
+					<a href="quanlylop.php" title=""><!--  hien thoong trinh chi tiet khoa -->
+					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+						<div class="thumbnail mua_nen_8">
+							<div class="captionb align-middler">
+								<h3 class="canhgiua"  >Lớp</h3>
+								<p  >
+									<h3 class="canhgiua ">
+									<?php include './conn.php';
+									$soluonglop = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(lop.id_lop) AS sllop FROM lop WHERE lop.xoa =0"));
+									echo $soluonglop['sllop'];
+									?></h3>
+								</p>
+							</div>
+						</div>
+					</div>
+					</a> <!-- end het hien thong tin khoa -->
+					<a href="quanlysinhvien.php" title=""><!--  hien thoong trinh chi tiet Sinh viên-->
+					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+						<div class="thumbnail mua_nen_7">
+							<div class="captionb align-middler">
+								<h3 class="canhgiua"  >Sinh viên</h3>
+								<p  >
+									<h3 class="canhgiua ">
+									<?php include './conn.php';
+									$soluongsinh_vien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(sinh_vien.id_sinhvien) AS slsinh_vien FROM sinh_vien WHERE sinh_vien.xoa =0"));
+									echo $soluongsinh_vien['slsinh_vien'];
+									?></h3>
+								</p>
+							</div>
+						</div>
+					</div>
+					</a> <!-- end het hien thong tin Sinh viên-->
+					<a href="quanlythietbi.php" title=""><!--  hien thoong trinh chi tiet thietbi-->
+					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+						<div class="thumbnail mua_nen_3">
+							<div class="captionb align-middler">
+								<h3 class="canhgiua"  >Thiết bị</h3>
+								<p  >
+									<h3 class="canhgiua ">
+									<?php include './conn.php';
+									$soluongthietbi = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(thietbi.idtb) AS slthietbi FROM thietbi WHERE thietbi.xoa =0"));
+									echo $soluongthietbi['slthietbi'];
+									?></h3>
+								</p>
+							</div>
+						</div>
+					</div>
+					</a> <!-- end het hien thong tin thietbi-->
 				</div>
-			</body>
-		</html>
+				</div><!-- end thaydoi1 -->
+				</div><!-- end noidungthaydoi -->
+				</div> <!-- end col-9 -->
+				</div> <!-- end row noi dung -->
+				
+				<?php include 'food.php'; ?>
+			</div>
+		</body>
+	</html>

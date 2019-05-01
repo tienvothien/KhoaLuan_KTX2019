@@ -1,4 +1,4 @@
-<?php
+s<?php
 include './../dulieu/kiemtradangnhap.php';
 ?>
 <!DOCTYPE html>

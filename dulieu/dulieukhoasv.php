@@ -16,6 +16,7 @@ include 'conn.php';
 				<th>Số lớp</th>
 				<th>Sửa</th>
 				<th>Chi tiết</th>
+				<th>Danh sách</th>
 				<th>Xóa</th>
 			</tr>
 		</thead>
@@ -32,7 +33,12 @@ include 'conn.php';
 				<td class='chuinthuong'>$row_khoa[ten_khoa]</td>
 				<td class='canhgiua'>$sllop[sollop]</td>";?>
 				<td class="canhgiuanek12"><input type="button" name="edit" value="Sửa" id="<?php echo $row_khoa['id_khoa']; ?>" class="btn btn-primary btn-xs id_sua_khoa" /></td>
+
 				<td class="canhgiuanek12"><input type="button" name="view" value="Chi tiết" id="<?php echo $row_khoa['id_khoa']; ?>" class="btn btn-success btn-xs view_chitietkhoa" /></td>
+				<td class="canhgiuanek12">
+					<a href="dslop_cuakhoa.php?khoa=<?php echo $row_khoa['id_khoa']; ?>" title="">
+					<input type="button" name="view" value="Danh sách" id="" class="btn btn-success btn-xs" /></a>
+				</td>
 				<td class="canhgiuanek12"><input type="button" name="delete" value="Xóa" id="<?php echo $row_khoa['id_khoa']; ?>" class="btn btn-info btn-danger btn-xs xoa_khoa" /></td>
 				<?php echo "
 			</tr>
