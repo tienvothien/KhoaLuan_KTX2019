@@ -4,6 +4,10 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+.width_50 {
+    width: 50%;
+}
+
 .thumbnail.mua_nen_8 {
     background-color: #795548;
     color: white;

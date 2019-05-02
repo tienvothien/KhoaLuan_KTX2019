@@ -91,10 +91,9 @@ include './../dulieu/kiemtradangnhap.php';
 									<div class="form-group">
 										<label for="">Khoa</label>
 										<select  id="id_khoa_them_lopt12"  name="id_khoa_them_lopt12" class="form-control" required="required">
-											<option value="">Chọn Khoa</option>
 											<?php
 												
-												$ssql_ds_khoa=(mysqli_query($con, "SELECT * FROM khoa WHERE khoa.xoa =0 ORDER BY khoa.ten_khoa"));
+												$ssql_ds_khoa=(mysqli_query($con, "SELECT * FROM khoa WHERE khoa.xoa =0 and id_khoa = '$_GET[khoa]'ORDER BY khoa.ten_khoa"));
 												if (mysqli_num_rows($ssql_ds_khoa)) {
 													while ($row_dskhoa= mysqli_fetch_array($ssql_ds_khoa)) {
 														echo "<option value='".$row_dskhoa['id_khoa']."'>$row_dskhoa[ten_khoa]</option>";

@@ -56,6 +56,22 @@
 						</div>
 					</a>
 					<?php } ?>
+					<a href="quanly_o_phong.php" title=""><!--  hien thoong trinh chi tiet Tòa nhà-->
+					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+						<div class="thumbnail mua_nen_3">
+							<div class="captionb align-middler">
+								<h3 class="canhgiua"  >Đang Ở </h3>
+								<p  >
+									<h3 class="canhgiua ">
+									<?php include './conn.php';
+									$soluong_sv_o = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(o_phong.id_ophong) AS sl_sv_o FROM o_phong WHERE o_phong.ngay_ket_thuc is NULL"));
+									echo $soluong_sv_o['sl_sv_o'];
+									?></h3>
+								</p>
+							</div>
+						</div>
+					</div>
+					</a> <!-- end het hien thong tin Tòa nhà-->
 					<a href="quanlytoanha.php" title=""><!--  hien thoong trinh chi tiet Tòa nhà-->
 					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 						<div class="thumbnail mua_nen_5">

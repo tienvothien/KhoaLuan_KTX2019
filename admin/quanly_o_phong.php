@@ -72,36 +72,67 @@ include './../dulieu/kirmtra_quantrivien.php';
 						</div>
 						<!-- Modal body -->
 						<div class="modal-body _1themtoanha">
-							<form action="" id="form_them_o_phongmoi" name="form_them_o_phongmoi" 	method="POST" role="form" class="_1themphong1 ">
-								<div class="form-group">
-									<label for="">Mã Sinh viên</label>
-									<input type="number" name="mssv_o_phong_them" id="mssv_o_phong_them" class="form-control " value="" required="" placeholder="Nhập mã sinh viên" >
+							<form action="" id="form_them_o_phongmoi" name="form_them_o_phongmoi" 	method="POST" role="form" class="_1themphong1 " enctype="multipart/form-data" data-confirm="Bạn có chắn muốn thêm thông tin này?">
+								<div class="row">
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+										<div class="form-group">
+											<label for="">Mã Sinh viên</label>
+											<input type="number" name="mssv_o_phong_them" id="mssv_o_phong_them" class="form-control " value="" required="" placeholder="Nhập mã sinh viên" >
+										</div>
+									</div>
 								</div>
-								
-								<div class="form-group">
-									<label for="">Tòa nhà</label>
-									<select name="id_toa_nha_them_ophong" id="id_toa_nha_them_ophong" class="form-control chuinthuong" required="required">
-										<option value="">Chọn Tòa nhà</option>
-										<?php
-											$q_toa_nha= mysqli_query($con,"SELECT toa_nha.id_toanha, toa_nha.ten_toa_nha FROM toa_nha WHERE toa_nha.xoa=0 ORDER BY toa_nha.ten_toa_nha");
-											while ($ds_toa_nha = mysqli_fetch_array($q_toa_nha)){
-												echo "<option value='".$ds_toa_nha['id_toanha']."'>".$ds_toa_nha['ten_toa_nha']."</option>";
-											}
-										?>
-									</select>
+								<div class="row">
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+										<div class="form-group">
+											<label for="">Tòa nhà</label>
+											<select name="id_toa_nha_them_ophong" id="id_toa_nha_them_ophong" class="form-control chuinthuong" required="required">
+												<option value="">Chọn Tòa nhà</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+										<div class="form-group">
+											<label for="">Số phòng</label>
+											<select name="id_phong_them_ophong" id="id_phong_them_ophong" class="form-control chuinthuong" required="required">
+												<option value="">Chọn phòng</option>
+												
+											</select>
+											
+										</div>
+									</div>
 								</div>
-								<div class="form-group">
-									<label for="">Số phòng</label>
-									<select name="id_phong_them_ophong" id="id_phong_them_ophong" class="form-control chuinthuong" required="required">
-										<option value="" id="id_phongchonjtoanha">Chọn Tòa nhà</option>
-										
-									</select>
+								<div class="row">
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+										<div class="form-group">
+											<label for="">Học Kỳ</label>
+											<select name="hocky_them_ophong" id="hocky_them_ophong" class="form-control chuinthuong" required="required">
+												<option value="">Chọn học Kỳ</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="Hè">Hè</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+										<div class="form-group">
+											<label for="">Năm học</label>
+											<select name="namhoc_them_ophong" id="namhoc_them_ophong" class="form-control chuinthuong" required="required">
+												<option value="">Chọn năm học</option>
+												<?php 
+												for ($i=(date('Y')-1); $i < (date('Y')+1); $i++) { 
+													$i2=$i+1;
+												
+												echo "<option value='".$i."-".$i2."'>".$i."-".$i2."";}?>
+											</select>
+											
+										</div>
+									</div>
 								</div>
-								<div class="form-group" id="tt_sinhvie">
-								</div>
+								<h3>Thông tin sinh viên</h3>
+								<div class="form-group" id="tt_sinhvie"></div>
 							</div>
 							<!-- Modal footer -->
-							<div class="modal-footer">
+							<div class="modal-footer width_50">
 								<button type="submit" class="btn btn-danger">Thêm mới</button>
 							</div>
 						</form>
@@ -111,11 +142,11 @@ include './../dulieu/kirmtra_quantrivien.php';
 			</div><!-- end model -->
 			<!-- xem thông tin _o_phong -->
 			<div id="dataModal" class="modal fade">
-				<div class="modal-dialog width_350px">
+				<div class="modal-dialog ">
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">Thông tin Cán bộ Ở phòng</h4>
+							<h4 class="modal-title">Thông tin sinh viên Ở phòng</h4>
 						</div>
 						<div class="modal-body" id="thongtin_chitiet_o_phong">
 						</div>
@@ -127,44 +158,87 @@ include './../dulieu/kirmtra_quantrivien.php';
 			</div>
 			<!-- Cập nhật lại thông tin phòng -->
 			<div id="modal_sua__o_phong" class="modal fade">
-				<div class="modal-dialog width_350px">
+				<div class="modal-dialog ">
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">Cập nhật thông tin Chức vụ</h4>
+							<h4 class="modal-title">Chuyển phòng sinh viên</h4>
 						</div>
 						<div class="modal-body">
 							<form method="post" id="from_suathongtin__o_phong" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
-								<label>Mã _o_phong</label>
-								<input type="text" name="ma__o_phong_sua123" id="ma__o_phong_sua123" class="form-control chuinhoa"  required="" />
-								<br />
-								<label>Tên _o_phong</label>
-								<textarea  name="ten__o_phongsua_12" id="ten__o_phongsua_12" class="form-control chuinthuong" rows="1" required=""></textarea>
-								<br />
-								<input type="hidden" name="id__o_phong_sua_12" id="id__o_phong_sua_12" />
-								<input type="submit" name="insert" id="insert" value="Insert" class="btn btn-danger capnhattb" />
-							</form>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>
-						</div>
+								<div class="row">
+									
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+										
+										<div classid_dltoanha_moi="form-group">
+											<label for="">Mã Sinh viên</label>
+											<input type="number" name="mssv_o_phong_sua" id="mssv_o_phong_sua" class="form-control " value="" required="" placeholder="Nhập mã sinh viên" readonly="" >
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+										<div class="form-group">
+											<label for="">Tòa nhà củ</label>
+											<input type="text" name="id_dltoanha_cu" id="id_dltoanha_cu" class="form-control " value="" required=""  readonly="" >
+											
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+										<div class="form-group">
+											<label for="">Tòa nhà mới</label>
+											<select name="" id="id_dltoanha_moi" class="form-control chuinthuong" required="required">
+												
+											</select>
+											
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+										<div class="form-group">
+											<label for="">Số phòng củ</label>
+											<input type="text" name="id_dphong_cu" id="id_dphong_cu" class="form-control " value="" required=""  readonly="" >
+											
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+										<div class="form-group">
+											<label for="">Số phòng mới</label>
+											<select name="id_dphong_moi" id="id_dphong_moi" class="form-control" required="required">
+												<option value="">Chọn phòng</option>
+											</select>
+											
+										</div>
+										
+									</div>
+								</div>
+								<div class="form-group" id="tt_sinhvie"></div>
+								<input type="" name="id__o_phong_sua_12" id="id__o_phong_sua_12" />
+								
+							</div>
+							<div class="modal-footer">
+								<input type="submit" name="insert" id="insert" value="Chuyển" class="btn btn-danger capnhattb" />
+								
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
 			<!-- Xoa Chức vụ -->
 			<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
 				<div id="modal_xoa__o_phong" class="modal fade">
-					<div class="modal-dialog width_350px">
+					<div class="modal-dialog ">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title canhgiua">Xóa Cán bộ Ở phòng</h4>
+								<h4 class="modal-title canhgiua">Kết thúc ở của  Sinh viên</h4>
 							</div>
 							<div class="modal-body" id="dulieu_cab__o_phong"></div>
 							<form method="post" id="From_xoa__o_phong" data-confirm="Bạn có chắn muốn xóa thông tin này?">
 								<input type="hidden" name="id__o_phong_xoa_12" id="id__o_phong_xoa_12" />
 								<div class="modal-footer">
-									<input type="submit" name="insert_xoa" id="insert_xoa" value="Xóa" class="btn btn-danger canhgiua" />
+									<input type="submit" name="insert_xoa" id="insert_xoa" value="Kết thúc" class="btn btn-danger canhgiua" />
 								</div>
 							</form>
 							

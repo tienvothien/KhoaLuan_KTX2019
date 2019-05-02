@@ -130,7 +130,7 @@ $(document).ready(function () {
 		$('#khoa_them_sinh_vien').change(function() {
 			var khoa_them_sinh_vien=$('#khoa_them_sinh_vien').val();
 			$.ajax({
-				url:"../dulieu/xuly_chon_hktt.php",
+				url:"../dulieu/fetch.php",
 				type: "post",
 				data: {khoa_them_sinh_vien1:khoa_them_sinh_vien},
 				async:true,

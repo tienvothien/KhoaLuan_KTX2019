@@ -400,14 +400,12 @@
 	// xoas Có chức vụ
 	if (isset($_POST['id_xoa_cochucvu123'])) { 
 		// kiểm tra có sinh vien ở Có chức vụ đó không
-		if ($qr_ktra_chucvu['idchucvu']==0) {
 			$delete_xoa_cochucvu = "UPDATE cochucvu SET cochucvu.xoa=1, cochucvu.id_canboxoa='$_SESSION[id_canbo]', cochucvu.ngay_xoa='".date('Y/m/d H:i:s')."' WHERE cochucvu.id_cochucvu = '$_POST[id_xoa_cochucvu123]'";
 			if (mysqli_query($con,$delete_xoa_cochucvu)) {
 				echo "99";
 			}else{
 				echo "100";
 			}
-		}
 	}//end xóa Có chức vụ
 	// xoas Có Phòng
 	if (isset($_POST['id_phong_xoa_12'])) { 
@@ -425,6 +423,16 @@
 			echo "101";
 		}
 	}//end xóa Có Phòng
+	//  Xóa ở phòng ký túc xá
+	if (isset($_POST['id_o_phong_xoa_12'])) { 
+		// kiểm tra có sinh vien ở Có Phòng đó không
+			$delete_xoa_phong = "UPDATE o_phong SET o_phong.ngay_ket_thuc='".date('Y/m/d')."', o_phong.id_canboxoa='$_SESSION[id_canbo]', o_phong.ngay_xoa='".date('Y/m/d H:i:s')."' WHERE o_phong.id_ophong = '$_POST[id_o_phong_xoa_12]'";
+			if (mysqli_query($con,$delete_xoa_phong)) {
+				echo "99";
+			}else{
+				echo "100";
+			}
+	}//end Xóa ở phòng ký túc xá
 	mysqli_close($con);
 
 ?>

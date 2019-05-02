@@ -36,7 +36,7 @@ $(document).ready(function () {
 	// sửa thông tin cochucvu
 	$(document).on('click', '.id_sua_cochucvu', function(){
            var id_cochucvu_sua = $(this).attr("id");
-           // alert(id_cochucvu_sua);
+           alert(id_cochucvu_sua);
            $.ajax({
                 url:"../dulieu/fetch.php",
                 method:"POST",
@@ -96,7 +96,7 @@ $(document).ready(function () {
                      data:{id_cochucvu_sua:id_cochucvu_xoa},
                      success:function(data){
                           $('#dulieu_cab_cochucvu').html(data);
-                          $('#id_cochucvu_xoa_12').val(id_cochucvu_sua);
+                          $('#id_cochucvu_xoa_12').val(id_cochucvu_xoa);
                           $('#modal_xoa_cochucvu').modal('show');
                      }
                 });

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 01, 2019 lúc 06:14 PM
+-- Thời gian đã tạo: Th5 02, 2019 lúc 06:31 PM
 -- Phiên bản máy phục vụ: 10.1.29-MariaDB
 -- Phiên bản PHP: 7.2.0
 
@@ -121,7 +121,7 @@ CREATE TABLE `cochucvu` (
 INSERT INTO `cochucvu` (`id_cochucvu`, `id_canbo`, `idchucvu`, `id_canbothem`, `ngaythem`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
 (1, 1, 1, 1, '2019-04-10 00:00:00', 0, NULL, NULL),
 (2, 2, 1, 1, '2019-04-14 00:00:00', 0, 1, '2019-04-28 22:11:04'),
-(3, 2, 2, 1, '2019-04-17 00:00:00', 0, NULL, NULL),
+(3, 2, 2, 1, '2019-04-17 00:00:00', 1, 1, '2019-05-02 18:47:59'),
 (4, 1, 0, 1, '2019-04-27 00:00:00', 0, NULL, NULL),
 (5, 1, 22, 1, '2019-04-30 19:14:17', 0, NULL, NULL),
 (6, 2, 22, 1, '2019-05-01 21:56:43', 0, NULL, NULL);
@@ -1132,7 +1132,12 @@ INSERT INTO `log_sua_dl` (`idlog`, `bangsua`, `tenbang`, `iddulieu`, `cot`, `ten
 (241, 'Phong', 'Phòng', 4, 'id_loaiphong', 'Loại phòng', '2', '1', 2, '2019-05-01 21:24:07'),
 (242, 'Phong', 'Phòng', 4, 'id_loaiphong', 'Loại phòng', '1', '2', 2, '2019-05-01 21:26:47'),
 (243, 'Phong', 'Phòng', 4, 'id_toanha', 'Tòa nhà', '5', '1', 2, '2019-05-01 21:45:59'),
-(244, 'Phong', 'Phòng', 4, 'id_loaiphong', 'Loại phòng', '2', '1', 2, '2019-05-01 21:45:59');
+(244, 'Phong', 'Phòng', 4, 'id_loaiphong', 'Loại phòng', '2', '1', 2, '2019-05-01 21:45:59'),
+(245, 'toa_nha', 'Tòa nhà', 1, 'loai_toa_nha', 'Loại Tòa nhà', 'Nam', 'Nữ', 1, '2019-05-02 16:12:37'),
+(246, 'lop', 'Lớp', 1, 'khoa', 'Khóa', '1', '2', 1, '2019-05-02 18:12:01'),
+(247, 'lop', 'Lớp', 1, 'nam_BD', 'Năm bắt đầu', '2015', '2016', 1, '2019-05-02 18:12:01'),
+(248, 'Phong', 'Phòng', 1, 'ma_phong', 'Số phòng', '101', '102', 1, '2019-05-02 19:07:03'),
+(249, 'Phong', 'Phòng', 1, 'ma_phong', 'Số phòng', '102', '101', 1, '2019-05-02 19:07:12');
 
 -- --------------------------------------------------------
 
@@ -1159,12 +1164,13 @@ CREATE TABLE `lop` (
 --
 
 INSERT INTO `lop` (`id_lop`, `ma_lop`, `ten_lop`, `id_khoa`, `nam_BD`, `khoa`, `id_canbothem`, `ngay`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
-(1, 'b15tt3', 'B15 Thông tin 3', 1, 2015, 1, 1, '2019-04-12 00:00:00', 0, 2, '2019-04-23 20:34:45'),
+(1, 'b15tt3', 'B15 Thông tin 3', 1, 2016, 2, 1, '2019-04-12 00:00:00', 0, 2, '2019-04-23 20:34:45'),
 (10, 'b15xd1', 'B15 xây dựng 1', 65, 2015, 1, 1, '2019-04-28 20:12:38', 0, NULL, NULL),
 (11, 'b15tt2', 'B15 Thông tin 2', 1, 2015, 1, 1, '2019-04-30 10:45:42', 0, NULL, NULL),
 (29, 'b15xd2', 'B15 xây dựng 2', 65, 2016, 2, 1, '2019-04-30 10:46:53', 0, NULL, NULL),
 (30, 'b16xd1', 'B16 xây dựng 1', 65, 2016, 2, 1, '2019-05-01 18:36:06', 0, NULL, NULL),
-(31, 'b17xd1', 'B17 xây dựng 1', 65, 2015, 3, 1, '2019-05-01 18:45:32', 0, NULL, NULL);
+(31, 'b17xd1', 'B17 xây dựng 1', 65, 2015, 3, 1, '2019-05-01 18:45:32', 0, NULL, NULL),
+(32, 'b15tt1', 'B15 Thông tin 1', 1, 2015, 2, 1, '2019-05-02 18:14:39', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1191,7 +1197,19 @@ CREATE TABLE `o_phong` (
 --
 
 INSERT INTO `o_phong` (`id_ophong`, `id_sinhvien`, `id_phong`, `hoc_ky`, `nam_hoc`, `ngay_bat_dau`, `ngay_ket_thuc`, `id_canbothem`, `ngaythem`, `id_canboxoa`, `ngay_xoa`) VALUES
-(1, 6, 1, '1', '2018-2019', '2018-10-01', NULL, 2, '2019-04-27 00:00:00', NULL, NULL);
+(1, 6, 1, '1', '2018-2019', '2018-10-01', '2019-05-02', 2, '2019-04-27 00:00:00', 1, '2019-05-02 23:18:34'),
+(2, 5, 1, '1', '2018-2019', '2018-09-01', '2019-05-02', 2, '2019-05-02 00:00:00', 1, '2019-05-02 23:15:17'),
+(3, 5, 1, '1', '2018-2019', '2019-05-02', '2019-05-02', 1, '2019-05-02 23:16:05', 1, '2019-05-02 23:21:31'),
+(4, 5, 1, '1', '2018-2019', '2019-05-02', '2019-05-02', 1, '2019-05-02 23:15:12', 1, '2019-05-02 23:16:05'),
+(5, 8, 5, '1', '2018-2019', '2019-05-02', '2019-05-02', 1, '2019-05-02 22:19:17', 1, '2019-05-02 23:22:59'),
+(32, 6, 1, '1', '2018-2019', '2019-05-02', '2019-05-02', 1, '2019-05-02 23:18:34', 1, '2019-05-02 23:21:20'),
+(33, 6, 1, '1', '2018-2019', '2019-05-02', NULL, 1, '2019-05-02 23:21:20', 1, '2019-05-02 23:25:38'),
+(34, 5, 1, '1', '2018-2019', '2019-05-02', '2019-05-02', 1, '2019-05-02 23:21:31', 1, '2019-05-02 23:28:16'),
+(35, 5, 1, '1', '2018-2019', '2019-05-02', '2019-05-02', 1, '2019-05-02 23:22:39', 1, '2019-05-02 23:27:37'),
+(36, 8, 5, '1', '2018-2019', '2019-05-02', NULL, 1, '2019-05-02 23:22:59', NULL, NULL),
+(37, 5, 1, '1', '2018-2019', '2019-05-02', '2019-05-02', 1, '2019-05-02 23:28:16', 1, '2019-05-02 23:28:59'),
+(38, 5, 1, '1', '2018-2019', '2019-05-02', '2019-05-02', 1, '2019-05-02 23:28:59', 1, '2019-05-02 23:29:45'),
+(39, 5, 3, '1', '2018-2019', '2019-05-02', NULL, 1, '2019-05-02 23:29:45', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1445,7 +1463,7 @@ CREATE TABLE `toa_nha` (
 --
 
 INSERT INTO `toa_nha` (`id_toanha`, `ma_toa_nha`, `ten_toa_nha`, `loai_toa_nha`, `id_canbothem`, `ngaythem`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
-(1, 'TNa', 'Tòa nhà Sinh viên 9', 'Nam', 2, '2019-04-23 00:00:00', 0, NULL, NULL),
+(1, 'TNa', 'Tòa nhà Sinh viên 9', 'Nữ', 2, '2019-04-23 00:00:00', 0, NULL, NULL),
 (2, 'TNB', 'Tòa nhà sinh viên b', 'Nữ', 1, '2019-04-23 17:02:05', 0, NULL, NULL),
 (5, 'TNC', 'Tòa nhà sinh viên C', 'Nữ', 1, '2019-04-23 17:03:49', 0, 2, '2019-04-23 20:37:40'),
 (6, 'TN2', 'Tòa nhà sinh viên 2', 'Nam', 1, '2019-04-23 17:11:04', 0, 2, '2019-04-23 20:37:07'),
@@ -12854,7 +12872,7 @@ ALTER TABLE `chucvu`
 -- AUTO_INCREMENT cho bảng `cochucvu`
 --
 ALTER TABLE `cochucvu`
-  MODIFY `id_cochucvu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_cochucvu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `co_dien_ut`
@@ -12896,25 +12914,25 @@ ALTER TABLE `loai_phong`
 -- AUTO_INCREMENT cho bảng `log_sua_dl`
 --
 ALTER TABLE `log_sua_dl`
-  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=245;
+  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=250;
 
 --
 -- AUTO_INCREMENT cho bảng `lop`
 --
 ALTER TABLE `lop`
-  MODIFY `id_lop` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_lop` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT cho bảng `o_phong`
 --
 ALTER TABLE `o_phong`
-  MODIFY `id_ophong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_ophong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT cho bảng `phong`
 --
 ALTER TABLE `phong`
-  MODIFY `idphong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idphong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `sinh_vien`

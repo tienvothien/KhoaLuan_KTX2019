@@ -35,7 +35,7 @@ include 'kiemtradangnhap.php';
         <td>'.$sllop['sollop'].'</td>
       </tr>
       <tr>
-        <td width="40%"><label>Số lượng sinh viên</label></td>
+        <td width="40%"><label>Số lượng sinh viên Đang ở</label></td>
         <td width="60%" style=" text-transform: capitalize;">'.$slsinhvien['slsinhvien'].'</td>
       </tr>
       ';

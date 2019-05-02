@@ -57,13 +57,51 @@ if (isset($_POST["id_sua_loai_phong"])) {
 }//end xử lý thông tin Loại phòng
 // xử lý xuất thông tin  phòng
 if (isset($_POST["id_phong_sua_12"])) {
-	$query = "SELECT phong.idphong, phong. ma_phong, phong.stt_tang, phong.id_canbothem, phong.thoigianthem, toa_nha.ten_toa_nha, toa_nha.id_toanha, loai_phong.id_loaiphong, loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o, loai_phong.gia_loai_phong , can_bo.ma_can_bo, can_bo.ten_can_bo, can_bo.ho_can_bo FROM phong, toa_nha, loai_phong, can_bo WHERE phong.xoa=0 AND phong.idphong='$_POST[id_phong_sua_12]' AND phong.id_toanha= toa_nha.id_toanha AND phong.id_loaiphong= loai_phong.id_loaiphong AND can_bo.id_canbo= phong.id_canbothem
-";
+	$query = "SELECT phong.idphong, phong.ma_phong, phong.stt_tang, phong.id_canbothem, phong.thoigianthem, toa_nha.ten_toa_nha, toa_nha.id_toanha, loai_phong.id_loaiphong, loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o, loai_phong.gia_loai_phong , can_bo.ma_can_bo, can_bo.ten_can_bo, can_bo.ho_can_bo FROM phong, toa_nha, loai_phong, can_bo WHERE phong.xoa=0 AND phong.idphong='$_POST[id_phong_sua_12]' AND phong.id_toanha= toa_nha.id_toanha AND phong.id_loaiphong= loai_phong.id_loaiphong AND can_bo.id_canbo= phong.id_canbothem";
 	$result = mysqli_query($con, $query);
 	$row = mysqli_fetch_array($result);
 	echo json_encode($row);
 }//end xử lý thông tin  phòng
-
+// xử lý xuất thông tin  phòng
+if (isset($_POST["id_o_phong_sua"])) {
+	$query = "SELECT o_phong.id_ophong, sinh_vien.id_sinhvien, sinh_vien.mssv, phong.ma_phong, phong.idphong, toa_nha.id_toanha, toa_nha.ten_toa_nha FROM o_phong, phong, sinh_vien, toa_nha WHERE o_phong.id_ophong='$_POST[id_o_phong_sua]' AND o_phong.id_phong= phong.idphong AND o_phong.id_sinhvien=sinh_vien.id_sinhvien AND phong.id_toanha=toa_nha.id_toanha";
+	$result = mysqli_query($con, $query);
+	$row = mysqli_fetch_array($result);
+	echo json_encode($row);
+}//end xử lý thông tin  Tòa nhà ở
+if (isset($_POST['id_toa_nha_them_ophong'])) {
+		$id_toa_nha_them_ophong = $_POST['id_toa_nha_them_ophong'];
+		include 'conn.php';
+		$sqlphong = "SELECT phong.idphong, phong.ma_phong FROM phong WHERE phong.xoa=0 AND phong.id_toanha='$id_toa_nha_them_ophong' ORDER by ma_phong ASC";
+		$queryphong = mysqli_query($con, $sqlphong);
+		echo " <option value=''>Chọn Phòng</option>";
+		while ($rowphong = mysqli_fetch_array($queryphong)) {
+			$ma_phong = $rowphong['ma_phong'];
+			$idphong = $rowphong['idphong'];
+			echo "<option value='$idphong'> $ma_phong</option>";}
+}//end tỉnh thay đổi sẽ chọn huyện thay đổi
+if (isset($_POST['id_o_phong_sua1'])) {
+		$id_o_phong_sua1 = $_POST['id_o_phong_sua1'];
+		include 'conn.php';
+		$sqlphong = "SELECT toa_nha.id_toanha, toa_nha.ten_toa_nha, toa_nha.loai_toa_nha FROM toa_nha, sinh_vien, o_phong WHERE o_phong.id_ophong ='$id_o_phong_sua1' AND sinh_vien.id_sinhvien= o_phong.id_sinhvien AND sinh_vien.gioi_tinh=toa_nha.loai_toa_nha AND toa_nha.xoa=0 ORDER BY toa_nha.ten_toa_nha";
+		$queryphong = mysqli_query($con, $sqlphong);
+		echo " <option value=''>Chọn tòa nhà</option>";
+		while ($rowphong = mysqli_fetch_array($queryphong)) {
+			$ten_toa_nha = $rowphong['ten_toa_nha'];
+			$id_toanha = $rowphong['id_toanha'];
+			echo "<option value='$id_toanha'> $ten_toa_nha</option>";}
+}//end tỉnh thay đổi sẽ chọn huyện thay đổi
+if (isset($_POST['mssv_o_phong_them_toanha1'])) {
+		$mssv_o_phong_them_toanha1 = $_POST['mssv_o_phong_them_toanha1'];
+		include 'conn.php';
+		$sqlphong = "SELECT toa_nha.id_toanha, toa_nha.ten_toa_nha, toa_nha.loai_toa_nha FROM toa_nha, sinh_vien WHERE sinh_vien.mssv='$mssv_o_phong_them_toanha1' AND sinh_vien.gioi_tinh=toa_nha.loai_toa_nha AND toa_nha.xoa=0 ORDER BY toa_nha.ten_toa_nha";
+		$queryphong = mysqli_query($con, $sqlphong);
+		echo " <option value=''>Chọn tòa nhà</option>";
+		while ($rowphong = mysqli_fetch_array($queryphong)) {
+			$ten_toa_nha = $rowphong['ten_toa_nha'];
+			$id_toanha = $rowphong['id_toanha'];
+			echo "<option value='$id_toanha'> $ten_toa_nha</option>";}
+}//end tỉnh thay đổi sẽ chọn huyện thay đổi
 	mysqli_close($con);
 
 ?>
