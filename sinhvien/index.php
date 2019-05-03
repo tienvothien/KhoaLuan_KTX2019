@@ -13,6 +13,9 @@ include './../dulieu/kiemtradangnhap_sinhvien.php';
     <link rel="stylesheet" href="./../vendor/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../css/ad_css.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" />
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 </head>
 <body >
     <div class="container-fluid">
@@ -44,10 +47,10 @@ include './../dulieu/kiemtradangnhap_sinhvien.php';
                             </a>
                         </div>
                         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                            <a href="#"  class="xemchitiettaikhoansv width_100px"  id="<?php echo $_SESSION['id_sinhvien']; ?>">
+                            <a href="#" data-toggle="modal" data-target="#timban_ocungphong" class=" width_100px"  id="<?php echo $_SESSION['id_sinhvien']; ?>">
                                 <div class="thumbnail maunen-2">
                                     <div class="caption text-center mauchu123">
-                                        <h3>Đăng ký</h3>
+                                        <h3>Tìm bạn</h3>
                                         <p>
                                             <i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
                                         </p>
@@ -56,7 +59,7 @@ include './../dulieu/kiemtradangnhap_sinhvien.php';
                             </a>
                         </div>
                         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                            <a href="#tinh_trang_phong1_modal" data-toggle="modal" data-target="#tinh_trang_phong1_modal"  class="tinh_trang_phong1 width_100px"  id="<?php echo $_SESSION['id_sinhvien']; ?>">
+                            <a href="#" data-toggle="modal" data-target="#tinh_trang_phong1_modal"  class="tinh_trang_phong1 width_100px"  id="<?php echo $_SESSION['id_sinhvien']; ?>">
                                 <div class="thumbnail maunen-3">
                                     <div class="caption text-center mauchu123">
                                         <h3>Tình trạng phòng</h3>
@@ -75,6 +78,11 @@ include './../dulieu/kiemtradangnhap_sinhvien.php';
                     </div>
                 </body>
             </html>
+            <script>
+            $(document).ready( function () {
+            $('#myTable').DataTable();
+            } );
+            </script>
             <!-- xem thông tin sinhvien -->
             <div id="dataModal" class="modal fade">
                 <div class="modal-dialog ">
@@ -84,6 +92,21 @@ include './../dulieu/kiemtradangnhap_sinhvien.php';
                             <h4 class="modal-title">Thông tin Sinh viên</h4>
                         </div>
                         <div class="modal-body" id="thongtin_chitietsinh_vien123">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="timban_ocungphong" class="modal fade">
+                <div class="modal-dialog " style=" width: 60%;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Thông tin danh sách sinh viên</h4>
+                        </div>
+                        <div class="modal-body" id="dl_ds_sinhvien_timban"><?php include './../dulieu/dulieu_timbab_o_phong.php'; ?>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -122,7 +145,7 @@ include './../dulieu/kiemtradangnhap_sinhvien.php';
                 </div>
             </div>
             <div id="tinh_trang_phong1_modal" class="modal fade">
-                <div class="modal-dialog ">
+                <div class="modal-dialog " style=" width: 60%;">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -149,8 +172,6 @@ include './../dulieu/kiemtradangnhap_sinhvien.php';
                                     <label for="">Tầng</label>
                                     <select name="tang_p_tinhtrang" id="tang_p_tinhtrang" class="form-control" required="required">
                                         <option value="">Chọn tầng</option>
-                                        <option value="1">1</option>
-                                        <option value="">Chọn tầng</option>
                                         
                                     </select>
                                 </div>
@@ -169,9 +190,9 @@ include './../dulieu/kiemtradangnhap_sinhvien.php';
                                 </div>
                             </div>
                         </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
+            </div>

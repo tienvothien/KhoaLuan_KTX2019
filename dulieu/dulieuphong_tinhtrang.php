@@ -1,7 +1,7 @@
 <?php
 
 	include 'conn.php';
-	$selecet_phong = mysqli_query($con, "SELECT toa_nha.id_toanha, toa_nha.ten_toa_nha, phong.idphong, phong.ma_phong, phong.stt_tang, loai_phong.id_loaiphong, loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o FROM phong, toa_nha, loai_phong, sinh_vien WHERE phong.xoa=0 and sinh_vien.id_sinhvien='$_SESSION[id_sinhvien]' AND sinh_vien.gioi_tinh= toa_nha.loai_toa_nha AND toa_nha.xoa=0 AND phong.id_toanha=toa_nha.id_toanha AND loai_phong.xoa=0 AND phong.id_loaiphong=loai_phong.id_loaiphong ORDER BY toa_nha.ten_toa_nha, phong.stt_tang, phong.ma_phong ");
+	$selecet_phong = mysqli_query($con, "SELECT toa_nha.id_toanha, toa_nha.ten_toa_nha, phong.idphong, phong.ma_phong, phong.stt_tang, loai_phong.id_loaiphong, loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o, loai_phong.gia_loai_phong FROM phong, toa_nha, loai_phong, sinh_vien WHERE phong.xoa=0 and sinh_vien.id_sinhvien='$_SESSION[id_sinhvien]' AND sinh_vien.gioi_tinh= toa_nha.loai_toa_nha AND toa_nha.xoa=0 AND phong.id_toanha=toa_nha.id_toanha AND loai_phong.xoa=0 AND phong.id_loaiphong=loai_phong.id_loaiphong ORDER BY toa_nha.ten_toa_nha, phong.stt_tang, phong.ma_phong ");
 	if (!mysqli_num_rows($selecet_phong)) {
 		echo "<div style='text-align: center;'> Chưa có dữ liệu</div>";
 	} else {
@@ -15,6 +15,7 @@
 					<th>Phòng</th>
 					<th>Tầng</th>
 					<th>Loại phòng</th>
+					<th>Giá/người/tháng (VNĐ)</th>
 					<th>Sinh viên <br> đang ở</th>
 					
 				</tr>
@@ -33,6 +34,7 @@
 						<td class='chuinhoa canhgiua'>$row_phong[ma_phong]</td>
 						<td class='canhgiua'>$row_phong[stt_tang]</td>
 						<td class='chuinthuong'>$row_phong[ten_loai_phong]</td>
+						<td class='chuinthuong'>".number_format ($row_phong["gia_loai_phong"] , $decimals = 0 , $dec_point = "." , $thousands_sep = "," )."</td>
 						<td class='canhgiua'>$slsinhvien[slsinhvien]/$row_phong[sl_nguoi_o]</td>
 						";
 					?>

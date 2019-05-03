@@ -2,6 +2,8 @@ $(document).ready(function () {
 	// nếu tòa nhà của tình trang phòng thay đổi 
 	$('#id_toanha_tinhtrang').change(function () {
 		var id_toanha_tinhtrang= $('#id_toanha_tinhtrang').val();
+		if (id_toanha_tinhtrang!='') {
+			
 		$.ajax({
 			url: './../dulieu/fetch_sv.php',
 			type: 'POST',
@@ -20,6 +22,8 @@ $(document).ready(function () {
 				$('#dl_tinhtrangphong').html(data_phonga1);
 			}
 		});
+	}
+		
 	});// end nếu tòa nhà của tình trang phòng thay đổi 
 	// nếu tòa nhà của tình trang phòng thay đổi 
 	$('#tang_p_tinhtrang').change(function () {
