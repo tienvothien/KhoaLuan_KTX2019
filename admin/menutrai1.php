@@ -78,7 +78,7 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 			<div class="dropdown-container">
 				<a href="quanlythietbi.php" class="list-group-item">Danh sách Thiết bị</a>
 				<a href="quanlythietbitrongloaiphong.php" class="list-group-item">Thiết bị trong Loại phòng</a>
-				<a href="kiemtrathietbi.php" class="list-group-item">Kiêm tra Thiết bị</a>
+				<a href="quanly_kiemtrathietbi.php" class="list-group-item">Kiêm tra Thiết bị</a>
 			</div>
 			<?php 
 				if ($qr_ktra_chucvu['idchucvu']==0){ ?>
