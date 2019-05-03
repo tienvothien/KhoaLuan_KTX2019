@@ -120,7 +120,9 @@ if (isset($_POST["id_cochucvu_sua"])) {
 	$result = mysqli_query($con, $query);
 	$row = mysqli_fetch_array($result);
 	echo json_encode($row);
-}//end xử lý thông tin có chức vụ của cán bộ
+}//end xử lý xuất thông tin có chức vụ của cán bộ
+// xử lý thông tin thong tin tang của tòa nhà
+
 	mysqli_close($con);
 
 ?>

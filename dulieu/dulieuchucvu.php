@@ -23,7 +23,7 @@ include 'conn.php';
 			<?php
 			$stt = 1;
 			while ($row_chucvu = mysqli_fetch_array($selecet_chucvu)) {
-				$slchucvu = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(id_cochucvu) as solcochucvu FROM cochucvu INNER JOIN can_bo ON can_bo.id_canbo = cochucvu.id_canbo WHERE idchucvu='$row_chucvu[idchucvu]' and can_bo.xoa=0"));
+				$slchucvu = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(id_cochucvu) as solcochucvu FROM cochucvu WHERE idchucvu='$row_chucvu[idchucvu]' and cochucvu.xoa=0"));
 				if ($row_chucvu['idchucvu']==19) {
 					$sl_sv=mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(id_sinhvien) as sol_sinh_vien FROM sinh_vien WHERE sinh_vien.xoa=0"));
 					$slchucvu['solcochucvu']=$sl_sv['sol_sinh_vien'];

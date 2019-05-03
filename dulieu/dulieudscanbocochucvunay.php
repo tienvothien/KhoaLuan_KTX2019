@@ -17,8 +17,6 @@ include 'conn.php';
 				<th>Điện thoại</th>
 				<th>Email</th>
 				<th>Ngày Thêm</th>
-				<th>Sửa</th>
-				<th>Xóa</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -34,12 +32,7 @@ include 'conn.php';
 						<td class='canhgiua'>$row[gioitinh]</td>
 						<td class='canhgiua'>$row[sdt]</td>
 						<td class=''>$row[email]</td>
-						
 						<td class='canhgiua'>".date("d/m/Y", strtotime($row['ngaythem']))."</td>
-
-						<td class='canhgiuanek12'><input type='button' name='edit' value='Sửa' id='".$row['id_cochucvu']."' class='btn btn-primary btn-xs id_sua_thietbi' /></td>
-						<td class='canhgiuanek12'><input type='button' name='delete' value='Xóa' id='".$row['id_cochucvu']."' class='btn btn-info btn-danger btn-xs xoa_thietbi' /></td>
-						
 					</tr>
 					";
 					$stt++;
