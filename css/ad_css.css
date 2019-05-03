@@ -4,6 +4,10 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+.boviennha {
+    border: none;
+}
+
 .width_50 {
     width: 50%;
 }

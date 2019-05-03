@@ -26,7 +26,7 @@ include 'conn.php';
 			</tr>
 			<tr>
 				<th width="30%" style="text-align: right;"> Ngày sinh:</th>
-				<td class=""><?php echo $row_canhan['ngay_sinh'] ?></td>
+				<td class=""><?php echo date('d/m/Y', strtotime($row_canhan['ngay_sinh'])) ?></td>
 			</tr>
 			<tr>
 				<th width="30%" style="text-align: right;"> Giới tính:</th>
@@ -44,7 +44,7 @@ include 'conn.php';
 				<th width="30%"   style="text-align: right;"> Chức vụ:</th>
 				<td class='chuinthuong'>
 					<?php 
-					$selecet_s3 = mysqli_query($con, "SELECT chucvu.tenchucvu FROM can_bo INNER JOIN cochucvu ON can_bo.id_canbo = cochucvu.id_canbo INNER JOIN chucvu ON cochucvu.idchucvu = chucvu.idchucvu WHERE can_bo.id_canbo ='$_SESSION[id_canbo]' AND can_bo.xoa =0"); 
+					$selecet_s3 = mysqli_query($con, "SELECT chucvu.tenchucvu FROM can_bo INNER JOIN cochucvu ON can_bo.id_canbo = cochucvu.id_canbo INNER JOIN chucvu ON cochucvu.idchucvu = chucvu.idchucvu WHERE can_bo.id_canbo ='$_SESSION[id_canbo]' AND can_bo.xoa=0 order by chucvu.idchucvu "); 
 					while ($row_canhan2 = mysqli_fetch_array($selecet_s3)) {
 						echo " - ".$row_canhan2['tenchucvu']."<br>";
 					} 

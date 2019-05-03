@@ -9,7 +9,8 @@ include './../dulieu/kiemtradangnhap.php';
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" type="image/jpg" href="./../images/vnkgu.png"/>
 		<script type="text/javascript" src="../vendor/bootstrap.js"></script>
-		<script type="text/javascript" src="../js/js_quanlycanbo.js"></script>
+		<script type="text/javascript" src="../js/js_md5.js"></script>
+		<script type="text/javascript" src="../js/js_doimatkhau_canbo.js"></script>
 		
 		<link rel="stylesheet" href="../vendor/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="../css/ad_css.css">
@@ -63,32 +64,31 @@ include './../dulieu/kiemtradangnhap.php';
 						<div class="modal-content">
 							<!-- Modal Header -->
 							<div class="modal-header">
-								<div class="row">
-									<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-										<h4 class="modal-title">Đổi mật khẩu</h4>
-									</div>
-									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-										<button type="button" class="fa fa-times-circle-o btn btn-danger" data-dismiss="modal"></button>
-									</div>
-								</div>
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">Đổi mật khẩu</h4>
 							</div>
 							<!-- Modal body -->
 							<div class="modal-body _1themtoanha">
-								<form action="" id="form_themcan_bomoi" name="form_themcan_bomoi" 	method="POST" role="form" class="_1themphong1 " enctype="multipart/form-data">
-									<label for="">Mật khẩu cũ</label>
-									<input type="password" name="" id="input" class="form-control" required="required" title="">
-									<label for="">Mật khẩu mới</label>
-									<input type="password" name="" id="input" class="form-control" required="required" title="">
-									<label for="">Nhập lại mật khẩu</label>
-									<input type="password" name="" id="input" class="form-control" required="required" title="">
+								<form action="" method="POST" role="form" id="doi_matkhau_tk_can_b" enctype="multipart/form-data" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
+									<div class="form-group">
+										<label for="">Mật khẩu củ</label>
+										<input type="password" class="form-control" id="mat_khau_cu_can_bo12" name="mat_khau_cu_can_bo12" placeholder="Nhập mật khẩu củ" required="">
+									</div>
+									<div class="form-group">
+										<label for="">Mật khẩu mới</label>
+										<input type="password" class="form-control" id="mat_khau_moi_can_bo12" name="mat_khau_moi_can_bo12" placeholder="Nhập mật khẩu mới" required="">
+									</div>
+									<div class="form-group">
+										<label for="">Nhập lại mật khẩu</label>
+										<input type="password" class="form-control" id="nhapkai_mat_khau_moi_can_bo12" name="mat_khau_moi_can_bo12" placeholder="Nhập lại mật khẩu mới" required="">
+									</div>
 								</div>
 								<!-- Modal footer -->
-									<div class="modal-footer">
-										<button type="submit" class="btn btn-danger">Đổi mật khẩu</button>
-									</div>
+								<div class="modal-footer">
+									<button type="submit" class="btn btn-danger">Đổi mật khẩu</button>
+								</div>
 							</form>
 						</div>
 					</div>
 				</div>
 				</div><!-- end model -->
-				

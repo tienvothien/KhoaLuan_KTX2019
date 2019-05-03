@@ -433,6 +433,37 @@
 				echo "100";
 			}
 	}//end Xóa ở phòng ký túc xá
+	// kiểm tra và Cập nhật lạimật khẩu cán bộ
+	if (isset($_POST['mat_khau_cu_can_bo12']) && isset($_POST['mat_khau_moi_can_bo12']) && isset($_POST['nhapkai_mat_khau_moi_can_bo12']) ) {
+		$mat_khau_cu_can_bo12 = $_POST['mat_khau_cu_can_bo12'];// id loại phòng sửa
+		$mat_khau_moi_can_bo12 = $_POST['mat_khau_moi_can_bo12'];// id thiết bị sửa
+		$nhapkai_mat_khau_moi_can_bo12 = $_POST['nhapkai_mat_khau_moi_can_bo12'];// số lượng sửa
+		// kiểm tra mật khẩu có đúng không
+		$ktra_mkcu = mysqli_query($con,"SELECT * FROM taikhoan WHERE taikhoan.idtk='$_SESSION[idtk]' AND taikhoan.matkhau='$mat_khau_cu_can_bo12'");
+		// dlloc
+		//end
+		if(!mysqli_num_rows($ktra_mkcu)){
+			echo "1";
+		}else{
+			$kiemtracapnhatctb=99;
+			// // ghi log
+			$logdl_tbcu_row = mysqli_fetch_array(mysqli_query($con,"SELECT * FROM taikhoan WHERE taikhoan.idtk='$_SESSION[idtk]'"));
+			if ($mat_khau_moi_can_bo12!=$logdl_tbcu_row["matkhau"]) { // kiểm mã có thay đổi  Mật khẩu
+				$log1 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('taikhoan','Tài khoản','$_SESSION[idtk]','matkhau','Mật khẩu', '$logdl_tbcu_row[matkhau]','$mat_khau_moi_can_bo12','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
+				mysqli_query($con, $log1);
+				//cập nhật dữ liệu thay đổi
+				$update_matkhau = "UPDATE taikhoan SET matkhau='$mat_khau_moi_can_bo12' WHERE taikhoan.idtk='$_SESSION[idtk]'";
+				if(mysqli_query($con, $update_matkhau)){
+					$kiemtracapnhatctb=99;
+				}else{
+					$kiemtracapnhatctb=100;
+				}
+			}//end kiểm mã có thay đổi  Mật khẩu
+			
+			
+			echo $kiemtracapnhatctb;
+		}
+	} //ket thuc cap nhat mật khẩu cán bộ
 	mysqli_close($con);
 
 ?>

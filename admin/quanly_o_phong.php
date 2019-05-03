@@ -214,7 +214,7 @@ include './../dulieu/kirmtra_quantrivien.php';
 									</div>
 								</div>
 								<div class="form-group" id="tt_sinhvie"></div>
-								<input type="" name="id__o_phong_sua_12" id="id__o_phong_sua_12" />
+								<input type="hidden" name="id__o_phong_sua_12" id="id__o_phong_sua_12" />
 								
 							</div>
 							<div class="modal-footer">

@@ -213,4 +213,24 @@ $(document).ready(function () {
 			}
 		}
 	});
+	// xử lý tìm kiếm đã ở phòng
+	$('#timkiem_da_o_phong_ssdv').on('submit', function(event){
+		event.preventDefault();
+			var timkiem_daophongngay_batdau=$('#timkiem_daophongngay_batdau').val();
+			var timkiem_daophongngay_kethuc=$('#timkiem_daophongngay_kethuc').val();
+			if (timkiem_daophongngay_batdau=='' && timkiem_daophongngay_kethuc=='') {
+				
+			}else{
+				$.ajax({
+					url:"./../dulieu/timkiemda_o_phong.php",
+                     method:"POST",
+                     data:{timkiem_daophongngay_batdau:timkiem_daophongngay_batdau,
+                     	timkiem_daophongngay_kethuc:timkiem_daophongngay_kethuc},
+					success:function (kql_tim_Da_o_phong) {
+						alert(kql_tim_Da_o_phong);
+						// $('#dulieu_o_phong').html(kql_tim_Da_o_phong);
+					}
+				});
+			}
+	});// end xử lý tìm kiếm đã ở phòng
 });
