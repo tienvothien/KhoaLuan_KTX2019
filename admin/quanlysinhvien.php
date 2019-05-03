@@ -179,7 +179,7 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Điện thoại</label>
-										<input  type="number" name="so_dt_them_sinh_vien" id="so_dt_them_sinh_vien" class="form-control" rows="1" required="" placeholder="Nhập nhập số điện thoại">
+										<input  type="number" name="so_dt_them_sinh_vien" id="so_dt_them_sinh_vien" class="form-control" rows="1" placeholder="Nhập nhập số điện thoại">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Email</label>
@@ -210,7 +210,7 @@ include './../dulieu/kiemtradangnhap.php';
 									
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Họ tên Cha</label>
-										<input  type="text" name="hotencha_them_sinh_vien" id="hotencha_them_sinh_vien" class="form-control" rows="1" required="" placeholder="Nhập họ tên cha">
+										<input  type="text" name="hotencha_them_sinh_vien" id="hotencha_them_sinh_vien" class="form-control" rows="1" placeholder="Nhập họ tên cha">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>SĐT Cha</label>
@@ -218,7 +218,7 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Họ tên Mẹ</label>
-										<input  type="text" name="hotenme_them_sinh_vien" id="hotenme_them_sinh_vien" class="form-control" rows="1" required="" placeholder="Nhập họ tên Mẹ">
+										<input  type="text" name="hotenme_them_sinh_vien" id="hotenme_them_sinh_vien" class="form-control" rows="1" placeholder="Nhập họ tên Mẹ">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>SĐT Mẹ</label>
@@ -364,7 +364,7 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Điện thoại</label>
-										<input  type="number" name="so_dt_sua_sinh_vien" id="so_dt_sua_sinh_vien" class="form-control" rows="1" required="" placeholder="Nhập nhập số điện thoại">
+										<input  type="number" name="so_dt_sua_sinh_vien" id="so_dt_sua_sinh_vien" class="form-control" rows="1" placeholder="Nhập nhập số điện thoại">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Email</label>
@@ -394,7 +394,7 @@ include './../dulieu/kiemtradangnhap.php';
 									
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Họ tên Cha</label>
-										<input  type="text" name="hotencha_sua_sinh_vien" id="hotencha_sua_sinh_vien" class="form-control" rows="1" required="" placeholder="Nhập họ tên cha">
+										<input  type="text" name="hotencha_sua_sinh_vien" id="hotencha_sua_sinh_vien" class="form-control" rows="1"  placeholder="Nhập họ tên cha">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>SĐT Cha</label>
@@ -402,7 +402,7 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Họ tên Mẹ</label>
-										<input  type="text" name="hotenme_sua_sinh_vien" id="hotenme_sua_sinh_vien" class="form-control" rows="1" required="" placeholder="Nhập họ tên Mẹ">
+										<input  type="text" name="hotenme_sua_sinh_vien" id="hotenme_sua_sinh_vien" class="form-control" rows="1" placeholder="Nhập họ tên Mẹ">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>SĐT Mẹ</label>

@@ -139,6 +139,7 @@ $(document).ready(function () {
 					$("#lop_them_sinh_vien").html('<option value="">Chọn lớp</option>');
 				}
 			});
+
 		});// end nêu khóa thay đổi sẽ  chọn xã thay đổi
 		// nêu khoa thay đổi sẽ  chọn lớp thay đổi
 		$('#id_khoa_them_sinh_vien').change(function() {
@@ -342,7 +343,7 @@ $(document).ready(function () {
 			}else if ($('#cmnd_sua_sinh_vien').val().length!=9) {
 				alert('Chứ minh nhân dân phải 9 chữ số');
 				document.getElementById('cmnd_sua_sinh_vien').focus();
-			}else if ($('#so_dt_sua_sinh_vien').val().length!=10 || document.getElementById('so_dt_sua_sinh_vien').value.slice(0, 1)!=0) {
+			}else if ( $('#so_dt_sua_sinh_vien').val().length!='' && ($('#so_dt_sua_sinh_vien').val().length!=10 || document.getElementById('so_dt_sua_sinh_vien').value.slice(0, 1)!=0)) {
 				alert('Số điện thoại sinh viên phải 10 số và bất đầu là số "0"');
 				document.getElementById('so_dt_sua_sinh_vien').focus();
 			}else if ($('#sdtme_sua_sinh_vien').val().length!=10 && $('#sdtme_sua_sinh_vien').val()!='' || document.getElementById('sdtme_sua_sinh_vien').value.slice(0, 1)!=0) {
@@ -461,7 +462,7 @@ $(document).ready(function () {
 			}else if ($('#cmnd_them_sinh_vien').val().length!=9) {
 				alert('Chứ minh nhân dân phải 9 chữ số');
 				document.getElementById('cmnd_them_sinh_vien').focus();
-			}else if ($('#so_dt_them_sinh_vien').val().length!=10 || $('#so_dt_them_sinh_vien').val().slice(0, 1)!=0) {
+			}else if ($('#so_dt_them_sinh_vien').val().length!='' &&($('#so_dt_them_sinh_vien').val().length!=10 || $('#so_dt_them_sinh_vien').val().slice(0, 1)!=0)) {
 				alert('Số điện thoại phải 10 số và bất đầu là số "0" và bất đầu là số "0"');
 				document.getElementById('so_dt_them_sinh_vien').focus();
 			}else if ($('#sdtcha_them_sinh_vien').val().length!=10 && $('#sdtcha_them_sinh_vien').val()!='' || document.getElementById('sdtcha_them_sinh_vien').value.slice(0, 1)!=0 ) {

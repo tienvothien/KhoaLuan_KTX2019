@@ -42,7 +42,7 @@ if (isset($_POST['id_sinhvien_sua_12'])) {
 				echo "6";// mssv đã tồn tại
 			}else{
 				$kiemtra_sdt_sv = (mysqli_query($con,"SELECT sinh_vien.id_sinhvien FROM sinh_vien WHERE sinh_vien.id_sinhvien !='$id_sinhvien_sua_12' AND (sinh_vien.so_dt='$so_dt_sua_sinh_vien'  OR sinh_vien.sdtcha='$so_dt_sua_sinh_vien' OR sinh_vien.sdtme='$so_dt_sua_sinh_vien')" ));
-				if (mysqli_num_rows($kiemtra_sdt_sv)) {
+				if (mysqli_num_rows($kiemtra_sdt_sv) &&$so_dt_sua_sinh_vien!='') {
 					echo "2";// sđt đã tồn tại
 				}else{
 					$kiemtra_email_sv = (mysqli_query($con,"SELECT sinh_vien.id_sinhvien FROM sinh_vien WHERE sinh_vien.id_sinhvien !='$id_sinhvien_sua_12' AND sinh_vien.email='$email_sua_sinh_vien'"));

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 02, 2019 lúc 06:31 PM
+-- Thời gian đã tạo: Th5 03, 2019 lúc 12:54 PM
 -- Phiên bản máy phục vụ: 10.1.29-MariaDB
 -- Phiên bản PHP: 7.2.0
 
@@ -120,11 +120,14 @@ CREATE TABLE `cochucvu` (
 
 INSERT INTO `cochucvu` (`id_cochucvu`, `id_canbo`, `idchucvu`, `id_canbothem`, `ngaythem`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
 (1, 1, 1, 1, '2019-04-10 00:00:00', 0, NULL, NULL),
-(2, 2, 1, 1, '2019-04-14 00:00:00', 0, 1, '2019-04-28 22:11:04'),
+(2, 2, 1, 1, '2019-04-14 00:00:00', 1, 1, '0000-00-00 00:00:00'),
 (3, 2, 2, 1, '2019-04-17 00:00:00', 1, 1, '2019-05-02 18:47:59'),
 (4, 1, 0, 1, '2019-04-27 00:00:00', 0, NULL, NULL),
-(5, 1, 22, 1, '2019-04-30 19:14:17', 0, NULL, NULL),
-(6, 2, 22, 1, '2019-05-01 21:56:43', 0, NULL, NULL);
+(5, 1, 22, 1, '2019-04-30 19:14:17', 1, 1, '2019-05-03 17:54:14'),
+(6, 2, 22, 1, '2019-05-01 21:56:43', 1, 1, '0000-00-00 00:00:00'),
+(14, 2, 2, 1, '2019-05-03 17:16:08', 1, 1, '0000-00-00 00:00:00'),
+(15, 2, 1, 1, '2019-05-03 17:16:23', 0, NULL, NULL),
+(16, 2, 2, 1, '2019-05-03 17:18:14', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1024,120 +1027,9 @@ CREATE TABLE `log_sua_dl` (
 --
 
 INSERT INTO `log_sua_dl` (`idlog`, `bangsua`, `tenbang`, `iddulieu`, `cot`, `tencot`, `noidungtruocsua`, `noidungsausua`, `nguoisua`, `ngaysua`) VALUES
-(1, 'can_bo', 'Cán bộ', 2, 'hinhanh', 'Ảnh cá nhân', '2131a7bca6f843a61ae9.jpg', 'vnkgu.png', 1, '2019-04-16 22:02:05'),
-(137, 'can_bo', 'Cán bộ', 2, 'hinhanh', 'Ảnh cá nhân', 'vnkgu.png', '2131a7bca6f843a61ae9.jpg', 1, '2019-04-16 22:02:18'),
-(138, 'can_bo', 'Cán bộ', 2, 'hinhanh', 'Ảnh cá nhân', '2131a7bca6f843a61ae9.jpg', 'vnkgu.png', 1, '2019-04-16 22:03:36'),
-(139, 'can_bo', 'Cán bộ', 2, 'hinhanh', 'Ảnh cá nhân', 'vnkgu.png', '2131a7bca6f843a61ae9.jpg', 1, '2019-04-16 22:03:47'),
-(140, 'can_bo', 'Cán bộ', 2, 'hinhanh', 'Ảnh cá nhân', '2131a7bca6f843a61ae9.jpg', 'mat-trong-dong-do-khung-tranh-go_464.jpg', 2, '2019-04-17 10:02:23'),
-(141, 'can_bo', 'Cán bộ', 2, 'hinhanh', 'Ảnh cá nhân', 'mat-trong-dong-do-khung-tranh-go_464.jpg', '2131a7bca6f843a61ae9.jpg', 1, '2019-04-23 18:30:17'),
-(142, 'lop', 'Lớp', 1, 'ten_lop', 'Tên Lớp', 'B15 Thông tin 2', 'B15 Thông tin 3', 2, '2019-04-23 20:34:18'),
-(143, 'toa_nha', 'Tòa nhà', 1, 'ma_toa_nha', 'Mã Tòa nhà', 'TNA', 'TND', 2, '2019-04-24 08:36:48'),
-(144, 'toa_nha', 'Tòa nhà', 1, 'ma_toa_nha', 'Mã Tòa nhà', 'TNA', 'TND', 2, '2019-04-24 08:37:13'),
-(145, 'toa_nha', 'Tòa nhà', 1, 'ten_toa_nha', 'Tên Tòa nhà', 'Tòa nhà Sinh viên A', 'Tòa nhà Sinh viên d', 2, '2019-04-24 09:25:37'),
-(146, 'toa_nha', 'Tòa nhà', 1, 'ma_toa_nha', 'Mã Tòa nhà', 'TND', 'TNa', 2, '2019-04-24 09:39:26'),
-(147, 'toa_nha', 'Tòa nhà', 1, 'ten_toa_nha', 'Tên Tòa nhà', 'Tòa nhà Sinh viên d', 'Tòa nhà Sinh viên a', 2, '2019-04-24 09:39:26'),
-(148, 'toa_nha', 'Tòa nhà', 7, 'ten_toa_nha', 'Tên Tòa nhà', 'Tòa nhà sinh viên 3', 'Tòa nhà sinh viên 4', 2, '2019-04-24 09:44:22'),
-(149, 'toa_nha', 'Tòa nhà', 7, 'ten_toa_nha', 'Tên Tòa nhà', 'Tòa nhà sinh viên 3', 'Tòa nhà sinh viên 4', 2, '2019-04-24 09:44:28'),
-(150, 'toa_nha', 'Tòa nhà', 7, 'ten_toa_nha', 'Tên Tòa nhà', 'Tòa nhà sinh viên 3', 'Tòa nhà sinh viên 4', 2, '2019-04-24 09:44:44'),
-(151, 'toa_nha', 'Tòa nhà', 7, 'ten_toa_nha', 'Tên Tòa nhà', 'Tòa nhà sinh viên 3', 'Tòa nhà sinh viên 4', 2, '2019-04-24 09:44:59'),
-(152, 'toa_nha', 'Tòa nhà', 7, 'ten_toa_nha', 'Tên Tòa nhà', 'Tòa nhà sinh viên 3', 'Tòa nhà sinh viên 4', 2, '2019-04-24 09:45:57'),
-(153, 'toa_nha', 'Tòa nhà', 7, 'ten_toa_nha', 'Tên Tòa nhà', 'Tòa nhà sinh viên 3', 'Tòa nhà sinh viên 5', 2, '2019-04-24 09:46:03'),
-(154, 'toa_nha', 'Tòa nhà', 7, 'ten_toa_nha', 'Tên Tòa nhà', 'Tòa nhà sinh viên 5', 'Tòa nhà sinh viên 4', 2, '2019-04-24 09:47:10'),
-(155, 'toa_nha', 'Tòa nhà', 1, 'loai_toa_nha', 'Loại Tòa nhà', 'Nam', 'Nữ', 2, '2019-04-24 18:43:22'),
-(156, 'toa_nha', 'Tòa nhà', 1, 'loai_toa_nha', 'Loại Tòa nhà', 'Nữ', 'Nam', 2, '2019-04-24 18:43:35'),
-(157, 'toa_nha', 'Tòa nhà', 1, 'ten_toa_nha', 'Tên Tòa nhà', 'Tòa nhà Sinh viên a', 'Tòa nhà Sinh viên 9', 2, '2019-04-24 18:43:48'),
-(158, 'toa_nha', 'Tòa nhà', 1, 'loai_toa_nha', 'Loại Tòa nhà', 'Nam', 'Nữ', 2, '2019-04-24 18:43:56'),
-(159, 'toa_nha', 'Tòa nhà', 1, 'loai_toa_nha', 'Loại Tòa nhà', 'Nữ', 'Nam', 2, '2019-04-24 18:44:06'),
-(160, 'toa_nha', 'Tòa nhà', 1, 'loai_toa_nha', 'Loại Tòa nhà', 'Nam', 'Nữ', 2, '2019-04-24 18:47:46'),
-(161, 'toa_nha', 'Tòa nhà', 1, 'loai_toa_nha', 'Loại Tòa nhà', 'Nữ', 'Nam', 2, '2019-04-24 18:48:41'),
-(162, 'toa_nha', 'Tòa nhà', 2, 'loai_toa_nha', 'Loại Tòa nhà', 'Nữ', 'Nam', 2, '2019-04-24 18:51:29'),
-(163, 'toa_nha', 'Tòa nhà', 2, 'loai_toa_nha', 'Loại Tòa nhà', 'Nam', 'Nữ', 2, '2019-04-24 18:51:55'),
-(164, 'loai_phong', 'Loại phòng', 4, 'sl_nguoi_o', 'Số lượng người ở', '2', '3', 2, '2019-04-24 21:14:53'),
-(165, 'loai_phong', 'Loại phòng', 4, 'ma_loai_phong', 'Mã Loại phòng', 'lp4', 'lp5', 2, '2019-04-24 21:15:21'),
-(166, 'loai_phong', 'Loại phòng', 2, 'gia_loai_phong', 'Giá phòng', '0', '50000', 2, '2019-04-24 21:18:00'),
-(167, 'thietbi', 'Thiết bị', 2, 'tenthietbi', 'Tên Thiết bị', 'Model Wifi1', 'Model Wifi', 2, '2019-04-25 15:36:58'),
-(168, 'khoa', 'Khoa', 64, 'ma_khoa', 'Mã Khoa', 'tt99', 'kvd1', 2, '2019-04-25 15:42:02'),
-(169, 'khoa', 'Khoa', 64, 'ten_khoa', 'tên Khoa', 'Khoa mới ví dụ', 'Khoa mới ví dụ 1', 2, '2019-04-25 15:42:02'),
-(170, 'lop', 'Lớp', 9, 'id_khoa', 'Tên Khoa', '1', '64', 2, '2019-04-25 16:03:07'),
-(171, 'lop', 'Lớp', 9, 'ma_lop', 'Mã Lớp', 'MALVD1', 'malVD2', 2, '2019-04-25 16:05:31'),
-(172, 'lop', 'Lớp', 9, 'ten_lop', 'Tên Lớp', 'Lớp VD', 'Lớp VD1', 2, '2019-04-25 16:13:24'),
-(173, 'lop', 'Lớp', 1, 'nam_BD', 'Năm bắt đầu', '0', '2015', 2, '2019-04-27 14:28:25'),
-(174, 'lop', 'Lớp', 9, 'nam_BD', 'Năm bắt đầu', '0', '2016', 2, '2019-04-27 14:28:35'),
-(175, 'chucvu', 'Chức vụ', 22, 'machucvu', 'Mã Chức vụ', 'cV1', 'cv2', 2, '2019-04-28 19:03:45'),
-(176, 'chucvu', 'Chức vụ', 22, 'machucvu', 'Mã Chức vụ', 'cv2', 'cv1', 2, '2019-04-28 19:03:51'),
-(177, 'lop', 'Lớp', 10, 'id_khoa', 'Tên Khoa', '1', '65', 1, '2019-04-28 20:14:15'),
-(178, 'loai_phong', 'Loại phòng', 5, 'gia_loai_phong', 'Giá phòng', '51000', '510,002', 1, '2019-04-29 18:35:37'),
-(179, 'loai_phong', 'Loại phòng', 5, 'gia_loai_phong', 'Giá phòng', '510', '510,002', 1, '2019-04-29 18:35:54'),
-(180, 'loai_phong', 'Loại phòng', 5, 'gia_loai_phong', 'Giá phòng', '510', '51,001', 1, '2019-04-29 18:40:19'),
-(181, 'loai_phong', 'Loại phòng', 5, 'gia_loai_phong', 'Giá phòng', '511', '51,145', 1, '2019-04-29 18:44:10'),
-(182, 'loai_phong', 'Loại phòng', 5, 'gia_loai_phong', 'Giá phòng', '51,145', '511,455.323', 1, '2019-04-29 18:46:50'),
-(183, 'loai_phong', 'Loại phòng', 5, 'gia_loai_phong', 'Giá phòng', '511,455.323', '49,000', 1, '2019-04-29 18:52:54'),
-(184, 'loai_phong', 'Loại phòng', 5, 'gia_loai_phong', 'Giá phòng', '120000', '50000', 1, '2019-04-29 19:46:46'),
-(185, 'loai_phong', 'Loại phòng', 9, 'gia_loai_phong', 'Giá phòng', '51200', '51203', 1, '2019-04-29 19:52:18'),
-(186, 'toa_nha', 'Tòa nhà', 6, 'ten_toa_nha', 'Tên Tòa nhà', 'Tòa nhà sinh viên 2', 'Tòa nhà sinh viên 4', 1, '2019-04-29 20:40:15'),
-(187, 'toa_nha', 'Tòa nhà', 6, 'ten_toa_nha', 'Tên Tòa nhà', 'Tòa nhà sinh viên 4', 'Tòa nhà sinh viên 2', 1, '2019-04-29 20:42:25'),
-(188, 'lop', 'Lớp', 11, 'ten_lop', 'Tên Lớp', 'B15 Thông tin 1', 'B15 Thông tin 2', 1, '2019-04-30 10:46:23'),
-(189, 'lop', 'Lớp', 29, 'khoa', 'Khóa', '1', '2', 1, '2019-04-30 12:07:34'),
-(190, 'lop', 'Lớp', 29, 'nam_BD', 'Năm bắt đầu', '2015', '2016', 1, '2019-04-30 12:07:35'),
-(191, 'sinh_vien', 'Sinh viên', 3, 'mssv', 'Mã số Sih viên', '1501206000', '1501206222', 1, '2019-04-30 15:39:52'),
-(192, 'sinh_vien', 'Sinh viên', 3, 'anh_ca_nhan', 'Ảnh cá nhân', 'vnkgu.png', 'mat-trong-dong-do-khung-tranh-go_464.jpg', 1, '2019-04-30 15:42:40'),
-(193, 'sinh_vien', 'Sinh viên', 3, 'anh_ca_nhan', 'Ảnh cá nhân', 'mat-trong-dong-do-khung-tranh-go_464.jpg', 'tải xuống.jpg', 1, '2019-04-30 15:43:36'),
-(194, 'sinh_vien', 'Sinh viên', 3, 'ho_sv', 'Họ sinh viên', 'Võ Ví', 'Võ Ví Đổi', 1, '2019-04-30 15:46:26'),
-(195, 'sinh_vien', 'Sinh viên', 3, 'ten_sv', 'Tên sinh viên', 'Dụ ', 'Dụ Đổi 12', 1, '2019-04-30 15:47:29'),
-(196, 'sinh_vien', 'Sinh viên', 3, 'ngay_sinh', 'Ngày sinh sinh viên', '1998-12-31', '1997-01-15', 1, '2019-04-30 16:01:49'),
-(197, 'sinh_vien', 'Sinh viên', 3, 'gioi_tinh', 'Giới tính sinh viên', 'Nam', 'Nữ', 1, '2019-04-30 16:03:20'),
-(198, 'sinh_vien', 'Sinh viên', 3, 'que_quan', 'Quê quán sinh viên', '1', '77', 1, '2019-04-30 16:05:46'),
-(199, 'sinh_vien', 'Sinh viên', 3, 'so_cmnd', 'Số CMND sinh viên', '123456789', '1', 1, '2019-04-30 16:07:31'),
-(200, 'sinh_vien', 'Sinh viên', 3, 'so_cmnd', 'Số CMND sinh viên', '1', '12', 1, '2019-04-30 16:20:06'),
-(201, 'sinh_vien', 'Sinh viên', 3, 'so_cmnd', 'Số CMND sinh viên', '12', '123456777', 1, '2019-04-30 16:23:14'),
-(202, 'sinh_vien', 'Sinh viên', 3, 'ngay_cap', 'Ngày cấp CMND sinh viên', '2019-12-31', '2016-02-03', 1, '2019-04-30 16:24:38'),
-(203, 'sinh_vien', 'Sinh viên', 3, 'noi_cap', 'Nơi CMND sinh viên', '89', '95', 1, '2019-04-30 16:26:48'),
-(204, 'sinh_vien', 'Sinh viên', 3, 'so_nha', 'HKTT Số nhà sinh viên', 'Số 899/1', 'Số 899/145', 1, '2019-04-30 16:31:46'),
-(205, 'sinh_vien', 'Sinh viên', 3, 'matinh', 'HKTT tỉnh sinh viên', '89', '24', 1, '2019-04-30 16:32:06'),
-(206, 'sinh_vien', 'Sinh viên', 3, 'mahuyen', 'HKTT huyện sinh viên', '894', '213', 1, '2019-04-30 16:32:06'),
-(207, 'sinh_vien', 'Sinh viên', 3, 'maxa', 'HKTT Xã sinh viên', '30682', '7231', 1, '2019-04-30 16:32:06'),
-(208, 'sinh_vien', 'Sinh viên', 5, 'mssv', 'Mã số Sih viên', '1234567800', '1501206100', 1, '2019-04-30 17:13:26'),
-(209, 'sinh_vien', 'Sinh viên', 5, 'ho_sv', 'Họ sinh viên', 'Võ Ví', 'Võ Ví Đổi 213', 1, '2019-04-30 17:13:26'),
-(210, 'sinh_vien', 'Sinh viên', 5, 'ten_sv', 'Tên sinh viên', 'Tiên 2', 'Tiên 23', 1, '2019-04-30 17:13:26'),
-(211, 'sinh_vien', 'Sinh viên', 5, 'ngay_sinh', 'Ngày sinh sinh viên', '2019-12-30', '2020-01-01', 1, '2019-04-30 17:13:26'),
-(212, 'sinh_vien', 'Sinh viên', 5, 'gioi_tinh', 'Giới tính sinh viên', 'Nam', 'Nữ', 1, '2019-04-30 17:13:26'),
-(213, 'sinh_vien', 'Sinh viên', 5, 'que_quan', 'Quê quán sinh viên', '89', '77', 1, '2019-04-30 17:13:27'),
-(214, 'sinh_vien', 'Sinh viên', 5, 'ngay_cap', 'Ngày cấp CMND sinh viên', '2019-12-31', '2020-01-01', 1, '2019-04-30 17:13:27'),
-(215, 'sinh_vien', 'Sinh viên', 5, 'noi_cap', 'Nơi CMND sinh viên', '89', '77', 1, '2019-04-30 17:13:27'),
-(216, 'sinh_vien', 'Sinh viên', 5, 'matinh', 'HKTT tỉnh sinh viên', '24', '6', 1, '2019-04-30 17:13:27'),
-(217, 'sinh_vien', 'Sinh viên', 5, 'mahuyen', 'HKTT huyện sinh viên', '217', '61', 1, '2019-04-30 17:13:27'),
-(218, 'sinh_vien', 'Sinh viên', 5, 'maxa', 'HKTT Xã sinh viên', '7396', '1891', 1, '2019-04-30 17:13:27'),
-(219, 'sinh_vien', 'Sinh viên', 5, 'so_nha', 'HKTT Số nhà sinh viên', 'Số 899/1', 'Số 899/1999898', 1, '2019-04-30 17:13:27'),
-(220, 'sinh_vien', 'Sinh viên', 5, 'so_dt', 'SĐT sinh viên', '12364565498', '0123456789', 1, '2019-04-30 17:13:27'),
-(221, 'sinh_vien', 'Sinh viên', 5, 'email', 'Email sinh viên', '', 'vttien8392@gmail.com', 1, '2019-04-30 17:13:28'),
-(222, 'sinh_vien', 'Sinh viên', 5, 'sdtcha', 'SĐT cha sinh viên', '', '0123456789', 1, '2019-04-30 17:13:28'),
-(223, 'sinh_vien', 'Sinh viên', 5, 'hotenme', 'Họ tên Mẹ sinh viên', 'Nguyễn Văn V', 'Nguyễn Văn Ve', 1, '2019-04-30 17:13:28'),
-(224, 'sinh_vien', 'Sinh viên', 5, 'sdtme', 'SĐT Mẹ sinh viên', '', '0123456789', 1, '2019-04-30 17:13:28'),
-(225, 'sinh_vien', 'Sinh viên', 5, 'mssv', 'Mã số Sih viên', '1501206100', '1501206221', 1, '2019-04-30 17:29:45'),
-(226, 'sinh_vien', 'Sinh viên', 5, 'sdtcha', 'SĐT cha sinh viên', '0123456789', '0123456788', 1, '2019-04-30 17:34:10'),
-(227, 'sinh_vien', 'Sinh viên', 5, 'sdtme', 'SĐT Mẹ sinh viên', '0123456789', '0123456777', 1, '2019-04-30 17:34:10'),
-(228, 'sinh_vien', 'Sinh viên', 6, 'so_dt', 'SĐT sinh viên', '1123456789', '0123456666', 1, '2019-04-30 18:15:38'),
-(229, 'sinh_vien', 'Sinh viên', 6, 'sdtcha', 'SĐT cha sinh viên', '1234567899', '0234567899', 1, '2019-04-30 18:18:29'),
-(230, 'sinh_vien', 'Sinh viên', 6, 'sdtme', 'SĐT Mẹ sinh viên', '1234567888', '0234567888', 1, '2019-04-30 18:18:29'),
-(231, 'loai_phong', 'Loại phòng', 2, 'gia_loai_phong', 'Giá phòng', '50000', '500001', 2, '2019-04-30 19:06:01'),
-(232, 'loai_phong', 'Loại phòng', 2, 'gia_loai_phong', 'Giá phòng', '500001', '50000', 2, '2019-04-30 19:06:11'),
-(233, 'sinh_vien', 'Sinh viên', 6, 'mssv', 'Mã số Sih viên', '1501206027', '1501206022', 1, '2019-05-01 18:04:03'),
-(234, 'sinh_vien', 'Sinh viên', 6, 'mssv', 'Mã số Sih viên', '1501206022', '1501206027', 1, '2019-05-01 18:05:07'),
-(235, 'sinh_vien', 'Sinh viên', 6, 'mssv', 'Mã số Sih viên', '1501206027', '1501206022', 1, '2019-05-01 18:06:19'),
-(236, 'Phong', 'Phòng', 4, 'id_toanha', 'Tòa nhà', '6', '2', 2, '2019-05-01 21:19:31'),
-(237, 'Phong', 'Phòng', 4, 'id_toanha', 'Tòa nhà', '2', '5', 2, '2019-05-01 21:23:42'),
-(238, 'Phong', 'Phòng', 4, 'id_loaiphong', 'Loại phòng', '1', '2', 2, '2019-05-01 21:23:42'),
-(239, 'Phong', 'Phòng', 4, 'ma_phong', 'Số phòng', '102', '100', 2, '2019-05-01 21:23:56'),
-(240, 'Phong', 'Phòng', 4, 'stt_tang', 'Số thứ tự Tầng', '2', '1', 2, '2019-05-01 21:24:07'),
-(241, 'Phong', 'Phòng', 4, 'id_loaiphong', 'Loại phòng', '2', '1', 2, '2019-05-01 21:24:07'),
-(242, 'Phong', 'Phòng', 4, 'id_loaiphong', 'Loại phòng', '1', '2', 2, '2019-05-01 21:26:47'),
-(243, 'Phong', 'Phòng', 4, 'id_toanha', 'Tòa nhà', '5', '1', 2, '2019-05-01 21:45:59'),
-(244, 'Phong', 'Phòng', 4, 'id_loaiphong', 'Loại phòng', '2', '1', 2, '2019-05-01 21:45:59'),
-(245, 'toa_nha', 'Tòa nhà', 1, 'loai_toa_nha', 'Loại Tòa nhà', 'Nam', 'Nữ', 1, '2019-05-02 16:12:37'),
-(246, 'lop', 'Lớp', 1, 'khoa', 'Khóa', '1', '2', 1, '2019-05-02 18:12:01'),
-(247, 'lop', 'Lớp', 1, 'nam_BD', 'Năm bắt đầu', '2015', '2016', 1, '2019-05-02 18:12:01'),
-(248, 'Phong', 'Phòng', 1, 'ma_phong', 'Số phòng', '101', '102', 1, '2019-05-02 19:07:03'),
-(249, 'Phong', 'Phòng', 1, 'ma_phong', 'Số phòng', '102', '101', 1, '2019-05-02 19:07:12');
+(256, 'sinh_vien', 'Sinh viên', 6, 'gioi_tinh', 'Giới tính sinh viên', 'Nữ', 'Nam', 1, '2019-05-03 16:12:27'),
+(257, 'sinh_vien', 'Sinh viên', 6, 'gioi_tinh', 'Giới tính sinh viên', 'Nam', 'Nữ', 1, '2019-05-03 16:12:36'),
+(258, 'lop', 'Lớp', 32, 'khoa', 'Khóa', '2', '1', 1, '2019-05-03 16:15:11');
 
 -- --------------------------------------------------------
 
@@ -1170,7 +1062,7 @@ INSERT INTO `lop` (`id_lop`, `ma_lop`, `ten_lop`, `id_khoa`, `nam_BD`, `khoa`, `
 (29, 'b15xd2', 'B15 xây dựng 2', 65, 2016, 2, 1, '2019-04-30 10:46:53', 0, NULL, NULL),
 (30, 'b16xd1', 'B16 xây dựng 1', 65, 2016, 2, 1, '2019-05-01 18:36:06', 0, NULL, NULL),
 (31, 'b17xd1', 'B17 xây dựng 1', 65, 2015, 3, 1, '2019-05-01 18:45:32', 0, NULL, NULL),
-(32, 'b15tt1', 'B15 Thông tin 1', 1, 2015, 2, 1, '2019-05-02 18:14:39', 0, NULL, NULL);
+(32, 'b15tt1', 'B15 Thông tin 1', 1, 2015, 1, 1, '2019-05-02 18:14:39', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1197,19 +1089,10 @@ CREATE TABLE `o_phong` (
 --
 
 INSERT INTO `o_phong` (`id_ophong`, `id_sinhvien`, `id_phong`, `hoc_ky`, `nam_hoc`, `ngay_bat_dau`, `ngay_ket_thuc`, `id_canbothem`, `ngaythem`, `id_canboxoa`, `ngay_xoa`) VALUES
-(1, 6, 1, '1', '2018-2019', '2018-10-01', '2019-05-02', 2, '2019-04-27 00:00:00', 1, '2019-05-02 23:18:34'),
-(2, 5, 1, '1', '2018-2019', '2018-09-01', '2019-05-02', 2, '2019-05-02 00:00:00', 1, '2019-05-02 23:15:17'),
-(3, 5, 1, '1', '2018-2019', '2019-05-02', '2019-05-02', 1, '2019-05-02 23:16:05', 1, '2019-05-02 23:21:31'),
-(4, 5, 1, '1', '2018-2019', '2019-05-02', '2019-05-02', 1, '2019-05-02 23:15:12', 1, '2019-05-02 23:16:05'),
-(5, 8, 5, '1', '2018-2019', '2019-05-02', '2019-05-02', 1, '2019-05-02 22:19:17', 1, '2019-05-02 23:22:59'),
-(32, 6, 1, '1', '2018-2019', '2019-05-02', '2019-05-02', 1, '2019-05-02 23:18:34', 1, '2019-05-02 23:21:20'),
-(33, 6, 1, '1', '2018-2019', '2019-05-02', NULL, 1, '2019-05-02 23:21:20', 1, '2019-05-02 23:25:38'),
-(34, 5, 1, '1', '2018-2019', '2019-05-02', '2019-05-02', 1, '2019-05-02 23:21:31', 1, '2019-05-02 23:28:16'),
-(35, 5, 1, '1', '2018-2019', '2019-05-02', '2019-05-02', 1, '2019-05-02 23:22:39', 1, '2019-05-02 23:27:37'),
-(36, 8, 5, '1', '2018-2019', '2019-05-02', NULL, 1, '2019-05-02 23:22:59', NULL, NULL),
-(37, 5, 1, '1', '2018-2019', '2019-05-02', '2019-05-02', 1, '2019-05-02 23:28:16', 1, '2019-05-02 23:28:59'),
-(38, 5, 1, '1', '2018-2019', '2019-05-02', '2019-05-02', 1, '2019-05-02 23:28:59', 1, '2019-05-02 23:29:45'),
-(39, 5, 3, '1', '2018-2019', '2019-05-02', NULL, 1, '2019-05-02 23:29:45', NULL, NULL);
+(33, 6, 1, '1', '2018-2019', '2019-05-02', '2019-05-03', 1, '2019-05-02 23:21:20', 1, '2019-05-03 16:18:47'),
+(39, 5, 3, '1', '2018-2019', '2019-05-02', NULL, 1, '2019-05-02 23:29:45', NULL, NULL),
+(40, 8, 2, '1', '2018-2019', '2019-05-03', '2019-05-03', 1, '2019-05-03 15:26:39', 1, '2019-05-03 16:18:13'),
+(41, 6, 4, '1', '2018-2019', '2019-05-03', NULL, 1, '2019-05-03 16:18:47', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1284,8 +1167,9 @@ CREATE TABLE `sinh_vien` (
 INSERT INTO `sinh_vien` (`id_sinhvien`, `mssv`, `anh_ca_nhan`, `ho_sv`, `ten_sv`, `ngay_sinh`, `gioi_tinh`, `que_quan`, `so_cmnd`, `ngay_cap`, `noi_cap`, `matinh`, `mahuyen`, `maxa`, `so_nha`, `so_dt`, `email`, `hotencha`, `sdtcha`, `hotenme`, `sdtme`, `id_lop`, `id_canbothem`, `ngay_them`, `xoa`, `ngay_xoa`, `id_canboxoa`) VALUES
 (5, 1501206121, 'VÕ THIỆN TIÊN   08.03.1992.JPG', 'Võ Thiện ', 'Tiên', '1992-03-18', 'Nam', 54, 371590523, '2009-05-05', 89, 89, 894, 30682, 'Số 191', '0799659225', 'vttien8392@gmail.com', 'Nguyên Văn A', '0987654322', 'Nguyễn Văn E', '0987654321', 1, 1, '2019-05-01 17:52:57', 0, NULL, NULL),
 (6, 1501206022, '2131a7bca6f843a61ae9.jpg', 'Trần Thị Quỳnh ', 'Giao', '1997-05-03', 'Nữ', 92, 123456789, '2019-05-03', 91, 91, 909, 31021, 'Tổ 1', '0566837004', 'ttqgiao0311@gmail.com', 'Trần Văn Phan', '', 'Nguyễn Văn Hằng', '', 1, 1, '2019-05-01 18:01:41', 0, NULL, NULL),
-(7, 1501206111, 'Social-App-Show01.jpg', 'Võ Thiện ', 'Tiên 2', '2019-05-03', 'Nam', 89, 123456783, '2019-05-08', 89, 4, 42, 1291, 'Số 191', '0234567890', '', 'Nguyên Văn C', '', 'Nguyễn Thịnh B', '', 31, 1, '2019-05-01 18:47:10', 0, NULL, NULL),
-(8, 1501206222, 'mat-trong-dong-do-khung-tranh-go_464.jpg', 'Trần Bổn', 'Giao', '2019-05-05', 'Nam', 89, 213456789, '2019-05-26', 89, 60, 596, 23014, 'Số 191', '0987654325', '', 'Nguyên Văn D', '', 'Nguyễn Văn V', '', 10, 1, '2019-05-01 18:49:30', 0, NULL, NULL);
+(7, 1501206111, 'Social-App-Show01.jpg', 'Võ Mỹ', 'Tiên', '2019-05-03', 'Nam', 89, 123456783, '2019-05-08', 89, 4, 42, 1291, 'Số 191', '0234567890', '', 'Nguyên Văn C', '', 'Nguyễn Thịnh B', '', 31, 1, '2019-05-01 18:47:10', 0, NULL, NULL),
+(8, 1501206222, 'mat-trong-dong-do-khung-tranh-go_464.jpg', 'Trần Bổn', 'Giao', '2019-05-05', 'Nam', 89, 213456789, '2019-05-26', 89, 60, 596, 23014, 'Số 191', '0987654325', '', 'Nguyên Văn D', '', 'Nguyễn Văn V', '', 10, 1, '2019-05-01 18:49:30', 0, NULL, NULL),
+(9, 1501206000, 'Social-App-Show01.jpg', 'Trần Bổn', 'Dụ ', '2019-05-11', 'Nam', 83, 123456788, '2019-12-30', 89, 24, 213, 7231, 'Số 191', '', '', '', '', '', '', 29, 1, '2019-05-03 13:18:48', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1310,13 +1194,14 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`idtk`, `idms`, `matkhau`, `ngaythem`, `idtktao`, `xoa`, `ngayxoa`, `nguoixoa`, `is_sinhvien`) VALUES
-(1, 1000000000, '579646aad11fae4dd295812fb4526245', '2019-04-10 00:00:00', 0, 0, NULL, NULL, 0),
+(1, 1000000000, 'a970a7e3b359f88a4732b56050822888', '2019-04-10 00:00:00', 0, 0, NULL, NULL, 0),
 (2, 1000000001, '579646aad11fae4dd295812fb4526245', '2019-04-14 00:00:00', 1, 0, NULL, NULL, 0),
 (15, 1501206121, '8665abde16fbf5053996f522cd23cfb8', '2019-05-01 17:52:57', 1, 0, NULL, NULL, 1),
 (16, 1000000002, 'dac93e552c4da380602bb6b0a7f043cb', '2019-05-01 17:59:17', 1, 0, NULL, NULL, 0),
 (17, 1501206022, '0fbe4cd247a687d77312d6a246e91fec', '2019-05-01 18:01:41', 1, 0, NULL, NULL, 1),
 (18, 1501206111, 'bfe1d6664eed55062706cac96e77b77f', '2019-05-01 18:47:10', 1, 0, NULL, NULL, 1),
-(19, 1501206222, 'e25af87715e22d5ff9c957d9b5985817', '2019-05-01 18:49:30', 1, 0, NULL, NULL, 1);
+(19, 1501206222, 'e25af87715e22d5ff9c957d9b5985817', '2019-05-01 18:49:30', 1, 0, NULL, NULL, 1),
+(20, 1501206000, 'e4b4bb2f150478166cc7b31af178ca71', '2019-05-03 13:18:48', 1, 0, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -12872,7 +12757,7 @@ ALTER TABLE `chucvu`
 -- AUTO_INCREMENT cho bảng `cochucvu`
 --
 ALTER TABLE `cochucvu`
-  MODIFY `id_cochucvu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_cochucvu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `co_dien_ut`
@@ -12914,7 +12799,7 @@ ALTER TABLE `loai_phong`
 -- AUTO_INCREMENT cho bảng `log_sua_dl`
 --
 ALTER TABLE `log_sua_dl`
-  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=250;
+  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259;
 
 --
 -- AUTO_INCREMENT cho bảng `lop`
@@ -12926,7 +12811,7 @@ ALTER TABLE `lop`
 -- AUTO_INCREMENT cho bảng `o_phong`
 --
 ALTER TABLE `o_phong`
-  MODIFY `id_ophong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id_ophong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT cho bảng `phong`
@@ -12938,13 +12823,13 @@ ALTER TABLE `phong`
 -- AUTO_INCREMENT cho bảng `sinh_vien`
 --
 ALTER TABLE `sinh_vien`
-  MODIFY `id_sinhvien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_sinhvien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `idtk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `idtk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `thietbi`

@@ -69,8 +69,8 @@ include './../dulieu/kirmtra_quantrivien.php';
 						<div class="modal-content">
 							<!-- Modal Header -->
 							<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">Thêm Có chức vụ Chức vụ</h4>
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">Thêm Có chức vụ Chức vụ</h4>
 							</div>
 							<!-- Modal body -->
 							<div class="modal-body _1themtoanha">
@@ -84,13 +84,12 @@ include './../dulieu/kirmtra_quantrivien.php';
 										<label for="">Chức vụ</label>
 										<select name="id_chucvuthem_cochucvu" id="id_chucvuthem_cochucvu" class="form-control chuinthuong" required="required">
 											<option value="">Chọn Chức vụ</option>
-											<?php 
+											<?php
 												$q_ds_cv= mysqli_query($con,"SELECT chucvu.idchucvu, chucvu.tenchucvu FROM chucvu WHERE chucvu.idchucvu!=0 AND chucvu.xoa=0 AND chucvu.idchucvu!=19 ORDER BY chucvu.tenchucvu");
 												while ($ds_cv = mysqli_fetch_array($q_ds_cv)){
 													echo "<option value='".$ds_cv['idchucvu']."'>".$ds_cv['tenchucvu']."</option>";
 												}
-
-											 ?>
+											?>
 										</select>
 									</div>
 									<div class="form-group" id="tt_canbo">
@@ -123,31 +122,50 @@ include './../dulieu/kirmtra_quantrivien.php';
 					</div>
 				</div>
 				<!-- Cập nhật lại thông tin phòng -->
-				<div id="modal_sua_cochucvu" class="modal fade">
-					<div class="modal-dialog width_350px">
+				<div class="modal" id="from_suathongtin_cochucvu">
+					<div class="modal-dialog themcochucvu2 cochucvu_themmoi width_350px">
 						<div class="modal-content">
+							<!-- Modal Header -->
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Cập nhật thông tin Chức vụ</h4>
+								<h4 class="modal-title">Sửa chức vụ Chức vụ của cán bộ</h4>
 							</div>
-							<div class="modal-body">
-								<form method="post" id="from_suathongtin_cochucvu" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
-									<label>Mã cochucvu</label>
-									<input type="text" name="ma_cochucvu_sua123" id="ma_cochucvu_sua123" class="form-control chuinhoa"  required="" />
-									<br />
-									<label>Tên cochucvu</label>
-									<textarea  name="ten_cochucvusua_12" id="ten_cochucvusua_12" class="form-control chuinthuong" rows="1" required=""></textarea>
-									<br />
-									<input type="hidden" name="id_cochucvu_sua_12" id="id_cochucvu_sua_12" />
-									<input type="submit" name="insert" id="insert" value="Insert" class="btn btn-danger capnhattb" />
-								</form>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>
-							</div>
+							<!-- Modal body -->
+							<div class="modal-body _1themtoanha">
+								<form action="" id="form_themcochucvu_sua" name="form_themcochucvu_sua" 	method="POST" role="form" class="_1themphong1 " data-confirm="Bạn có chắn muốn sửa thông tin này?">
+									<div class="form-group">
+										<label for="">Mã mã Cán bộ</label>
+										<input type="number" name="macanbo_cochucvu_sua" id="macanbo_cochucvu_sua" class="form-control " value="" required="" placeholder="Nhập mã Chức vụ" readonly>
+									</div>
+									
+									<div class="form-group">
+										<label for="">Chức vụ củ</label>
+										<input type="text" name="id_chucvusua_cochucvu_cu" id="id_chucvusua_cochucvu_cu" class="form-control chuinthuong" value="" required="required" pattern="" title="" readonly>
+										
+									</div>
+									<div class="form-group">
+										<label for="">Chức vụ mới</label>
+										<select name="id_chucvusua_cochuc_moi" id="id_chucvusua_cochuc_moi" class="form-control chuinthuong" required="required">
+											<option value="">Chọn Chức vụ</option>
+											<?php
+												$q_ds_cv= mysqli_query($con,"SELECT chucvu.idchucvu, chucvu.tenchucvu FROM chucvu WHERE chucvu.idchucvu!=0 AND chucvu.xoa=0 AND chucvu.idchucvu!=19 ORDER BY chucvu.tenchucvu");
+												while ($ds_cv = mysqli_fetch_array($q_ds_cv)){
+													echo "<option value='".$ds_cv['idchucvu']."'>".$ds_cv['tenchucvu']."</option>";
+												}
+											?>
+										</select>
+									</div>
+									<input type="number" class="hidden" name="id_cochucvu_sua123" id="id_cochucvu_sua123" class="form-control " value="" >
+									</div>
+								<!-- Modal footer -->
+								<div class="modal-footer">
+									<button type="submit" class="btn btn-danger">Cập nhật</button>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
+				</div><!-- end model -->
 				<!-- Xoa Chức vụ -->
 				<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
 					<div id="modal_xoa_cochucvu" class="modal fade">
@@ -158,14 +176,12 @@ include './../dulieu/kirmtra_quantrivien.php';
 									<h4 class="modal-title canhgiua">Xóa Cán bộ có Chức vụ</h4>
 								</div>
 								<div class="modal-body" id="dulieu_cab_cochucvu"></div>
-										<form method="post" id="From_xoa_cochucvu" data-confirm="Bạn có chắn muốn xóa thông tin này?">
-										<input type="hidden" name="id_cochucvu_xoa_12" id="id_cochucvu_xoa_12" />
-										<div class="modal-footer">
-											<input type="submit" name="insert_xoa" id="insert_xoa" value="Xóa" class="btn btn-danger canhgiua" />
-										</div>
-									</form>
-								
-								
+								<form method="post" id="From_xoa_cochucvu" data-confirm="Bạn có chắn muốn xóa thông tin này?">
+									<input type="hidden" name="id_cochucvu_xoa_12" id="id_cochucvu_xoa_12" />
+									<div class="modal-footer">
+										<input type="submit" name="insert_xoa" id="insert_xoa" value="Xóa" class="btn btn-danger canhgiua" />
+									</div>
+								</form>
 							</div>
 						</div>
 					</div>

@@ -3,7 +3,7 @@ include 'conn.php';
 
 	$selecet_sinh_vien = mysqli_query($con, "SELECT sinh_vien.id_sinhvien, sinh_vien.mssv, sinh_vien.ho_sv, sinh_vien.ten_sv, sinh_vien.ngay_sinh, sinh_vien.gioi_tinh, sinh_vien.que_quan, sinh_vien.so_cmnd, sinh_vien.ngay_cap, sinh_vien.noi_cap, sinh_vien.matinh, sinh_vien.mahuyen, sinh_vien.maxa, sinh_vien.so_nha, sinh_vien.so_dt, sinh_vien.email, sinh_vien.hotencha, sinh_vien.sdtcha, sinh_vien.hotenme, sinh_vien.sdtme, sinh_vien.id_lop, phong.idphong, phong.ma_phong, toa_nha.ten_toa_nha, toa_nha.ma_toa_nha, toa_nha.id_toanha,toa_nha.loai_toa_nha, lop.id_lop, lop.ten_lop, o_phong.ngay_bat_dau , o_phong.id_ophong, o_phong.ngay_ket_thuc FROM toa_nha,sinh_vien, o_phong, phong, lop WHERE sinh_vien.xoa=0 and o_phong.ngay_ket_thuc IS not NULL AND o_phong.id_sinhvien= sinh_vien.id_sinhvien AND o_phong.id_phong=phong.idphong AND toa_nha.id_toanha = phong.id_toanha and sinh_vien.id_lop= lop.id_lop ORDER BY sinh_vien.id_sinhvien, o_phong.ngay_bat_dau,toa_nha.loai_toa_nha, toa_nha.ten_toa_nha, phong.ma_phong ");
 	if (!mysqli_num_rows($selecet_sinh_vien)) {
-		echo "<div style='text-align: center;'> Chưa có dữ liệu</div>";
+		echo "<div style='text-align: center;'> Không có dữ liệu dữ liệu</div>";
 	} else {
 ?>
 <div class="table-responsive">
@@ -52,8 +52,8 @@ include 'conn.php';
 				<td class='canhgiua chuinthuong'>$row_sinh_vien[gioi_tinh]</td>
 				<td class='canhgiua chuinthuong'>$diachi2</td>
 				<td class='canhgiua chuinthuong hidden '>$diachi1</td>
-				<td>".date('d/m/Y', strtotime($row_sinh_vien["ngay_bat_dau"]))."</td>
-				<td>".date('d/m/Y', strtotime($row_sinh_vien["ngay_ket_thuc"]))."</td>
+				<td class='canhgiua'>".date('d/m/Y', strtotime($row_sinh_vien["ngay_bat_dau"]))."</td>
+				<td class='canhgiua'>".date('d/m/Y', strtotime($row_sinh_vien["ngay_ket_thuc"]))."</td>
 
 				<td class='chuinhoa'>$lop1</td>";?>
 				

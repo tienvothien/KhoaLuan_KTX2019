@@ -91,6 +91,16 @@ if (isset($_POST['id_o_phong_sua1'])) {
 			$id_toanha = $rowphong['id_toanha'];
 			echo "<option value='$id_toanha'> $ten_toa_nha</option>";}
 }//end tỉnh thay đổi sẽ chọn huyện thay đổi
+if (isset($_POST['khoa_them_sinh_vien1'])) {
+		include 'conn.php';
+		$sqlphong = "SELECT khoa.id_khoa, khoa.ten_khoa FROM khoa WHERE khoa.xoa=0 ORDER BY khoa.ten_khoa";
+		$queryphong = mysqli_query($con, $sqlphong);
+		echo " <option value=''>Chọn khoa</option>";
+		while ($rowphong = mysqli_fetch_array($queryphong)) {
+			$ten_khoa = $rowphong['ten_khoa'];
+			$id_khoa = $rowphong['id_khoa'];
+			echo "<option value='$id_khoa'> $ten_khoa</option>";}
+}//end tỉnh thay đổi sẽ chọn huyện thay đổi
 if (isset($_POST['mssv_o_phong_them_toanha1'])) {
 		$mssv_o_phong_them_toanha1 = $_POST['mssv_o_phong_them_toanha1'];
 		include 'conn.php';
@@ -100,8 +110,17 @@ if (isset($_POST['mssv_o_phong_them_toanha1'])) {
 		while ($rowphong = mysqli_fetch_array($queryphong)) {
 			$ten_toa_nha = $rowphong['ten_toa_nha'];
 			$id_toanha = $rowphong['id_toanha'];
-			echo "<option value='$id_toanha'> $ten_toa_nha</option>";}
+			echo "<option value='$id_toanha'> $ten_toa_nha</option>";
+		}
+
 }//end tỉnh thay đổi sẽ chọn huyện thay đổi
+// xử lý xuất thông tin có chức vụ của cán bộ
+if (isset($_POST["id_cochucvu_sua"])) {
+	$query = "SELECT cochucvu.id_cochucvu, can_bo.id_canbo, can_bo.ma_can_bo, chucvu.idchucvu, chucvu.tenchucvu FROM cochucvu, can_bo, chucvu WHERE cochucvu.xoa=0 AND cochucvu.id_cochucvu='$_POST[id_cochucvu_sua]' AND cochucvu.id_canbo= can_bo.id_canbo AND cochucvu.idchucvu = chucvu.idchucvu";
+	$result = mysqli_query($con, $query);
+	$row = mysqli_fetch_array($result);
+	echo json_encode($row);
+}//end xử lý thông tin có chức vụ của cán bộ
 	mysqli_close($con);
 
 ?>

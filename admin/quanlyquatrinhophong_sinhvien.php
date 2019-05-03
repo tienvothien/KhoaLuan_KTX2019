@@ -34,7 +34,7 @@ include './../dulieu/kirmtra_quantrivien.php';
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 chutieude">
-								<h2>Quản lý Quán trình Ở  của sinh viên</h2>
+								<h2>Quản lý quán trình ở của sinh viên</h2>
 							</div>
 						</div>
 						<hr class="ngay_ad">

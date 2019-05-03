@@ -54,7 +54,7 @@ include 'conn.php';
 				<td class='canhgiua chuinthuong'>$row_sinh_vien[gioi_tinh]</td>
 				<td class='canhgiua chuinthuong'>$diachi2</td>
 				<td class='canhgiua chuinthuong hidden '>$diachi1</td>
-				<td>".date('d/m/Y', strtotime($row_sinh_vien["ngay_bat_dau"]))."</td>
+				<td class='canhgiua'>".date('d/m/Y', strtotime($row_sinh_vien["ngay_bat_dau"]))."</td>
 
 				<td class='canhgiua chuinhoa'>$row_sinh_vien[so_dt]</td>
 				<td class='chuinhoa'>$lop1</td>";?>

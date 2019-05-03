@@ -36,43 +36,45 @@ $(document).ready(function () {
 	// sửa thông tin cochucvu
 	$(document).on('click', '.id_sua_cochucvu', function(){
            var id_cochucvu_sua = $(this).attr("id");
-           alert(id_cochucvu_sua);
            $.ajax({
                 url:"../dulieu/fetch.php",
                 method:"POST",
                 data:{id_cochucvu_sua:id_cochucvu_sua},
                 dataType:"json",
                 success:function(data_suacochucvu){
-                    $('#ma_cochucvu_sua123').val(data_suacochucvu.macochucvu);
-                    $('#ten_cochucvusua_12').val(data_suacochucvu.tencochucvu);
-                    $('#id_cochucvu_sua_12').val(data_suacochucvu.idcochucvu);
+                    $('#id_cochucvu_sua123').val(data_suacochucvu.id_cochucvu);
+                    $('#macanbo_cochucvu_sua').val(data_suacochucvu.ma_can_bo);
+                    $('#id_chucvusua_cochucvu_cu').val(data_suacochucvu.tenchucvu);
                     $('#insert').val("Cập nhật");
-                    $('#modal_sua_cochucvu').modal('show');
+                    $('#from_suathongtin_cochucvu').modal('show');
                 }
            });
       });
 	// xử lý khi bấn nút cập nhật lại thông tin cochucvu
 	// cap nhat tt thiết bi
-    $('#from_suathongtin_cochucvu').on('submit', function(event){
+    $('#form_themcochucvu_sua').on('submit', function(event){
           event.preventDefault();
           if(!confirm($(this).data('confirm'))){
 	          e.stopImmediatePropagation();
 	          e.preventDefault();
 	        }else{
-	        	if($('#ma_cochucvu_sua123').val().length==3){
 		          	$.ajax({
-						url:"./../dulieu/insert.php",
-						method:"POST",
-						data:$('#from_suathongtin_cochucvu').serialize(),
+						url:"./../dulieu/add_cochucvumoi.php",
+						type:'POST',
+						data:new FormData(this),
+						contentType: false,
+						cache: false,
+						processData:false,
 						success:function(kq_capnhat_thongtin_cochucvu){
+							// alert(kq_capnhat_thongtin_cochucvu);
 							if(kq_capnhat_thongtin_cochucvu==1){
-								alert('Mã Chức vụ hoặc tên Chức vụ đã tồn tại');
+								alert('Cán bộ đã có chức vụ này rồi');
 								document.getElementById(ma_cochucvu_sua123).focus();
 							}else {
 								if (kq_capnhat_thongtin_cochucvu==99) {
 									alert('Cập nhật thông tin Chức vụ thành công');
-									$('#from_suathongtin_cochucvu')[0].reset();
-	                                $('#modal_sua_cochucvu').modal('hide');
+									$('#form_themcochucvu_sua')[0].reset();
+	                                $('#from_suathongtin_cochucvu').modal('hide');
 	                                $('#dulieucochucvu').load("./../dulieu/dulieucochucvu.php")
 								}else {
 									alert('Lỗi cập nhật');
@@ -80,10 +82,6 @@ $(document).ready(function () {
 							}
 	                    }
 					});
-				}else {
-					alert('Độ dài Mã cochucvu không đúng');
-					document.getElementById("ma_cochucvu_sua123").focus();
-				}
          	}   
       	});
       // hiện thông tin xóa cochucvu
@@ -144,6 +142,9 @@ $(document).ready(function () {
 					if (kql_add_cochucvu==1) {
 						alert('Cán bộ đã có chức vụ này');
 						document.getElementById("macanbo_cochucvu_them").focus();
+	          		}else if (kql_add_cochucvu==2) {
+	          			alert('Mã cán bộ không tồn tại');
+						document.getElementById("macanbo_cochucvu_them").focus();
 	          		}else {
 						if (kql_add_cochucvu==99) {
 							alert('Thêm Chức vụ mới thành công');
@@ -153,7 +154,7 @@ $(document).ready(function () {
 							$('#form_themcochucvumoi')[0].reset();
 							$('#dulieucochucvu').load("./../dulieu/dulieucochucvu.php");
 						}else {
-							alert('Lỗi Thêm');
+							alert('Lỗi Thêm 34243' );
 						}
 	          		}
 				}
@@ -161,3 +162,4 @@ $(document).ready(function () {
 		}
 	});
 });
+

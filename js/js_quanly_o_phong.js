@@ -227,10 +227,32 @@ $(document).ready(function () {
                      data:{timkiem_daophongngay_batdau:timkiem_daophongngay_batdau,
                      	timkiem_daophongngay_kethuc:timkiem_daophongngay_kethuc},
 					success:function (kql_tim_Da_o_phong) {
-						alert(kql_tim_Da_o_phong);
-						// $('#dulieu_o_phong').html(kql_tim_Da_o_phong);
+						// alert(kql_tim_Da_o_phong);
+						$('#dulieu_o_phong').html(kql_tim_Da_o_phong);
+						// $('#dulieu_o_phong').load('./../dulieu/timkiemda_o_phong.php');
 					}
 				});
 			}
 	});// end xử lý tìm kiếm đã ở phòng
+		// xử lý tìm kiếm đang ở phòng
+	$('#timkiem_dang_o_phong_ssdv').on('submit', function(event){
+		event.preventDefault();
+			var timkiem_dang_ophongngay_batdau=$('#timkiem_dang_ophongngay_batdau').val();
+			var timkiem_dang_ophongngay_kethuc=$('#timkiem_dang_ophongngay_kethuc').val();
+			if (timkiem_dang_ophongngay_batdau=='' && timkiem_dang_ophongngay_kethuc=='') {
+				
+			}else{
+				$.ajax({
+					url:"./../dulieu/timkiem_dang_o_phong.php",
+                     method:"POST",
+                     data:{timkiem_dang_ophongngay_batdau:timkiem_dang_ophongngay_batdau,
+                     	timkiem_dang_ophongngay_kethuc:timkiem_dang_ophongngay_kethuc},
+					success:function (kql_tim_Dang_o_phong) {
+						// alert(kql_tim_Da_o_phong);
+						$('#dulieu_o_phong').html(kql_tim_Dang_o_phong);
+						// $('#dulieu_o_phong').load('./../dulieu/timkiemda_o_phong.php');
+					}
+				});
+			}
+	});// end xử lý tìm kiếm đang ở phòng
 });
