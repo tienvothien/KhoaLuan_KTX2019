@@ -1,7 +1,7 @@
 <?php
 include 'conn.php';
 	
-	$selecet_ttcanhan = mysqli_query($con, "SELECT can_bo.id_canbo, can_bo.hinhanh, can_bo.ma_can_bo, can_bo.ho_can_bo, can_bo.ten_can_bo, can_bo.gioitinh, can_bo.ngay_sinh, can_bo.sdt, can_bo.email, chucvu.idchucvu, chucvu.tenchucvu FROM can_bo INNER JOIN cochucvu ON can_bo.id_canbo = cochucvu.id_canbo INNER JOIN chucvu ON cochucvu.idchucvu = chucvu.idchucvu WHERE can_bo.id_canbo ='$_SESSION[id_canbo]' AND can_bo.xoa =0");
+	$selecet_ttcanhan = mysqli_query($con, "SELECT can_bo.id_canbo, can_bo.hinhanh, can_bo.ma_can_bo, can_bo.ho_can_bo, can_bo.ten_can_bo, can_bo.gioitinh, can_bo.ngay_sinh, can_bo.sdt, can_bo.email, chucvu.idchucvu, chucvu.tenchucvu FROM can_bo INNER JOIN cochucvu ON can_bo.id_canbo = cochucvu.id_canbo INNER JOIN chucvu ON cochucvu.idchucvu = chucvu.idchucvu WHERE can_bo.id_canbo ='$_SESSION[id_canbo]' AND can_bo.xoa =0 ");
 	if (!mysqli_num_rows($selecet_ttcanhan)) {
 		echo "<div style='text-align: center;'> Chưa có dữ liệu</div>";
 	} else {
@@ -44,7 +44,7 @@ include 'conn.php';
 				<th width="30%"   style="text-align: right;"> Chức vụ:</th>
 				<td class='chuinthuong'>
 					<?php 
-					$selecet_s3 = mysqli_query($con, "SELECT chucvu.tenchucvu FROM can_bo INNER JOIN cochucvu ON can_bo.id_canbo = cochucvu.id_canbo INNER JOIN chucvu ON cochucvu.idchucvu = chucvu.idchucvu WHERE can_bo.id_canbo ='$_SESSION[id_canbo]' AND can_bo.xoa=0 order by chucvu.idchucvu "); 
+					$selecet_s3 = mysqli_query($con, "SELECT chucvu.tenchucvu FROM can_bo INNER JOIN cochucvu ON can_bo.id_canbo = cochucvu.id_canbo INNER JOIN chucvu ON cochucvu.idchucvu = chucvu.idchucvu WHERE can_bo.id_canbo ='$_SESSION[id_canbo]' AND can_bo.xoa=0 and cochucvu.xoa=0 order by chucvu.idchucvu "); 
 					while ($row_canhan2 = mysqli_fetch_array($selecet_s3)) {
 						echo " - ".$row_canhan2['tenchucvu']."<br>";
 					} 
