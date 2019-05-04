@@ -9,7 +9,7 @@ if (mysqli_num_rows($query1)) {
 			<th class="text-center">STT</th>
 			<th class="text-center align-middle">Tên loại phòng</th>
 			<th class="text-center">Tên thiết bị</th>
-			<th class="text-center">Số lượng/phòng (cái)</th>
+			<th class="text-center">Số lượng <br>/phòng (cái)</th>
 			<th class="text-center">Số phòng</th>
 			<th class="text-center">Tổng số thiết bị </th>
 			<th class="canhgiua">Sửa</th>
@@ -44,11 +44,12 @@ if (mysqli_num_rows($query1)) {
 				$arr[$row['id_loaiphong']]['rowspan'] += 1;
 			}
 			//đem số lượng phòng 
-			$slphong = mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(phong.idphong) AS slphong FROM phong INNER JOIN loai_phong ON phong.id_loaiphong = loai_phong.id_loaiphong WHERE loai_phong.id_loaiphong='$row[id_loaiphong]' AND phong.xoa=0 AND loai_phong.xoa=0"));
+			
 			// in ra bằng dòng lệnh For
 			for ($i = 0; $i < sizeof($tenthietbi); $i++) {
 				$id_loaiPhongNam = $id_loaiphong[$i];
 				$i2=$i+1;
+				$slphong = mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(phong.idphong) AS slphong FROM phong INNER JOIN loai_phong ON phong.id_loaiphong = loai_phong.id_loaiphong WHERE loai_phong.id_loaiphong='$id_loaiphong[$i]' AND phong.xoa=0 AND loai_phong.xoa=0"));
 				echo "
 					<tr>
 						<td class='canhgiua'>".$i2."</td>";

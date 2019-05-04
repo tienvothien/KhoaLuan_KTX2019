@@ -681,5 +681,116 @@ include 'kiemtradangnhap.php';
       ';}
       echo $output;
   } // end iện thông tin chi tiết phòng
+  // hiện thông tin chi tiết phòng và thiết bị phòng
+  if (isset($_POST["id_chitiet_phong_tinhtrangthietbi"])) {
+      $output = '';
+      include 'conn.php';
+      $query = "SELECT phong.idphong, phong. ma_phong, phong.stt_tang, phong.id_canbothem, phong.thoigianthem, toa_nha.ten_toa_nha, loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o, loai_phong.gia_loai_phong , can_bo.ma_can_bo, can_bo.ten_can_bo, can_bo.ho_can_bo FROM phong, toa_nha, loai_phong, can_bo WHERE phong.xoa=0 AND phong.idphong='$_POST[id_chitiet_phong_tinhtrangthietbi]' AND phong.id_toanha= toa_nha.id_toanha AND phong.id_loaiphong= loai_phong.id_loaiphong AND can_bo.id_canbo= phong.id_canbothem";
+
+      $result = mysqli_query($con, $query);
+      if (!mysqli_num_rows($result)) {
+           $output = 'Chưa có dữ liệu';
+      }else{
+
+      $output .= '
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">';
+           $row_tt_phong_ct = mysqli_fetch_array($result); 
+            $slsinhvien = mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(o_phong.id_sinhvien) AS slsinhvien FROM o_phong WHERE o_phong.ngay_ket_thuc is NULL AND o_phong.id_phong ='$_POST[id_chitiet_phong_tinhtrangthietbi]'"));
+            $output .= '
+               <tr>
+                <td width="25%"><label>Tòa nhà</label></td>
+                <td width="25%" class="">' .$row_tt_phong_ct["ten_toa_nha"] . '</td>
+                <td width="25%"><label>Phòng số</label></td>
+                <td width="25%" class="">' .$row_tt_phong_ct["ma_phong"] . '</td>
+              </tr>
+              <tr>
+                <td width="25%"><label>Loại phòng</label></td>
+                <td width="25%" class="">' .$row_tt_phong_ct["ten_loai_phong"] . '</td>
+                <td width="25%"><label>Giá /người/tháng (VNĐ)</label></td>
+                <td width="25%" class="">' .number_format ( $row_tt_phong_ct["gia_loai_phong"], $decimals = 0 , $dec_point = "." , $thousands_sep = ","  )  . '</td>
+              </tr>
+               <tr>
+                <td width="25%"><label>Số người được ở</label></td>
+                <td width="25%" class="">' .$row_tt_phong_ct["sl_nguoi_o"] . '</td>
+                <td width="25%"><label>Đang ở</label></td>
+                <td width="25%" class="">' .$slsinhvien["slsinhvien"] . '</td>
+              </tr>
+                ';
+                $tim_tb = mysqli_query($con,"SELECT loaiphongcothietbi.idcothietbi, loaiphongcothietbi.idtb, thietbi.tenthietbi , loaiphongcothietbi.soluong FROM loaiphongcothietbi, phong, thietbi WHERE phong.xoa=0 AND phong.idphong='$_POST[id_chitiet_phong_tinhtrangthietbi]' AND loaiphongcothietbi.xoa=0 and phong.id_loaiphong=loaiphongcothietbi.id_loaiphong AND thietbi.idtb=loaiphongcothietbi.idtb");
+                while ($r1=mysqli_fetch_array($tim_tb)) {
+                   $output .= '
+                      </tr>
+                         <tr>
+                          <td width="25%"><label>Thiết bị</label></td>
+                          <td width="25%" class="">' .$r1["tenthietbi"] . '</td>
+                          <td width="25%"><label>Số lượng</label></td>
+                          <td width="25%" class="">' .$r1["soluong"] . '</td>
+                        </tr>
+
+                     ';
+                }
+            $output .= '
+        </table>
+      </div>
+      ';}
+      echo $output;
+  } // end iện thông tin chi tiết phòng và thiết bị phòng
+  // hiện thông tin chi tiết phòng và kiem tra thiết bị phòng
+  if (isset($_POST["id_phong_sua_12_thietbi_tinhtrang"])) {
+      $d_phong1=$_POST["id_phong_sua_12_thietbi_tinhtrang"];
+      $output = '';
+      include 'conn.php';
+      $query = "SELECT ctb.idcothietbi, phong.idphong, thietbi.idtb, thietbi.tenthietbi, ctb.soluong FROM loaiphongcothietbi ctb ,thietbi, phong WHERE thietbi.xoa=0 AND ctb.xoa=0 AND phong.idphong='$d_phong1' and thietbi.idtb = ctb.idtb AND ctb.id_loaiphong= phong.id_loaiphong";
+
+      $result = mysqli_query($con, $query);
+      if (!mysqli_num_rows($result)) {
+           $output = 'Chưa có dữ liệu';
+      }else{
+
+      $output .= '<div class="table-responsive">
+                    <table class="table table-bordered">';
+           while ($r1 = mysqli_fetch_array($result)) {
+              $r11 = mysqli_fetch_array(mysqli_query($con,"SELECT ctb.idcothietbi, tr.id_tinhtrang, tr.slhong FROM loaiphongcothietbi ctb, tinhtrang_thietbi_phong tr WHERE ctb.idcothietbi = tr.idcothietbi AND ctb.xoa=0 AND ctb.idcothietbi='$r1[idcothietbi]'"));
+              $slhongcu=0;
+              if ($r11["slhong"]!='') {
+                $slhongcu=$r11["slhong"];
+              }
+            $output .= '
+                    <tr>
+                         <td style="width: 230px">
+                            <div class="form-group">
+                              <label for="">Thiết bị</label>
+                              <input type="text"  class="form-control " value="'.$r1["tenthietbi"].'" disabled >
+                              </div>
+                          </td>
+                          <td style="width: 15%">
+                            <div class="form-group">
+                              <label>Số lượng</label>
+                              <input type="text"  class="form-control idsloa canhgiua"  value=' .$r1["soluong"].' disabled >
+                            </div>
+                          </td>
+                           <td style="width: 15%">
+                            <div class="form-group">
+                              <label>Hỏng củ</label>
+                              <input type="text"  class="form-control idsloa canhgiua"  value="'.$slhongcu.'" disabled >
+                            </div>
+                          </td>
+                          <td style="width: 30%"> 
+                            <div class="form-group">
+                              <label>Số hỏng mới</label>
+                              <input type="number"   min="0" value="0" class="canhgiua _1231 form-control"  data-id1="'. $r1["idcothietbi"].'-'.$r1["idphong"].'" contenteditable >
+                            </div>
+                          </td>
+                          </tr>
+
+                     ';
+                }
+            $output .= '</tbody>
+                    </table>
+       
+      ';}
+      echo $output;
+  } // end iện thông tin chi tiết phòng và kiem tra thiết bị phòng
 
 ?>

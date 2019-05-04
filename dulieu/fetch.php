@@ -22,7 +22,8 @@ if (isset($_POST["id_thietbi_sua"])) {
 }//end xử lý thông tin lớp
 // xử lý thông tin có thiết bị
 if (isset($_POST["id_thietbitrongloaiphong_sua"])) {
-	$query = "SELECT ctb.idcothietbi,ctb.soluong, lp.id_loaiphong,lp.ten_loai_phong,thietbi.idtb, thietbi.tenthietbi, ctb.id_canbothem, can_bo.ho_can_bo, can_bo.ten_can_bo, ctb.ngaythem FROM loaiphongcothietbi ctb INNER JOIN loai_phong lp ON ctb.id_loaiphong = lp.id_loaiphong INNER JOIN thietbi ON thietbi.idtb = ctb.idtb INNER JOIN can_bo ON ctb.id_canbothem=can_bo.id_canbo WHERE thietbi.xoa=0 AND ctb.xoa=0 AND lp.xoa=0 AND ctb.idcothietbi='$_POST[id_thietbitrongloaiphong_sua]'";
+	$query = "SELECT ctb.idcothietbi,ctb.soluong, lp.id_loaiphong,lp.ten_loai_phong,thietbi.idtb, thietbi.tenthietbi FROM loaiphongcothietbi ctb INNER JOIN loai_phong lp ON ctb.id_loaiphong = lp.id_loaiphong INNER JOIN thietbi ON thietbi.idtb = ctb.idtb WHERE thietbi.xoa=0 AND ctb.xoa=0 AND lp.xoa=0 AND ctb.idcothietbi='1'
+";
 	$result = mysqli_query($con, $query);
 	$row = mysqli_fetch_array($result);
 	echo json_encode($row);
@@ -62,6 +63,14 @@ if (isset($_POST["id_phong_sua_12"])) {
 	$row = mysqli_fetch_array($result);
 	echo json_encode($row);
 }//end xử lý thông tin  phòng
+// xử lý xuất thông tin  phòng kiểm trang tình trạng phòng
+if (isset($_POST["id_phong_sua_12_thietbi_tinhtrang"])) {
+	$query = "SELECT phong.idphong, phong.ma_phong, phong.stt_tang, phong.id_canbothem, phong.thoigianthem, toa_nha.ten_toa_nha, toa_nha.id_toanha, loai_phong.id_loaiphong, loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o, loai_phong.gia_loai_phong , can_bo.ma_can_bo, can_bo.ten_can_bo, can_bo.ho_can_bo , ctb.idcothietbi, thietbi.tenthietbi FROM phong, toa_nha, loai_phong, can_bo, loaiphongcothietbi ctb, thietbi WHERE phong.xoa=0 AND phong.idphong='$_POST[id_phong_sua_12_thietbi_tinhtrang]' AND ctb.xoa=0 and thietbi.idtb= ctb.idtb AND phong.id_toanha= toa_nha.id_toanha AND phong.id_loaiphong= loai_phong.id_loaiphong AND can_bo.id_canbo= phong.id_canbothem
+";
+	$result = mysqli_query($con, $query);
+	$row = mysqli_fetch_array($result);
+	echo json_encode($row);
+}//end xử lý thông tin  phòng kiểm trang tình trạng phòng
 // xử lý xuất thông tin  phòng
 if (isset($_POST["id_o_phong_sua"])) {
 	$query = "SELECT o_phong.id_ophong, sinh_vien.id_sinhvien, sinh_vien.mssv, phong.ma_phong, phong.idphong, toa_nha.id_toanha, toa_nha.ten_toa_nha FROM o_phong, phong, sinh_vien, toa_nha WHERE o_phong.id_ophong='$_POST[id_o_phong_sua]' AND o_phong.id_phong= phong.idphong AND o_phong.id_sinhvien=sinh_vien.id_sinhvien AND phong.id_toanha=toa_nha.id_toanha";

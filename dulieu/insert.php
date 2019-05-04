@@ -464,6 +464,22 @@
 			echo $kiemtracapnhatctb;
 		}
 	} //ket thuc cap nhat mật khẩu cán bộ
+	//  Xử lý cập nhật tình trạng thiết bị trong phòng
+	if (isset($_POST['idcothietbi_tinhtrang']) && isset($_POST['idphong_tinhtrang']) && isset($_POST['dulieusua_tinhtrang'])) { 
+		// kiểm tra có sinh vien ở Có Phòng đó không
+		$idcothietbi_tinhtrang=$_POST['idcothietbi_tinhtrang'];
+		$idphong_tinhtrang=$_POST['idphong_tinhtrang'];
+		$dulieusua_tinhtrang=$_POST['dulieusua_tinhtrang'];
+		// tìm só lượng và so sánh số lượng 
+		$kiemtra_sl = mysqli_fetch_array(mysqli_query($con,"SELECT ctb.idcothietbi, ctb.id_loaiphong, ctb.idtb, ctb.soluong FROM loaiphongcothietbi ctb WHERE ctb.idcothietbi ='$idcothietbi_tinhtrang' AND ctb.xoa =0"));
+		echo $kiemtra_sl['soluong'];
+			// $delete_xoa_phong = "UPDATE o_phong SET o_phong.ngay_ket_thuc='".date('Y/m/d')."', o_phong.id_canboxoa='$_SESSION[id_canbo]', o_phong.ngay_xoa='".date('Y/m/d H:i:s')."' WHERE o_phong.id_ophong = '$_POST[id_o_phong_xoa_12]'";
+			// if (mysqli_query($con,$delete_xoa_phong)) {
+			// 	echo "99";
+			// }else{
+			// 	echo "100";
+			// }
+	}//end Xử lý cập nhật tình trạng thiết bị trong phòng
 	mysqli_close($con);
 
 ?>
