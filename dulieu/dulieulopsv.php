@@ -1,7 +1,7 @@
 <?php
 include 'conn.php';
 	
-	$selecet_lop = mysqli_query($con, "SELECT * FROM lop WHERE lop.xoa=0 order by ten_lop, id_khoa");
+	$selecet_lop = mysqli_query($con, "SELECT * FROM lop WHERE lop.xoa=0 order by  id_khoa, khoa, ten_lop");
 	if (!mysqli_num_rows($selecet_lop)) {
 		echo "<div style='text-align: center;'> Chưa có dữ liệu</div>";
 	} else {
