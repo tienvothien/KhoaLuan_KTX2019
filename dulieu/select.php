@@ -751,7 +751,8 @@ include 'kiemtradangnhap.php';
       $output .= '<div class="table-responsive">
                     <table class="table table-bordered">';
            while ($r1 = mysqli_fetch_array($result)) {
-              $r11 = mysqli_fetch_array(mysqli_query($con,"SELECT ctb.idcothietbi, tr.id_tinhtrang, tr.slhong FROM loaiphongcothietbi ctb, tinhtrang_thietbi_phong tr WHERE ctb.idcothietbi = tr.idcothietbi AND ctb.xoa=0 AND ctb.idcothietbi='$r1[idcothietbi]'"));
+            // số lượng thiết bị hỏng
+              $r11 = mysqli_fetch_array(mysqli_query($con,"SELECT ctb.idcothietbi, tr.id_tinhtrang, tr.slhong,tr.ngay_kt FROM loaiphongcothietbi ctb, tinhtrang_thietbi_phong tr WHERE ctb.idcothietbi = tr.idcothietbi AND ctb.xoa=0 AND ctb.idcothietbi='$r1[idcothietbi]' and tr.idphong='$r1[idphong]' and tr.xoa=0 ORDER BY tr.ngay_kt DESC"));
               $slhongcu=0;
               if ($r11["slhong"]!='') {
                 $slhongcu=$r11["slhong"];

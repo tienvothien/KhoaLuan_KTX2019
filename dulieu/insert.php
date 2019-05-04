@@ -472,13 +472,23 @@
 		$dulieusua_tinhtrang=$_POST['dulieusua_tinhtrang'];
 		// tìm só lượng và so sánh số lượng 
 		$kiemtra_sl = mysqli_fetch_array(mysqli_query($con,"SELECT ctb.idcothietbi, ctb.id_loaiphong, ctb.idtb, ctb.soluong FROM loaiphongcothietbi ctb WHERE ctb.idcothietbi ='$idcothietbi_tinhtrang' AND ctb.xoa =0"));
-		echo $kiemtra_sl['soluong'];
-			// $delete_xoa_phong = "UPDATE o_phong SET o_phong.ngay_ket_thuc='".date('Y/m/d')."', o_phong.id_canboxoa='$_SESSION[id_canbo]', o_phong.ngay_xoa='".date('Y/m/d H:i:s')."' WHERE o_phong.id_ophong = '$_POST[id_o_phong_xoa_12]'";
-			// if (mysqli_query($con,$delete_xoa_phong)) {
-			// 	echo "99";
-			// }else{
-			// 	echo "100";
-			// }
+		$kiemtra_sl_co=$kiemtra_sl['soluong'];
+		if ($dulieusua_tinhtrang>$kiemtra_sl_co) {
+			echo "1";
+		}else{
+			// kiểm tra xem dữ liệu kiểm tra đã tồn tại chưa
+			$ktr_cochua = mysqli_query($con,"SELECT tr.id_tinhtrang, tr.idphong, tr.idcothietbi FROM tinhtrang_thietbi_phong tr WHERE tr.xoa=0 AND tr.idphong ='$idphong_tinhtrang' AND tr.idcothietbi ='$idcothietbi_tinhtrang'");
+			if (mysqli_num_rows($ktr_cochua)) {
+				$r1242= mysqli_fetch_array($ktr_cochua);
+				mysqli_query($con,"UPDATE tinhtrang_thietbi_phong tr SET tr.xoa=1 where tr.id_tinhtrang='$r1242[id_tinhtrang]'");
+			}
+			$insert_tinhtrang = "INSERT INTO tinhtrang_thietbi_phong(idphong, idcothietbi, slhong, can_bo_kt, ngay_kt) VALUES ('$idphong_tinhtrang','$idcothietbi_tinhtrang','$dulieusua_tinhtrang','$_SESSION[id_canbo]','".date('Y/m/d H:i:s')."')";
+			if (mysqli_query($con,$insert_tinhtrang)) {
+				echo "99";
+			}else{
+				echo var_dump(mysqli_query($con,$insert_tinhtrang)) ;
+			}
+		}
 	}//end Xử lý cập nhật tình trạng thiết bị trong phòng
 	mysqli_close($con);
 

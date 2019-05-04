@@ -1,7 +1,7 @@
 $(document).ready(function () {
 	// cạp nhật số thiết bị hỏng của phòng
 	  function edit_data(idcothietbi, idphong, dulieusua){
-	  	// alert(idcothietbi+'--'+idphong+'--'+dulieusua);
+	  	alert(idcothietbi+'--'+idphong+'--'+dulieusua);
            $.ajax({
                 url:"../dulieu/insert.php",
                 method:"POST",
@@ -19,12 +19,12 @@ $(document).ready(function () {
            var dulieusua = $(this).val();
            // cắt chuỗi 
             var idcothietbi12 = chuoi_id.slice(0,chuoi_id.indexOf('-'));
-            var idphong12 = chuoi_id.slice(chuoi_id.indexOf('-'),chuoi_id.length);
+            var idphong12 = chuoi_id.slice(chuoi_id.indexOf('-')+1,chuoi_id.length);
             var result = confirm('Có chắc muốn cập nhật thông tin này?');
 
               if(result)  {
-              	if (dulieusua<1) {
-              		alert('Phải nhập số lớn hơn 0');
+              	if (dulieusua<0 && Number.isInteger(dulieusua)==false) {
+              		alert('Phải nhập số lơn hơn hoặc bằng 0 và là số nguyên');
               	}else {
                   	edit_data(idcothietbi12, idphong12, dulieusua);
               	}

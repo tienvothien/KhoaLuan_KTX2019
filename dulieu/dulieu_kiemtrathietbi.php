@@ -14,6 +14,7 @@ include 'conn.php';
 				<th>Sinh viên <br> đang ở</th>
 				<th>Số  <br> Loại thiết bị <br>(loại)</th>
 				<th>Số <br> thiết bị <br>(cái)</th>
+				<th style="color: red;">Số <br> thiết bị <br> hỏng(cái)</th>
 				<th>Kiểm tra</th>
 				<th>Chi tiết</th>
 			</tr>
@@ -27,8 +28,13 @@ include 'conn.php';
 				// số lượng loại thiết bị trong phòng
 				$slloaithietbi = mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(loaiphongcothietbi.idtb) as slloaithietbi FROM loaiphongcothietbi, phong WHERE phong.xoa=0 AND phong.idphong='$row_phong[idphong]' AND loaiphongcothietbi.xoa=0 and phong.id_loaiphong=loaiphongcothietbi.id_loaiphong"));
 				// số lượng  thiết bị trong phòng
-				$slthietbi = mysqli_fetch_array(mysqli_query($con,"SELECT sum(loaiphongcothietbi.soluong) as slthietbi FROM loaiphongcothietbi, phong WHERE phong.xoa=0 AND phong.idphong='$row_phong[idphong]' AND loaiphongcothietbi.xoa=0 and phong.id_loaiphong=loaiphongcothietbi.id_loaiphong
-"));
+				$slthietbi = mysqli_fetch_array(mysqli_query($con,"SELECT sum(loaiphongcothietbi.soluong) as slthietbi FROM loaiphongcothietbi, phong WHERE phong.xoa=0 AND phong.idphong='$row_phong[idphong]' AND loaiphongcothietbi.xoa=0 and phong.id_loaiphong=loaiphongcothietbi.id_loaiphong"));
+				// dữ liệu số thiết bị hỏng 
+				$slhong = mysqli_fetch_array(mysqli_query($con,"SELECT SUM(tr.slhong) AS slhong FROM tinhtrang_thietbi_phong tr WHERE tr.xoa=0 AND tr.idphong ='$row_phong[idphong]'"));
+				$slhong1=$slhong['slhong'];
+				if ($slhong1=='') {
+					$slhong1=0;
+				}
 
 			echo "
 			<tr>
@@ -37,6 +43,7 @@ include 'conn.php';
 					<td class='canhgiua'>$slsinhvien[slsinhvien]/$row_phong[sl_nguoi_o]</td>
 					<td class='canhgiua'>$slloaithietbi[slloaithietbi]</td>
 					<td class='canhgiua'>$slthietbi[slthietbi]</td>
+					<td class='canhgiua' style='color: red;'>$slhong1</td>
 					";
 				?>
 				<td class="canhgiuanek12">
