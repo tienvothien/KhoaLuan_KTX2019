@@ -14,6 +14,7 @@ if (mysqli_num_rows($query1)) {
 			<th class="text-center">Tổng số thiết bị </th>
 			<th class="canhgiua">Sửa</th>
 			<th class="canhgiua">Chi tiết</th>
+			<th colspan="" rowspan="" headers="" scope="">Phòng</th>
 			<th class="canhgiua">Xóa</th>
 			
 		</tr>
@@ -72,6 +73,11 @@ if (mysqli_num_rows($query1)) {
 				
 				<td class="canhgiuanek12"><input type="button" name="edit" value="Sửa" id="<?php echo $idcothietbi[$i]; ?>" class="btn btn-primary btn-xs id_sua_thietbitrongloaiphong" /></td>
 				<td class="canhgiuanek12"><input type="button" name="view" value="Chi tiết" id="<?php echo $idcothietbi[$i]; ?>" class="btn btn-success btn-xs view_chitietthietbitrongloaiphong" /></td>
+				<td class="canhgiua">
+					<a href="./../admin/quanly_kiemtrathietbi.php?thietbiphong=<?php echo $idcothietbi[$i]; ?>" title="">
+						<input type="button" name="view" value="Phòng" id="" class="btn btn-success btn-xs " />
+					</a>
+				</td>
 				<td class="canhgiuanek12"><input type="button" name="delete" value="Xóa" id="<?php echo $idcothietbi[$i]; ?>" class="btn btn-info btn-danger btn-xs xoa_thietbitrongloaiphong" /></td>
 			<?php
 				echo "</tr>

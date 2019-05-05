@@ -1,6 +1,5 @@
 <?php
 include './../dulieu/kiemtradangnhap.php';
-include './../dulieu/kirmtra_quantrivien.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

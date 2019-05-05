@@ -43,7 +43,7 @@
 					
 				</td>
 				<td class="canhgiua">
-					<a href="./../admin/danhsach_phong_cua_loai_phong.php?loaiphong=<?php echo $row_loai_phong['id_loaiphong']; ?>" title="">
+					<a href="./../admin/quanlyphong.php?loaiphong=<?php echo $row_loai_phong['id_loaiphong']; ?>" title="">
 					<input type="button" name="view" value="Danh sách" id="" class="btn btn-info btn-xs ds_phong_cualoaiphong" /></a>
 				</td>
 				<td class="canhgiuanek12"><input type="button" name="delete" value="Xóa" id="<?php echo $row_loai_phong['id_loaiphong']; ?>" class="btn btn-info btn-danger btn-xs xoa_loai_phong" /></td>

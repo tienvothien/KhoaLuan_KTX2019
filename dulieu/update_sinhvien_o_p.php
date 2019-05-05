@@ -20,7 +20,7 @@ if (isset($_POST['id__o_phong_sua_12']) && isset($_POST['id_dphong_moi'])) {
 	}else {
 		$ngay = date('Y/m/d H:i:s');
 		$ngay_kt =date('Y/m/d');
-		$update_o_phong= "UPDATE o_phong SET ngay_ket_thuc='$ngay_kt', o_phong.id_canboxoa='$_SESSION[id_canbo]', o_phong.ngay_xoa='$ngay' WHERE o_phong.id_ophong='$id__o_echophong_sua_12'";
+		$update_o_phong= "UPDATE o_phong SET ngay_ket_thuc='$ngay_kt', o_phong.id_canboxoa='$_SESSION[id_canbo]', o_phong.ngay_xoa='$ngay', chuyenphong=1 WHERE o_phong.id_ophong='$id__o_echophong_sua_12'";
 		$insert_o_phong ="INSERT INTO o_phong(id_sinhvien, id_phong, hoc_ky, nam_hoc, ngay_bat_dau,id_canbothem, ngaythem) VALUES ('$id_sinhvien','$id_dphong_moi','$hoc_ky','$nam_hoc','$ngay_kt','$_SESSION[id_canbo]','$ngay')";
 		if (mysqli_query($con,$update_o_phong)&& mysqli_query($con,$insert_o_phong)) {
 			echo "99";//ng)

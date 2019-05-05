@@ -79,6 +79,13 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 				<a href="quanlythietbi.php" class="list-group-item">Danh sách Thiết bị</a>
 				<a href="quanlythietbitrongloaiphong.php" class="list-group-item">Thiết bị trong Loại phòng</a>
 				<a href="quanly_kiemtrathietbi.php" class="list-group-item">Kiêm tra Thiết bị</a>
+			</div><button class="dropdown-btn">Quản lý Thống kê
+			<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-container">
+				<a href="thongke_toanha.php" class="list-group-item">Tòa nhà</a>
+				<a href="thongke_phong.php" class="list-group-item">Phòng</a>
+				<a href="quanlythietbi_thongke.php" class="list-group-item">Thiết bị</a>
 			</div>
 			<?php 
 				if ($qr_ktra_chucvu['idchucvu']==0){ ?>

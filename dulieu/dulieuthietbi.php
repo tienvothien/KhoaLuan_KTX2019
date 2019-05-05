@@ -13,6 +13,7 @@ include 'conn.php';
 				<th>Mã Thiết bị</th>
 				<th>Tên thiết bị</th>
 				<th>Ngày Thêm</th>
+				<th>Phòng</th>
 				<th>Sửa</th>
 				<th>Chi tiết</th>
 				<th>Xóa</th>
@@ -29,13 +30,19 @@ include 'conn.php';
 						<td class='chuinhoa canhgiua' >$row[mathietbi]</td>
 						<td class='chuinthuong'>$row[tenthietbi]</td>
 						<td class='canhgiua'>".date("d/m/Y H:i:s", strtotime($row['ngaythem']))."</td>
-
-						<td class='canhgiuanek12'><input type='button' name='edit' value='Sửa' id='".$row['idtb']."' class='btn btn-primary btn-xs id_sua_thietbi' /></td>
-						<td class='canhgiuanek12'><input type='button' name='view' value='Chi tiết' id='".$row['idtb']."' class='btn btn-success btn-xs view_chitietthietbi' /></td>
-						<td class='canhgiuanek12'><input type='button' name='delete' value='Xóa' id='".$row['idtb']."' class='btn btn-info btn-danger btn-xs xoa_thietbi' /></td>
-						
-					</tr>
 					";
+					?>
+						<td class="canhgiuanek12"><input type="button" name="edit" value="Sửa" id="<?php echo $row['idtb']; ?>" class="btn btn-primary btn-xs id_sua_thietbi" /></td>
+						<td class="canhgiuanek12"><input type="button" name="view" value="Chi tiết" id="<?php echo$row['idtb'];?>" class="btn btn-success btn-xs view_chitietthietbi" /></td>
+						<td class="canhgiua">
+							<a href="./../admin/quanly_kiemtrathietbi.php?thietbi=<?php echo$row['idtb'];?>" title="">
+								<input type="button" name="view" value="Phòng" id="" class="btn btn-info btn-xs view_chitietthietbi" />
+							</a>
+						</td>
+						<td class="canhgiuanek12"><input type="button" name="delete" value="Xóa" id="<?php echo$row['idtb'];?>" class="btn btn-info btn-danger btn-xs xoa_thietbi" /></td>
+					<?php	
+					 echo "</tr>";
+					
 					$stt++;
 				}
 			?>

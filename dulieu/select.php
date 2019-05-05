@@ -318,7 +318,7 @@ include 'kiemtradangnhap.php';
         // đếm số lượng gường
         $slguong = mysqli_fetch_array(mysqli_query($con, "SELECT SUM(loai_phong.sl_nguoi_o) AS slguong FROM phong, loai_phong WHERE phong.xoa=0 AND phong.id_toanha='$_POST[id_chitiettoa_nha]' AND phong.id_loaiphong=loai_phong.id_loaiphong"));
         // đếm số lượng sinh viên của tòa nhà
-        $slsinhvien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(o_phong.id_ophong) AS slsinhvien FROM phong, o_phong WHERE o_phong.ngay_ket_thuc is NULL AND phong.id_toanha='$_POST[id_chitiettoa_nha]' AND phong.idphong=o_phong.id_ophong"));
+        $slsinhvien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(o_phong.id_ophong) AS slsinhvien FROM phong, o_phong WHERE o_phong.ngay_ket_thuc is NULL AND phong.id_toanha='$_POST[id_chitiettoa_nha]' AND phong.idphong=o_phong.id_phong"));
       $result = mysqli_query($con, $query);
       $output .= '
       <div class="table-responsive">
@@ -717,15 +717,21 @@ include 'kiemtradangnhap.php';
                 <td width="25%" class="">' .$slsinhvien["slsinhvien"] . '</td>
               </tr>
                 ';
-                $tim_tb = mysqli_query($con,"SELECT loaiphongcothietbi.idcothietbi, loaiphongcothietbi.idtb, thietbi.tenthietbi , loaiphongcothietbi.soluong FROM loaiphongcothietbi, phong, thietbi WHERE phong.xoa=0 AND phong.idphong='$_POST[id_chitiet_phong_tinhtrangthietbi]' AND loaiphongcothietbi.xoa=0 and phong.id_loaiphong=loaiphongcothietbi.id_loaiphong AND thietbi.idtb=loaiphongcothietbi.idtb");
+                $tim_tb = mysqli_query($con,"SELECT loaiphongcothietbi.idcothietbi, loaiphongcothietbi.idtb, thietbi.tenthietbi , loaiphongcothietbi.soluong, phong.idphong FROM loaiphongcothietbi, phong, thietbi WHERE phong.xoa=0 AND phong.idphong='$_POST[id_chitiet_phong_tinhtrangthietbi]' AND loaiphongcothietbi.xoa=0 and phong.id_loaiphong=loaiphongcothietbi.id_loaiphong AND thietbi.idtb=loaiphongcothietbi.idtb");
                 while ($r1=mysqli_fetch_array($tim_tb)) {
+                  $r2=mysqli_fetch_array(mysqli_query($con,"SELECT tr.slhong FROM tinhtrang_thietbi_phong tr WHERE tr.idphong ='$r1[idphong]'  AND tr.idcothietbi ='$r1[idcothietbi]' AND tr.xoa=0"));
+                  $r23=$r2["slhong"];
+                  if ($r23=='') {
+                    $r23=0;
+                  }
                    $output .= '
                       </tr>
                          <tr>
                           <td width="25%"><label>Thiết bị</label></td>
                           <td width="25%" class="">' .$r1["tenthietbi"] . '</td>
-                          <td width="25%"><label>Số lượng</label></td>
-                          <td width="25%" class="">' .$r1["soluong"] . '</td>
+                          <td width="25%"><label>số hỏng/ Tổng Số lượng</label></td>
+                          <td width="25%" class="">'.$r23 .'/'.$r1["soluong"] . '</td>
+
                         </tr>
 
                      ';

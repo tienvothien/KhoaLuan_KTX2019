@@ -1,7 +1,6 @@
 $(document).ready(function () {
 	// cạp nhật số thiết bị hỏng của phòng
 	  function edit_data(idcothietbi, idphong, dulieusua){
-	  	alert(idcothietbi+'--'+idphong+'--'+dulieusua);
            $.ajax({
                 url:"../dulieu/insert.php",
                 method:"POST",
@@ -9,7 +8,14 @@ $(document).ready(function () {
                 	idphong_tinhtrang:idphong,
                 	dulieusua_tinhtrang:dulieusua},
                 success:function(data){
-                     alert(data);
+                     if(data==1){
+                     		alert(' Phải nhập số nhỏ hơn hoặc bằng số thiết bị đang có');
+                     }else if (data==99) {
+                     	alert('Cập nhật kiểm tra thành công');
+                     	location.reload();
+                     }else{
+                     	alert('Lỗi kiểm tra thiết bị');
+                     }
                 }
            });
       }

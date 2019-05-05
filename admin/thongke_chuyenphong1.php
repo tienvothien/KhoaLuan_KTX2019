@@ -37,7 +37,7 @@ include './../dulieu/kiemtradangnhap.php';
 							</div>
 						</div>
 						<hr class="ngay_ad">
-						<form action="" id="timkiem_da_o_phong_ssdv" method="POST" role="form">
+						<!-- <form action="" id="timkiem_da_o_phong_ssdv" method="POST" role="form">
 							<div class="row text-center">
 								<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8  col-sm-push-2 col-md-push-2 col-lg-push-2">
 									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-justify">
@@ -54,7 +54,7 @@ include './../dulieu/kiemtradangnhap.php';
 								</div>
 								
 							</div>
-						</form>
+						</form> -->
 					</div>
 					<br>
 					<div class="row"><!-- nho doi ten class -->
