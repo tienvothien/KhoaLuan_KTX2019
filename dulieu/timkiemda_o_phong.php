@@ -1,15 +1,22 @@
 
 <?php
 	if (isset($_POST['timkiem_daophongngay_batdau']) && isset($_POST['timkiem_daophongngay_kethuc'])) {
+		include 'conn.php';
+
 		$timkiem_daophongngay_batdau=$_POST['timkiem_daophongngay_batdau'];
 		$timkiem_daophongngay_kethuc=$_POST['timkiem_daophongngay_kethuc'];
+		$timkiem_dang_ophong_id_toanha=$_POST['timkiem_dang_ophong_id_toanha'];
 		if ($timkiem_daophongngay_kethuc=='') {
 			$timkiem_daophongngay_kethuc=date('Y/m/d');
 		}if ($timkiem_daophongngay_batdau=='') {
 			 $timkiem_daophongngay_batdau=date('2015/1/1');
 		}
-			include 'conn.php';
-			$selecet_sinh_vien = mysqli_query($con, "SELECT sinh_vien.id_sinhvien, sinh_vien.mssv, sinh_vien.ho_sv, sinh_vien.ten_sv, sinh_vien.ngay_sinh, sinh_vien.gioi_tinh, sinh_vien.que_quan, sinh_vien.so_cmnd, sinh_vien.ngay_cap, sinh_vien.noi_cap, sinh_vien.matinh, sinh_vien.mahuyen, sinh_vien.maxa, sinh_vien.so_nha, sinh_vien.so_dt, sinh_vien.email, sinh_vien.hotencha, sinh_vien.sdtcha, sinh_vien.hotenme, sinh_vien.sdtme, sinh_vien.id_lop, phong.idphong, phong.ma_phong, toa_nha.ten_toa_nha, toa_nha.ma_toa_nha, toa_nha.id_toanha,toa_nha.loai_toa_nha, lop.id_lop, lop.ten_lop, o_phong.ngay_bat_dau , o_phong.id_ophong, o_phong.ngay_ket_thuc FROM toa_nha,sinh_vien, o_phong, phong, lop WHERE sinh_vien.xoa=0 and (( o_phong.ngay_ket_thuc BETWEEN '$timkiem_daophongngay_batdau' and '$timkiem_daophongngay_kethuc') OR ( o_phong.ngay_bat_dau BETWEEN '$timkiem_daophongngay_batdau' and '$timkiem_daophongngay_kethuc')) AND o_phong.id_sinhvien= sinh_vien.id_sinhvien AND o_phong.id_phong=phong.idphong AND toa_nha.id_toanha = phong.id_toanha and sinh_vien.id_lop= lop.id_lop ORDER BY sinh_vien.id_sinhvien, o_phong.ngay_bat_dau,toa_nha.loai_toa_nha, toa_nha.ten_toa_nha, phong.ma_phong ");
+		if ($timkiem_dang_ophong_id_toanha!='') {
+			$selecet_sinh_vien = mysqli_query($con, "SELECT sinh_vien.id_sinhvien, sinh_vien.mssv, sinh_vien.ho_sv, sinh_vien.ten_sv, sinh_vien.ngay_sinh, sinh_vien.gioi_tinh, sinh_vien.que_quan, sinh_vien.so_cmnd, sinh_vien.ngay_cap, sinh_vien.noi_cap, sinh_vien.matinh, sinh_vien.mahuyen, sinh_vien.maxa, sinh_vien.so_nha, sinh_vien.so_dt, sinh_vien.email, sinh_vien.hotencha, sinh_vien.sdtcha, sinh_vien.hotenme, sinh_vien.sdtme, sinh_vien.id_lop, phong.idphong, phong.ma_phong, toa_nha.ten_toa_nha, toa_nha.ma_toa_nha, toa_nha.id_toanha,toa_nha.loai_toa_nha, lop.id_lop, lop.ten_lop, o_phong.ngay_bat_dau , o_phong.id_ophong, o_phong.ngay_ket_thuc FROM toa_nha,sinh_vien, o_phong, phong, lop WHERE sinh_vien.xoa=0 and phong.id_toanha = $timkiem_dang_ophong_id_toanha and  o_phong.ngay_ket_thuc is not null and (( o_phong.ngay_ket_thuc BETWEEN '$timkiem_daophongngay_batdau' and '$timkiem_daophongngay_kethuc') OR ( o_phong.ngay_bat_dau BETWEEN '$timkiem_daophongngay_batdau' and '$timkiem_daophongngay_kethuc')) AND o_phong.id_sinhvien= sinh_vien.id_sinhvien AND o_phong.id_phong=phong.idphong AND toa_nha.id_toanha = phong.id_toanha and sinh_vien.id_lop= lop.id_lop ORDER BY sinh_vien.id_sinhvien, o_phong.ngay_bat_dau,toa_nha.loai_toa_nha, toa_nha.ten_toa_nha, phong.ma_phong ");
+		}else{
+			$selecet_sinh_vien = mysqli_query($con, "SELECT sinh_vien.id_sinhvien, sinh_vien.mssv, sinh_vien.ho_sv, sinh_vien.ten_sv, sinh_vien.ngay_sinh, sinh_vien.gioi_tinh, sinh_vien.que_quan, sinh_vien.so_cmnd, sinh_vien.ngay_cap, sinh_vien.noi_cap, sinh_vien.matinh, sinh_vien.mahuyen, sinh_vien.maxa, sinh_vien.so_nha, sinh_vien.so_dt, sinh_vien.email, sinh_vien.hotencha, sinh_vien.sdtcha, sinh_vien.hotenme, sinh_vien.sdtme, sinh_vien.id_lop, phong.idphong, phong.ma_phong, toa_nha.ten_toa_nha, toa_nha.ma_toa_nha, toa_nha.id_toanha,toa_nha.loai_toa_nha, lop.id_lop, lop.ten_lop, o_phong.ngay_bat_dau , o_phong.id_ophong, o_phong.ngay_ket_thuc FROM toa_nha,sinh_vien, o_phong, phong, lop WHERE sinh_vien.xoa=0 and  o_phong.ngay_ket_thuc is not null and (( o_phong.ngay_ket_thuc BETWEEN '$timkiem_daophongngay_batdau' and '$timkiem_daophongngay_kethuc') OR ( o_phong.ngay_bat_dau BETWEEN '$timkiem_daophongngay_batdau' and '$timkiem_daophongngay_kethuc')) AND o_phong.id_sinhvien= sinh_vien.id_sinhvien AND o_phong.id_phong=phong.idphong AND toa_nha.id_toanha = phong.id_toanha and sinh_vien.id_lop= lop.id_lop ORDER BY sinh_vien.id_sinhvien, o_phong.ngay_bat_dau,toa_nha.loai_toa_nha, toa_nha.ten_toa_nha, phong.ma_phong ");
+		}
+			
 			if (!mysqli_num_rows($selecet_sinh_vien)) {
 				?><h3 style="text-align: center;"> Chưa có dữ liệu</h3>"<?php
 			} else {
@@ -48,6 +55,7 @@
 						// lấy tên lớp
 						 $lop = mysqli_fetch_array(mysqli_query($con, "SELECT lop.ma_lop FROM lop WHERE lop.xoa =0 AND lop.id_lop ='$row_sinh_vien[id_lop]'"));
 						$lop1=$lop["ma_lop"];
+						
 						//end tên lớp
 					echo "
 					<tr>

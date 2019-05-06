@@ -39,14 +39,27 @@ include './../dulieu/kiemtradangnhap.php';
 						<hr class="ngay_ad">
 						<form action="" id="timkiem_da_o_phong_ssdv" method="POST" role="form">
 							<div class="row text-center">
-								<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8  col-sm-push-2 col-md-push-2 col-lg-push-2">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  col-sm-push-1 col-md-push-1 col-lg-push-1">
 									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-justify">
 										<label for="" class="form-control boviennha" >Tìm sinh viên ở từ ngày</label>
 									</div>
-									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+									<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 										<input type="date" class="form-control" id="timkiem_daophongngay_batdau" placeholder="Input field" style="    width: 45%; float:left">
 										<label class="form-control boviennha" style=" width:3%; float: left">-</label>
 										<input class="form-control" type="date" class=form-control id="timkiem_daophongngay_kethuc" placeholder="Input field" style="    width: 45%">
+									</div>
+									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										<select name="timkiem_dang_ophong_id_toanha" id="timkiem_dang_ophong_id_toanha" class="form-control" >
+											<option value="">Chọn tòa nhà</option>
+											<?php  $qr = mysqli_query($con, "SELECT toa_nha.id_toanha, toa_nha.ma_toa_nha, toa_nha.ten_toa_nha FROM toa_nha where toa_nha.xoa=0  order by toa_nha.ten_toa_nha");
+												while ($r= mysqli_fetch_array($qr)) {
+											
+													echo " <option value='".$r['id_toanha']."'>".$r["ma_toa_nha"]."-".$r["ten_toa_nha"]."</option>";
+												}
+
+											?>
+											
+										</select>
 									</div>
 									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 text-left">
 										<button type="submit" class="btn btn-primary">Tìm</button>

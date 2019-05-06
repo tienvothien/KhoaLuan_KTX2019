@@ -218,14 +218,17 @@ $(document).ready(function () {
 		event.preventDefault();
 			var timkiem_daophongngay_batdau=$('#timkiem_daophongngay_batdau').val();
 			var timkiem_daophongngay_kethuc=$('#timkiem_daophongngay_kethuc').val();
-			if (timkiem_daophongngay_batdau=='' && timkiem_daophongngay_kethuc=='') {
+			var timkiem_dang_ophong_id_toanha=$('#timkiem_dang_ophong_id_toanha').val();
+
+			if (timkiem_daophongngay_batdau=='' && timkiem_daophongngay_kethuc==''&& timkiem_dang_ophong_id_toanha=='') {
 				
 			}else{
 				$.ajax({
 					url:"./../dulieu/timkiemda_o_phong.php",
                      method:"POST",
                      data:{timkiem_daophongngay_batdau:timkiem_daophongngay_batdau,
-                     	timkiem_daophongngay_kethuc:timkiem_daophongngay_kethuc},
+                     	timkiem_daophongngay_kethuc:timkiem_daophongngay_kethuc,
+                     	timkiem_dang_ophong_id_toanha:timkiem_dang_ophong_id_toanha},
 					success:function (kql_tim_Da_o_phong) {
 						// alert(kql_tim_Da_o_phong);
 						$('#dulieu_o_phong').html(kql_tim_Da_o_phong);
@@ -239,14 +242,16 @@ $(document).ready(function () {
 		event.preventDefault();
 			var timkiem_dang_ophongngay_batdau=$('#timkiem_dang_ophongngay_batdau').val();
 			var timkiem_dang_ophongngay_kethuc=$('#timkiem_dang_ophongngay_kethuc').val();
-			if (timkiem_dang_ophongngay_batdau=='' && timkiem_dang_ophongngay_kethuc=='') {
+			var timkiem_dang_ophong_id_toanha=$('#timkiem_dang_ophong_id_toanha').val();
+			if (timkiem_dang_ophongngay_batdau=='' && timkiem_dang_ophongngay_kethuc=='' && timkiem_dang_ophong_id_toanha=='') {
 				
 			}else{
 				$.ajax({
 					url:"./../dulieu/timkiem_dang_o_phong.php",
                      method:"POST",
                      data:{timkiem_dang_ophongngay_batdau:timkiem_dang_ophongngay_batdau,
-                     	timkiem_dang_ophongngay_kethuc:timkiem_dang_ophongngay_kethuc},
+                     	timkiem_dang_ophongngay_kethuc:timkiem_dang_ophongngay_kethuc,
+                     	timkiem_dang_ophong_id_toanha:timkiem_dang_ophong_id_toanha},
 					success:function (kql_tim_Dang_o_phong) {
 						// alert(kql_tim_Da_o_phong);
 						$('#dulieu_o_phong').html(kql_tim_Dang_o_phong);

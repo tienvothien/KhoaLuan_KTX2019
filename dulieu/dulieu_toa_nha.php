@@ -16,9 +16,9 @@
 				<th>Số phòng</th>
 				<th>Số Gường</th>
 				<th>Sinh Viên <br>đang ở</th>
-				<th>Danh sách</th>
 				<th>Sửa</th>
 				<th>Chi tiết</th>
+				<th>Danh sách</th>
 				<th>Xóa</th>
 			</tr>
 		</thead>
