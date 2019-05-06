@@ -46,7 +46,12 @@
 							<div class="row"><!-- nho doi ten class -->
 							<div class="dulieu_add_thietbi"  id="dulieu_add_thietbi" style="width: 100%; font-size: 14px;"><?php include './../dulieu/dulieuthietbi.php'; ?></div>
 							<div class="col-xs-11 col-sm-12 col-md-2 col-lg-2">
-								<div class="nuthemmoi"><input type="button" class="btn btn-primary btn-block" name="themthietbi" value="Thêm mới" data-toggle="modal" data-target="#themthietbi1"></div>
+								<div class="nuthemmoi">
+									<input type="button" class="btn btn-primary btn-block" name="themthietbi" value="Thêm mới" data-toggle="modal" data-target="#themthietbi1">
+									<a href="./../admin/export.php" title="">
+										<button type="" class="btn btn-danger">xuất Excel</button>
+									</a>
+								</div>
 							</div>
 							</div><!-- end thaydoi1 -->
 							</div><!-- end noidungthaydoi -->
@@ -88,6 +93,7 @@
 								<!-- Modal footer -->
 								<div class="modal-footer">
 									<button type="submit" class="btn btn-danger">Thêm mới</button>
+									
 								</div>
 							</form>
 						</div>

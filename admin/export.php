@@ -2,7 +2,6 @@
 
 require('./../Classes/PHPExcel.php');
 include './../dulieu/conn.php';
-if(isset($_POST['btnExport'])){
 	$objExcel = new PHPExcel;
 	$objExcel->setActiveSheetIndex(0);
 	$sheet = $objExcel->getActiveSheet()->setTitle();
@@ -40,7 +39,8 @@ if(isset($_POST['btnExport'])){
 	 );
 	$sheet->getStyle('A4:'.'C'.$rowCount)->applyFromArray($styleArray);
 	$objWriter = new PHPExcel_Writer_Excel2007($objExcel);
-	$filename = 'export.xlsx';
+	$tenfiel= strtotime(date('Y/m/d H:i:s'));
+	$filename = 'thietbi-'.$tenfiel.'.xlsx';
 	$objWriter->save($filename);
 
 	header('Content-Disposition: attachment; filename="' . $filename . '"');  
@@ -52,21 +52,6 @@ if(isset($_POST['btnExport'])){
 	readfile($filename);  
 	return;
 
-}
 
 
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Export data</title>
-	<link rel="stylesheet" href="">
-</head>
-<body>
-	<form method="POST">
-		<button name="btnExport" type="submit">Xuất file</button>
-	</form>
-</body>
-</html>

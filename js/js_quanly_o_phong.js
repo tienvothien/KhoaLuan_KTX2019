@@ -1,4 +1,18 @@
 $(document).ready(function () {
+	$(document).on('click', '.xuat_excel12', function(){
+		var xuat_ophong_ngay_batdau=$('#timkiem_dang_ophongngay_batdau').val();
+		var xuat_ophong_ngay_kethuc=$('#timkiem_dang_ophongngay_kethuc').val();
+		var xuat_ophong_id_toanha=$('#timkiem_dang_ophong_id_toanha').val();
+		$.ajax({
+			url:"./../dulieu/xuat_excel.php",
+			method:"POST",
+			data:{},
+			success:function(data){
+				 // window.location('./../dulieu/xuat_excel.php');
+			}
+		});
+
+	});
 	// nhap mã số sinh viên hiện thông tin sinh viên
 	$('#mssv_o_phong_them').change(function() {
 		if ($('#mssv_o_phong_them').val().length!=10) {
@@ -238,7 +252,7 @@ $(document).ready(function () {
 			}
 	});// end xử lý tìm kiếm đã ở phòng
 		// xử lý tìm kiếm đang ở phòng
-	$('#timkiem_dang_o_phong_ssdv').on('submit', function(event){
+	$('#tim_kiem_dang_o_phong').on('click', function(event){
 		event.preventDefault();
 			var timkiem_dang_ophongngay_batdau=$('#timkiem_dang_ophongngay_batdau').val();
 			var timkiem_dang_ophongngay_kethuc=$('#timkiem_dang_ophongngay_kethuc').val();

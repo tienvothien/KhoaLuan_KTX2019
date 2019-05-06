@@ -37,16 +37,16 @@ include './../dulieu/kiemtradangnhap.php';
 							</div>
 						</div>
 						<hr class="ngay_ad">
-						<form action="" id="timkiem_dang_o_phong_ssdv" method="POST" role="form">
+						<form action="./../dulieu/xuat_excel.php" id="" method="POST" role="form">
 							<div class="row text-center">
 								<div class="col-xs-12 col-sm-11 col-md-11 col-lg-11  col-sm-push-1 col-md-push-1 col-lg-push-1">
 									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-justify">
 										<label for="" class="form-control boviennha text-right" >Tìm sinh viên ở từ ngày</label>
 									</div>
 									<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-										<input type="date" class="form-control" id="timkiem_dang_ophongngay_batdau" placeholder="Input field" style="    width: 45%; float:left">
+										<input type="date" class="form-control" id="timkiem_dang_ophongngay_batdau"  name="timkiem_dang_ophongngay_batdau" placeholder="Input field" style="    width: 45%; float:left">
 										<label class="form-control boviennha" style=" width:3%; float: left">-</label>
-										<input class="form-control" type="date" class=form-control id="timkiem_dang_ophongngay_kethuc" placeholder="Input field" style="    width: 45%">
+										<input class="form-control" type="date" class=form-control id="timkiem_dang_ophongngay_kethuc"  name="timkiem_dang_ophongngay_kethuc" placeholder="Input field" style="    width: 45%">
 									</div>
 									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 										<select name="timkiem_dang_ophong_id_toanha" id="timkiem_dang_ophong_id_toanha" class="form-control" >
@@ -62,7 +62,9 @@ include './../dulieu/kiemtradangnhap.php';
 										</select>
 									</div>
 									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 text-left">
-										<button type="submit" class="btn btn-primary">Tìm</button>
+										<button type="button" id="tim_kiem_dang_o_phong" class="btn btn-primary">Tìm</button>
+										<button type="submit" class="btn btn-info xuat_excel12" id="xuat_excel12">Xuất Excel</button>
+
 									</div>
 								</div>
 								

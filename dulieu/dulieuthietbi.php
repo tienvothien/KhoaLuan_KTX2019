@@ -12,10 +12,11 @@ include 'conn.php';
 				<th style="text-align:center;">STT</th>
 				<th>Mã Thiết bị</th>
 				<th>Tên thiết bị</th>
-				<th>Ngày Thêm</th>
-				<th>Phòng</th>
+				<th>Số Phòng </th>
+				<th>Đang trang <br> bị (cái) </th>
 				<th>Sửa</th>
 				<th>Chi tiết</th>
+				<th>Phòng</th>
 				<th>Xóa</th>
 			</tr>
 		</thead>
@@ -24,12 +25,16 @@ include 'conn.php';
 				$stt = 1;
 				while ($row = mysqli_fetch_array($selecet_khoa)) {
 					$can_bothem = mysqli_fetch_array(mysqli_query($con, "SELECT  can_bo.ho_can_bo, can_bo.ten_can_bo FROM can_bo WHERE id_canbo='$row[id_canbothem]'"));
+					$slp = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(phong.idphong) AS slp from  phong, loaiphongcothietbi ctb WHERE ctb.idtb='$row[idtb]' AND ctb.xoa=0 AND phong.id_loaiphong = ctb.id_loaiphong"));
+					$sltb = mysqli_fetch_array(mysqli_query($con, "SELECT  sum(ctb.soluong)AS sltb from  loaiphongcothietbi ctb WHERE ctb.idtb='$row[idtb]' AND ctb.xoa=0"));
+					
 					echo "
 					<tr>
 						<td style='text-align:center;'>$stt</td>
 						<td class='chuinhoa canhgiua' >$row[mathietbi]</td>
 						<td class='chuinthuong'>$row[tenthietbi]</td>
-						<td class='canhgiua'>".date("d/m/Y H:i:s", strtotime($row['ngaythem']))."</td>
+						<td class='canhgiua'>$slp[slp]</td>
+						<td class='canhgiua'>".$sltb['sltb']*$slp['slp']."</td>
 					";
 					?>
 						<td class="canhgiuanek12"><input type="button" name="edit" value="Sửa" id="<?php echo $row['idtb']; ?>" class="btn btn-primary btn-xs id_sua_thietbi" /></td>
