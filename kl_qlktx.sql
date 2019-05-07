@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 05, 2019 lúc 12:40 PM
+-- Thời gian đã tạo: Th5 07, 2019 lúc 05:23 PM
 -- Phiên bản máy phục vụ: 10.1.29-MariaDB
 -- Phiên bản PHP: 7.2.0
 
@@ -64,9 +64,9 @@ CREATE TABLE `can_bo` (
 --
 
 INSERT INTO `can_bo` (`id_canbo`, `hinhanh`, `ma_can_bo`, `ho_can_bo`, `ten_can_bo`, `gioitinh`, `ngay_sinh`, `sdt`, `email`, `xoa`, `id_canbothem`, `ngaythem`, `id_canboxoa`, `ngay_xoa`) VALUES
-(1, 'VÕ THIỆN TIÊN   08.03.1992.JPG', 1000000000, 'Võ Thiện', 'Tiên', 'Nam', '1992-03-08', '0799659225', 'vttien8392@gmail.com', 0, 0, '2019-04-10 00:00:00', 1, '2019-04-23 18:30:26'),
+(1, 'VÕ THIỆN TIÊN   08.03.1992.JPG', 1000000000, 'Võ Thiện', 'Tiên', 'Nữ', '1992-03-08', '0799659225', 'vttien8392@gmail.com', 0, 0, '2019-04-10 00:00:00', 1, '2019-04-23 18:30:26'),
 (2, '2131a7bca6f843a61ae9.jpg', 1000000001, 'Trần Thị Quỳnh', 'Giao', 'Nữ', '1997-11-03', '0566837004', 'ttqgiao0311@gmail.com', 0, 1000000000, '2019-04-14 00:00:00', 1, '2019-04-15 10:50:07'),
-(4, 'vnkgu.png', 1000000002, 'Cán bộ Ví ', 'Dụ 3', 'Nam', '2019-05-04', '0256789022', 'vttien8392@gmail.com2', 0, 1, '2019-05-01 17:59:17', NULL, NULL);
+(4, 'vnkgu.png', 1000000002, 'Cán bộ Ví ', 'Dụ 3', 'Nam', '2019-05-04', '0256789022', 'vttien8392@gmail.com2', 1, 0, '2019-05-01 17:59:17', 1, '2019-05-07 20:23:02');
 
 -- --------------------------------------------------------
 
@@ -95,7 +95,7 @@ INSERT INTO `chucvu` (`idchucvu`, `machucvu`, `tenchucvu`, `id_canbothem`, `ngay
 (2, 'CB4', 'Cán bộ Kế toán', 1, '2019-04-10 00:00:00', 0, NULL, NULL),
 (19, 'SV1', 'Sinh Viên', 2, '2019-04-27 18:57:25', 0, NULL, NULL),
 (21, 'CB5', 'Chức vụ ví dụ 1', 2, '2019-04-28 18:58:53', 1, '2019-04-28 19:00:11', 2),
-(22, 'cv1', 'Chức vụ ví dụ 2', 2, '2019-04-28 19:00:00', 0, NULL, NULL);
+(22, 'cv1', 'Chức vụ ví dụ 3', 2, '2019-04-28 19:00:00', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -119,15 +119,19 @@ CREATE TABLE `cochucvu` (
 --
 
 INSERT INTO `cochucvu` (`id_cochucvu`, `id_canbo`, `idchucvu`, `id_canbothem`, `ngaythem`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
-(1, 1, 1, 1, '2019-04-10 00:00:00', 0, NULL, NULL),
+(1, 1, 1, 1, '2019-04-10 00:00:00', 1, 1, '2019-05-07 13:52:31'),
 (2, 2, 1, 1, '2019-04-14 00:00:00', 1, 1, '0000-00-00 00:00:00'),
 (3, 2, 2, 1, '2019-04-17 00:00:00', 1, 1, '2019-05-02 18:47:59'),
 (4, 1, 0, 1, '2019-04-27 00:00:00', 0, NULL, NULL),
 (5, 1, 22, 1, '2019-04-30 19:14:17', 1, 1, '2019-05-03 17:54:14'),
 (6, 2, 22, 1, '2019-05-01 21:56:43', 1, 1, '0000-00-00 00:00:00'),
 (14, 2, 2, 1, '2019-05-03 17:16:08', 1, 1, '0000-00-00 00:00:00'),
-(15, 2, 1, 1, '2019-05-03 17:16:23', 0, NULL, NULL),
-(16, 2, 2, 1, '2019-05-03 17:18:14', 0, NULL, NULL);
+(15, 2, 1, 1, '2019-05-03 17:16:23', 1, 1, '0000-00-00 00:00:00'),
+(16, 2, 2, 1, '2019-05-03 17:18:14', 0, NULL, NULL),
+(17, 4, 22, 1, '2019-05-07 13:55:20', 1, 1, '2019-05-07 15:43:14'),
+(18, 2, 22, 1, '2019-05-07 15:37:26', 1, 1, '0000-00-00 00:00:00'),
+(19, 2, 1, 1, '2019-05-07 15:39:07', 0, NULL, NULL),
+(20, 4, 2, 1, '2019-05-07 15:43:14', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -976,7 +980,8 @@ INSERT INTO `loaiphongcothietbi` (`idcothietbi`, `id_loaiphong`, `idtb`, `soluon
 (2, 1, 2, 3, '2019-04-13 00:00:00', 1, 1, 1, '2019-04-13 21:33:43'),
 (6, 2, 2, 1, '2019-04-13 20:38:14', 1, 0, NULL, NULL),
 (7, 2, 1, 1, '2019-04-13 22:38:03', 1, 0, 1, '2019-04-29 19:54:57'),
-(8, 1, 2, 2, '2019-05-04 09:27:33', 2, 0, NULL, NULL);
+(8, 1, 2, 2, '2019-05-04 09:27:33', 2, 0, NULL, NULL),
+(9, 1, 1, 3, '2019-05-07 15:55:12', 1, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1003,7 +1008,8 @@ CREATE TABLE `loai_phong` (
 
 INSERT INTO `loai_phong` (`id_loaiphong`, `ma_loai_phong`, `ten_loai_phong`, `sl_nguoi_o`, `gia_loai_phong`, `id_canbothem`, `ngay_them`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
 (1, 'lp1', 'Phòng Thường 01', 8, 100000, 1, '2019-04-13', 0, 2, '2019-04-24 14:29:27'),
-(2, 'lp2', 'Phòng Thường 02', 4, 50000, 1, '2018-09-20', 0, 2, '2019-04-24 14:29:35');
+(2, 'lp2', 'Phòng Thường 02', 4, 70000, 1, '2018-09-20', 0, 2, '2019-04-24 14:29:35'),
+(3, 'lp3', 'Loại phòng ví dụ 3', 1, 59995, 1, '2019-05-07', 1, 1, '2019-05-07 20:15:21');
 
 -- --------------------------------------------------------
 
@@ -1034,10 +1040,9 @@ INSERT INTO `log_sua_dl` (`idlog`, `bangsua`, `tenbang`, `iddulieu`, `cot`, `ten
 (258, 'lop', 'Lớp', 32, 'khoa', 'Khóa', '2', '1', 1, '2019-05-03 16:15:11'),
 (259, 'Phong', 'Phòng', 5, 'ma_phong', 'Số phòng', '103', '201', 1, '2019-05-03 19:21:33'),
 (260, 'Phong', 'Phòng', 5, 'stt_tang', 'Số thứ tự Tầng', '1', '2', 1, '2019-05-03 19:21:33'),
-(261, 'sinh_vien', 'Sinh viên', 9, 'gioi_tinh', 'Giới tính sinh viên', 'Nam', 'Nữ', 1, '2019-05-03 19:59:09'),
-(262, 'sinh_vien', 'Sinh viên', 6, 'mssv', 'Mã số Sih viên', '1501206022', '1501206027', 1, '2019-05-03 20:21:21'),
+(262, 'sinh_vien', 'Sinh viên', 6, 'mssv', 'MSSV', '1501206022', '1501206027', 1, '2019-05-03 20:21:21'),
 (263, 'toa_nha', 'Tòa nhà', 2, 'loai_toa_nha', 'Loại Tòa nhà', 'Nữ', 'Nam', 1, '2019-05-03 20:50:12'),
-(264, 'sinh_vien', 'Sinh viên', 6, 'mssv', 'Mã số Sih viên', '1501206027', '1501206022', 1, '2019-05-03 21:42:04'),
+(264, 'sinh_vien', 'Sinh viên', 6, 'mssv', 'MSSV', '1501206027', '1501206022', 1, '2019-05-03 21:42:04'),
 (265, 'loai_phong', 'Loại phòng', 2, 'sl_nguoi_o', 'Số lượng người ở', '8', '4', 1, '2019-05-03 21:44:16'),
 (266, 'Phong', 'Phòng', 1, 'ma_phong', 'Số phòng', '101', '501', 2, '2019-05-04 09:17:17'),
 (267, 'Phong', 'Phòng', 3, 'id_toanha', 'Tòa nhà', '6', '', 1, '2019-05-04 12:12:00'),
@@ -1057,7 +1062,20 @@ INSERT INTO `log_sua_dl` (`idlog`, `bangsua`, `tenbang`, `iddulieu`, `cot`, `ten
 (281, 'taikhoan', 'Tài khoản', 2, 'matkhau', 'Mật khẩu', '579646aad11fae4dd295812fb4526245', 'a970a7e3b359f88a4732b56050822888', 2, '2019-05-04 21:31:23'),
 (282, 'khoa', 'Khoa', 66, 'ma_khoa', 'Mã Khoa', 'ttt1', 'ttt2', 2, '2019-05-04 21:37:06'),
 (283, 'lop', 'Lớp', 1, 'khoa', 'Khóa', '2', '1', 2, '2019-05-04 21:43:11'),
-(284, 'lop', 'Lớp', 1, 'nam_BD', 'Năm bắt đầu', '2016', '2015', 2, '2019-05-04 21:43:11');
+(284, 'lop', 'Lớp', 1, 'nam_BD', 'Năm bắt đầu', '2016', '2015', 2, '2019-05-04 21:43:11'),
+(285, 'toa_nha', 'Tòa nhà', 1, 'ten_toa_nha', 'Tên Tòa nhà', 'Tòa nhà Sinh viên 9', 'Tòa nhà Sinh viên A', 2, '2019-05-07 08:11:40'),
+(286, 'taikhoan', 'Tài khoản', 1, 'matkhau', 'Mật khẩu', 'a970a7e3b359f88a4732b56050822888', '579646aad11fae4dd295812fb4526245', 1, '2019-05-07 13:53:36'),
+(287, 'loai_phong', 'Loại phòng', 2, 'gia_loai_phong', 'Giá phòng', '50000', '70000', 1, '2019-05-07 14:07:34'),
+(288, 'sinh_vien', 'Sinh viên', 5, 'que_quan', 'Quê quán sinh viên', '54', '89', 1, '2019-05-07 14:40:26'),
+(289, 'sinh_vien', 'Sinh viên', 6, 'so_nha', 'HKTT Số nhà sinh viên', 'Tổ 1', 'Tổ 12', 1, '2019-05-07 14:43:54'),
+(290, 'Phong', 'Phòng', 4, 'stt_tang', 'Số thứ tự Tầng', '1', '2', 1, '2019-05-07 14:52:16'),
+(291, 'Phong', 'Phòng', 4, 'ma_phong', 'Số phòng', '100', '333', 1, '2019-05-07 14:52:48'),
+(293, 'o_phong', 'Ở phòng', 47, 'id_phong', 'Phòng', '4', '1', 1, '2019-05-07 15:12:36'),
+(294, 'can_bo', 'Cán bộ', 1, 'gioitinh', 'Giới tính', 'Nam', 'Nữ', 1, '2019-05-07 15:30:04'),
+(295, 'chucvu', 'Chức vụ', 22, 'tenchucvu', 'Tên Chức vụ', 'Chức vụ ví dụ 2', 'Chức vụ ví dụ 3', 1, '2019-05-07 15:32:20'),
+(296, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 9, 'soluong', 'Số Lượng', '4', '2', 1, '2019-05-07 16:15:31'),
+(297, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 9, 'soluong', 'Số Lượng', '2', '3', 1, '2019-05-07 16:31:20'),
+(298, 'loai_phong', 'Loại phòng', 3, 'gia_loai_phong', 'Giá phòng', '59999', '59995', 1, '2019-05-07 20:15:16');
 
 -- --------------------------------------------------------
 
@@ -1089,7 +1107,7 @@ INSERT INTO `lop` (`id_lop`, `ma_lop`, `ten_lop`, `id_khoa`, `nam_BD`, `khoa`, `
 (11, 'b15tt2', 'B15 Thông tin 2', 1, 2015, 1, 1, '2019-04-30 10:45:42', 0, NULL, NULL),
 (29, 'b15xd2', 'B15 xây dựng 2', 65, 2016, 2, 1, '2019-04-30 10:46:53', 0, NULL, NULL),
 (30, 'b16xd1', 'B16 xây dựng 1', 65, 2016, 2, 1, '2019-05-01 18:36:06', 0, NULL, NULL),
-(31, 'b17xd1', 'B17 xây dựng 1', 65, 2015, 3, 1, '2019-05-01 18:45:32', 0, NULL, NULL),
+(31, 'C17xd1', 'B17 xây dựng 1', 65, 2015, 3, 1, '2019-05-01 18:45:32', 1, NULL, NULL),
 (32, 'b15tt1', 'B15 Thông tin 1', 1, 2015, 1, 1, '2019-05-02 18:14:39', 0, NULL, NULL),
 (33, 'b16tt1', 'B16 Thông tin 1', 1, 2016, 2, 2, '2019-05-04 21:40:22', 0, NULL, NULL);
 
@@ -1119,12 +1137,16 @@ CREATE TABLE `o_phong` (
 --
 
 INSERT INTO `o_phong` (`id_ophong`, `id_sinhvien`, `id_phong`, `hoc_ky`, `nam_hoc`, `ngay_bat_dau`, `ngay_ket_thuc`, `id_canbothem`, `ngaythem`, `id_canboxoa`, `ngay_xoa`, `chuyenphong`) VALUES
-(33, 6, 1, '1', '2018-2019', '2019-05-02', '2019-05-03', 1, '2019-05-02 23:21:20', 1, '2019-05-03 16:18:47', 0),
-(39, 5, 3, '1', '2018-2019', '2019-05-02', '2019-05-03', 1, '2019-05-02 23:29:45', 1, '2019-05-03 22:55:06', 0),
-(41, 6, 4, '1', '2018-2019', '2019-05-03', '2019-05-05', 1, '2019-05-03 16:18:47', 2, '2019-05-05 14:11:35', 1),
-(42, 5, 5, '1', '2018-2019', '2019-05-03', '2019-05-05', 1, '2019-05-03 22:55:06', 2, '2019-05-05 11:14:18', 0),
-(43, 5, 2, '1', '2018-2019', '2019-05-05', NULL, 2, '2019-05-05 11:14:18', NULL, NULL, 0),
-(44, 6, 1, '1', '2018-2019', '2019-05-05', NULL, 2, '2019-05-05 14:11:35', NULL, NULL, 0);
+(33, 6, 1, '2', '2018-2019', '2019-05-02', '2019-05-03', 1, '2019-05-02 23:21:20', 1, '2019-05-03 16:18:47', 0),
+(39, 5, 3, '2', '2018-2019', '2019-05-02', '2019-05-03', 1, '2019-05-02 23:29:45', 1, '2019-05-03 22:55:06', 0),
+(41, 6, 4, '2', '2018-2019', '2019-05-03', '2019-05-05', 1, '2019-05-03 16:18:47', 2, '2019-05-05 14:11:35', 1),
+(42, 5, 5, '2', '2018-2019', '2019-05-03', '2019-05-05', 1, '2019-05-03 22:55:06', 2, '2019-05-05 11:14:18', 0),
+(43, 5, 2, '2', '2018-2019', '2019-05-05', NULL, 2, '2019-05-05 11:14:18', NULL, NULL, 0),
+(44, 6, 1, '2', '2018-2019', '2019-05-05', '2019-05-06', 2, '2019-05-05 14:11:35', 2, '2019-05-06 08:32:13', 1),
+(45, 6, 4, '1', '2018-2019', '2019-05-06', NULL, 2, '2019-05-06 08:32:13', NULL, NULL, 0),
+(46, 6, 1, 'Hè', '2017-2018', '2019-05-07', '2019-05-07', 2, '2019-05-09 00:00:00', 1, '2019-05-07 15:04:50', 1),
+(47, 6, 4, 'Hè', '2017-2018', '2019-05-07', '2019-05-07', 1, '2019-05-07 15:04:50', 1, '2019-05-07 15:12:35', 1),
+(48, 6, 1, 'Hè', '2017-2018', '2019-05-07', NULL, 1, '2019-05-07 15:12:35', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -1152,8 +1174,8 @@ CREATE TABLE `phong` (
 INSERT INTO `phong` (`idphong`, `ma_phong`, `stt_tang`, `id_toanha`, `id_loaiphong`, `id_canbothem`, `thoigianthem`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
 (1, 501, 1, 1, 2, 2, '2019-04-23 00:00:00', 0, 2, '2019-05-01'),
 (2, 101, 1, 6, 1, 1, '2019-04-30 20:27:27', 0, 2, '2019-05-01'),
-(3, 100, 1, 6, 1, 1, '2019-04-30 20:30:52', 0, 2, '2019-05-01'),
-(4, 100, 1, 1, 1, 1, '2019-04-30 20:32:21', 0, 2, '2019-05-01'),
+(3, 100, 1, 6, 1, 1, '2019-04-30 20:30:52', 1, 2, '2019-05-01'),
+(4, 333, 2, 1, 1, 1, '2019-04-30 20:32:21', 0, 2, '2019-05-01'),
 (5, 201, 2, 6, 1, 1, '2019-04-30 20:33:01', 0, 2, '2019-05-01');
 
 -- --------------------------------------------------------
@@ -1197,8 +1219,9 @@ CREATE TABLE `sinh_vien` (
 --
 
 INSERT INTO `sinh_vien` (`id_sinhvien`, `mssv`, `anh_ca_nhan`, `ho_sv`, `ten_sv`, `ngay_sinh`, `gioi_tinh`, `que_quan`, `so_cmnd`, `ngay_cap`, `noi_cap`, `matinh`, `mahuyen`, `maxa`, `so_nha`, `so_dt`, `email`, `hotencha`, `sdtcha`, `hotenme`, `sdtme`, `id_lop`, `id_canbothem`, `ngay_them`, `xoa`, `ngay_xoa`, `id_canboxoa`) VALUES
-(5, 1501206121, 'VÕ THIỆN TIÊN   08.03.1992.JPG', 'Võ Thiện ', 'Tiên', '1992-03-18', 'Nam', 54, 371590523, '2009-05-05', 89, 89, 894, 30682, 'Số 191', '0799659225', 'vttien8392@gmail.com', 'Nguyên Văn A', '0987654322', 'Nguyễn Văn E', '0987654321', 1, 1, '2019-05-01 17:52:57', 0, NULL, NULL),
-(6, 1501206022, '2131a7bca6f843a61ae9.jpg', 'Trần Thị Quỳnh ', 'Giao', '1997-05-03', 'Nữ', 92, 123456789, '2019-05-03', 91, 91, 909, 31021, 'Tổ 1', '0566837004', 'ttqgiao0311@gmail.com', 'Trần Văn Phan', '', 'Nguyễn Văn Hằng', '', 1, 1, '2019-05-01 18:01:41', 0, NULL, NULL);
+(5, 1501206121, 'VÕ THIỆN TIÊN   08.03.1992.JPG', 'Võ Thiện ', 'Tiên', '1992-03-18', 'Nam', 89, 371590523, '2009-05-05', 89, 89, 894, 30682, 'Số 191', '0799659225', 'vttien8392@gmail.com', 'Nguyên Văn A', '0987654322', 'Nguyễn Văn E', '0987654321', 1, 1, '2019-05-01 17:52:57', 0, NULL, NULL),
+(6, 1501206022, '2131a7bca6f843a61ae9.jpg', 'Trần Thị Quỳnh ', 'Giao', '1997-05-03', 'Nữ', 92, 123456789, '2019-05-03', 91, 91, 909, 31021, 'Tổ 12', '0566837004', 'ttqgiao0311@gmail.com', 'Trần Văn Phan', '', 'Nguyễn Văn Hằng', '', 1, 1, '2019-05-01 18:01:41', 0, NULL, NULL),
+(7, 1501200000, 'bo-suu-tap-25-hinh-nen-powerpoint-ve-chu-de-cong-nghe-thong-tin-1489463882-16.jpg', 'Võ Ví', 'Dụ ', '1997-01-01', 'Nam', 96, 98765432, '2019-12-31', 89, 89, 886, 30337, 'Số 899/1', '', '', '', '', '', '', 10, 1, '2019-05-07 19:39:18', 1, '2019-05-07 19:39:46', 1);
 
 -- --------------------------------------------------------
 
@@ -1223,14 +1246,15 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`idtk`, `idms`, `matkhau`, `ngaythem`, `idtktao`, `xoa`, `ngayxoa`, `nguoixoa`, `is_sinhvien`) VALUES
-(1, 1000000000, 'a970a7e3b359f88a4732b56050822888', '2019-04-10 00:00:00', 0, 0, NULL, NULL, 0),
+(1, 1000000000, '579646aad11fae4dd295812fb4526245', '2019-04-10 00:00:00', 0, 0, NULL, NULL, 0),
 (2, 1000000001, 'a970a7e3b359f88a4732b56050822888', '2019-04-14 00:00:00', 1, 0, NULL, NULL, 0),
 (15, 1501206121, '8665abde16fbf5053996f522cd23cfb8', '2019-05-01 17:52:57', 1, 0, NULL, NULL, 1),
 (16, 1000000002, 'dac93e552c4da380602bb6b0a7f043cb', '2019-05-01 17:59:17', 1, 0, NULL, NULL, 0),
 (17, 1501206022, '0fbe4cd247a687d77312d6a246e91fec', '2019-05-01 18:01:41', 1, 0, NULL, NULL, 1),
 (18, 1501206111, 'bfe1d6664eed55062706cac96e77b77f', '2019-05-01 18:47:10', 1, 0, NULL, NULL, 1),
 (19, 1501206222, 'e25af87715e22d5ff9c957d9b5985817', '2019-05-01 18:49:30', 1, 0, NULL, NULL, 1),
-(20, 1501206000, 'e4b4bb2f150478166cc7b31af178ca71', '2019-05-03 13:18:48', 1, 0, NULL, NULL, 1);
+(20, 1501206000, 'e4b4bb2f150478166cc7b31af178ca71', '2019-05-03 13:18:48', 1, 0, NULL, NULL, 1),
+(21, 1501200000, 'a24bee39675c65c88a7e5619b46b2ae2', '2019-05-07 19:39:18', 1, 0, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -1359,7 +1383,7 @@ CREATE TABLE `tinhtrang_thietbi_phong` (
 --
 
 INSERT INTO `tinhtrang_thietbi_phong` (`id_tinhtrang`, `idphong`, `idcothietbi`, `slhong`, `xoa`, `can_bo_kt`, `ngay_kt`) VALUES
-(2, 5, 8, 1, 0, 2, '2019-05-04 20:08:14'),
+(2, 5, 8, 1, 1, 2, '2019-05-04 20:08:14'),
 (3, 3, 1, 2, 1, 2, '2019-05-04 20:08:54'),
 (8, 4, 8, 2, 1, 2, '2019-05-04 20:17:16'),
 (9, 4, 8, 1, 1, 2, '2019-05-04 20:27:11'),
@@ -1373,7 +1397,10 @@ INSERT INTO `tinhtrang_thietbi_phong` (`id_tinhtrang`, `idphong`, `idcothietbi`,
 (17, 2, 1, 0, 1, 2, '2019-05-05 11:30:58'),
 (18, 2, 1, 2, 1, 2, '2019-05-05 11:31:14'),
 (19, 2, 1, 0, 0, 2, '2019-05-05 11:31:25'),
-(20, 1, 7, 1, 0, 2, '2019-05-05 17:11:27');
+(20, 1, 7, 1, 0, 2, '2019-05-05 17:11:27'),
+(21, 3, 8, 2, 0, 2, '2019-05-06 15:20:51'),
+(22, 5, 8, 2, 1, 2, '2019-05-06 15:21:19'),
+(23, 5, 8, 1, 0, 1, '2019-05-07 21:20:55');
 
 -- --------------------------------------------------------
 
@@ -1398,10 +1425,10 @@ CREATE TABLE `toa_nha` (
 --
 
 INSERT INTO `toa_nha` (`id_toanha`, `ma_toa_nha`, `ten_toa_nha`, `loai_toa_nha`, `id_canbothem`, `ngaythem`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
-(1, 'TNa', 'Tòa nhà Sinh viên 9', 'Nữ', 2, '2019-04-23 00:00:00', 0, NULL, NULL),
+(1, 'TNa', 'Tòa nhà Sinh viên A', 'Nữ', 2, '2019-04-23 00:00:00', 0, NULL, NULL),
 (2, 'TNB', 'Tòa nhà sinh viên b', 'Nam', 1, '2019-04-23 17:02:05', 0, NULL, NULL),
 (5, 'TNC', 'Tòa nhà sinh viên C', 'Nữ', 1, '2019-04-23 17:03:49', 0, 2, '2019-04-23 20:37:40'),
-(6, 'TN2', 'Tòa nhà sinh viên 2', 'Nam', 1, '2019-04-23 17:11:04', 0, 2, '2019-04-23 20:37:07'),
+(6, 'TN2', 'Tòa nhà sinh viên 2', 'Nam', 1, '2019-04-23 17:11:04', 0, 2, '2019-05-07 09:31:30'),
 (7, 'TN3', 'Tòa nhà sinh viên 3', 'Nam', 1, '2019-04-23 17:13:28', 1, 2, '2019-04-24 09:48:21');
 
 -- --------------------------------------------------------
@@ -12807,7 +12834,7 @@ ALTER TABLE `chucvu`
 -- AUTO_INCREMENT cho bảng `cochucvu`
 --
 ALTER TABLE `cochucvu`
-  MODIFY `id_cochucvu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_cochucvu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `co_dien_ut`
@@ -12837,19 +12864,19 @@ ALTER TABLE `khoa`
 -- AUTO_INCREMENT cho bảng `loaiphongcothietbi`
 --
 ALTER TABLE `loaiphongcothietbi`
-  MODIFY `idcothietbi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idcothietbi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `loai_phong`
 --
 ALTER TABLE `loai_phong`
-  MODIFY `id_loaiphong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_loaiphong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `log_sua_dl`
 --
 ALTER TABLE `log_sua_dl`
-  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=285;
+  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=299;
 
 --
 -- AUTO_INCREMENT cho bảng `lop`
@@ -12861,7 +12888,7 @@ ALTER TABLE `lop`
 -- AUTO_INCREMENT cho bảng `o_phong`
 --
 ALTER TABLE `o_phong`
-  MODIFY `id_ophong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_ophong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT cho bảng `phong`
@@ -12873,13 +12900,13 @@ ALTER TABLE `phong`
 -- AUTO_INCREMENT cho bảng `sinh_vien`
 --
 ALTER TABLE `sinh_vien`
-  MODIFY `id_sinhvien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_sinhvien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `idtk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `idtk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT cho bảng `thietbi`
@@ -12891,7 +12918,7 @@ ALTER TABLE `thietbi`
 -- AUTO_INCREMENT cho bảng `tinhtrang_thietbi_phong`
 --
 ALTER TABLE `tinhtrang_thietbi_phong`
-  MODIFY `id_tinhtrang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_tinhtrang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT cho bảng `toa_nha`
