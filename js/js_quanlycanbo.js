@@ -187,7 +187,7 @@ $(document).ready(function () {
 							alert('Xóa Cán bộ thành công');
 							$('#From_xoa_can_bo')[0].reset();
 							$('#modal_xoa_can_bo').modal('hide');
-							$('#dulieucanbo').load("./../dulieu/dulieucanbo.php")
+							location.reload();
 						}else {
 							alert('Lỗi xóa Cán bộ');
 						}

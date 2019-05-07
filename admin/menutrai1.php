@@ -113,19 +113,13 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 				<a href="quanlylogDeleteThietbi.php" class="list-group-item">Log Delete Thiết bị</a>
 				<a href="quanlylogDeletelctb.php" class="list-group-item">Log Delete Có thiết bị</a>
 				<a href="quanlylogDeletelop.php" class="list-group-item">Log Delete Lớp</a>
-				<a href="quanlylogDeletekhoa.php" class="list-group-item">Log Delete Thiết Khoa</a>
-				<a href="quanlyloglop.php" class="list-group-item">Delete sinh viên</a>
-				<a href="quanlyloglop.php" class="list-group-item">Delete Lớp</a>
-				<a href="#" class="list-group-item">Delete Tòa nhà</a>
-				<a href="#" class="list-group-item">Delete Phòng</a>
-				<a href="#" class="list-group-item">Delete Loại phòng</a>
-				<a href="#" class="list-group-item">Delete Chuyển phòng</a>
-				<a href="#" class="list-group-item">Delete Cán bộ</a>
-				<a href="#" class="list-group-item">Delete Chúc vụ</a>
-				<a href="#" class="list-group-item">Delete Có Chúc vụ</a>
-				<a href="#" class="list-group-item">Delete Thiết bị</a>
-				<a href="#" class="list-group-item">Delete Thiết bị Loại phòng</a>
-				<a href="#" class="list-group-item">Delete Kiểm tra tình trạng</a>
+				<a href="quanlylogDeletekhoa.php" class="list-group-item">Log Delete  Khoa</a>
+				<a href="quanly_delete_sinhvien.php" class="list-group-item">Delete sinh viên</a>
+				<a href="quanly_delete_toa_nha.php" class="list-group-item">Delete Tòa nhà</a>
+				<a href="quanly_delete_phong.php" class="list-group-item">Delete Phòng</a>
+				<a href="quanly_delete_loai_phong.php" class="list-group-item">Delete Loại phòng</a>
+				<a href="quanly_delete_can_bo.php" class="list-group-item">Delete Cán bộ</a>
+				<a href="quanly_delete_chucvu.php" class="list-group-item">Delete Chúc vụ</a>
 
 			</div>
 			<?php } ?>

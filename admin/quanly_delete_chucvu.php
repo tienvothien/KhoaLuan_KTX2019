@@ -37,13 +37,13 @@ include './../dulieu/kirmtra_quantrivien.php';
 					<div class="container-fluid " style="padding: 0px;">
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 chutieude">
-								<h2>Lịch sử thay dữ liệu quản lý lớp</h2>
+								<h2>Lịch sử xóa Chức vụ</h2>
 							</div>
 						</div>
 					<hr class="ngay_ad"></div>
 					<div class="container-fluid  ">
 						<div class="row"><!-- nho doi ten class -->
-						<div class="dulieu_log_edit_lop" style="width: 100%; font-size: 14px;"><?php include './../dulieu/dulieu_log_edit_lop_1.php'; ?></div>
+						<div class="dulieu_log_edit_lop" style="width: 100%; font-size: 14px;"><?php include './../dulieu/dulieu_log_delete_chucvu.php'; ?></div>
 						</div><!-- end thaydoi1 -->
 						</div><!-- end noidungthaydoi -->
 						</div> <!-- end col-9 -->

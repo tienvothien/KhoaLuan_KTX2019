@@ -1,5 +1,6 @@
 <?php
 include './../dulieu/kiemtradangnhap.php';
+include './../dulieu/kirmtra_quantrivien.php';
 ?>
 <!DOCTYPE html>
 <html lang="en"><head>
@@ -36,7 +37,7 @@ include './../dulieu/kiemtradangnhap.php';
 					<div class="container-fluid " style="padding: 0px;">
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 chutieude">
-								<h2>Lịch sử Xóa dữ liệu quản lý Lớp</h2>
+								<h2>Lịch sử Xóa dữ liệu quản lý có thiết bị</h2>
 							</div>
 						</div>
 					<hr class="ngay_ad"></div>

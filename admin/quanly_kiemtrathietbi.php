@@ -43,9 +43,15 @@ include './../dulieu/kiemtradangnhap.php';
 						<div class="container-fluid">
 							<div class="row"><!-- nho doi ten class -->
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-								<div id="dulieuphong"><?php include './../dulieu/dulieu_kiemtrathietbi.php';?></div>
+								<div id="dulieuphong">
+									<?php include './../dulieu/dulieu_kiemtrathietbi.php';?>
+								</div>
 							</div>
-							
+							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+								<a href="./../admin/phong_cothietbihong.php" title="">
+									<button type="button" class="btn btn-primary">Thiết bị hỏng</button>
+								</a>
+							</div>
 							</div><!-- end thaydoi1 -->
 							</div><!-- end noidungthaydoi -->
 							</div> <!-- end col-9 -->
@@ -137,18 +143,18 @@ include './../dulieu/kiemtradangnhap.php';
 														</div>
 													</td>
 												</tr>
-												</tbody>
-										</table>
 											</tbody>
 										</table>
-										<div id="dulieu_kiemtra"></div>
-										<input type="hidden" name="id_phong_sua_12" id="id_phong_sua_12" />
-										<div class="modal-footer">
-											<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>
-										</form>
-									</div>
-									
-								</div>
+									</tbody>
+								</table>
+								<div id="dulieu_kiemtra"></div>
+								<input type="hidden" name="id_phong_sua_12" id="id_phong_sua_12" />
+								<div class="modal-footer">
+									<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>
+								</form>
 							</div>
+							
 						</div>
 					</div>
+				</div>
+			</div>

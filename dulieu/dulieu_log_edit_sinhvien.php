@@ -36,7 +36,7 @@ include 'conn.php';
 					<tr>
 						<td style='text-align:center;'>$stt</td>
 						<td class='canhgiua chuinhoa'>$tt_sinh_vien[mssv]</td>
-						<td class='canhgiua chuinthuong'>$tt_sinh_vien[ho_sv] $tt_sinh_vien[ten_sv]</td>
+						<td class=' chuinthuong'>$tt_sinh_vien[ho_sv] $tt_sinh_vien[ten_sv]</td>
 						<td class=''>$row[tencot]</td>
 						<td class=''>$row[noidungtruocsua]</td>
 						<td class=''>$row[noidungsausua]</td>

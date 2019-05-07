@@ -196,6 +196,12 @@ include 'kiemtradangnhap.php';
            while ($row_ctb = mysqli_fetch_array($result)) {
             $slphong = mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(phong.idphong) AS slphong FROM phong INNER JOIN loai_phong ON phong.id_loaiphong = loai_phong.id_loaiphong WHERE loai_phong.id_loaiphong='$row_ctb[id_loaiphong]' AND phong.xoa=0 AND loai_phong.xoa=0"));
              $tongslthietbi=$row_ctb['soluong']*$slphong['slphong'];
+
+            $slhong1 = mysqli_fetch_array(mysqli_query($con,"SELECT SUM(tr.slhong) slhong FROM loaiphongcothietbi ctb, tinhtrang_thietbi_phong tr WHERE ctb.idcothietbi ='$_POST[id_chitietthietbitrongloaiphong]' and tr.xoa=0 AND ctb.idcothietbi= tr.idcothietbi"));
+            $slhong=$slhong1['slhong'];
+            if ($slhong==0) {
+              $slhong=0;
+            }
             $output .= '
               <tr>
                 <td width="30%"><label>Loại Phòng</label></td>
@@ -215,11 +221,11 @@ include 'kiemtradangnhap.php';
               </tr>
               <tr>
                 <td width="30%"><label> Số thiết bị tốt</label></td>
-                <td width="70%" style=" text-transform: capitalize; color: red;">Chưa viết thuật toán tính</td>
+                <td width="70%" style=" text-transform: capitalize; color: red;">'. ($tongslthietbi-$slhong).'</td>
               </tr>
               <tr>
                 <td width="30%"><label> Só thiết bị hư</label></td>
-                <td width="70%" style=" text-transform: capitalize; color: red;">Chưa viết thuật toán tính</td>
+                <td width="70%" style=" text-transform: capitalize; color: red;">'.$slhong.'</td>
               </tr>
               <tr>
                 <td width="30%"><label>Cán bộ thêm</label></td>
