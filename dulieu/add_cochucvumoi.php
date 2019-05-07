@@ -32,7 +32,7 @@ if (isset($_POST['macanbo_cochucvu_them12']) && isset($_POST['id_chucvuthem_coch
 	$kiemtra_cochucvu_chua = mysqli_query($con, "SELECT cochucvu.id_canbo FROM cochucvu WHERE cochucvu.id_canbo='$id_canbo1' AND cochucvu.idchucvu='$id_chucvusua_cochuc_moi' and cochucvu.xoa=0");
 	// xóa có chức vụ củ và thêm chức vụ mới
 	$ngay = date('Y/m/d H:i:s');
-	$update_cocchuvu = "UPDATE cochucvu SET xoa=1,id_canboxoa='$_SESSION[id_canbo]',ngay_xoa='ngay' WHERE cochucvu.id_cochucvu='$id_cochucvu_sua123'";
+	$update_cocchuvu = "UPDATE cochucvu SET xoa=1,id_canboxoa='$_SESSION[id_canbo]',ngay_xoa='$ngay' WHERE cochucvu.id_cochucvu='$id_cochucvu_sua123'";
 	if (mysqli_num_rows($kiemtra_cochucvu_chua)) {
 		echo "1";
 	}else if (mysqli_query($con,$update_cocchuvu)) {
@@ -45,11 +45,6 @@ if (isset($_POST['macanbo_cochucvu_them12']) && isset($_POST['id_chucvuthem_coch
 	}else {
 		echo "100";
 	}
-
-
-
-
-
 }else {
 	header("location:./../admin/login");
 }

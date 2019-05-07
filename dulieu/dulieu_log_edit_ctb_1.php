@@ -1,6 +1,6 @@
 <?php
 include 'conn.php';
-	$selecet_lp = mysqli_query($con, "SELECT * FROM log_sua_dl WHERE log_sua_dl.bangsua='loaiphongcothietbi' ");
+	$selecet_lp = mysqli_query($con, "SELECT * FROM log_sua_dl, loaiphongcothietbi ctb, thietbi WHERE log_sua_dl.bangsua='loaiphongcothietbi' and thietbi.idtb=ctb.idtb and ctb.idcothietbi= log_sua_dl.iddulieu");
 	if (!mysqli_num_rows($selecet_lp)) {
 		echo "<div style='text-align: center;'> Chưa có dữ liệu</div>";
 	} else {
@@ -11,6 +11,7 @@ include 'conn.php';
 			<tr>
 				<th>STT</th>
 				<th >Tên Loại Phòng</th>
+				<th >Thiết bị</th>
 				<th>Trường thay đổi</th>
 				<th>Nội dung trước</th>
 				<th>Nội dung sau</th>
@@ -51,6 +52,7 @@ include 'conn.php';
 					<tr>
 						<td style='text-align:center;'>$stt</td>
 						<td class='chuinthuong'>$tt_loai_phong[ten_loai_phong]</td>
+						<td class='chuinthuong'>$row[tenthietbi]</td>
 						<td class='chuinthuong'>$row[tencot]</td>
 						<td class=''>$noidungtrc</td>
 						<td class=''>$noidungs</td>

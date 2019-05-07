@@ -63,7 +63,7 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 text-left">
 										<button type="button"  id="timkiem_da_o_phong_sv" class="btn btn-primary">Tìm</button>
-										<button type="sumbmit" class="btn btn-default" name="xuat_excel_da_ophpng">Xuất Excel</button>
+										<button type="sumbmit" class="btn btn-info" name="xuat_excel_da_ophpng">Xuất Excel</button>
 									</div>
 								</div>
 								

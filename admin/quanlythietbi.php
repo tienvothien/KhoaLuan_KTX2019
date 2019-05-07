@@ -45,9 +45,11 @@
 						<div class="container-fluid  ">
 							<div class="row"><!-- nho doi ten class -->
 							<div class="dulieu_add_thietbi"  id="dulieu_add_thietbi" style="width: 100%; font-size: 14px;"><?php include './../dulieu/dulieuthietbi.php'; ?></div>
-							<div class="col-xs-11 col-sm-12 col-md-2 col-lg-2">
-								<div class="nuthemmoi">
+							<div class="col-xs-11 col-sm-12 col-md-4 col-lg-4">
+								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 									<input type="button" class="btn btn-primary btn-block" name="themthietbi" value="Thêm mới" data-toggle="modal" data-target="#themthietbi1">
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 									<a href="./../admin/export.php" title="">
 										<button type="" class="btn btn-danger">xuất Excel</button>
 									</a>

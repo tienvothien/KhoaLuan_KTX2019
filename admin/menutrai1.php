@@ -93,10 +93,18 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 			<i class="fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-container">
-				<a href="quanlyloglop.php" class="list-group-item">Log Edit Lớp</a>
-				<a href="quanlylog_edit_khoa.php" class="list-group-item">Log Edit Khoa</a>
-				<a href="quanlylog_edit_thietbi1.php" class="list-group-item">Log Edit Thiết bị</a>
-				<a href="quanlylog_edit_cothietbi.php" class="list-group-item">Log Edit Thiết bị Loại phòng</a>
+				<a href="quanly_log_sinhvien.php" class="list-group-item">Edit sinh viên</a>
+				<a href="quanlyloglop.php" class="list-group-item">Edit Lớp</a>
+				<a href="quanlylog_edit_khoa.php" class="list-group-item">Edit Khoa</a>
+				<a href="quanly_log_toanha.php" class="list-group-item">Edit Tòa nhà</a>
+				<a href="quanly_log_phong_1.php" class="list-group-item">Edit Phòng</a>
+				<a href="quanly_log_loai_phong.php" class="list-group-item">Edit Loại phòng</a>
+				<a href="quanly_log_chuyen_phong.php" class="list-group-item">Edit Chuyển phòng</a>
+				<a href="quanly_log_can_bo.php" class="list-group-item">Edit Cán bộ</a>
+				<a href="quanly_log_chuc_vu.php" class="list-group-item">Edit Chúc vụ</a>
+				<a href="quanlylog_edit_thietbi1.php" class="list-group-item">Edit Thiết bị</a>
+				<a href="quanlylog_edit_cothietbi.php" class="list-group-item">Edit Thiết bị Loại phòng</a>
+				<a href="quanlylog_edit_tinhtranhtb.php" class="list-group-item">Edit Kiểm tra tình trạng</a>
 			</div>
 			<button class="dropdown-btn">Quản lý Log Delete
 			<i class="fa fa-caret-down"></i>
@@ -106,6 +114,19 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 				<a href="quanlylogDeletelctb.php" class="list-group-item">Log Delete Có thiết bị</a>
 				<a href="quanlylogDeletelop.php" class="list-group-item">Log Delete Lớp</a>
 				<a href="quanlylogDeletekhoa.php" class="list-group-item">Log Delete Thiết Khoa</a>
+				<a href="quanlyloglop.php" class="list-group-item">Delete sinh viên</a>
+				<a href="quanlyloglop.php" class="list-group-item">Delete Lớp</a>
+				<a href="#" class="list-group-item">Delete Tòa nhà</a>
+				<a href="#" class="list-group-item">Delete Phòng</a>
+				<a href="#" class="list-group-item">Delete Loại phòng</a>
+				<a href="#" class="list-group-item">Delete Chuyển phòng</a>
+				<a href="#" class="list-group-item">Delete Cán bộ</a>
+				<a href="#" class="list-group-item">Delete Chúc vụ</a>
+				<a href="#" class="list-group-item">Delete Có Chúc vụ</a>
+				<a href="#" class="list-group-item">Delete Thiết bị</a>
+				<a href="#" class="list-group-item">Delete Thiết bị Loại phòng</a>
+				<a href="#" class="list-group-item">Delete Kiểm tra tình trạng</a>
+
 			</div>
 			<?php } ?>
 		</div>

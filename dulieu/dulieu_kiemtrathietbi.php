@@ -10,7 +10,6 @@ if (isset($_GET['thietbiphong'])) {
 	if (!mysqli_num_rows($selecet_phong)) {
 		echo "<div style='text-align: center;'> Chưa có dữ liệu</div>";
 	} else {
-
 ?>
 <div class="table-responsive">
 	<table class="table table-hover table-bordered table-striped" id="myTable">
@@ -23,8 +22,16 @@ if (isset($_GET['thietbiphong'])) {
 				<th>Số <br> thiết bị <br>(cái)</th>
 				<th style="color: red;">Số <br> thiết bị <br> hỏng(cái)</th>
 				<th style="color: red;">Tổng số<br>đã hỏng</th>
-				<th>Kiểm tra</th>
-				<th>Chi tiết</th>
+				<?php
+					if (isset($_GET['thietbi'])) {
+					
+					}else{
+					?>
+					<th>Kiểm tra</th>
+					<th>Chi tiết</th>
+					<?php
+				}
+				?>
 			</tr>
 		</thead>
 		<tbody>
@@ -37,7 +44,7 @@ if (isset($_GET['thietbiphong'])) {
 				$slloaithietbi = mysqli_fetch_array(mysqli_query($con,"SELECT COUNT(loaiphongcothietbi.idtb) as slloaithietbi FROM loaiphongcothietbi, phong WHERE phong.xoa=0 AND phong.idphong='$row_phong[idphong]' AND loaiphongcothietbi.xoa=0 and phong.id_loaiphong=loaiphongcothietbi.id_loaiphong"));
 				// số lượng  thiết bị trong phòng
 				$slthietbi = mysqli_fetch_array(mysqli_query($con,"SELECT sum(loaiphongcothietbi.soluong) as slthietbi FROM loaiphongcothietbi, phong WHERE phong.xoa=0 AND phong.idphong='$row_phong[idphong]' AND loaiphongcothietbi.xoa=0 and phong.id_loaiphong=loaiphongcothietbi.id_loaiphong"));
-				// dữ liệu số thiết bị hỏng 
+				// dữ liệu số thiết bị hỏng
 				$slhong = mysqli_fetch_array(mysqli_query($con,"SELECT SUM(tr.slhong) AS slhong FROM tinhtrang_thietbi_phong tr WHERE tr.xoa=0 AND tr.idphong ='$row_phong[idphong]'"));
 				$slhong1=$slhong['slhong'];
 				if ($slhong1=='') {
@@ -48,18 +55,20 @@ if (isset($_GET['thietbiphong'])) {
 				if ($sl_tong_hong12=='') {
 					$sl_tong_hong12=0;
 				}
-
 			echo "
 			<tr>
-					<td style='text-align:center;'>$stt</td>
-					<td class='chuinhoa canhgiua'>$row_phong[ma_phong]-$row_phong[ma_toa_nha]</td>
-					<td class='canhgiua'>$slsinhvien[slsinhvien]/$row_phong[sl_nguoi_o]</td>
-					<td class='canhgiua'>$slloaithietbi[slloaithietbi]</td>
-					<td class='canhgiua'>$slthietbi[slthietbi]</td>
-					<td class='canhgiua' style='color: red;'>$slhong1</td>
-					<td class='canhgiua' style='color: red;'>$sl_tong_hong12</td>
-					";
-				?>
+						<td style='text-align:center;'>$stt</td>
+						<td class='chuinhoa canhgiua'>$row_phong[ma_phong]-$row_phong[ma_toa_nha]</td>
+						<td class='canhgiua'>$slsinhvien[slsinhvien]/$row_phong[sl_nguoi_o]</td>
+						<td class='canhgiua'>$slloaithietbi[slloaithietbi]</td>
+						<td class='canhgiua'>$slthietbi[slthietbi]</td>
+						<td class='canhgiua' style='color: red;'>$slhong1</td>
+						<td class='canhgiua' style='color: red;'>$sl_tong_hong12</td>
+						";
+					if (isset($_GET['thietbi'])) {
+					
+					}else{
+					?>
 				<td class="canhgiuanek12">
 					<input type="button" name="edit" value="Kiểm tra" id="<?php echo $row_phong['idphong']; ?>" class="btn btn-primary btn-xs id_sua_phong" />
 				</td>
@@ -68,7 +77,7 @@ if (isset($_GET['thietbiphong'])) {
 				</td>
 				
 				
-				<?php echo "
+				<?php }echo "
 			</tr>
 			";
 			$stt++;

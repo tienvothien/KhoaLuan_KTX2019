@@ -1,4 +1,5 @@
 <?php
+
 	include 'kiemtradangnhap.php';
 	// kiểm tra và Cập nhật lại thông tin khoa
 	if (isset($_POST['id_khoa_sua_12']) && isset($_POST['ten_khoasua_12']) && isset($_POST['ma_khoa_sua123']) ) {
@@ -194,7 +195,7 @@
 		$id_ctbtrongloaip_sua = $_POST['id_ctbtrongloaip_sua'];// id của  có thiết bị trong loại phòng
 		// kiêm tra loại phòng đã có thiết bị chưa
 		
-		$kiemtramactb = mysqli_query($con, "SELECT * FROM loaiphongcothietbi ctb WHERE ctb.idcothietbi<>'$id_ctbtrongloaip_sua' AND ctb.id_loaiphong = '$id_loaiphong_sua_ctb' AND ctb.idtb ='$id_tb_ctb_sua'");
+		$kiemtramactb = mysqli_query($con, "SELECT * FROM loaiphongcothietbi ctb WHERE ctb.idcothietbi<>'$id_ctbtrongloaip_sua' AND ctb.id_loaiphong = '$id_loaiphong_sua_ctb' AND ctb.idtb ='$id_tb_ctb_sua' and ctb.xoa=0");
 		if(mysqli_num_rows($kiemtramactb)){// kiểm tra tồn tại loại phòng đã có thiết bị
 			echo "1";
 		}else{

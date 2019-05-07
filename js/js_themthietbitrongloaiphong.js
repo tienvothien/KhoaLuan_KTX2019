@@ -25,8 +25,8 @@ $(document).ready(function () {
                 data:{id_thietbitrongloaiphong_sua:id_thietbitrongloaiphong_sua},
                 dataType:"json",
                 success:function(data_ctb_sua){
-                    $('#dulieu_cu_lp').html(data_ctb_sua.ten_loai_phong);
-                    $('#dulieu_cu_lp').val(data_ctb_sua.id_loaiphong);
+                    // $('#dulieu_cu_lp').html 
+                    $('#id_loaiphong_sua_ctb').val(data_ctb_sua.id_loaiphong);
                     $('#dulieu_cu_tb').html(data_ctb_sua.tenthietbi);
                     $('#dulieu_cu_tb').val(data_ctb_sua.idtb);
                     $('#dulieu_cu').html(data_ctb_sua.soluong);
@@ -58,7 +58,7 @@ $(document).ready(function () {
 									alert('Cập nhật thông tin trong loại phòng  thành công');
 									$('#from_suathongtin_thietbitrongloaiphong')[0].reset();
 	                                $('#modal_sua_thietbitrongloaiphong').modal('hide');
-							$('#dulieuthietbitrongloaiphong').load("./../dulieu/dulieuthietbitrongloaiphong.php");
+									$('#dulieuthietbitrongloaiphong').load("./../dulieu/dulieuthietbitrongloaiphong.php");
 								}else {
 									alert('Lỗi cập nhật');
 								}

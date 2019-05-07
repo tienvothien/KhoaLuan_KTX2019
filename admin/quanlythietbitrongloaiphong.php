@@ -149,7 +149,7 @@ include './../dulieu/kiemtradangnhap.php';
 							<div class="modal-body">
 								<form method="post" id="from_suathongtin_thietbitrongloaiphong" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
 									<label>Loại Phòng</label>
-									<select name="id_loaiphong_sua_ctb" id="id_loaiphong_sua_ctb" class="form-control" required="required">
+									<select name="id_loaiphong_sua_ctb" id="id_loaiphong_sua_ctb" class="form-control" required="required" >
 										<option value="" id="dulieu_cu_lp"></option>
 										<?php
 												$ds_lp = mysqli_query($con, "SELECT * FROM loai_phong WHERE loai_phong.xoa=0");

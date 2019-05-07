@@ -24,6 +24,9 @@ if (isset($_POST['id__o_phong_sua_12']) && isset($_POST['id_dphong_moi'])) {
 		$insert_o_phong ="INSERT INTO o_phong(id_sinhvien, id_phong, hoc_ky, nam_hoc, ngay_bat_dau,id_canbothem, ngaythem) VALUES ('$id_sinhvien','$id_dphong_moi','$hoc_ky','$nam_hoc','$ngay_kt','$_SESSION[id_canbo]','$ngay')";
 		if (mysqli_query($con,$update_o_phong)&& mysqli_query($con,$insert_o_phong)) {
 			echo "99";//ng)
+			$log1 = "INSERT INTO log_sua_dl(bangsua, tenbang, iddulieu, cot, tencot, noidungtruocsua, noidungsausua, nguoisua, ngaysua) VALUES ('o_phong','Ở phòng','$id_sinhvien_op[id_ophong]','id_phong','Phòng', '$id_sinhvien_op[id_phong]','$id_dphong_moi','$_SESSION[id_canbo]', '".date('Y/m/d H:i:s')."')"; // ghi vao log
+			mysqli_query($con, $log1); // ghi log edit
+
 		}else{
 			echo "100";
 		}

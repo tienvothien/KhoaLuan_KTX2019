@@ -22,8 +22,7 @@ if (isset($_POST["id_thietbi_sua"])) {
 }//end xử lý thông tin lớp
 // xử lý thông tin có thiết bị
 if (isset($_POST["id_thietbitrongloaiphong_sua"])) {
-	$query = "SELECT ctb.idcothietbi,ctb.soluong, lp.id_loaiphong,lp.ten_loai_phong,thietbi.idtb, thietbi.tenthietbi FROM loaiphongcothietbi ctb INNER JOIN loai_phong lp ON ctb.id_loaiphong = lp.id_loaiphong INNER JOIN thietbi ON thietbi.idtb = ctb.idtb WHERE thietbi.xoa=0 AND ctb.xoa=0 AND lp.xoa=0 AND ctb.idcothietbi='1'
-";
+	$query = "SELECT ctb.idcothietbi,ctb.soluong, lp.id_loaiphong,lp.ten_loai_phong,thietbi.idtb, thietbi.tenthietbi FROM loaiphongcothietbi ctb INNER JOIN loai_phong lp ON ctb.id_loaiphong = lp.id_loaiphong INNER JOIN thietbi ON thietbi.idtb = ctb.idtb WHERE thietbi.xoa=0 AND ctb.xoa=0 AND lp.xoa=0 AND ctb.idcothietbi='$_POST[id_thietbitrongloaiphong_sua]'";
 	$result = mysqli_query($con, $query);
 	$row = mysqli_fetch_array($result);
 	echo json_encode($row);
@@ -65,8 +64,7 @@ if (isset($_POST["id_phong_sua_12"])) {
 }//end xử lý thông tin  phòng
 // xử lý xuất thông tin  phòng kiểm trang tình trạng phòng
 if (isset($_POST["id_phong_sua_12_thietbi_tinhtrang"])) {
-	$query = "SELECT phong.idphong, phong.ma_phong, phong.stt_tang, phong.id_canbothem, phong.thoigianthem, toa_nha.ten_toa_nha, toa_nha.id_toanha, loai_phong.id_loaiphong, loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o, loai_phong.gia_loai_phong , can_bo.ma_can_bo, can_bo.ten_can_bo, can_bo.ho_can_bo , ctb.idcothietbi, thietbi.tenthietbi FROM phong, toa_nha, loai_phong, can_bo, loaiphongcothietbi ctb, thietbi WHERE phong.xoa=0 AND phong.idphong='$_POST[id_phong_sua_12_thietbi_tinhtrang]' AND ctb.xoa=0 and thietbi.idtb= ctb.idtb AND phong.id_toanha= toa_nha.id_toanha AND phong.id_loaiphong= loai_phong.id_loaiphong AND can_bo.id_canbo= phong.id_canbothem
-";
+	$query = "SELECT phong.idphong, phong.ma_phong, phong.stt_tang, phong.id_canbothem, phong.thoigianthem, toa_nha.ten_toa_nha, toa_nha.id_toanha, loai_phong.id_loaiphong, loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o, loai_phong.gia_loai_phong , can_bo.ma_can_bo, can_bo.ten_can_bo, can_bo.ho_can_bo , ctb.idcothietbi, thietbi.tenthietbi FROM phong, toa_nha, loai_phong, can_bo, loaiphongcothietbi ctb, thietbi WHERE phong.xoa=0 AND phong.idphong='$_POST[id_phong_sua_12_thietbi_tinhtrang]' AND ctb.xoa=0 and thietbi.idtb= ctb.idtb AND phong.id_toanha= toa_nha.id_toanha AND phong.id_loaiphong= loai_phong.id_loaiphong AND can_bo.id_canbo= phong.id_canbothem";
 	$result = mysqli_query($con, $query);
 	$row = mysqli_fetch_array($result);
 	echo json_encode($row);
