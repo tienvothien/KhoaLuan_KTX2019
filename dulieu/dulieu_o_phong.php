@@ -19,21 +19,28 @@ include 'conn.php';
 						<th>MSSV</th>
 						<th style="width:120px;">Tên Sinh viên</th>
 						<th>Ngày sinh</th>
-						<th>Giới <br>tính</th>
+						<th style="width:40px;">Giới <br>tính</th>
 						<th>Quê Quán</th>
 						<th class="hidden" style="width:300px;">HKTT</th>
 						<th>Điện thoại</th>
 						<th>Lớp</th>
-						<th style="width:100px;">Hoc kỳ <br>Năm học</th>
+						<th style="width:40px;">Hoc kỳ <br>Năm học</th>
 						<th>Ở ngày</th>
 						<th>Chuyển</th>
 						<th>Chi tiết</th>
 						<th>Nghỉ</th>
+						<th>Ghi <br> chú</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php
 					$stt = 1;
+					$ngayhethong= strtotime(date("m/d/Y"));
+					$ngay_hk2_1 = strtotime("1/1/".date("Y"));
+					$ngayht_hk2_2= strtotime("5/30".date("Y"));
+					$ngayht_hk_he_2 = strtotime("30/7/".date("Y"));
+					$ngayht_hk1_1 = strtotime("30/12/".date("Y"));
+					
 					while ($row_sinh_vien = mysqli_fetch_array($selecet_sinh_vien)) {
 						$diachi2='';
 						$diachi1='';
@@ -61,13 +68,26 @@ include 'conn.php';
 						<td class='chuinhoa'>$lop1</td>
 						<td class='chuinhoa canhgiua'>$row_sinh_vien[hoc_ky] <br> $row_sinh_vien[nam_hoc]</td>
 						<td class='canhgiua'>".date('d/m/Y', strtotime($row_sinh_vien["ngay_bat_dau"]))."</td>
-						";?>
+
+						";
+
+						?>
 						<td class="canhgiuanek12"><input type="button" name="edit" value="Chuyển" id="<?php echo $row_sinh_vien['id_ophong']; ?>" class="btn btn-primary btn-xs id_sua_sinh_vien_o_phong" /></td>
 						<td class="canhgiuanek12"><input type="button" name="view" value="Chi tiết" id="<?php echo $row_sinh_vien['id_ophong']; ?>" class="btn btn-success btn-xs view_chitietsinh_vien_o_phong" /></td>
 						<td class="canhgiuanek12"><input type="button" name="delete" value="Nghỉ ở" id="<?php echo $row_sinh_vien['id_ophong']; ?>" class="btn btn-info btn-danger btn-xs xoa_sinh_vien_o_phong" /></td>
-						<?php echo "
-					</tr>
-					";
+						<?php 
+						$hoc_ky1 = $row_sinh_vien["hoc_ky"];
+
+						if ( $hoc_ky1==2  && $ngayhethong >= $ngay_hk2_1 && $ngayhethong<=$ngayht_hk2_2  ) {
+							echo "<td></td>";
+						}else if ( $hoc_ky1=="hè"  && $ngayhethong > $ngayht_hk2_2 && $ngayhethong<=$ngayht_hk_he_2  ) {
+							echo "<td></td>";
+						}else if ( $hoc_ky1==1  && $ngayhethong > $ngayht_hk_he_2 && $ngayhethong<=$ngayht_hk1_1  ) {
+							echo "<td></td>";
+						}else{
+							echo "<td style='color:red'>Quá <br> hạn </td>";
+						}
+						echo "	</tr>	";
 					$stt++;
 					}
 					?>
