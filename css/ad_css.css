@@ -265,6 +265,7 @@ hr.ngay_ad {
 .food {
     background-color: #337ab7;
     color: white;
+    margin-top: 10px;
 }
 /* menu */
 /* Fixed sidenav, full height */

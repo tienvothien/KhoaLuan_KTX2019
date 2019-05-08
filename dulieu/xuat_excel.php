@@ -18,11 +18,11 @@ if(isset($_POST['timkiem_dang_ophongngay_batdau']) && isset($_POST['timkiem_dang
 	$objExcel->setActiveSheetIndex(0);
 	$sheet = $objExcel->getActiveSheet()->setTitle();
 	$rowCount = 2;
-	$sheet->setCellValue('A'.$rowCount,'Danh sách Sinh viên đang ở Ký túc xá  ngày '.date('d/m/Y',strtotime($xuat_ophong_ngay_batdau)).' đến ngày '.date('d/m/Y',strtotime($xuat_ophong_ngay_kethuc)) )->mergeCells('A2:'.'M2');
-	$sheet->getStyle('A2:M2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-	$sheet->getStyle('A2:M2')->getFont()->setBold(true);
-	$sheet->getStyle('A2:M2')->getFont()->setSize(20);
-	$sheet->getStyle('A2:M2')->getFont()->setName("Times New Roman");
+	$sheet->setCellValue('A'.$rowCount,'Danh sách Sinh viên đang ở Ký túc xá  ngày '.date('d/m/Y',strtotime($xuat_ophong_ngay_batdau)).' đến ngày '.date('d/m/Y',strtotime($xuat_ophong_ngay_kethuc)) )->mergeCells('A2:'.'N2');
+	$sheet->getStyle('A2:N2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+	$sheet->getStyle('A2:N2')->getFont()->setBold(true);
+	$sheet->getStyle('A2:N2')->getFont()->setSize(20);
+	$sheet->getStyle('A2:N2')->getFont()->setName("Times New Roman");
 	$rowCount = 4;
 	$sheet->setCellValue('A'.$rowCount,'STT');
 	$sheet->setCellValue('B'.$rowCount,'Tòa nhà');
@@ -37,6 +37,7 @@ if(isset($_POST['timkiem_dang_ophongngay_batdau']) && isset($_POST['timkiem_dang
 	$sheet->setCellValue('K'.$rowCount,'Học Kỳ');
 	$sheet->setCellValue('L'.$rowCount,'Năm học');
 	$sheet->setCellValue('M'.$rowCount,'Ở từ ngày');
+	$sheet->setCellValue('N'.$rowCount,'Ghi chú');
 	$sheet->getColumnDimension("B")->setAutosize(true);// width âuto
 	$sheet->getColumnDimension("C")->setAutosize(true); // width auto
 	$sheet->getColumnDimension("D")->setAutosize(true); // width auto
@@ -49,8 +50,8 @@ if(isset($_POST['timkiem_dang_ophongngay_batdau']) && isset($_POST['timkiem_dang
 	$sheet->getColumnDimension("K")->setAutosize(true); // width auto
 	$sheet->getColumnDimension("L")->setAutosize(true); // width auto
 	$sheet->getColumnDimension("M")->setAutosize(true); // width auto
-	$sheet->getStyle('A4:M4')->getFont()->setBold(true);// chữ in đêm
-	$sheet->getStyle('A4:M4')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);// canh giữa
+	$sheet->getStyle('A4:N4')->getFont()->setBold(true);// chữ in đêm
+	$sheet->getStyle('A4:N4')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);// canh giữa
 	$stt=1;
 		
 			include 'conn.php';
@@ -59,8 +60,18 @@ if(isset($_POST['timkiem_dang_ophongngay_batdau']) && isset($_POST['timkiem_dang
 		}else{
 			$result = mysqli_query($con, "SELECT sinh_vien.id_sinhvien, sinh_vien.mssv, sinh_vien.ho_sv, sinh_vien.ten_sv, sinh_vien.ngay_sinh, sinh_vien.gioi_tinh, sinh_vien.que_quan, sinh_vien.so_cmnd, sinh_vien.ngay_cap, sinh_vien.noi_cap, sinh_vien.matinh, sinh_vien.mahuyen, sinh_vien.maxa, sinh_vien.so_nha, sinh_vien.so_dt, sinh_vien.email, sinh_vien.hotencha, sinh_vien.sdtcha, sinh_vien.hotenme, sinh_vien.sdtme, sinh_vien.id_lop, phong.idphong, phong.ma_phong, toa_nha.ten_toa_nha, toa_nha.ma_toa_nha, toa_nha.id_toanha,toa_nha.loai_toa_nha, lop.id_lop, lop.ten_lop, o_phong.ngay_bat_dau , o_phong.id_ophong,o_phong.hoc_ky, o_phong.nam_hoc FROM toa_nha,sinh_vien, o_phong, phong, lop WHERE sinh_vien.xoa=0 and o_phong.ngay_ket_thuc IS NULL and ( o_phong.ngay_bat_dau BETWEEN '$xuat_ophong_ngay_batdau' and '$xuat_ophong_ngay_kethuc') AND o_phong.id_sinhvien= sinh_vien.id_sinhvien AND o_phong.id_phong=phong.idphong AND toa_nha.id_toanha = phong.id_toanha and sinh_vien.id_lop= lop.id_lop ORDER BY sinh_vien.id_sinhvien, o_phong.ngay_bat_dau, toa_nha.loai_toa_nha, toa_nha.ten_toa_nha, phong.ma_phong ");
 		}
-	
 	while($row_sinh_vien = mysqli_fetch_array($result)){
+
+		$hoc_ky1 = $row_sinh_vien["hoc_ky"];
+		if ( $hoc_ky1==2  && $ngayhethong >= $ngay_hk2_1 && $ngayhethong<=$ngayht_hk2_2  ) {
+			$ghichu='';
+		}else if ( $hoc_ky1=="hè"  && $ngayhethong > $ngayht_hk2_2 && $ngayhethong<=$ngayht_hk_he_2  ) {
+			$ghichu='';
+		}else if ( $hoc_ky1==1  && $ngayhethong > $ngayht_hk_he_2 && $ngayhethong<=$ngayht_hk1_1  ) {
+			$ghichu='';
+		}else{
+			$ghichu='Quá hạn';
+		}
 		$diachi2='';
 		$diachi1='';
 		// lấy địa chỉ
@@ -79,7 +90,7 @@ if(isset($_POST['timkiem_dang_ophongngay_batdau']) && isset($_POST['timkiem_dang
 		$sheet->setCellValue('C'.$rowCount,$row_sinh_vien['ma_phong']);
 		$sheet->setCellValue('D'.$rowCount,$row_sinh_vien['mssv']);
 		$sheet->setCellValue('E'.$rowCount,$row_sinh_vien['ho_sv'].' '.$row_sinh_vien['ten_sv']);
-		$sheet->setCellValue('F'.$rowCount,$row_sinh_vien['ngay_sinh']);
+		$sheet->setCellValue('F'.$rowCount,date('d/m/Y', strtotime($row_sinh_vien['ngay_sinh'])));
 		$sheet->setCellValue('G'.$rowCount,$row_sinh_vien['gioi_tinh']);
 		$sheet->setCellValue('H'.$rowCount,$diachi2);
 		$sheet->setCellValue('I'.$rowCount,$row_sinh_vien['so_dt']);
@@ -87,9 +98,11 @@ if(isset($_POST['timkiem_dang_ophongngay_batdau']) && isset($_POST['timkiem_dang
 		$sheet->setCellValue('K'.$rowCount,$row_sinh_vien['hoc_ky']);
 		$sheet->setCellValue('L'.$rowCount,$row_sinh_vien['nam_hoc']);
 		$sheet->setCellValue('M'.$rowCount, date('d/m/Y', strtotime($row_sinh_vien['ngay_bat_dau'])));
+		$sheet->setCellValue('N'.$rowCount,$ghichu);
+
 		$sheet->getStyle('B'.$rowCount.':C'.$rowCount)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 		$sheet->getStyle('F'.$rowCount.':G'.$rowCount)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-		$sheet->getStyle('I'.$rowCount.':M'.$rowCount)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+		$sheet->getStyle('I'.$rowCount.':N'.$rowCount)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 		
 		$stt++;
 	}
@@ -100,22 +113,22 @@ if(isset($_POST['timkiem_dang_ophongngay_batdau']) && isset($_POST['timkiem_dang
 			)
 		)
 	);
-	$sheet->getStyle('A4:'.'M'.$rowCount)->applyFromArray($styleArray);
+	$sheet->getStyle('A4:'.'N'.$rowCount)->applyFromArray($styleArray);
 	$rowCount+=1;
-	$sheet->setCellValue('I'.$rowCount,'Kiên Giang, Ngày '.date('d').' tháng ' . date('m').' năm '.date('Y'))->mergeCells('I'.$rowCount.':M'.$rowCount);
-	$sheet->getStyle('I'.$rowCount.':M'.$rowCount)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+	$sheet->setCellValue('I'.$rowCount,'Kiên Giang, Ngày '.date('d').' tháng ' . date('m').' năm '.date('Y'))->mergeCells('I'.$rowCount.':N'.$rowCount);
+	$sheet->getStyle('I'.$rowCount.':N'.$rowCount)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 	$rowCount+=1;
-	$sheet->setCellValue('I'.$rowCount,'Người lập')->mergeCells('I'.$rowCount.':M'.$rowCount);
-	$sheet->getStyle('I'.$rowCount.':M'.$rowCount)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+	$sheet->setCellValue('I'.$rowCount,'Người lập')->mergeCells('I'.$rowCount.':N'.$rowCount);
+	$sheet->getStyle('I'.$rowCount.':N'.$rowCount)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 
 	$rowCount+=4;
 	$ten = mysqli_fetch_array(mysqli_query($con,"SELECT can_bo.ho_can_bo, can_bo.ten_can_bo FROM can_bo WHERE can_bo.id_canbo='".$_SESSION['id_canbo']."'"));
 	$ten_ne = $ten['ho_can_bo'].' '.$ten['ten_can_bo'];
-	$sheet->setCellValue('I'.$rowCount,$ten_ne)->mergeCells('I'.$rowCount.':M'.$rowCount);
-	$sheet->getStyle('I'.$rowCount.':M'.$rowCount)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-	$sheet->getStyle('I'.$rowCount.':M'.$rowCount)->getFont()->setBold(true);
-	$sheet->getStyle('A4:M'.$rowCount)->getFont()->setSize(13);
-	$sheet->getStyle('A4:M'.$rowCount)->getFont()->setName("Times New Roman");
+	$sheet->setCellValue('I'.$rowCount,$ten_ne)->mergeCells('I'.$rowCount.':N'.$rowCount);
+	$sheet->getStyle('I'.$rowCount.':N'.$rowCount)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+	$sheet->getStyle('I'.$rowCount.':N'.$rowCount)->getFont()->setBold(true);
+	$sheet->getStyle('A4:N'.$rowCount)->getFont()->setSize(13);
+	$sheet->getStyle('A4:N'.$rowCount)->getFont()->setName("Times New Roman");
 	$objWriter = new PHPExcel_Writer_Excel2007($objExcel);
 	$tenfiel= strtotime(date('Y/m/d H:i:s'));
 	$filename = 'sinhvieoktx'.$tenfiel.'.xlsx';
@@ -207,7 +220,7 @@ if(isset($_POST['xuat_excel_da_ophpng'])){
 		$sheet->setCellValue('C'.$rowCount,$row_sinh_vien['ma_phong']);
 		$sheet->setCellValue('D'.$rowCount,$row_sinh_vien['mssv']);
 		$sheet->setCellValue('E'.$rowCount,$row_sinh_vien['ho_sv'].' '.$row_sinh_vien['ten_sv']);
-		$sheet->setCellValue('F'.$rowCount,$row_sinh_vien['ngay_sinh']);
+		$sheet->setCellValue('F'.$rowCount,date('d/m/Y', strtotime($row_sinh_vien['ngay_sinh'])));
 		$sheet->setCellValue('G'.$rowCount,$row_sinh_vien['gioi_tinh']);
 		$sheet->setCellValue('H'.$rowCount,$diachi2);
 		$sheet->setCellValue('I'.$rowCount,$row_sinh_vien['so_dt']);

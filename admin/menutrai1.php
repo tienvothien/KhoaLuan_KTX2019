@@ -58,6 +58,7 @@ echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 				<a href="quanlyloaiphong.php" class="list-group-item">Quản lý Loại Phòng</a>
 				<a href="quanly_o_phong.php" class="list-group-item">Quản lý Đang ở</a>
 				<a href="quanlyquatrinhophong_sinhvien.php" class="list-group-item">Quản lý Đã ở</a>
+				<a href="quanly_quanhan_o_phong.php" class="list-group-item">Quản lý Quá hạn</a>
 			</div>
 			<?php 
 				if ($qr_ktra_chucvu['idchucvu']==0){ ?>

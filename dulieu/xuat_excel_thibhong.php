@@ -7,7 +7,7 @@ if(isset($_POST['xuat_excel_thibhong'])){
 	$objExcel->setActiveSheetIndex(0);
 	$sheet = $objExcel->getActiveSheet()->setTitle();
 	$rowCount = 2;
-	$sheet->setCellValue('A'.$rowCount,'Danh sách Thiết bị hỏng ')->mergeCells('A2:H2');
+	$sheet->setCellValue('A'.$rowCount,'Danh sách Thiết bị hỏng đến ngày '.date('d/m/Y'))->mergeCells('A2:H2');
 	$sheet->getStyle('A2:H2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 	$sheet->getStyle('A2:H2')->getFont()->setBold(true);
 	$sheet->getStyle('A2:H2')->getFont()->setSize(20);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 07, 2019 lúc 05:23 PM
+-- Thời gian đã tạo: Th5 08, 2019 lúc 04:34 AM
 -- Phiên bản máy phục vụ: 10.1.29-MariaDB
 -- Phiên bản PHP: 7.2.0
 
@@ -132,68 +132,6 @@ INSERT INTO `cochucvu` (`id_cochucvu`, `id_canbo`, `idchucvu`, `id_canbothem`, `
 (18, 2, 22, 1, '2019-05-07 15:37:26', 1, 1, '0000-00-00 00:00:00'),
 (19, 2, 1, 1, '2019-05-07 15:39:07', 0, NULL, NULL),
 (20, 4, 2, 1, '2019-05-07 15:43:14', 0, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `co_dien_ut`
---
-
-CREATE TABLE `co_dien_ut` (
-  `id_codienuutien` int(11) NOT NULL,
-  `mssv` int(10) NOT NULL,
-  `id_dienuutien` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `co_gia_phong`
---
-
-CREATE TABLE `co_gia_phong` (
-  `id_cogiaphong` int(11) NOT NULL,
-  `id_loaiphong` int(11) NOT NULL,
-  `gia_phong` int(7) NOT NULL,
-  `id_canbothem` int(11) NOT NULL,
-  `ngay_bat_dau` date NOT NULL,
-  `ngay_ket_thuc` datetime NOT NULL,
-  `id_canboxoa` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `dien_uu_tien`
---
-
-CREATE TABLE `dien_uu_tien` (
-  `id_dienuutien` int(11) NOT NULL,
-  `ma_dien_ut` char(3) COLLATE utf8_unicode_ci NOT NULL,
-  `ten_dien_ut` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
-  `he_so` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `don_dang_ky`
---
-
-CREATE TABLE `don_dang_ky` (
-  `ma_don_dang_ky` int(11) NOT NULL,
-  `mssv` int(10) NOT NULL,
-  `ngay_dang_ky` date NOT NULL,
-  `gio_dang_ky` time NOT NULL,
-  `id_canbo` int(11) DEFAULT NULL,
-  `id_phong` int(11) NOT NULL,
-  `hoc_ky` varchar(2) COLLATE utf8_unicode_ci NOT NULL,
-  `nam_hoc` varchar(9) COLLATE utf8_unicode_ci NOT NULL,
-  `duyet` tinyint(1) NOT NULL DEFAULT '0',
-  `duoc_o` int(1) DEFAULT '0',
-  `ngay_duyet` date DEFAULT '0000-00-00',
-  `gio_duyet` time DEFAULT '00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -949,7 +887,7 @@ CREATE TABLE `khoa` (
 --
 
 INSERT INTO `khoa` (`id_khoa`, `ma_khoa`, `ten_khoa`, `id_canbothem`, `ngay`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
-(1, 'TTTT', 'Thông Tin - Truyền Thông', 1, '2018-09-13 00:00:00', 0, 1, '2019-04-29 21:02:35'),
+(1, 'TTTT', 'Thông Tin - Truyền Thông 1', 1, '2018-09-13 00:00:00', 0, 1, '2019-04-29 21:02:35'),
 (65, 'KTCN', 'Kỹ thuật - công nghệ', 1, '2019-04-28 20:12:08', 0, NULL, NULL),
 (66, 'ttt2', 'Khoa Ví dụ 1', 2, '2019-05-04 21:33:00', 1, 2, '2019-05-04 21:37:20');
 
@@ -1075,7 +1013,9 @@ INSERT INTO `log_sua_dl` (`idlog`, `bangsua`, `tenbang`, `iddulieu`, `cot`, `ten
 (295, 'chucvu', 'Chức vụ', 22, 'tenchucvu', 'Tên Chức vụ', 'Chức vụ ví dụ 2', 'Chức vụ ví dụ 3', 1, '2019-05-07 15:32:20'),
 (296, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 9, 'soluong', 'Số Lượng', '4', '2', 1, '2019-05-07 16:15:31'),
 (297, 'loaiphongcothietbi', 'Có thiết bị trong loại phòng', 9, 'soluong', 'Số Lượng', '2', '3', 1, '2019-05-07 16:31:20'),
-(298, 'loai_phong', 'Loại phòng', 3, 'gia_loai_phong', 'Giá phòng', '59999', '59995', 1, '2019-05-07 20:15:16');
+(298, 'loai_phong', 'Loại phòng', 3, 'gia_loai_phong', 'Giá phòng', '59999', '59995', 1, '2019-05-07 20:15:16'),
+(299, 'khoa', 'Khoa', 1, 'ten_khoa', 'tên Khoa', 'Thông Tin - Truyền Thông', 'Thông Tin - Truyền Thông 1', 2, '2019-05-08 07:56:13'),
+(300, 'lop', 'Lớp', 30, 'ten_lop', 'Tên Lớp', 'B16 xây dựng 1', 'B16 xây dựng 12', 2, '2019-05-08 08:01:50');
 
 -- --------------------------------------------------------
 
@@ -1106,7 +1046,7 @@ INSERT INTO `lop` (`id_lop`, `ma_lop`, `ten_lop`, `id_khoa`, `nam_BD`, `khoa`, `
 (10, 'b15xd1', 'B15 xây dựng 1', 65, 2015, 1, 1, '2019-04-28 20:12:38', 0, NULL, NULL),
 (11, 'b15tt2', 'B15 Thông tin 2', 1, 2015, 1, 1, '2019-04-30 10:45:42', 0, NULL, NULL),
 (29, 'b15xd2', 'B15 xây dựng 2', 65, 2016, 2, 1, '2019-04-30 10:46:53', 0, NULL, NULL),
-(30, 'b16xd1', 'B16 xây dựng 1', 65, 2016, 2, 1, '2019-05-01 18:36:06', 0, NULL, NULL),
+(30, 'b16xd1', 'B16 xây dựng 12', 65, 2016, 2, 1, '2019-05-01 18:36:06', 0, NULL, NULL),
 (31, 'C17xd1', 'B17 xây dựng 1', 65, 2015, 3, 1, '2019-05-01 18:45:32', 1, NULL, NULL),
 (32, 'b15tt1', 'B15 Thông tin 1', 1, 2015, 1, 1, '2019-05-02 18:14:39', 0, NULL, NULL),
 (33, 'b16tt1', 'B16 Thông tin 1', 1, 2016, 2, 2, '2019-05-04 21:40:22', 0, NULL, NULL);
@@ -1176,7 +1116,8 @@ INSERT INTO `phong` (`idphong`, `ma_phong`, `stt_tang`, `id_toanha`, `id_loaipho
 (2, 101, 1, 6, 1, 1, '2019-04-30 20:27:27', 0, 2, '2019-05-01'),
 (3, 100, 1, 6, 1, 1, '2019-04-30 20:30:52', 1, 2, '2019-05-01'),
 (4, 333, 2, 1, 1, 1, '2019-04-30 20:32:21', 0, 2, '2019-05-01'),
-(5, 201, 2, 6, 1, 1, '2019-04-30 20:33:01', 0, 2, '2019-05-01');
+(5, 201, 2, 6, 1, 1, '2019-04-30 20:33:01', 0, 2, '2019-05-01'),
+(6, 100, 1, 6, 2, 2, '2019-05-08 08:05:15', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -12659,37 +12600,6 @@ ALTER TABLE `cochucvu`
   ADD KEY `id_canboxoa` (`id_canboxoa`);
 
 --
--- Chỉ mục cho bảng `co_dien_ut`
---
-ALTER TABLE `co_dien_ut`
-  ADD PRIMARY KEY (`id_codienuutien`),
-  ADD KEY `id_dienuutien` (`id_dienuutien`);
-
---
--- Chỉ mục cho bảng `co_gia_phong`
---
-ALTER TABLE `co_gia_phong`
-  ADD PRIMARY KEY (`id_cogiaphong`),
-  ADD KEY `id_loaiphong` (`id_loaiphong`),
-  ADD KEY `id_canbothem` (`id_canbothem`),
-  ADD KEY `id_canboxoa` (`id_canboxoa`);
-
---
--- Chỉ mục cho bảng `dien_uu_tien`
---
-ALTER TABLE `dien_uu_tien`
-  ADD PRIMARY KEY (`id_dienuutien`),
-  ADD UNIQUE KEY `ma_dien_ut` (`ma_dien_ut`),
-  ADD UNIQUE KEY `ten_dien_ut` (`ten_dien_ut`);
-
---
--- Chỉ mục cho bảng `don_dang_ky`
---
-ALTER TABLE `don_dang_ky`
-  ADD PRIMARY KEY (`ma_don_dang_ky`),
-  ADD KEY `id_canbo` (`id_canbo`);
-
---
 -- Chỉ mục cho bảng `huyen`
 --
 ALTER TABLE `huyen`
@@ -12764,7 +12674,9 @@ ALTER TABLE `phong`
 -- Chỉ mục cho bảng `sinh_vien`
 --
 ALTER TABLE `sinh_vien`
-  ADD PRIMARY KEY (`id_sinhvien`);
+  ADD PRIMARY KEY (`id_sinhvien`),
+  ADD KEY `maxa` (`maxa`),
+  ADD KEY `id_lop` (`id_lop`);
 
 --
 -- Chỉ mục cho bảng `taikhoan`
@@ -12837,24 +12749,6 @@ ALTER TABLE `cochucvu`
   MODIFY `id_cochucvu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT cho bảng `co_dien_ut`
---
-ALTER TABLE `co_dien_ut`
-  MODIFY `id_codienuutien` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT cho bảng `co_gia_phong`
---
-ALTER TABLE `co_gia_phong`
-  MODIFY `id_cogiaphong` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT cho bảng `dien_uu_tien`
---
-ALTER TABLE `dien_uu_tien`
-  MODIFY `id_dienuutien` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT cho bảng `khoa`
 --
 ALTER TABLE `khoa`
@@ -12876,7 +12770,7 @@ ALTER TABLE `loai_phong`
 -- AUTO_INCREMENT cho bảng `log_sua_dl`
 --
 ALTER TABLE `log_sua_dl`
-  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=299;
+  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=301;
 
 --
 -- AUTO_INCREMENT cho bảng `lop`
@@ -12894,7 +12788,7 @@ ALTER TABLE `o_phong`
 -- AUTO_INCREMENT cho bảng `phong`
 --
 ALTER TABLE `phong`
-  MODIFY `idphong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idphong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `sinh_vien`
@@ -12945,26 +12839,6 @@ ALTER TABLE `cochucvu`
   ADD CONSTRAINT `cochucvu_ibfk_2` FOREIGN KEY (`id_canbo`) REFERENCES `can_bo` (`id_canbo`),
   ADD CONSTRAINT `cochucvu_ibfk_3` FOREIGN KEY (`id_canbothem`) REFERENCES `can_bo` (`id_canbo`),
   ADD CONSTRAINT `cochucvu_ibfk_4` FOREIGN KEY (`id_canboxoa`) REFERENCES `can_bo` (`id_canbo`);
-
---
--- Các ràng buộc cho bảng `co_dien_ut`
---
-ALTER TABLE `co_dien_ut`
-  ADD CONSTRAINT `co_dien_ut_ibfk_2` FOREIGN KEY (`id_dienuutien`) REFERENCES `dien_uu_tien` (`id_dienuutien`);
-
---
--- Các ràng buộc cho bảng `co_gia_phong`
---
-ALTER TABLE `co_gia_phong`
-  ADD CONSTRAINT `co_gia_phong_ibfk_1` FOREIGN KEY (`id_loaiphong`) REFERENCES `loai_phong` (`id_loaiphong`),
-  ADD CONSTRAINT `co_gia_phong_ibfk_2` FOREIGN KEY (`id_canbothem`) REFERENCES `can_bo` (`id_canbo`),
-  ADD CONSTRAINT `co_gia_phong_ibfk_3` FOREIGN KEY (`id_canboxoa`) REFERENCES `can_bo` (`id_canbo`);
-
---
--- Các ràng buộc cho bảng `don_dang_ky`
---
-ALTER TABLE `don_dang_ky`
-  ADD CONSTRAINT `don_dang_ky_ibfk_2` FOREIGN KEY (`id_canbo`) REFERENCES `can_bo` (`id_canbo`);
 
 --
 -- Các ràng buộc cho bảng `huyen`
@@ -13020,6 +12894,13 @@ ALTER TABLE `phong`
   ADD CONSTRAINT `phong_ibfk_2` FOREIGN KEY (`id_canboxoa`) REFERENCES `can_bo` (`id_canbo`),
   ADD CONSTRAINT `phong_ibfk_3` FOREIGN KEY (`id_loaiphong`) REFERENCES `loai_phong` (`id_loaiphong`),
   ADD CONSTRAINT `phong_ibfk_4` FOREIGN KEY (`id_toanha`) REFERENCES `toa_nha` (`id_toanha`);
+
+--
+-- Các ràng buộc cho bảng `sinh_vien`
+--
+ALTER TABLE `sinh_vien`
+  ADD CONSTRAINT `sinh_vien_ibfk_1` FOREIGN KEY (`maxa`) REFERENCES `xa` (`maxa`),
+  ADD CONSTRAINT `sinh_vien_ibfk_2` FOREIGN KEY (`id_lop`) REFERENCES `lop` (`id_lop`);
 
 --
 -- Các ràng buộc cho bảng `thietbi`

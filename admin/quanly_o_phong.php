@@ -76,6 +76,7 @@ include './../dulieu/kiemtradangnhap.php';
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<div id="dulieu_o_phong"><?php include './../dulieu/dulieu_o_phong.php';?></div>
 					</div>
+
 					<div class="col-xs-11 col-sm-12 col-md-2 col-lg-2">
 						<div class="nuthemmoi">
 							<input type="button" class="btn btn-primary btn-block" name="them_o_phong" value="Thêm mới" data-toggle="modal" data-target="#them_o_phong1">
@@ -84,7 +85,9 @@ include './../dulieu/kiemtradangnhap.php';
 					</div><!-- end thaydoi1 -->
 					</div><!-- end noidungthaydoi -->
 					</div> <!-- end col-9 -->
+
 					</div> <!-- end row noi dung -->
+					<br>
 					<?php include 'food.php';?>
 					</div> <!-- end trang admin -->
 				</body>

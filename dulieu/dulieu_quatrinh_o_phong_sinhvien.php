@@ -21,12 +21,12 @@ if (isset($_GET['phongo'])) {
 				<th>Ngày sinh</th>
 				<th>Giới <br>tính</th>
 				<th>Quê Quán</th>
+				<th>Lớp</th>
 				<th>Học <br> kỳ</th>
 				<th>Năm học</th>
 				<th>Ở ngày</th>
 				<th class="hidden" style="width:300px;">HKTT</th>
 				<th>Ngày ra</th>
-				<th>Lớp</th>
 				
 			</tr>
 		</thead>
@@ -56,13 +56,13 @@ if (isset($_GET['phongo'])) {
 				<td class='canhgiua'>".date('d/m/Y', strtotime($row_sinh_vien["ngay_sinh"]))."</td>
 				<td class='canhgiua chuinthuong'>$row_sinh_vien[gioi_tinh]</td>
 				<td class='canhgiua chuinthuong'>$diachi2</td>
+				<td class='chuinhoa'>$lop1</td>
 				<td class='canhgiua chuinthuong'>$row_sinh_vien[hoc_ky]</td>
 				<td class='canhgiua chuinthuong'>$row_sinh_vien[nam_hoc]</td>
 				<td class='canhgiua chuinthuong hidden '>$diachi1</td>
 				<td class='canhgiua'>".date('d/m/Y', strtotime($row_sinh_vien["ngay_bat_dau"]))."</td>
 				<td class='canhgiua'>".date('d/m/Y', strtotime($row_sinh_vien["ngay_ket_thuc"]))."</td>
-
-				<td class='chuinhoa'>$lop1</td>";?>
+";?>
 				
 				<?php echo "
 			</tr>
