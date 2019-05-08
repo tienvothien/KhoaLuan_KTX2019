@@ -12,10 +12,10 @@ include 'conn.php';
 				<th>STT</th>
 				<th >MÃ</th>
 				<th >Tên</th>
-				<th>Trường thay đổi</th>
-				<th>Nội dung trước</th>
-				<th>Nội dung sau</th>
-				<th>Người thay đổi</th>
+				<th>Chuyển phòng</th>
+				<th>Từ phòng</th>
+				<th>Sang phòng</th>
+				<th>Người Chuyển</th>
 				<th >Mã số cán bộ</th>
 				<th>Thời gian</th>
 			</tr>
@@ -39,10 +39,10 @@ include 'conn.php';
 					<tr>
 						<td style='text-align:center;'>$stt</td>
 						<td class='canhgiua chuinhoa'>$tt_sinh_vien[mssv]</td>
-						<td class='canhgiua chuinthuong'>$tt_sinh_vien[ho_sv] $tt_sinh_vien[ten_sv] </td>
-						<td class=''>$row[tencot]</td>
-						<td class='chuinhoa'>$tt_ptrc[ma_phong] - $tt_ptrc[ma_toa_nha] </td>
-						<td class='chuinhoa'>$tt_p_S[ma_phong] - $tt_p_S[ma_toa_nha]</td>
+						<td class=' chuinthuong'>$tt_sinh_vien[ho_sv] $tt_sinh_vien[ten_sv] </td>
+						<td class='canhgiua'>$row[tencot]</td>
+						<td class='chuinhoa canhgiua'>$tt_ptrc[ma_phong] - $tt_ptrc[ma_toa_nha] </td>
+						<td class='chuinhoa canhgiua'>$tt_p_S[ma_phong] - $tt_p_S[ma_toa_nha]</td>
 						<td class=''>$canbotdoi[ho_can_bo] $canbotdoi[ten_can_bo]</td>
 						<td class='canhgiua'>$canbotdoi[ma_can_bo] </td>
 						<td class='canhgiua'>".date("d/m/Y H:i:s", strtotime($row['ngaysua']))."</td>
