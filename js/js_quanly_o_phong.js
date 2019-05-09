@@ -50,6 +50,18 @@ $(document).ready(function () {
 				}
 			});
 	});
+	$('#timkiem_dang_ophong_id_toanha').change(function() {
+		var id_dltoanha_moi=$('#timkiem_dang_ophong_id_toanha').val();
+			$.ajax({
+				url:"../dulieu/fetch.php",
+				type: "post",
+				data: {id_toa_nha_them_ophong:id_dltoanha_moi},
+				async:true,
+				success:function(kq){
+					$("#timkiem_dang_ophong_idphong").html(kq);
+				}
+			});
+	});
 	// Xem chi tiet thoong tin o_phong
 	$(document).on('click', '.view_chitietsinh_vien_o_phong', function(){
            var id_sinhvien_o_phong = $(this).attr("id");
@@ -219,8 +231,9 @@ $(document).ready(function () {
 			var timkiem_daophongngay_batdau=$('#timkiem_daophongngay_batdau').val();
 			var timkiem_daophongngay_kethuc=$('#timkiem_daophongngay_kethuc').val();
 			var timkiem_dang_ophong_id_toanha=$('#timkiem_dang_ophong_id_toanha').val();
+			var timkiem_dang_ophong_idphong=$('#timkiem_dang_ophong_idphong').val();
 
-			if (timkiem_daophongngay_batdau=='' && timkiem_daophongngay_kethuc==''&& timkiem_dang_ophong_id_toanha=='') {
+			if (timkiem_daophongngay_batdau=='' && timkiem_dang_ophong_idphong=='' && timkiem_daophongngay_kethuc==''&& timkiem_dang_ophong_id_toanha=='') {
 				
 			}else{
 				$.ajax({
@@ -228,6 +241,7 @@ $(document).ready(function () {
                      method:"POST",
                      data:{timkiem_daophongngay_batdau:timkiem_daophongngay_batdau,
                      	timkiem_daophongngay_kethuc:timkiem_daophongngay_kethuc,
+                     	timkiem_dang_ophong_idphong:timkiem_dang_ophong_idphong,
                      	timkiem_dang_ophong_id_toanha:timkiem_dang_ophong_id_toanha},
 					success:function (kql_tim_Da_o_phong) {
 						// alert(kql_tim_Da_o_phong);
@@ -243,7 +257,8 @@ $(document).ready(function () {
 			var timkiem_dang_ophongngay_batdau=$('#timkiem_dang_ophongngay_batdau').val();
 			var timkiem_dang_ophongngay_kethuc=$('#timkiem_dang_ophongngay_kethuc').val();
 			var timkiem_dang_ophong_id_toanha=$('#timkiem_dang_ophong_id_toanha').val();
-			if (timkiem_dang_ophongngay_batdau=='' && timkiem_dang_ophongngay_kethuc=='' && timkiem_dang_ophong_id_toanha=='') {
+			var timkiem_dang_ophong_idphong=$('#timkiem_dang_ophong_idphong').val();
+			if (timkiem_dang_ophongngay_batdau=='' && timkiem_dang_ophongngay_kethuc==''&& timkiem_dang_ophong_idphong=='' && timkiem_dang_ophong_id_toanha=='') {
 				
 			}else{
 				$.ajax({
@@ -251,6 +266,7 @@ $(document).ready(function () {
                      method:"POST",
                      data:{timkiem_dang_ophongngay_batdau:timkiem_dang_ophongngay_batdau,
                      	timkiem_dang_ophongngay_kethuc:timkiem_dang_ophongngay_kethuc,
+                     	timkiem_dang_ophong_idphong:timkiem_dang_ophong_idphong,
                      	timkiem_dang_ophong_id_toanha:timkiem_dang_ophong_id_toanha},
 					success:function (kql_tim_Dang_o_phong) {
 						// alert(kql_tim_Da_o_phong);

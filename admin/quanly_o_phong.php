@@ -39,16 +39,16 @@ include './../dulieu/kiemtradangnhap.php';
 						<hr class="ngay_ad">
 						<form action="./../dulieu/xuat_excel.php" id="" method="POST" role="form">
 							<div class="row text-center">
-								<div class="col-xs-12 col-sm-11 col-md-11 col-lg-11  col-sm-push-1 col-md-push-1 col-lg-push-1">
-									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-justify">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  ">
+									<div class=" khu12 col-xs-12 col-sm-2 col-md-2 col-lg-2 text-justify">
 										<label for="" class="form-control boviennha text-right" >Tìm sinh viên ở từ ngày</label>
 									</div>
-									<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+									<div class=" khu12 col-xs-12 col-sm-4 col-md-4 col-lg-4">
 										<input type="date" class="form-control" id="timkiem_dang_ophongngay_batdau"  name="timkiem_dang_ophongngay_batdau" placeholder="Input field" style="    width: 45%; float:left">
 										<label class="form-control boviennha" style=" width:3%; float: left">-</label>
 										<input class="form-control" type="date" class=form-control id="timkiem_dang_ophongngay_kethuc"  name="timkiem_dang_ophongngay_kethuc" placeholder="Input field" style="    width: 45%">
 									</div>
-									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+									<div class=" khu12 col-xs-12 col-sm-2 col-md-2 col-lg-2">
 										<select name="timkiem_dang_ophong_id_toanha" id="timkiem_dang_ophong_id_toanha" class="form-control" >
 											<option value="">Chọn tòa nhà</option>
 											<?php  $qr = mysqli_query($con, "SELECT toa_nha.id_toanha, toa_nha.ma_toa_nha, toa_nha.ten_toa_nha FROM toa_nha where toa_nha.xoa=0  order by toa_nha.ten_toa_nha");
@@ -61,7 +61,12 @@ include './../dulieu/kiemtradangnhap.php';
 											
 										</select>
 									</div>
-									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 text-left">
+									<div class=" khu12 col-xs-12 col-sm-2 col-md-2 col-lg-2">
+										<select name="timkiem_dang_ophong_idphong" id="timkiem_dang_ophong_idphong" class="form-control" >
+											<option value="">Chọn phòng</option>
+										</select>
+									</div>
+									<div class=" khu12 col-xs-12 col-sm-2 col-md-2 col-lg-2 text-left">
 										<button type="button" id="tim_kiem_dang_o_phong" class="btn btn-primary">Tìm</button>
 										<button type="submit" class="btn btn-info xuat_excel12" id="xuat_excel12">Xuất Excel</button>
 
@@ -164,12 +169,13 @@ include './../dulieu/kiemtradangnhap.php';
 										</div>
 									</div>
 								</div>
-								<h3>Thông tin sinh viên</h3>
-								<div class="form-group" id="tt_sinhvie"></div>
+								
 							</div>
 							<!-- Modal footer -->
-							<div class="modal-footer width_50">
+							<div class="modal-footer ">
 								<button type="submit" class="btn btn-danger">Thêm mới</button>
+								<h3 class="text-center">Thông tin sinh viên</h3>
+								<div class="form-group text-center" id="tt_sinhvie"></div>
 							</div>
 						</form>
 					</div>

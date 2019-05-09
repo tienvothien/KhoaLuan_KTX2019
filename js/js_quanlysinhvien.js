@@ -507,7 +507,7 @@ $(document).ready(function () {
 		          		}else if (kql_add_sinh_vien==99) {
 								alert('Thêm sinh viên mới thành công');
 								$('#form_themsinhvienmoi')[0].reset();
-								$('#dulieusinhvien').load("./../dulieu/dulieusinhvien.php");
+								location.reload();
 						}else {
 								alert('Lỗi Thêm');
 						}

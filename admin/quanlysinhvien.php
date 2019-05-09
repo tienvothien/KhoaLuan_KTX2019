@@ -191,7 +191,7 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 hoten_cb_sua">
 										<label>Khoa</label>
-										<select name="id_khoa_them_sinh_vien" id="id_khoa_them_sinh_vien" class="form-control" required="required">
+										<select name="id_khoa_them_sinh_vien" id="id_khoa_them_sinh_vien" class="form-control chuinthuong" required="required">
 											<option value="">Chọn Khoa</option>
 											<?php
 												$khoa = mysqli_query($con, 'SELECT * FROM khoa where khoa.xoa =0');
@@ -203,14 +203,14 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 hoten_cb_sua">
 										<label>Lớp</label>
-										<select name="lop_them_sinh_vien" id="lop_them_sinh_vien" class="form-control" required="required">
+										<select name="lop_them_sinh_vien" id="lop_them_sinh_vien" class="form-control chuinthuong" required="required">
 											<option value="">Chọn Lớp</option>
 										</select>
 									</div>
 									
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Họ tên Cha</label>
-										<input  type="text" name="hotencha_them_sinh_vien" id="hotencha_them_sinh_vien" class="form-control" rows="1" placeholder="Nhập họ tên cha">
+										<input  type="text" name="hotencha_them_sinh_vien" id="hotencha_them_sinh_vien" class="form-control chuinthuong" rows="1" placeholder="Nhập họ tên cha">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>SĐT Cha</label>
@@ -218,7 +218,7 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Họ tên Mẹ</label>
-										<input  type="text" name="hotenme_them_sinh_vien" id="hotenme_them_sinh_vien" class="form-control" rows="1" placeholder="Nhập họ tên Mẹ">
+										<input  type="text" name="hotenme_them_sinh_vien" id="hotenme_them_sinh_vien" class="form-control chuinthuong" rows="1" placeholder="Nhập họ tên Mẹ">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>SĐT Mẹ</label>

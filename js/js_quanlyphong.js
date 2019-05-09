@@ -48,7 +48,8 @@ $(document).ready(function () {
 						alert('Thêm Phòng mới thành công');
 						$('#form_themphongmoi')[0].reset();
 						$('#tt_loaiphongthem').html('');
-						$('#dulieuphong').load("./../dulieu/dulieuphong.php");
+						// $('#dulieuphong').load("./../dulieu/dulieuphong.php");
+						location.reload();
 					}
 				}
 			});
@@ -88,8 +89,10 @@ $(document).ready(function () {
 						alert('Xóa Phòng mới thành công');
 						$('#From_xoa_phong')[0].reset();
 						$('#id_phong_xoa_12').html('');
-						$('#dulieuphong').load("./../dulieu/dulieuphong.php");
-
+						// $('#dulieuphong').load("./../dulieu/dulieuphong.php");
+						location.reload();
+					}else if (kql_xoa_phong==101) {
+						alert('lỗi xóa Phòng vì còn sinh viên ở phòng');
 					}else  {
 						alert('Lỗi xóa phòng')
 					}
@@ -170,7 +173,9 @@ $(document).ready(function () {
 						alert('Cập nhật Phòng thành công');
 						$('#modal_sua_phong').modal('hide');
 						$('#from_suathongtin_phong')[0].reset();
-						$('#dulieuphong').load("./../dulieu/dulieuphong.php");
+						// $('#dulieuphong').load("./../dulieu/dulieuphong.php");
+						location.reload();
+						
 					}
 				}
 			});

@@ -43,7 +43,7 @@ include './../dulieu/kiemtradangnhap.php';
 									<div class="col-xs-12 col-sm-2  col-md-2 col-lg-2  text-right">
 										<label for="" class="form-control boviennha" >Tìm sinh viên ở từ ngày</label>
 									</div>
-									<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 										<input type="date" class="form-control"  name="timkiem_daophongngay_batdau" id="timkiem_daophongngay_batdau" placeholder="Input field" style="    width: 45%; float:left">
 										<label class="form-control boviennha" style=" width:3%; float: left">-</label>
 										<input class="form-control" type="date" class=form-control id="timkiem_daophongngay_kethuc"  name="timkiem_daophongngay_kethuc" placeholder="Input field" style="    width: 45%">
@@ -58,6 +58,12 @@ include './../dulieu/kiemtradangnhap.php';
 												}
 
 											?>
+											
+										</select>
+									</div>
+									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+										<select name="timkiem_dang_ophong_idphong" id="timkiem_dang_ophong_idphong" class="form-control" >
+											<option value="">Chọn phòng</option>
 											
 										</select>
 									</div>

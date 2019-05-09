@@ -1,7 +1,7 @@
 <?php
 include 'conn.php';
 
-	$selecet_sinh_vien = mysqli_query($con, "SELECT * FROM sinh_vien WHERE sinh_vien.xoa=0 ");
+	$selecet_sinh_vien = mysqli_query($con, "SELECT * FROM sinh_vien WHERE sinh_vien.xoa=0  order by sinh_vien.ten_sv, sinh_vien.ho_sv");
 	if (!mysqli_num_rows($selecet_sinh_vien)) {
 		echo "<div style='text-align: center;'> Chưa có dữ liệu</div>";
 	} else {
@@ -45,10 +45,10 @@ include 'conn.php';
 				<td style='text-align:center;'>$stt</td>
 				<td class='chuinhoa canhgiua'>$row_sinh_vien[mssv]</td>
 				<td class='chuinthuong'>$row_sinh_vien[ho_sv] $row_sinh_vien[ten_sv]</td>
-				<td class=''>".date('d/m/Y', strtotime($row_sinh_vien["ngay_sinh"]))."</td>
+				<td class='canhgiua'>".date('d/m/Y', strtotime($row_sinh_vien["ngay_sinh"]))."</td>
 				<td class='canhgiua chuinthuong'>$row_sinh_vien[gioi_tinh]</td>
 				<td class='canhgiua chuinthuong'>$diachi2</td>
-				<td class='canhgiua chuinthuong '>$diachi1</td>
+				<td class=' chuinthuong '>$diachi1</td>
 
 				<td class='canhgiua chuinhoa'>$row_sinh_vien[so_dt]</td>
 				<td class='chuinhoa'>$lop1</td>";?>

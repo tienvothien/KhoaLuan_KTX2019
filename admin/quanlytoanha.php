@@ -151,6 +151,7 @@ include './../dulieu/kiemtradangnhap.php';
 										</div>
 										<input type="hidden" name="id_toa_nha_update_124" id="id_toa_nha_update_124" />
 									</div>
+									<br>
 									<div class="modal-footer">
 										<input type="submit" name="insert" id="insert" value="Cập nhật" class="btn btn-danger capnhattb" />
 										<button type="button" class="btn btn-primary" data-dismiss="modal">Trở lại</button>

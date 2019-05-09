@@ -4,6 +4,10 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+.khu12.col-xs-12 {
+    padding-right: 0px;
+}
+
 input[type="search"],div#myTable_length select {
     height: 34px;
     padding: 6px 12px;
@@ -82,6 +86,7 @@ div#image_preview {
 
 .col-xs-12.col-sm-12.col-md-12.col-lg-12.hoten_cb_sua {
     padding: 0px;
+    padding-bottom: 5px;
 }
 
 .thumbnail.mua_nen_4 {

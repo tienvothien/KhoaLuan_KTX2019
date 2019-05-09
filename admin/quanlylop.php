@@ -84,7 +84,7 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									<div class="form-group">
 										<label for="">Khoa</label>
-										<select  id="id_khoa_them_lopt12"  name="id_khoa_them_lopt12" class="form-control" required="required">
+										<select  id="id_khoa_them_lopt12"  name="id_khoa_them_lopt12" class="form-control chuinthuong" required="required">
 											<option value="">Chọn Khoa</option>
 											<?php
 												

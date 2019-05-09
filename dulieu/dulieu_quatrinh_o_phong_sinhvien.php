@@ -14,7 +14,6 @@ if (isset($_GET['phongo'])) {
 		<thead>
 			<tr>
 				<th style="text-align:center;" class="stt_sv">STT</th>
-				<th>Tòa nhà</th>
 				<th>Phòng</th>
 				<th>MSSV</th>
 				<th style="width:120px;">Tên Sinh viên</th>
@@ -49,8 +48,7 @@ if (isset($_GET['phongo'])) {
 			echo "
 			<tr>
 				<td style='text-align:center;'>$stt</td>
-				<td style='text-align:center;' class='chuinhoa'>$row_sinh_vien[ma_toa_nha]</td>
-				<td style='text-align:center;'>$row_sinh_vien[ma_phong]</td>
+				<td style='text-align:center;'class='chuinhoa'>$row_sinh_vien[ma_phong] - $row_sinh_vien[ma_toa_nha]</td>
 				<td class='chuinhoa canhgiua'>$row_sinh_vien[mssv]</td>
 				<td class='chuinthuong'>$row_sinh_vien[ho_sv] $row_sinh_vien[ten_sv]</td>
 				<td class='canhgiua'>".date('d/m/Y', strtotime($row_sinh_vien["ngay_sinh"]))."</td>

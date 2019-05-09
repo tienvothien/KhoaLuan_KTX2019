@@ -11,9 +11,9 @@ if (isset($_POST['id__o_phong_sua_12']) && isset($_POST['id_dphong_moi'])) {
 	$nam_hoc=$id_sinhvien_op['nam_hoc'];
 
 
-	$slsvop=mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(o_phong.id_ophong) as slsvop FROM o_phong WHERE o_phong.ngay_ket_thuc IS NULL and o_phong.id_phong = '$id__o_echophong_sua_12'"));
+	$slsvop=mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(o_phong.id_ophong) as slsvop FROM o_phong WHERE o_phong.ngay_ket_thuc IS NULL and o_phong.id_phong = '$id_dphong_moi'"));
 	// lấy số lượng lloaij phòng đó
-	$sl_ngoclp=mysqli_fetch_array(mysqli_query($con, "SELECT loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o FROM loai_phong, phong WHERE phong.xoa =0 AND phong.idphong='$id__o_echophong_sua_12' AND loai_phong.xoa=0"));
+	$sl_ngoclp=mysqli_fetch_array(mysqli_query($con, "SELECT loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o FROM loai_phong, phong WHERE phong.xoa =0 AND phong.idphong='$id_dphong_moi' AND loai_phong.xoa=0"));
 	
 	if ($slsvop["slsvop"]==$sl_ngoclp['sl_nguoi_o']) {
 		echo "2";// đã hếtchỗ chuyển
