@@ -31,7 +31,7 @@ if (isset($_POST['tendangnhap']) && isset($_POST['matkhaudangnhap'])) {
 					echo "3";
 				}
 			}else{
-				$qrquyen = (mysqli_query($con, "SELECT * FROM can_bo, cochucvu WHERE can_bo.xoa=0 and can_bo.id_canbo = cochucvu.id_canbo AND can_bo.ma_can_bo ='$tendangnhap'"));
+				$qrquyen = (mysqli_query($con, "SELECT * FROM can_bo, cochucvu WHERE can_bo.xoa=0 and can_bo.id_canbo = cochucvu.id_canbo AND  cochucvu.xoa=0 and can_bo.ma_can_bo ='$tendangnhap'"));
 				if (mysqli_num_rows($qrquyen)) {
 					$row = mysqli_fetch_array($qrquyen);
 					session_start();

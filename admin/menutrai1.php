@@ -92,6 +92,7 @@
 					</button>
 					<div class="dropdown-container">
 						<a href="quanly_bien_lai.php" class="list-group-item">Biên Lai</a>
+						<a href="quanly_thongke_bien_lai.php" class="list-group-item">Thống kê</a>
 					</div>
 					<?php
 					if ($qr_ktra_chucvu['idchucvu']==0){ ?>
