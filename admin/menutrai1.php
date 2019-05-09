@@ -15,14 +15,15 @@
 				<div class="sidenav">
 					<button class="dropdown-btn">
 					<span class="glyphicon glyphicon-user"></span>
-					<?php include 'conn.php';
-					$t = $_SESSION['macb_dangnhap'];
-					$sqlho_ten_cb = "SELECT ho_can_bo, ten_can_bo FROM can_bo where ma_can_bo = '$t' ";
-					$queryho_ten_cb = mysqli_query($con, $sqlho_ten_cb);
-					$rowho_ten_cb = mysqli_fetch_array($queryho_ten_cb);
-					$ho_can_bo = $rowho_ten_cb['ho_can_bo'];
-					$ten_can_bo = $rowho_ten_cb['ten_can_bo'];
-					echo $ho_can_bo . "&nbsp" . $ten_can_bo;
+					<?php 
+						include 'conn.php';
+						$t = $_SESSION['macb_dangnhap'];
+						$sqlho_ten_cb = "SELECT ho_can_bo, ten_can_bo FROM can_bo where ma_can_bo = '$t' ";
+						$queryho_ten_cb = mysqli_query($con, $sqlho_ten_cb);
+						$rowho_ten_cb = mysqli_fetch_array($queryho_ten_cb);
+						$ho_can_bo = $rowho_ten_cb['ho_can_bo'];
+						$ten_can_bo = $rowho_ten_cb['ten_can_bo'];
+						echo $ho_can_bo . "&nbsp" . $ten_can_bo;
 					?>
 					<i class=" fa fa-caret-down"></i>
 					</button>
@@ -36,9 +37,11 @@
 					<i class="fa fa-caret-down"></i>
 					</button>
 					<div class="dropdown-container">
-							<a href="dangkyad.php" class="list-group-item">Đăng ký ở ktx SV </a>
-							<a href="qldondangky.php" class="list-group-item">Quản lý Đơn đăng ký</a>
+								<a href="dangkyad.php" class="list-group-item">Đăng ký ở ktx SV </a>
+								<a href="qldondangky.php" class="list-group-item">Quản lý Đơn đăng ký</a>
 					</div> -->
+					<?php
+					if ($qr_ktra_chucvu['idchucvu']==0 ||$qr_ktra_chucvu['idchucvu']==1){ ?>
 					<button class="dropdown-btn">Quản lý sinh viên
 					<i class="fa fa-caret-down"></i>
 					</button>
@@ -58,6 +61,7 @@
 						<a href="quanlyquatrinhophong_sinhvien.php" class="list-group-item">Quản lý Đã ở</a>
 						<a href="quanly_quanhan_o_phong.php" class="list-group-item">Quản lý Quá hạn</a>
 					</div>
+					<?php } ?>
 					<?php
 					if ($qr_ktra_chucvu['idchucvu']==0){ ?>
 					<button class="dropdown-btn">Quản lý Cán bộ
@@ -71,6 +75,8 @@
 						
 					</div>
 					<?php } ?>
+					<?php
+					if ($qr_ktra_chucvu['idchucvu']==0 ||$qr_ktra_chucvu['idchucvu']==1){ ?>
 					<button class="dropdown-btn">Quản lý Thiết bị
 					<i class="fa fa-caret-down"></i>
 					</button>
@@ -87,6 +93,10 @@
 						<a href="thongke_phong.php" class="list-group-item">Phòng</a>
 						<a href="quanlythietbi_thongke.php" class="list-group-item">Thiết bị</a>
 					</div>
+					<?php } ?>
+					<?php
+					$qr_ktra_chucvu1 = mysqli_fetch_array(mysqli_query($con, "SELECT DISTINCT chucvu.idchucvu, chucvu.tenchucvu FROM chucvu, cochucvu WHERE cochucvu.id_canbo='$_SESSION[id_canbo]' AND chucvu.idchucvu=cochucvu.idchucvu and chucvu.idchucvu=2 and cochucvu.xoa=0 ORDER BY chucvu.idchucvu   LIMIT 1"));
+					if ($qr_ktra_chucvu['idchucvu']==0 || $qr_ktra_chucvu1['idchucvu']==2){ ?>
 					<button class="dropdown-btn">Quản lý Biên lai
 					<i class="fa fa-caret-down"></i>
 					</button>
@@ -94,6 +104,7 @@
 						<a href="quanly_bien_lai.php" class="list-group-item">Biên Lai</a>
 						<a href="quanly_thongke_bien_lai.php" class="list-group-item">Thống kê</a>
 					</div>
+					<?php } ?>
 					<?php
 					if ($qr_ktra_chucvu['idchucvu']==0){ ?>
 					<button class="dropdown-btn">Quản lý Log Edit

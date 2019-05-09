@@ -37,7 +37,6 @@ if (isset($_POST['tendangnhap']) && isset($_POST['matkhaudangnhap'])) {
 					session_start();
 					$_SESSION['idtk'] = $ktram_is_sinhvien['idtk'];
 					$_SESSION['macb_dangnhap'] = $row['ma_can_bo'];
-					$_SESSION['macb_dangnhap'] = $row['ma_can_bo'];
 					$_SESSION['id_cochucvulogin'] = $row['id_cochucvu'];
 					$_SESSION['id_canbo'] = $row['id_canbo'];
 					$_SESSION['kt_dangnhap_cb'] = 1;

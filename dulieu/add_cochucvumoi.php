@@ -4,7 +4,7 @@ if (isset($_POST['macanbo_cochucvu_them12']) && isset($_POST['id_chucvuthem_coch
 	$macanbo_cochucvu_them12=$_POST['macanbo_cochucvu_them12'];
 	$id_chucvuthem_cochucvu12=$_POST['id_chucvuthem_cochucvu12'];
 	// kiểm tra ma Cán bộ đã có chức vụ này
-	$kiemtra_cochucvu_chua = mysqli_query($con, "SELECT can_bo.id_canbo FROM cochucvu, can_bo WHERE can_bo.xoa=0 AND can_bo.ma_can_bo='$macanbo_cochucvu_them12' AND cochucvu.idchucvu='$id_chucvuthem_cochucvu12' AND can_bo.id_canbo=cochucvu.id_canbo");
+	$kiemtra_cochucvu_chua = mysqli_query($con, "SELECT can_bo.id_canbo FROM cochucvu, can_bo WHERE can_bo.xoa=0 AND can_bo.ma_can_bo='$macanbo_cochucvu_them12' AND cochucvu.idchucvu='$id_chucvuthem_cochucvu12' AND can_bo.id_canbo=cochucvu.id_canbo and cochucvu.xoa=0");
 	$kiemtra_id_canbo = mysqli_query($con, "SELECT can_bo.id_canbo FROM  can_bo WHERE can_bo.xoa=0 AND can_bo.ma_can_bo='$macanbo_cochucvu_them12' ");
 	$kiemtra_co_id_canbo = mysqli_query($con, "SELECT can_bo.id_canbo FROM can_bo WHERE can_bo.ma_can_bo ='$macanbo_cochucvu_them12' ");
 	if (!mysqli_num_rows($kiemtra_co_id_canbo)) {

@@ -1,7 +1,7 @@
 <?php
 include 'conn.php';
 
-	$selecet_cochucvu = mysqli_query($con, "SELECT cochucvu.id_cochucvu, can_bo.id_canbo, can_bo.ma_can_bo, can_bo.ho_can_bo, can_bo.ten_can_bo, can_bo.gioitinh, can_bo.ngay_sinh,chucvu.idchucvu, chucvu.tenchucvu FROM can_bo, chucvu, cochucvu WHERE cochucvu.idchucvu= chucvu.idchucvu AND can_bo.id_canbo=cochucvu.id_canbo AND cochucvu.xoa=0 ORDER BY can_bo.id_canbo, chucvu.idchucvu");
+	$selecet_cochucvu = mysqli_query($con, "SELECT cochucvu.id_cochucvu, can_bo.id_canbo, can_bo.ma_can_bo, can_bo.ho_can_bo, can_bo.ten_can_bo, can_bo.gioitinh, can_bo.ngay_sinh,chucvu.idchucvu, chucvu.tenchucvu FROM can_bo, chucvu, cochucvu WHERE cochucvu.idchucvu= chucvu.idchucvu AND can_bo.id_canbo=cochucvu.id_canbo and can_bo.xoa=0 AND cochucvu.xoa=0 ORDER BY can_bo.id_canbo, chucvu.idchucvu");
 	if (!mysqli_num_rows($selecet_cochucvu)) {
 		echo "<div style='text-align: center;'> Chưa có dữ liệu</div>";
 	} else {
