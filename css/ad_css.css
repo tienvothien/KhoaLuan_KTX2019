@@ -4,6 +4,11 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+.khungtim_bl {
+    padding-right: 0px;
+    padding-left: 3px;
+}
+
 .khu12.col-xs-12 {
     padding-right: 0px;
 }

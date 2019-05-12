@@ -1,4 +1,4 @@
-<?php include 'kiemtradangnhap.php';
+<?php include 'kiemtradangnhap_login.php';
 	//neut tôn tại mãi thêm Cán bộ thì thêm không thì thoát
 	if (isset($_POST['mssv_o_phong_them']) && isset($_POST['id_phong_them_ophong']) &&  isset($_POST['loai_tien'])&&  isset($_POST['so_bien_lai'])) {
 		$mssv_o_phong_them = $_POST['mssv_o_phong_them'];

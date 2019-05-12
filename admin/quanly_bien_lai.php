@@ -42,15 +42,15 @@ include './../dulieu/kiemtradangnhap_ketoan.php';
 						<form action="./../dulieu/xuat_excel.php" id="" method="POST" role="form">
 							<div class="row text-center">
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  ">
-									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 text-justify">
+									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 khungtim_bl text-justify">
 										<label for="" class="form-control boviennha text-right" >Tìm sinh viên ở từ ngày</label>
 									</div>
-									<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+									<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 khungtim_bl">
 										<input type="date" class="form-control" id="timkiem_bien_lai_ngay_batdau"  name="timkiem_bien_lai_ngay_batdau" placeholder="Input field" style="    width: 45%; float:left">
 										<label class="form-control boviennha" style=" width:3%; float: left">-</label>
 										<input class="form-control" type="date" class=form-control id="timkiem_bien_laigngay_kethuc"  name="timkiem_bien_laigngay_kethuc" placeholder="Input field" style="    width: 45%">
 									</div>
-									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 khungtim_bl">
 										<select name="timkiem_bien_lai_id_toanha" id="timkiem_bien_lai_id_toanha" class="form-control" >
 											<option value="">Chọn tòa nhà</option>
 											<?php  $qr = mysqli_query($con, "SELECT toa_nha.id_toanha, toa_nha.ma_toa_nha, toa_nha.ten_toa_nha FROM toa_nha where toa_nha.xoa=0  order by toa_nha.ten_toa_nha");
@@ -62,7 +62,7 @@ include './../dulieu/kiemtradangnhap_ketoan.php';
 											
 										</select>
 									</div>
-									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 khungtim_bl">
 										<select name="timkiem_bien_lai_loai_tien" id="timkiem_bien_lai_loai_tien" class="form-control" >
 											<option value="">Chọn loại</option>
 											<?php  $qr = mysqli_query($con, "SELECT loai_bien_lai.id, loai_bien_lai.ten_bien_lai FROM loai_bien_lai");
@@ -74,7 +74,7 @@ include './../dulieu/kiemtradangnhap_ketoan.php';
 											
 										</select>
 									</div>
-									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 text-left">
+									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2  khungtim_bltext-left">
 										<button type="button" id="tim_kiem_bien_lai" class="btn btn-primary">Tìm</button>
 										<button type="submit" class="btn btn-info xuat_excel12" id="xuat_excel12">Xuất Excel</button>
 									</div>

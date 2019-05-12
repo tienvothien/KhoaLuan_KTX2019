@@ -1,4 +1,4 @@
-<?php include 'kiemtradangnhap.php'; 
+<?php include 'kiemtradangnhap_login.php'; 
 // xuwr lý xuất thông tin khoa
 if (isset($_POST["id_khoa_sua"])) {
 	$query = "SELECT * FROM khoa WHERE khoa.id_khoa = '" . $_POST["id_khoa_sua"] . "'";

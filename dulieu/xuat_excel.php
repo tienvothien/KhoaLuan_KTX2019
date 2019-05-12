@@ -60,6 +60,11 @@ if(isset($_POST['timkiem_dang_ophongngay_batdau']) && isset($_POST['timkiem_dang
 		}else{
 			$result = mysqli_query($con, "SELECT sinh_vien.id_sinhvien, sinh_vien.mssv, sinh_vien.ho_sv, sinh_vien.ten_sv, sinh_vien.ngay_sinh, sinh_vien.gioi_tinh, sinh_vien.que_quan, sinh_vien.so_cmnd, sinh_vien.ngay_cap, sinh_vien.noi_cap, sinh_vien.matinh, sinh_vien.mahuyen, sinh_vien.maxa, sinh_vien.so_nha, sinh_vien.so_dt, sinh_vien.email, sinh_vien.hotencha, sinh_vien.sdtcha, sinh_vien.hotenme, sinh_vien.sdtme, sinh_vien.id_lop, phong.idphong, phong.ma_phong, toa_nha.ten_toa_nha, toa_nha.ma_toa_nha, toa_nha.id_toanha,toa_nha.loai_toa_nha, lop.id_lop, lop.ten_lop, o_phong.ngay_bat_dau , o_phong.id_ophong,o_phong.hoc_ky, o_phong.nam_hoc FROM toa_nha,sinh_vien, o_phong, phong, lop WHERE sinh_vien.xoa=0 and o_phong.ngay_ket_thuc IS NULL and ( o_phong.ngay_bat_dau BETWEEN '$xuat_ophong_ngay_batdau' and '$xuat_ophong_ngay_kethuc') AND o_phong.id_sinhvien= sinh_vien.id_sinhvien AND o_phong.id_phong=phong.idphong AND toa_nha.id_toanha = phong.id_toanha and sinh_vien.id_lop= lop.id_lop ORDER BY sinh_vien.id_sinhvien, o_phong.ngay_bat_dau, toa_nha.loai_toa_nha, toa_nha.ten_toa_nha, phong.ma_phong ");
 		}
+	$ngayhethong= strtotime(date("m/d/Y"));
+	$ngay_hk2_1 = strtotime("1/1/".date("Y"));
+	$ngayht_hk2_2= strtotime("5/30".date("Y"));
+	$ngayht_hk_he_2 = strtotime("30/7/".date("Y"));
+	$ngayht_hk1_1 = strtotime("30/12/".date("Y"));
 	while($row_sinh_vien = mysqli_fetch_array($result)){
 
 		$hoc_ky1 = $row_sinh_vien["hoc_ky"];
