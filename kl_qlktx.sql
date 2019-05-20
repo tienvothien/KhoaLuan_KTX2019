@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 09, 2019 lúc 06:49 PM
+-- Thời gian đã tạo: Th5 20, 2019 lúc 09:03 AM
 -- Phiên bản máy phục vụ: 10.1.29-MariaDB
 -- Phiên bản PHP: 7.2.0
 
@@ -44,7 +44,7 @@ CREATE TABLE `anhbia` (
 
 CREATE TABLE `bien_lai` (
   `id` int(11) NOT NULL,
-  `so_bien_lai` int(11) NOT NULL,
+  `so_bien_lai` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   `so_tien` int(11) NOT NULL,
   `id_loai_bien_lai` int(11) NOT NULL,
   `id_sinhvien` int(11) NOT NULL,
@@ -58,9 +58,11 @@ CREATE TABLE `bien_lai` (
 --
 
 INSERT INTO `bien_lai` (`id`, `so_bien_lai`, `so_tien`, `id_loai_bien_lai`, `id_sinhvien`, `ngay_them`, `id_canbo`, `id_phong`) VALUES
-(1, 987654321, 123890, 1, 5, '2019-05-08', 1, 6),
-(4, 3, 123890, 1, 5, '2019-05-03', 1, 2),
-(12, 1234123456, 123890, 1, 6, '2019-05-08', 1, 4);
+(1, '987654321', 123890, 1, 5, '2019-05-08', 1, 6),
+(4, '3', 123890, 1, 5, '2019-05-03', 1, 2),
+(12, '1234123456', 123890, 1, 6, '2019-05-08', 1, 4),
+(13, '98765432', 123890, 1, 5, '2019-05-12', 5, 6),
+(14, '098765432', 123890, 1, 5, '2019-05-12', 5, 6);
 
 -- --------------------------------------------------------
 
@@ -154,14 +156,15 @@ INSERT INTO `cochucvu` (`id_cochucvu`, `id_canbo`, `idchucvu`, `id_canbothem`, `
 (6, 2, 22, 1, '2019-05-01 21:56:43', 1, 1, '0000-00-00 00:00:00'),
 (14, 2, 2, 1, '2019-05-03 17:16:08', 1, 1, '0000-00-00 00:00:00'),
 (15, 2, 1, 1, '2019-05-03 17:16:23', 1, 1, '0000-00-00 00:00:00'),
-(16, 2, 2, 1, '2019-05-03 17:18:14', 0, NULL, NULL),
+(16, 2, 2, 1, '2019-05-03 17:18:14', 1, 1, '2019-05-16 13:53:47'),
 (17, 4, 22, 1, '2019-05-07 13:55:20', 1, 1, '2019-05-07 15:43:14'),
 (18, 2, 22, 1, '2019-05-07 15:37:26', 1, 1, '0000-00-00 00:00:00'),
 (19, 2, 1, 1, '2019-05-07 15:39:07', 1, 1, '2019-05-09 08:44:39'),
 (20, 4, 2, 1, '2019-05-07 15:43:14', 1, 1, '2019-05-09 12:14:19'),
 (21, 2, 1, 1, '2019-05-09 11:56:48', 1, 1, '2019-05-09 12:14:07'),
-(22, 5, 1, 1, '2019-05-09 12:13:56', 0, NULL, NULL),
-(23, 2, 1, 1, '2019-05-09 18:51:47', 0, NULL, NULL);
+(22, 5, 1, 1, '2019-05-09 12:13:56', 1, 5, '2019-05-12 15:29:23'),
+(23, 2, 1, 1, '2019-05-09 18:51:47', 0, NULL, NULL),
+(24, 5, 2, 5, '2019-05-12 15:29:23', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -917,7 +920,7 @@ CREATE TABLE `khoa` (
 --
 
 INSERT INTO `khoa` (`id_khoa`, `ma_khoa`, `ten_khoa`, `id_canbothem`, `ngay`, `xoa`, `id_canboxoa`, `ngay_xoa`) VALUES
-(1, 'TTTT', 'Thông Tin - Truyền Thông 1', 1, '2018-09-13 00:00:00', 0, 1, '2019-04-29 21:02:35'),
+(1, 'TTTT', 'Thông Tin - Truyền Thông 1', 1, '2018-09-13 00:00:00', 0, 2, '2019-05-17 08:50:50'),
 (65, 'KTCN', 'Kỹ thuật - công nghệ', 1, '2019-04-28 20:12:08', 0, NULL, NULL),
 (66, 'ttt2', 'Khoa Ví dụ 1', 2, '2019-05-04 21:33:00', 1, 2, '2019-05-04 21:37:20'),
 (67, 'nnna', 'Ngoại ngữ', 1, '2019-05-09 14:16:51', 0, NULL, NULL),
@@ -1096,7 +1099,28 @@ INSERT INTO `log_sua_dl` (`idlog`, `bangsua`, `tenbang`, `iddulieu`, `cot`, `ten
 (323, 'Phong', 'Phòng', 132, 'stt_tang', 'Số thứ tự Tầng', '4', '5', 1, '2019-05-09 21:26:29'),
 (324, 'Phong', 'Phòng', 64, 'stt_tang', 'Số thứ tự Tầng', '4', '5', 1, '2019-05-09 21:37:56'),
 (325, 'toa_nha', 'Tòa nhà', 5, 'loai_toa_nha', 'Loại Tòa nhà', 'Nữ', 'Nam', 1, '2019-05-09 21:58:55'),
-(326, 'toa_nha', 'Tòa nhà', 5, 'loai_toa_nha', 'Loại Tòa nhà', 'Nam', 'Nữ', 1, '2019-05-09 21:59:41');
+(326, 'toa_nha', 'Tòa nhà', 5, 'loai_toa_nha', 'Loại Tòa nhà', 'Nam', 'Nữ', 1, '2019-05-09 21:59:41'),
+(327, 'sinh_vien', 'Sinh viên', 27, 'ten_sv', 'Tên sinh viên', 'ân', 'ân 2', 1, '2019-05-11 10:39:22'),
+(328, 'sinh_vien', 'Sinh viên', 31, 'anh_ca_nhan', 'Ảnh cá nhân', 'vnkgu.png', 'tải xuống.png', 1, '2019-05-11 18:03:01'),
+(329, 'taikhoan', 'Tài khoản', 1, 'matkhau', 'Mật khẩu', 'a970a7e3b359f88a4732b56050822888', '579646aad11fae4dd295812fb4526245', 1, '2019-05-11 18:41:05'),
+(330, 'sinh_vien', 'Sinh viên', 6, 'ngay_sinh', 'Ngày sinh sinh viên', '1997-05-03', '1998-05-03', 1, '2019-05-20 13:14:53'),
+(331, 'sinh_vien', 'Sinh viên', 27, 'ngay_sinh', 'Ngày sinh sinh viên', '2998-07-21', '1998-07-21', 1, '2019-05-20 13:15:24'),
+(332, 'sinh_vien', 'Sinh viên', 6, 'id_lop', 'Lớp', '11', '32', 1, '2019-05-20 13:21:17'),
+(333, 'sinh_vien', 'Sinh viên', 6, 'id_lop', 'Lớp', '11', '32', 1, '2019-05-20 13:21:50'),
+(334, 'sinh_vien', 'Sinh viên', 6, 'id_lop', 'Lớp', '11', '1', 1, '2019-05-20 13:22:48'),
+(335, 'sinh_vien', 'Sinh viên', 6, 'noi_cap', 'Nơi CMND sinh viên', '91', '92', 1, '2019-05-20 13:23:18'),
+(336, 'sinh_vien', 'Sinh viên', 6, 'sdtme', 'SĐT Mẹ sinh viên', '', '0000000000', 1, '2019-05-20 13:24:45'),
+(337, 'sinh_vien', 'Sinh viên', 6, 'id_lop', 'Lớp', '11', '1', 1, '2019-05-20 13:27:16'),
+(338, 'sinh_vien', 'Sinh viên', 6, 'id_lop', 'Lớp', '11', '1', 1, '2019-05-20 13:28:16'),
+(339, 'sinh_vien', 'Sinh viên', 6, 'id_lop', 'Lớp', '11', '1', 1, '2019-05-20 13:28:23'),
+(340, 'sinh_vien', 'Sinh viên', 6, 'id_lop', 'Lớp', '11', '1', 1, '2019-05-20 13:31:13'),
+(341, 'sinh_vien', 'Sinh viên', 6, 'id_lop', 'Lớp', '1', '32', 1, '2019-05-20 13:35:29'),
+(342, 'sinh_vien', 'Sinh viên', 5, 'maxa', 'HKTT Xã sinh viên', '30682', '30688', 1, '2019-05-20 13:50:28'),
+(343, 'sinh_vien', 'Sinh viên', 5, 'mahuyen', 'HKTT huyện sinh viên', '894', '886', 1, '2019-05-20 13:52:24'),
+(344, 'sinh_vien', 'Sinh viên', 5, 'maxa', 'HKTT Xã sinh viên', '30688', '30337', 1, '2019-05-20 13:52:24'),
+(345, 'sinh_vien', 'Sinh viên', 5, 'matinh', 'HKTT tỉnh sinh viên', '89', '77', 1, '2019-05-20 13:54:09'),
+(346, 'sinh_vien', 'Sinh viên', 5, 'mahuyen', 'HKTT huyện sinh viên', '886', '748', 1, '2019-05-20 13:54:09'),
+(347, 'sinh_vien', 'Sinh viên', 5, 'maxa', 'HKTT Xã sinh viên', '30337', '26572', 1, '2019-05-20 13:54:10');
 
 -- --------------------------------------------------------
 
@@ -1234,7 +1258,8 @@ INSERT INTO `o_phong` (`id_ophong`, `id_sinhvien`, `id_phong`, `hoc_ky`, `nam_ho
 (97, 22, 74, '2', '2018-2019', '2019-05-09', '2019-05-09', 1, '2019-05-09 21:14:58', 1, '2019-05-09 21:22:36', 1),
 (98, 6, 134, '2', '2018-2019', '2019-05-09', '2019-05-09', 1, '2019-05-09 21:21:29', 1, '2019-05-09 21:22:11', 1),
 (99, 6, 74, '2', '2018-2019', '2019-05-09', '2019-05-09', 1, '2019-05-09 21:22:11', 1, '2019-05-09 21:23:11', 0),
-(100, 22, 134, '2', '2018-2019', '2019-05-09', NULL, 1, '2019-05-09 21:22:36', NULL, NULL, 0);
+(100, 22, 134, '2', '2018-2019', '2019-05-09', NULL, 1, '2019-05-09 21:22:36', NULL, NULL, 0),
+(101, 6, 74, '1', '2018-2019', '2019-05-12', NULL, 2, '2019-05-12 15:13:37', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -1443,8 +1468,8 @@ CREATE TABLE `sinh_vien` (
 --
 
 INSERT INTO `sinh_vien` (`id_sinhvien`, `mssv`, `anh_ca_nhan`, `ho_sv`, `ten_sv`, `ngay_sinh`, `gioi_tinh`, `que_quan`, `so_cmnd`, `ngay_cap`, `noi_cap`, `matinh`, `mahuyen`, `maxa`, `so_nha`, `so_dt`, `email`, `hotencha`, `sdtcha`, `hotenme`, `sdtme`, `id_lop`, `id_canbothem`, `ngay_them`, `xoa`, `ngay_xoa`, `id_canboxoa`) VALUES
-(5, 1501206121, 'VÕ THIỆN TIÊN   08.03.1992.JPG', 'Võ Thiện ', 'Tiên', '1992-03-18', 'Nam', 89, 371590523, '2009-05-05', 89, 89, 894, 30682, 'Số 191', '0799659225', 'vttien8392@gmail.com', 'Nguyên Văn A', '0987654322', 'Nguyễn Văn E', '0987654321', 1, 1, '2019-05-01 17:52:57', 0, NULL, NULL),
-(6, 1501206027, '2131a7bca6f843a61ae9.jpg', 'Trần Thị Quỳnh ', 'Giao', '1997-05-03', 'Nữ', 92, 123456789, '2019-05-03', 91, 91, 909, 31021, 'Tổ 12', '0566837004', 'ttqgiao0311@gmail.com', 'Trần Văn Phan', '', 'Nguyễn Văn Hằng', '', 1, 1, '2019-05-01 18:01:41', 0, NULL, NULL),
+(5, 1501206121, 'VÕ THIỆN TIÊN   08.03.1992.JPG', 'Võ Thiện ', 'Tiên', '1992-03-18', 'Nam', 89, 371590523, '2009-05-05', 89, 77, 748, 26572, 'Số 191', '0799659225', 'vttien8392@gmail.com', 'Nguyên Văn A', '0987654322', 'Nguyễn Văn E', '0987654321', 1, 1, '2019-05-01 17:52:57', 0, NULL, NULL),
+(6, 1501206027, '2131a7bca6f843a61ae9.jpg', 'Trần Thị Quỳnh ', 'Giao', '1998-05-03', 'Nữ', 92, 123456789, '2019-05-03', 92, 91, 909, 31021, 'Tổ 12', '0566837004', 'ttqgiao0311@gmail.com', 'Trần Văn Phan', '', 'Nguyễn Văn Hằng', '0000000000', 32, 1, '2019-05-01 18:01:41', 0, NULL, NULL),
 (7, 1501200000, 'bo-suu-tap-25-hinh-nen-powerpoint-ve-chu-de-cong-nghe-thong-tin-1489463882-16.jpg', 'Võ Ví', 'Dụ ', '1997-01-01', 'Nam', 96, 98765432, '2019-12-31', 89, 89, 886, 30337, 'Số 899/1', '', '', '', '', '', '', 10, 1, '2019-05-07 19:39:18', 1, '2019-05-07 19:39:46', 1),
 (8, 1501206101, 'tải xuống.jpg', 'Võ Ví', 'Dụ ', '1997-01-01', 'Nữ', 77, 123456777, '2019-01-02', 89, 91, 900, 30772, 'Số 191', '', '', '', '', '', '', 32, 1, '2019-05-08 15:02:18', 1, '2019-05-09 16:22:50', 1),
 (9, 1804204251, 'tải xuống (2).jpg', 'Nguyễn Thị thảo', 'linh', '2000-12-28', 'Nữ', 91, 371941301, '2019-01-01', 91, 91, 911, 31081, 'Số 352, Nguyễn Văn Cừ', '0368922930', '', '', '', '', '', 34, 1, '2019-05-09 14:21:42', 0, NULL, NULL),
@@ -1465,11 +1490,11 @@ INSERT INTO `sinh_vien` (`id_sinhvien`, `mssv`, `anh_ca_nhan`, `ho_sv`, `ten_sv`
 (24, 1501204050, 'vnkgu.png', 'nguyễn thị trúc', 'ly', '1997-04-18', 'Nữ', 91, 371748451, '2017-04-18', 91, 91, 906, 30931, 'ấp ngọc vinh', '0941642682', '', 'nguyễn văn sang', '', 'nguyễn thị duyên', '0987265433', 44, 1, '2019-05-09 15:22:01', 0, NULL, NULL),
 (25, 1602204077, 'vnkgu.png', 'trần kim', 'phượng', '1998-10-23', 'Nữ', 91, 371850873, '2015-05-31', 91, 91, 907, 30967, 'ấp phước tiền', '0944060527', '', 'trần văn đầy', '0945774876', 'lê kim an', '', 43, 1, '2019-05-09 15:24:42', 0, NULL, NULL),
 (26, 1602207044, 'vnkgu.png', 'thị phương', 'thúy', '1998-04-26', 'Nữ', 91, 371830098, '2013-08-06', 91, 91, 903, 30841, 'Tổ 1', '0794201207', '', 'danh sinh', '', 'thị sủng', '0976714768', 45, 1, '2019-05-09 15:29:56', 0, NULL, NULL),
-(27, 1602201052, 'vnkgu.png', 'trương ngọc', 'ân', '2998-07-21', 'Nữ', 91, 371793731, '2012-09-20', 91, 91, 907, 30967, 'ấp phước tiền', '0989832917', '', '', '', 'phạm thị kiều', '0868246759', 46, 1, '2019-05-09 15:32:31', 0, NULL, NULL),
+(27, 1602201052, 'vnkgu.png', 'trương ngọc', 'ân 2', '1998-07-21', 'Nữ', 91, 371793731, '2012-09-20', 91, 91, 907, 30967, 'ấp phước tiền', '0989832917', '', '', '', 'phạm thị kiều', '0868246759', 38, 1, '2019-05-09 15:32:31', 0, NULL, NULL),
 (28, 1804204017, 'vnkgu.png', 'chương thị bảo', 'trân', '2000-07-12', 'Nữ', 91, 371911400, '2017-08-10', 91, 91, 907, 30958, 'hòa mỹ', '0947332536', '', 'chương văn dư', '', 'thi tâm', '', 47, 1, '2019-05-09 15:37:28', 0, NULL, NULL),
 (29, 1804204186, 'vnkgu.png', 'ngô huyền', 'trân', '2000-01-04', 'Nữ', 91, 371936949, '2016-03-28', 91, 91, 906, 30946, 'nguyễn hương', '0975930341', '', 'ngô công điều', '', 'phan thị út nhỏ', '0979243848', 34, 1, '2019-05-09 15:51:29', 0, NULL, NULL),
 (30, 1804201151, 'vnkgu.png', 'lục thoại', 'trân', '2000-02-18', 'Nữ', 91, 371829930, '2017-06-11', 91, 91, 905, 30887, 'số 13, ấp hòa tiến', '0327707903', '', 'lục tấn tài', '0985875152', 'phan thị oanh', '0989117954', 48, 1, '2019-05-09 16:00:14', 0, NULL, NULL),
-(31, 1804210002, 'vnkgu.png', 'võ thị quỳnh', 'đoan', '2000-09-30', 'Nữ', 91, 371894850, '2015-05-25', 91, 91, 908, 31009, 'Tổ 1', '0394763553', '', 'võ văn tứ', '0394703622', 'danh thị ánh sáng', '0334086211', 34, 1, '2019-05-09 16:03:05', 0, NULL, NULL),
+(31, 1804210002, 'tải xuống.png', 'võ thị quỳnh', 'đoan', '2000-09-30', 'Nữ', 91, 371894850, '2015-05-25', 91, 91, 908, 31009, 'Tổ 1', '0394763553', '', 'võ văn tứ', '0394703622', 'danh thị ánh sáng', '0334086211', 34, 1, '2019-05-09 16:03:05', 0, NULL, NULL),
 (32, 1703206030, 'vnkgu.png', 'nguyễn phú', 'nhuận', '1999-04-09', 'Nữ', 91, 371842833, '2015-01-11', 91, 91, 902, 30808, 'Tổ 1', '0398619550', '', '', '', '', '', 49, 1, '2019-05-09 16:08:32', 0, NULL, NULL),
 (33, 1703206012, 'vnkgu.png', 'ngô minh', 'hiếu', '1999-12-09', 'Nam', 91, 371901894, '2015-06-05', 91, 91, 904, 30874, 'kinh 5A', '0376670040', '', 'ngô văn thái', '', '', '', 49, 1, '2019-05-09 16:10:54', 0, NULL, NULL),
 (34, 1602202173, 'vnkgu.png', 'nguyễn đức', 'dũng', '1998-12-09', 'Nam', 91, 371862312, '2014-06-26', 91, 91, 904, 30871, 'Tổ 1', '0907821201', '', 'nguyễn đức ruệ', '', 'phạm ngọc thắm', '', 50, 1, '2019-05-09 16:13:59', 0, NULL, NULL),
@@ -12959,7 +12984,10 @@ ALTER TABLE `anhbia`
 -- Chỉ mục cho bảng `bien_lai`
 --
 ALTER TABLE `bien_lai`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_canbo` (`id_canbo`),
+  ADD KEY `id_loai_bien_lai` (`id_loai_bien_lai`),
+  ADD KEY `id_sinhvien` (`id_sinhvien`);
 
 --
 -- Chỉ mục cho bảng `can_bo`
@@ -13071,7 +13099,10 @@ ALTER TABLE `phong`
 ALTER TABLE `sinh_vien`
   ADD PRIMARY KEY (`id_sinhvien`),
   ADD KEY `maxa` (`maxa`),
-  ADD KEY `id_lop` (`id_lop`);
+  ADD KEY `id_lop` (`id_lop`),
+  ADD KEY `id_canbothem` (`id_canbothem`),
+  ADD KEY `mahuyen` (`mahuyen`),
+  ADD KEY `matinh` (`matinh`);
 
 --
 -- Chỉ mục cho bảng `taikhoan`
@@ -13129,7 +13160,7 @@ ALTER TABLE `anhbia`
 -- AUTO_INCREMENT cho bảng `bien_lai`
 --
 ALTER TABLE `bien_lai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `can_bo`
@@ -13147,7 +13178,7 @@ ALTER TABLE `chucvu`
 -- AUTO_INCREMENT cho bảng `cochucvu`
 --
 ALTER TABLE `cochucvu`
-  MODIFY `id_cochucvu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_cochucvu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT cho bảng `khoa`
@@ -13177,7 +13208,7 @@ ALTER TABLE `loai_phong`
 -- AUTO_INCREMENT cho bảng `log_sua_dl`
 --
 ALTER TABLE `log_sua_dl`
-  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=327;
+  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=348;
 
 --
 -- AUTO_INCREMENT cho bảng `lop`
@@ -13189,7 +13220,7 @@ ALTER TABLE `lop`
 -- AUTO_INCREMENT cho bảng `o_phong`
 --
 ALTER TABLE `o_phong`
-  MODIFY `id_ophong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id_ophong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT cho bảng `phong`
@@ -13219,7 +13250,7 @@ ALTER TABLE `thietbi`
 -- AUTO_INCREMENT cho bảng `tinhtrang_thietbi_phong`
 --
 ALTER TABLE `tinhtrang_thietbi_phong`
-  MODIFY `id_tinhtrang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_tinhtrang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT cho bảng `toa_nha`
@@ -13230,6 +13261,14 @@ ALTER TABLE `toa_nha`
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `bien_lai`
+--
+ALTER TABLE `bien_lai`
+  ADD CONSTRAINT `bien_lai_ibfk_1` FOREIGN KEY (`id_canbo`) REFERENCES `can_bo` (`id_canbo`),
+  ADD CONSTRAINT `bien_lai_ibfk_2` FOREIGN KEY (`id_loai_bien_lai`) REFERENCES `loai_bien_lai` (`id`),
+  ADD CONSTRAINT `bien_lai_ibfk_3` FOREIGN KEY (`id_sinhvien`) REFERENCES `sinh_vien` (`id_sinhvien`);
 
 --
 -- Các ràng buộc cho bảng `chucvu`
@@ -13307,7 +13346,10 @@ ALTER TABLE `phong`
 --
 ALTER TABLE `sinh_vien`
   ADD CONSTRAINT `sinh_vien_ibfk_1` FOREIGN KEY (`maxa`) REFERENCES `xa` (`maxa`),
-  ADD CONSTRAINT `sinh_vien_ibfk_2` FOREIGN KEY (`id_lop`) REFERENCES `lop` (`id_lop`);
+  ADD CONSTRAINT `sinh_vien_ibfk_2` FOREIGN KEY (`id_lop`) REFERENCES `lop` (`id_lop`),
+  ADD CONSTRAINT `sinh_vien_ibfk_3` FOREIGN KEY (`id_canbothem`) REFERENCES `can_bo` (`id_canbo`),
+  ADD CONSTRAINT `sinh_vien_ibfk_4` FOREIGN KEY (`mahuyen`) REFERENCES `huyen` (`mahuyen`),
+  ADD CONSTRAINT `sinh_vien_ibfk_5` FOREIGN KEY (`matinh`) REFERENCES `tinh` (`matinh`);
 
 --
 -- Các ràng buộc cho bảng `thietbi`

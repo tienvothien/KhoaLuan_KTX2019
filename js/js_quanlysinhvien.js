@@ -389,7 +389,8 @@ $(document).ready(function () {
 			          	}else if (kql_update_sinh_vien==99) {
 							alert('Cập nhật thông tin sinh viên mới thành công');
 							$('#modal_sua_sinhvien').modal('hide');
-							$('#from_suathongtin_sinhvien')[0].reset();
+							// $('#from_suathongtin_sinhvien')[0].reset();
+							location.reload();
 							$('#dulieusinhvien').load("./../dulieu/dulieusinhvien.php");
 						}else if (kql_update_sinh_vien==88) {
 							alert('Bạn phải chọn file ảnh');
