@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 20, 2019 lúc 09:03 AM
+-- Thời gian đã tạo: Th5 20, 2019 lúc 10:54 AM
 -- Phiên bản máy phục vụ: 10.1.29-MariaDB
 -- Phiên bản PHP: 7.2.0
 
@@ -927,7 +927,8 @@ INSERT INTO `khoa` (`id_khoa`, `ma_khoa`, `ten_khoa`, `id_canbothem`, `ngay`, `x
 (68, 'KTDL', 'kinh tế - du lịch', 1, '2019-05-09 14:17:02', 0, NULL, NULL),
 (69, 'NNPT', 'Nông nghiệp - phát triển nông thông', 1, '2019-05-09 14:17:44', 0, NULL, NULL),
 (70, 'SPXH', 'Sư Phạm - xã hội  nhân văn', 1, '2019-05-09 14:18:18', 0, NULL, NULL),
-(71, 'CNTP', 'công nghệ thực phẩm', 1, '2019-05-09 14:54:42', 0, NULL, NULL);
+(71, 'CNTP', 'công nghệ thực phẩm', 1, '2019-05-09 14:54:42', 0, NULL, NULL),
+(72, 'tnmt', 'tài nguyên - môi trường', 1, '2019-05-20 15:29:57', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1120,7 +1121,12 @@ INSERT INTO `log_sua_dl` (`idlog`, `bangsua`, `tenbang`, `iddulieu`, `cot`, `ten
 (344, 'sinh_vien', 'Sinh viên', 5, 'maxa', 'HKTT Xã sinh viên', '30688', '30337', 1, '2019-05-20 13:52:24'),
 (345, 'sinh_vien', 'Sinh viên', 5, 'matinh', 'HKTT tỉnh sinh viên', '89', '77', 1, '2019-05-20 13:54:09'),
 (346, 'sinh_vien', 'Sinh viên', 5, 'mahuyen', 'HKTT huyện sinh viên', '886', '748', 1, '2019-05-20 13:54:09'),
-(347, 'sinh_vien', 'Sinh viên', 5, 'maxa', 'HKTT Xã sinh viên', '30337', '26572', 1, '2019-05-20 13:54:10');
+(347, 'sinh_vien', 'Sinh viên', 5, 'maxa', 'HKTT Xã sinh viên', '30337', '26572', 1, '2019-05-20 13:54:10'),
+(348, 'lop', 'Lớp', 30, 'ten_lop', 'Tên Lớp', 'B16 xây dựng 12', 'B16 xây dựng 1', 1, '2019-05-20 15:06:35'),
+(349, 'lop', 'Lớp', 29, 'khoa', 'Khóa', '2', '1', 1, '2019-05-20 15:10:33'),
+(350, 'lop', 'Lớp', 29, 'nam_BD', 'Năm bắt đầu', '2016', '2015', 1, '2019-05-20 15:10:34'),
+(351, 'lop', 'Lớp', 64, 'ma_lop', 'Mã Lớp', 'b17mt', 'b17mt ', 1, '2019-05-20 15:44:35'),
+(352, 'lop', 'Lớp', 64, 'ten_lop', 'Tên Lớp', 'b17 môt trường', 'b17 môi trường', 1, '2019-05-20 15:44:35');
 
 -- --------------------------------------------------------
 
@@ -1150,8 +1156,8 @@ INSERT INTO `lop` (`id_lop`, `ma_lop`, `ten_lop`, `id_khoa`, `nam_BD`, `khoa`, `
 (1, 'b15tt3', 'B15 Thông tin 3', 1, 2015, 1, 1, '2019-04-12 00:00:00', 0, 2, '2019-04-23 20:34:45'),
 (10, 'b15xd1', 'B15 xây dựng 1', 65, 2015, 1, 1, '2019-04-28 20:12:38', 0, NULL, NULL),
 (11, 'b15tt2', 'B15 Thông tin 2', 1, 2015, 1, 1, '2019-04-30 10:45:42', 0, NULL, NULL),
-(29, 'b15xd2', 'B15 xây dựng 2', 65, 2016, 2, 1, '2019-04-30 10:46:53', 0, NULL, NULL),
-(30, 'b16xd1', 'B16 xây dựng 12', 65, 2016, 2, 1, '2019-05-01 18:36:06', 0, NULL, NULL),
+(29, 'b15xd2', 'B15 xây dựng 2', 65, 2015, 1, 1, '2019-04-30 10:46:53', 0, NULL, NULL),
+(30, 'b16xd1', 'B16 xây dựng 1', 65, 2016, 2, 1, '2019-05-01 18:36:06', 0, NULL, NULL),
 (32, 'b15tt1', 'B15 Thông tin 1', 1, 2015, 1, 1, '2019-05-02 18:14:39', 0, NULL, NULL),
 (33, 'b16tt1', 'B16 Thông tin 1', 1, 2016, 2, 2, '2019-05-04 21:40:22', 0, NULL, NULL),
 (34, 'B18na4', 'B18 Ngôn ngữ anh 4', 67, 2018, 4, 1, '2019-05-09 14:18:55', 0, NULL, NULL),
@@ -1178,7 +1184,13 @@ INSERT INTO `lop` (`id_lop`, `ma_lop`, `ten_lop`, `id_khoa`, `nam_BD`, `khoa`, `
 (55, 'b17tp2', 'b17 thực phẩm 2', 71, 2017, 3, 1, '2019-05-09 17:04:44', 0, NULL, NULL),
 (56, 'b17na5', 'b17 ngôn ngữ anh 5', 67, 2017, 3, 1, '2019-05-09 17:10:17', 0, NULL, NULL),
 (57, 'b18CT1', 'b18 chăn nuôi thủy sản', 69, 2018, 4, 1, '2019-05-09 17:15:10', 0, NULL, NULL),
-(58, 'b18kt3', 'b18 kế toán 3', 68, 2018, 4, 1, '2019-05-09 17:31:29', 0, NULL, NULL);
+(58, 'b18kt3', 'b18 kế toán 3', 68, 2018, 4, 1, '2019-05-09 17:31:29', 0, NULL, NULL),
+(59, ' A16XD', 'A16 Cao đảng xây dựng', 65, 2016, 2, 1, '2019-05-20 14:12:28', 0, NULL, NULL),
+(60, 'b18xd3', 'B18 xây dựng 3', 65, 2018, 4, 1, '2019-05-20 15:22:57', 0, NULL, NULL),
+(61, 'b15mt1', 'b15 tài nguyên môi trường 1', 72, 2015, 1, 1, '2019-05-20 15:30:29', 0, NULL, NULL),
+(62, ' b15sh', 'b15 sinh học 1', 69, 2015, 1, 1, '2019-05-20 15:33:27', 0, NULL, NULL),
+(63, 'b17tt2', 'b17 thông tin 2', 1, 2017, 3, 1, '2019-05-20 15:41:33', 0, NULL, NULL),
+(64, 'b17mt', 'b17 môi trường', 72, 2017, 3, 1, '2019-05-20 15:43:51', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1519,7 +1531,24 @@ INSERT INTO `sinh_vien` (`id_sinhvien`, `mssv`, `anh_ca_nhan`, `ho_sv`, `ten_sv`
 (53, 1804201134, 'vnkgu.png', 'bùi thị kim', 'thoa', '2000-05-24', 'Nữ', 91, 372009244, '2017-10-17', 91, 91, 906, 30904, 'tô 1', '0257850730', '', 'bùi quang kim', '', 'phạm tuyết nga', '0357881548', 58, 1, '2019-05-09 17:34:37', 0, NULL, NULL),
 (54, 1804201105, 'vnkgu.png', 'nguyễn huỳnh bảo', 'như', '2000-06-28', 'Nữ', 91, 371924151, '2015-08-21', 91, 91, 906, 30904, 'khu phố 8', '0968262539', '', 'nguyễn thành hùnh ', '0369105054', 'nguyễn thị liên', '', 58, 1, '2019-05-09 17:36:48', 0, NULL, NULL),
 (55, 1804201083, 'vnkgu.png', 'nguyễn huỳnh mỹ ', 'Nghi', '2000-06-03', 'Nữ', 91, 371975417, '2016-11-29', 91, 91, 906, 30904, 'khu phố 3', '0356912993', '', '', '', 'chung kim liên', '0334400855', 52, 1, '2019-05-09 17:39:02', 0, NULL, NULL),
-(56, 1804201120, 'vnkgu.png', 'lê trúc', 'quỳnh', '2000-09-18', 'Nữ', 91, 371924117, '2015-08-21', 91, 91, 906, 30904, 'khu phố 3', '0946779800', '', 'lê anh tuấn', '0916713335', 'quách giang khuyên', '', 58, 1, '2019-05-09 17:42:02', 0, NULL, NULL);
+(56, 1804201120, 'vnkgu.png', 'lê trúc', 'quỳnh', '2000-09-18', 'Nữ', 91, 371924117, '2015-08-21', 91, 91, 906, 30904, 'khu phố 3', '0946779800', '', 'lê anh tuấn', '0916713335', 'quách giang khuyên', '', 58, 1, '2019-05-09 17:42:02', 0, NULL, NULL),
+(57, 1602103017, 'vnkgu.png', 'Nguyễn bé', 'Nghi', '1998-02-08', 'Nam', 91, 370590523, '2012-05-05', 91, 91, 904, 30856, 'Tân phú', '0855456152', '', 'Nguyễn Bé hai', '0855830073', 'Nguyễn Hồng Diễm', '', 59, 1, '2019-05-20 14:12:55', 0, NULL, NULL),
+(58, 1602204163, 'vnkgu.png', 'Lê Trương Bá ', 'Lộc', '1998-08-28', 'Nam', 91, 371779010, '2015-01-01', 91, 91, 899, 30742, '36C Bùi Thị Xuân', '0328452311', '', 'Lê Trường Sa', '', 'Trịnh Mỹ Trang', '', 34, 1, '2019-05-20 15:02:17', 0, NULL, NULL),
+(59, 1602203002, 'vnkgu.png', 'Lê Nhựt ', 'Anh', '1998-12-15', 'Nam', 91, 371946192, '2019-01-01', 91, 91, 906, 30943, 'Cây Bàng', '0966645506', '', 'Lê Văn Lợi', '0399816752', 'Huỳnh Ngọc Năm', '', 30, 1, '2019-05-20 15:06:41', 0, NULL, NULL),
+(60, 1602203053, 'vnkgu.png', 'Phạm Văn', 'Vỹ', '1997-11-15', 'Nam', 91, 371829146, '2014-02-27', 91, 91, 905, 30887, 'Hòa Thuận 1', '0795858188', '', 'Phạm Văn Tài', '0734427924', '', '', 30, 1, '2019-05-20 15:10:14', 0, NULL, NULL),
+(61, 1703206049, 'vnkgu.png', 'Phạm Quang', 'Tuyên', '1999-06-05', 'Nam', 91, 371836490, '2016-11-29', 91, 91, 902, 30787, 'Tâm Thước', '0754232041', '', 'Phạm văn Việt', '', 'Lê Thị Hạnh', '0939904218', 49, 1, '2019-05-20 15:13:18', 0, NULL, NULL),
+(62, 1703206011, 'vnkgu.png', 'Hoàng', 'hiệp', '1999-08-15', 'Nam', 91, 382589704, '2014-10-18', 91, 91, 911, 31081, 'Khu phố 8', '', '', 'Hoàng Quốc Việt', '', 'Nguyễn Thị Vĩnh', '', 49, 1, '2019-05-20 15:15:05', 0, NULL, NULL),
+(63, 1703206013, 'vnkgu.png', 'Tạ Minh', 'Hiếu', '1999-02-19', 'Nam', 89, 352465570, '2013-09-19', 89, 89, 890, 30523, 'Màng rô', '0398780387', '', 'Tạ Minh Ngọc', '0918475552', 'Lê Ánh Tuyết', '', 49, 1, '2019-05-20 15:20:07', 0, NULL, NULL),
+(64, 1804203125, 'vnkgu.png', 'Nguyễn Thái', 'Kiệt', '2000-02-19', 'Nam', 91, 371874787, '2015-06-02', 91, 91, 908, 31006, 'Tổ 1', '0817366562', '', 'Nguyễn Nam Trường', '0835225589', '', '', 60, 1, '2019-05-20 15:23:37', 0, NULL, NULL),
+(65, 1703202081, 'vnkgu.png', 'Đặng Võ Công', 'Toàn', '1999-12-27', 'Nam', 91, 371962097, '2016-04-07', 91, 91, 906, 30928, 'Ngọc An', '0793973547', '', 'Đặng Hoàng Khoa', '0976243507', 'Võ Thị Hậu', '', 55, 1, '2019-05-20 15:26:52', 0, NULL, NULL),
+(66, 1501205037, 'vnkgu.png', 'Võ Minh', 'luân', '1997-06-21', 'Nam', 91, 371736133, '2016-08-29', 91, 91, 903, 30832, 'Tổ 1', '0779311511', '', 'Phạm Văn An', '', 'Huỳnh Thị Mỹ Nhân', '', 61, 1, '2019-05-20 15:30:43', 0, NULL, NULL),
+(67, 1501207040, 'vnkgu.png', 'Võ Văn', 'thảnh', '1997-08-08', 'Nam', 91, 371787053, '2012-03-14', 91, 91, 903, 30826, 'Số 191', '0365136984', '', 'Võ Văn Trê', '', 'Đặng Thị Trắm', '', 62, 1, '2019-05-20 15:33:41', 0, NULL, NULL),
+(68, 1703206123, 'vnkgu.png', 'Nguyễn Trung', 'Hiếu', '1999-02-27', 'Nam', 91, 371852689, '2014-03-07', 91, 91, 908, 31006, 'Số 191', '0346848089', '', 'Nguyễn Văn Dũng', '0939184230', 'Trần Thùy Duyên', '', 63, 1, '2019-05-20 15:41:45', 0, NULL, NULL),
+(69, 1703205018, 'vnkgu.png', 'Trịnh Hằng', 'My', '1997-10-15', 'Nữ', 91, 371875275, '2014-04-26', 91, 91, 909, 31045, 'Minh Cơ', '0916468897', '', '', '', '', '', 64, 1, '2019-05-20 15:44:13', 0, NULL, NULL),
+(70, 1703205030, 'vnkgu.png', 'Quách Thanh', 'thảo', '1999-06-05', 'Nữ', 91, 371828970, '2013-08-14', 91, 91, 899, 30748, 'Ngô quyền', '0397666957', '', 'Qúach Phước Yêm', '0919533169', 'Trương Thanh Như', '', 64, 1, '2019-05-20 15:47:30', 0, NULL, NULL),
+(71, 1703206031, 'vnkgu.png', 'Lưu Thị', 'nhường', '1999-08-18', 'Nữ', 91, 371906658, '2015-05-17', 91, 91, 909, 31045, 'Minh Giông', '0918705945', '', 'Lưu Văn Phúc', '0738763023', 'Nguyễn Thị Loan', '', 64, 1, '2019-05-20 15:49:51', 0, NULL, NULL),
+(72, 1703205013, 'vnkgu.png', 'Nguyễn Thị Kim', 'huỳnh', '1999-05-08', 'Nữ', 91, 371857462, '2014-12-07', 91, 91, 913, 31057, 'vĩnh trung', '0772577173', '', 'Nguyễn Ngọc Hy', '', 'Châu Thị Huyền', '', 64, 1, '2019-05-20 15:51:55', 0, NULL, NULL),
+(73, 1703205001, 'vnkgu.png', 'Lê Thị Phương ', 'anh', '1999-07-29', 'Nữ', 91, 371909902, '2015-03-06', 91, 91, 903, 30832, 'minh sơn', '0352870142', '', 'Lê Hồng Vũ', '', 'Dương Thị Út', '', 64, 1, '2019-05-20 15:54:00', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1602,7 +1631,24 @@ INSERT INTO `taikhoan` (`idtk`, `idms`, `matkhau`, `ngaythem`, `idtktao`, `xoa`,
 (68, 1804201134, '072a934c6f717d8fb29bf99a2d202ced', '2019-05-09 17:34:37', 1, 0, NULL, NULL, 1),
 (69, 1804201105, '0423edf94545fd22ef72ef90a42e604d', '2019-05-09 17:36:48', 1, 0, NULL, NULL, 1),
 (70, 1804201083, '9d2d97fb06860b7df11146649a259267', '2019-05-09 17:39:02', 1, 0, NULL, NULL, 1),
-(71, 1804201120, '26a22fb31015fc84af9d2c31fb823ae6', '2019-05-09 17:42:02', 1, 0, NULL, NULL, 1);
+(71, 1804201120, '26a22fb31015fc84af9d2c31fb823ae6', '2019-05-09 17:42:02', 1, 0, NULL, NULL, 1),
+(72, 1602103017, 'edad9800631a206f141bca429e91a27c', '2019-05-20 14:12:55', 1, 0, NULL, NULL, 1),
+(73, 1602204163, '65c94ee1c2f60d319f01380c90ebee5b', '2019-05-20 15:02:17', 1, 0, NULL, NULL, 1),
+(74, 1602203002, '4048517e88c3fd94fe3f8ae768c29fc5', '2019-05-20 15:06:41', 1, 0, NULL, NULL, 1),
+(75, 1602203053, 'f2b7d2a14b1d5a1dca6cf7adf04d8cc3', '2019-05-20 15:10:14', 1, 0, NULL, NULL, 1),
+(76, 1703206049, '913ce16e4023547e4b3d0173d5a87716', '2019-05-20 15:13:18', 1, 0, NULL, NULL, 1),
+(77, 1703206011, 'd15b412bcac1426b58fb1359795880c5', '2019-05-20 15:15:05', 1, 0, NULL, NULL, 1),
+(78, 1703206013, 'c0c2c824946bc06ed75e8c15f5254737', '2019-05-20 15:20:07', 1, 0, NULL, NULL, 1),
+(79, 1804203125, 'f17989c2d12e0e78a4decede137b1728', '2019-05-20 15:23:37', 1, 0, NULL, NULL, 1),
+(80, 1703202081, '1e81e80ab39ac9479ae056bed2cc3570', '2019-05-20 15:26:52', 1, 0, NULL, NULL, 1),
+(81, 1501205037, 'da7995b69218e08087d60a524d761615', '2019-05-20 15:30:43', 1, 0, NULL, NULL, 1),
+(82, 1501207040, '2f9d31de93d733a5a891af97ab7331c3', '2019-05-20 15:33:41', 1, 0, NULL, NULL, 1),
+(83, 1703206123, '69bb0ceef92af8fe8013974a4db998b9', '2019-05-20 15:41:45', 1, 0, NULL, NULL, 1),
+(84, 1703205018, '4c559a63bc5acffd19c3c0c4aa04a468', '2019-05-20 15:44:13', 1, 0, NULL, NULL, 1),
+(85, 1703205030, '594260d843dcc6b2a9c09a7c1d4824cc', '2019-05-20 15:47:30', 1, 0, NULL, NULL, 1),
+(86, 1703206031, '88c61ca9ba830ccf5ff84b7ee2382b90', '2019-05-20 15:49:51', 1, 0, NULL, NULL, 1),
+(87, 1703205013, '3e0b5ebcd081582c435ddbb4f176ce1b', '2019-05-20 15:51:55', 1, 0, NULL, NULL, 1),
+(88, 1703205001, '0861aa8bc74eb0ce6dc9e111ebe8ded5', '2019-05-20 15:54:00', 1, 0, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -13184,7 +13230,7 @@ ALTER TABLE `cochucvu`
 -- AUTO_INCREMENT cho bảng `khoa`
 --
 ALTER TABLE `khoa`
-  MODIFY `id_khoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id_khoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT cho bảng `loaiphongcothietbi`
@@ -13208,13 +13254,13 @@ ALTER TABLE `loai_phong`
 -- AUTO_INCREMENT cho bảng `log_sua_dl`
 --
 ALTER TABLE `log_sua_dl`
-  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=348;
+  MODIFY `idlog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=353;
 
 --
 -- AUTO_INCREMENT cho bảng `lop`
 --
 ALTER TABLE `lop`
-  MODIFY `id_lop` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id_lop` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT cho bảng `o_phong`
@@ -13232,13 +13278,13 @@ ALTER TABLE `phong`
 -- AUTO_INCREMENT cho bảng `sinh_vien`
 --
 ALTER TABLE `sinh_vien`
-  MODIFY `id_sinhvien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id_sinhvien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `idtk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `idtk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT cho bảng `thietbi`
