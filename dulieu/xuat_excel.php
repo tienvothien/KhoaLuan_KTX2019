@@ -11,9 +11,7 @@ if(isset($_POST['timkiem_dang_ophongngay_batdau']) && isset($_POST['timkiem_dang
 	if ($xuat_ophong_ngay_batdau=='') {
 		 $xuat_ophong_ngay_batdau=date('2015/1/1');
 	}
-	
 	session_start();
-	echo "12";
 	$objExcel = new PHPExcel;
 	$objExcel->setActiveSheetIndex(0);
 	$sheet = $objExcel->getActiveSheet()->setTitle();
@@ -50,6 +48,7 @@ if(isset($_POST['timkiem_dang_ophongngay_batdau']) && isset($_POST['timkiem_dang
 	$sheet->getColumnDimension("K")->setAutosize(true); // width auto
 	$sheet->getColumnDimension("L")->setAutosize(true); // width auto
 	$sheet->getColumnDimension("M")->setAutosize(true); // width auto
+	$sheet->getColumnDimension("N")->setAutosize(true); // width auto
 	$sheet->getStyle('A4:N4')->getFont()->setBold(true);// chữ in đêm
 	$sheet->getStyle('A4:N4')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);// canh giữa
 	$stt=1;
@@ -118,8 +117,8 @@ if(isset($_POST['timkiem_dang_ophongngay_batdau']) && isset($_POST['timkiem_dang
 			)
 		)
 	);
-	$sheet->getStyle('A4:'.'N'.$rowCount)->applyFromArray($styleArray);
-	$rowCount+=1;
+	$sheet->getStyle('A4:N'.$rowCount)->applyFromArray($styleArray);
+	$rowCount+=2;
 	$sheet->setCellValue('I'.$rowCount,'Kiên Giang, Ngày '.date('d').' tháng ' . date('m').' năm '.date('Y'))->mergeCells('I'.$rowCount.':N'.$rowCount);
 	$sheet->getStyle('I'.$rowCount.':N'.$rowCount)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 	$rowCount+=1;
@@ -146,7 +145,6 @@ if(isset($_POST['timkiem_dang_ophongngay_batdau']) && isset($_POST['timkiem_dang
 	header('Pragma: no-cache');
 	readfile($filename);
 	return ;
-	echo "1";
 }
 if(isset($_POST['xuat_excel_da_ophpng'])){
 	$timkiem_daophongngay_batdau=$_POST['timkiem_daophongngay_batdau'];

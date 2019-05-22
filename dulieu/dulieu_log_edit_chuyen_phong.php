@@ -1,6 +1,23 @@
 <?php
 include 'conn.php';
+if (isset($_POST['timkiem_dang_ophongngay_batdau'])) {
+	echo $timkiem_dang_ophongngay_batdau=$_POST['timkiem_dang_ophongngay_batdau'];
+	echo $timkiem_dang_ophongngay_kethuc=$_POST['timkiem_dang_ophongngay_kethuc'];
+	echo $timkiem_dang_ophong_id_toanha=$_POST['timkiem_dang_ophong_id_toanha'];
+	echo $timkiem_dang_ophong_idphong=$_POST['timkiem_dang_ophong_idphong'];
+	if ($timkiem_dang_ophongngay_kethuc=='') {
+	echo 	$timkiem_dang_ophongngay_kethuc=date('Y/m/d');
+	}if ($timkiem_dang_ophongngay_batdau=='') {
+		echo  $timkiem_dang_ophongngay_batdau=date('2015/1/1');
+	}
+	if ($timkiem_dang_ophong_id_toanha!='') {
+		$selecet_khoa = mysqli_query($con, "SELECT * FROM log_sua_dl,toa_nha,phong WHERE log_sua_dl.bangsua='o_phong' and (ngaysua between '$timkiem_dang_ophongngay_batdau'and '$timkiem_dang_ophongngay_kethuc') and ( log_sua_dl.noidungtruocsua=phong.idphong OR log_sua_dl.noidungsausua=phong.idphong )  AND phong.id_toanha= toa_nha.id_toanha AND toa_nha.id_toanha='$timkiem_dang_ophong_id_toanha'  ORDER BY ngaysua DESC");
+	}else{
+		$selecet_khoa = mysqli_query($con, "SELECT * FROM log_sua_dl,toa_nha,phong WHERE log_sua_dl.bangsua='o_phong' and (ngaysua between '$timkiem_dang_ophongngay_batdau'and '$timkiem_dang_ophongngay_kethuc')  ORDER BY ngaysua DESC");
+	}	
+}else{
 	$selecet_khoa = mysqli_query($con, "SELECT * FROM log_sua_dl WHERE log_sua_dl.bangsua='o_phong'  ORDER BY ngaysua DESC");
+}
 	if (!mysqli_num_rows($selecet_khoa)) {
 		echo "<div style='text-align: center;'> Chưa có dữ liệu</div>";
 	} else {

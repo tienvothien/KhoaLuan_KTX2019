@@ -5,7 +5,6 @@
 		$timkiem_bien_laigngay_kethuc=$_POST['timkiem_bien_laigngay_kethuc'];
 		$timkiem_bien_lai_id_toanha=$_POST['timkiem_bien_lai_id_toanha'];
 		$timkiem_bien_lai_loai_tien=$_POST['timkiem_bien_lai_loai_tien'];
-
 		if ($timkiem_bien_lai_ngay_batdau=='') {
 			$timkiem_bien_lai_ngay_batdau='2015/1/1';
 		}
