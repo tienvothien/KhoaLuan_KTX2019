@@ -77,7 +77,7 @@ include './../dulieu/kiemtradangnhap.php';
 							<div class="modal-body _1themtoanha">
 								<form action="" id="form_themsinhvienmoi" name="form_themsinhvienmoi" 	method="POST" role="form" class="_1themphong1 " enctype="multipart/form-data">
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
-										<label>Ảnh</label>
+										<label>1./ Ảnh (*)</label>
 										<input id="file_anh_sv" type="file" accept="image/*" name="image12" required="" />
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua text-center">
@@ -87,24 +87,24 @@ include './../dulieu/kiemtradangnhap.php';
 										</div>
 									</div>
 									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hoten_cb_sua ">
-										<label>Mã Sinh viên</label>
+										<label>2./ Mã Sinh viên (*)</label>
 										
 										<input style="width:50%" type="number" name="ma_sinhvien_themmoi123" id="ma_sinhvien_themmoi123" class="form-control " value=""  required="" placeholder="Nhập mã sinh viên"/>
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
-										<label>Họ Sinh viên</label>
+										<label>3./ Họ Sinh viên (*)</label>
 										<input  name="ho_sinhvienthemmoi_12" id="ho_sinhvienthemmoi_12" class="form-control chuinthuong" rows="1" required="" placeholder="Nhập họ sinh viên">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
-										<label>Tên Sinh viên</label>
+										<label>4./ Tên Sinh viên (*)</label>
 										<input  name="ten_sinhvienthemmoi_12" id="ten_sinhvienthemmoi_12" class="form-control chuinthuong" rows="1" required="" placeholder="Nhập tên sinh viên">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
-										<label>Ngày sinh</label>
+										<label>5./ Ngày sinh (*)</label>
 										<input  type="date" name="ngaysinh_sinhvienthemmoi_12" id="ngaysinh_sinhvienthemmoi_12" class="form-control " rows="1" required="">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
-										<label>Giới tính</label>
+										<label>6./ Giới tính (*)</label>
 										<select  name="gioitinh_sinhvienthemmoi_12" id="gioitinh_sinhvienthemmoi_12" class="form-control chuinthuong" required="required">
 											<option value="" >Chọn giới tính</option>
 											<option value="Nam">Nam</option>
@@ -112,7 +112,7 @@ include './../dulieu/kiemtradangnhap.php';
 										</select>
 									</div>
 									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hoten_cb_sua">
-										<label for="">Hộ khẩu thường trú </label>
+										<label for="">7./ Hộ khẩu thường trú (*)</label>
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
 										<label>Tỉnh</label>
@@ -145,7 +145,7 @@ include './../dulieu/kiemtradangnhap.php';
 									</div>
 									
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
-										<label>Quê quán</label>
+										<label>8./ Quê quán (*)</label>
 										<select name="quequan_them_sinh_vien" id="quequan_them_sinh_vien" class="form-control" required="required">
 											<option value="">Chọn quê quán</option>
 											
@@ -158,15 +158,15 @@ include './../dulieu/kiemtradangnhap.php';
 										</select>
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
-										<label>Số CMND</label>
+										<label>9./ Số CMND (*)</label>
 										<input  type="number" name="cmnd_them_sinh_vien" id="cmnd_them_sinh_vien" class="form-control" rows="1" required="" placeholder="Nhập số CMND" >
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
-										<label>Ngày cấp CMND</label>
+										<label>10./ Ngày cấp CMND (*)</label>
 										<input  type="date" name="ngay_capcnnd_them_sinh_vien" id="ngay_capcnnd_them_sinh_vien" class="form-control" rows="1" required="">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
-										<label>Nơi cấp</label>
+										<label>11./ Nơi cấp (*)</label>
 										<select name="noicap_them_sinh_vien" id="noicap_them_sinh_vien" class="form-control" required="required">
 											<option value="">Chọn quê quán</option>
 											<?php
@@ -178,19 +178,19 @@ include './../dulieu/kiemtradangnhap.php';
 										</select>
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
-										<label>Điện thoại</label>
+										<label>12./ Điện thoại</label>
 										<input  type="number" name="so_dt_them_sinh_vien" id="so_dt_them_sinh_vien" class="form-control" rows="1" placeholder="Nhập nhập số điện thoại">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
-										<label>Email</label>
+										<label>13./ Email</label>
 										<input  type="email" name="email_them_sinh_vien" id="email_them_sinh_vien" class="form-control" rows="1"  placeholder="Nhập Email">
 									</div>
 									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 hoten_cb_sua">
-										<label>Khóa</label>
+										<label>14./ Khóa(*)</label>
 										<input  type="number" name="khoa_them_sinh_vien" id="khoa_them_sinh_vien" class="form-control" rows="1" min="1" required="" step="0" placeholder="khóa">
 									</div>
 									<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 hoten_cb_sua">
-										<label>Khoa</label>
+										<label>14./ Khoa (*)</label>
 										<select name="id_khoa_them_sinh_vien" id="id_khoa_them_sinh_vien" class="form-control chuinthuong" required="required">
 											<option value="">Chọn Khoa</option>
 											<?php
@@ -202,26 +202,26 @@ include './../dulieu/kiemtradangnhap.php';
 										</select>
 									</div>
 									<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 hoten_cb_sua">
-										<label>Lớp</label>
+										<label>16./ Lớp (*)</label>
 										<select name="lop_them_sinh_vien" id="lop_them_sinh_vien" class="form-control chuinthuong" required="required">
 											<option value="">Chọn Lớp</option>
 										</select>
 									</div>
 									
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
-										<label>Họ tên Cha</label>
+										<label>17./ Họ tên Cha</label>
 										<input  type="text" name="hotencha_them_sinh_vien" id="hotencha_them_sinh_vien" class="form-control chuinthuong" rows="1" placeholder="Nhập họ tên cha">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
-										<label>SĐT Cha</label>
+										<label>18./ SĐT Cha</label>
 										<input  type="number" name="sdtcha_them_sinh_vien" id="sdtcha_them_sinh_vien" class="form-control" rows="1" placeholder="Nhập SĐT của cha">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
-										<label>Họ tên Mẹ</label>
+										<label>19./ Họ tên Mẹ</label>
 										<input  type="text" name="hotenme_them_sinh_vien" id="hotenme_them_sinh_vien" class="form-control chuinthuong" rows="1" placeholder="Nhập họ tên Mẹ">
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 hoten_cb_sua">
-										<label>SĐT Mẹ</label>
+										<label>20./ SĐT Mẹ</label>
 										<input  type="number" name="sdtme_them_sinh_vien" id="sdtme_them_sinh_vien" class="form-control" rows="1" placeholder="Nhập SĐT Mẹ">
 									</div>
 								</div>
