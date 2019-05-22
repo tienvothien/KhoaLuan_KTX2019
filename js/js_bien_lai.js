@@ -80,7 +80,6 @@ $(document).ready(function () {
 
 			if (timkiem_bien_lai_ngay_batdau=='' && timkiem_bien_laigngay_kethuc==''
 				&& timkiem_bien_lai_id_toanha==''&& timkiem_bien_lai_loai_tien=='') {
-				
 			}else{
 				$.ajax({
 					url:"./../dulieu/dulieu_bien_lai.php",

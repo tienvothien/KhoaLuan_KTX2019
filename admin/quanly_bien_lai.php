@@ -39,7 +39,7 @@ include './../dulieu/kiemtradangnhap_ketoan.php';
 							</div>
 						</div>
 						<hr class="ngay_ad">
-						<form action="./../dulieu/xuat_excel.php" id="" method="POST" role="form">
+						<form action="./../dulieu/xuat_excel_bienlai.php" id="" method="POST" role="form">
 							<div class="row text-center">
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12  ">
 									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 khungtim_bl text-justify">
@@ -76,7 +76,7 @@ include './../dulieu/kiemtradangnhap_ketoan.php';
 									</div>
 									<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2  khungtim_bltext-left">
 										<button type="button" id="tim_kiem_bien_lai" class="btn btn-primary">Tìm</button>
-										<button type="submit" class="btn btn-info xuat_excel12" id="xuat_excel12">Xuất Excel</button>
+										<button type="submit" class="btn btn-info xuat_excel12" id="xuat_excel12" name="xuat_excel_bienlai">Xuất Excel</button>
 									</div>
 								</div>
 							</div>
