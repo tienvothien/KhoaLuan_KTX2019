@@ -24,7 +24,8 @@ if (isset($_GET['toanha'])) {
 				<th>Loại phòng</th>
 				<th>Đang ở </th>
 				<th>Đã ở</th>
-				<th colspan="2">Chuyển phòng <br> (lượt)</th>
+				<th>Chuyển<br>(lượt)</th>
+				<th>Danh sách</th>
 				<th>Chi tiết</th>
 			</tr>
 		</thead>

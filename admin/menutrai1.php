@@ -31,15 +31,6 @@
 						<a href="quanlythongtintaikhoandangnhap.php" class="list-group-item">Quản lý tài khoản</a>
 						<a href="../dulieu/dangxuat.php"><span class="glyphicon glyphicon-log-in"></span> Đăng xuất</a>
 					</div>
-					<!-- <a href="timkiem.php" class="list-group-item">Tìm kiếm</a> -->
-					<!-- <a href="thongke.php" class="list-group-item">Thống kê</a> -->
-					<!-- <button class="dropdown-btn">Quản lý Đăng ký
-					<i class="fa fa-caret-down"></i>
-					</button>
-					<div class="dropdown-container">
-								<a href="dangkyad.php" class="list-group-item">Đăng ký ở ktx SV </a>
-								<a href="qldondangky.php" class="list-group-item">Quản lý Đơn đăng ký</a>
-					</div> -->
 					<?php
 					if ($qr_ktra_chucvu['idchucvu']==0 ||$qr_ktra_chucvu['idchucvu']==1){ ?>
 					<button class="dropdown-btn">Quản lý sinh viên
@@ -49,6 +40,7 @@
 						<a href="quanlysinhvien.php" class="list-group-item">Thông tin Sinh viên</a>
 						<a href="quanlylop.php" class="list-group-item">Quản lý Lớp</a>
 						<a href="quanlykhoa.php" class="list-group-item">Quản lý Khoa</a>
+						<a href="quanly_nguoithan_sinhvien.php" class="list-group-item">Thông tin người thân</a>
 					</div>
 					<button class="dropdown-btn">Quản lý Phòng Ở
 					<i class="fa fa-caret-down"></i>
@@ -92,6 +84,9 @@
 					<div class="dropdown-container">
 						<a href="thongke_toanha.php" class="list-group-item">Tòa nhà</a>
 						<a href="thongke_phong.php" class="list-group-item">Phòng</a>
+						<a href="thongke_khoa.php" class="list-group-item">Khoa</a>
+						<a href="thongke_lop.php" class="list-group-item">Lớp</a>
+						<a href="thongke_tinh.php" class="list-group-item">Theo tỉnh</a>
 						<a href="quanlythietbi_thongke.php" class="list-group-item">Thiết bị</a>
 					</div>
 					<?php } ?>
