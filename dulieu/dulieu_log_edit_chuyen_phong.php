@@ -1,19 +1,22 @@
 <?php
 include 'conn.php';
 if (isset($_POST['timkiem_dang_ophongngay_batdau'])) {
-	echo $timkiem_dang_ophongngay_batdau=$_POST['timkiem_dang_ophongngay_batdau'];
-	echo $timkiem_dang_ophongngay_kethuc=$_POST['timkiem_dang_ophongngay_kethuc'];
-	echo $timkiem_dang_ophong_id_toanha=$_POST['timkiem_dang_ophong_id_toanha'];
-	echo $timkiem_dang_ophong_idphong=$_POST['timkiem_dang_ophong_idphong'];
+	 $timkiem_dang_ophongngay_batdau=$_POST['timkiem_dang_ophongngay_batdau'];
+	 $timkiem_dang_ophongngay_kethuc=$_POST['timkiem_dang_ophongngay_kethuc'];
+	 $timkiem_dang_ophong_id_toanha=$_POST['timkiem_dang_ophong_id_toanha'];
+	 $timkiem_dang_ophong_idphong=$_POST['timkiem_dang_ophong_idphong'];
 	if ($timkiem_dang_ophongngay_kethuc=='') {
-	echo 	$timkiem_dang_ophongngay_kethuc=date('Y/m/d');
+	 	$timkiem_dang_ophongngay_kethuc=date('Y/m/d 23:00:00');
 	}if ($timkiem_dang_ophongngay_batdau=='') {
-		echo  $timkiem_dang_ophongngay_batdau=date('2015/1/1');
+		  $timkiem_dang_ophongngay_batdau=date('2015/1/1');
 	}
-	if ($timkiem_dang_ophong_id_toanha!='') {
-		$selecet_khoa = mysqli_query($con, "SELECT * FROM log_sua_dl,toa_nha,phong WHERE log_sua_dl.bangsua='o_phong' and (ngaysua between '$timkiem_dang_ophongngay_batdau'and '$timkiem_dang_ophongngay_kethuc') and ( log_sua_dl.noidungtruocsua=phong.idphong OR log_sua_dl.noidungsausua=phong.idphong )  AND phong.id_toanha= toa_nha.id_toanha AND toa_nha.id_toanha='$timkiem_dang_ophong_id_toanha'  ORDER BY ngaysua DESC");
+	if ($timkiem_dang_ophong_idphong=='' && $timkiem_dang_ophong_id_toanha!='') {
+		$selecet_khoa = mysqli_query($con, "SELECT DISTINCT log_sua_dl.idlog, log_sua_dl.bangsua, log_sua_dl.tenbang, log_sua_dl.iddulieu, log_sua_dl.cot, log_sua_dl.tencot, log_sua_dl.noidungtruocsua, log_sua_dl.noidungsausua, log_sua_dl.nguoisua, log_sua_dl.ngaysua FROM log_sua_dl, toa_nha, phong WHERE log_sua_dl.bangsua='o_phong' AND toa_nha.id_toanha='$timkiem_dang_ophong_id_toanha' AND phong.id_toanha=toa_nha.id_toanha AND(log_sua_dl.noidungtruocsua=phong.idphong or log_sua_dl.noidungsausua =phong.idphong) AND (log_sua_dl.ngaysua BETWEEN '$timkiem_dang_ophongngay_batdau' AND '$timkiem_dang_ophongngay_kethuc')ORDER BY ngaysua DESC");
+	}else if ($timkiem_dang_ophong_idphong!='') {
+		$selecet_khoa = mysqli_query($con, "SELECT * FROM log_sua_dl WHERE log_sua_dl.bangsua='o_phong' AND (log_sua_dl.noidungtruocsua='$timkiem_dang_ophong_idphong' or log_sua_dl.noidungsausua ='$timkiem_dang_ophong_idphong') AND (log_sua_dl.ngaysua BETWEEN '$timkiem_dang_ophongngay_batdau' AND '$timkiem_dang_ophongngay_kethuc') ORDER BY ngaysua DESC");
 	}else{
-		$selecet_khoa = mysqli_query($con, "SELECT * FROM log_sua_dl,toa_nha,phong WHERE log_sua_dl.bangsua='o_phong' and (ngaysua between '$timkiem_dang_ophongngay_batdau'and '$timkiem_dang_ophongngay_kethuc')  ORDER BY ngaysua DESC");
+		$selecet_khoa = mysqli_query($con, "SELECT * FROM log_sua_dl WHERE log_sua_dl.bangsua='o_phong' AND  (log_sua_dl.ngaysua BETWEEN '$timkiem_dang_ophongngay_batdau' AND '$timkiem_dang_ophongngay_kethuc') ORDER BY ngaysua DESC");
+		
 	}	
 }else{
 	$selecet_khoa = mysqli_query($con, "SELECT * FROM log_sua_dl WHERE log_sua_dl.bangsua='o_phong'  ORDER BY ngaysua DESC");
@@ -27,7 +30,7 @@ if (isset($_POST['timkiem_dang_ophongngay_batdau'])) {
 		<thead>
 			<tr>
 				<th>STT</th>
-				<th >MÃ</th>
+				<th >MSSV</th>
 				<th >Tên</th>
 				<th>Chuyển phòng</th>
 				<th>Từ phòng</th>
