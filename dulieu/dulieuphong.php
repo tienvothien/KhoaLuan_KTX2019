@@ -9,6 +9,13 @@ if (isset($_GET['toanha'])) {
 }elseif (isset($_GET['thietbi'])) {
 	$selecet_phong = mysqli_query($con, "SELECT toa_nha.id_toanha, toa_nha.ma_toa_nha,toa_nha.ten_toa_nha, phong.idphong, phong.ma_phong, phong.stt_tang, loai_phong.id_loaiphong, loai_phong.ma_loai_phong, loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o FROM phong, toa_nha, loai_phong, loaiphongcothietbi WHERE phong.xoa=0 AND toa_nha.xoa=0 AND loaiphongcothietbi.idtb='$_GET[thietbi]' and loaiphongcothietbi.xoa=0 and loaiphongcothietbi.id_loaiphong= loai_phong.id_loaiphong AND phong.id_toanha=toa_nha.id_toanha AND loai_phong.xoa=0 AND phong.id_loaiphong=loai_phong.id_loaiphong ORDER BY toa_nha.ten_toa_nha, phong.stt_tang, phong.ma_phong");
 
+}elseif (isset($_GET['phong_co_sv_o'])) {
+	$selecet_phong = mysqli_query($con, "SELECT DISTINCT  toa_nha.id_toanha, toa_nha.ma_toa_nha,toa_nha.ten_toa_nha, phong.idphong, phong.ma_phong, phong.stt_tang, loai_phong.id_loaiphong, loai_phong.ma_loai_phong, loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o FROM phong, toa_nha, loai_phong, o_phong WHERE phong.xoa=0 AND toa_nha.xoa=0 AND phong.id_toanha=toa_nha.id_toanha AND loai_phong.xoa=0 AND phong.id_loaiphong=loai_phong.id_loaiphong and o_phong.ngay_ket_thuc IS null AND phong.idphong = o_phong.id_phong ORDER BY toa_nha.ten_toa_nha, phong.stt_tang, phong.ma_phong");
+
+}elseif (isset($_GET['phong_khong_co_sv_o'])) {
+	$selecet_phong = mysqli_query($con, "SELECT DISTINCT toa_nha.id_toanha, toa_nha.ma_toa_nha,toa_nha.ten_toa_nha, phong.idphong, phong.ma_phong, phong.stt_tang, loai_phong.id_loaiphong, loai_phong.ma_loai_phong, loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o FROM phong, toa_nha, loai_phong WHERE phong.xoa=0 AND phong.idphong not in (SELECT o_phong.id_phong as sl_moi_p FROM o_phong, phong WHERE o_phong.ngay_ket_thuc IS null AND phong.idphong = o_phong.id_phong GROUP by o_phong.id_phong) and toa_nha.xoa=0 AND phong.id_toanha=toa_nha.id_toanha AND loai_phong.xoa=0 AND phong.id_loaiphong=loai_phong.id_loaiphong ORDER BY toa_nha.ten_toa_nha, phong.stt_tang, phong.ma_phong
+");
+
 }else{
 	$selecet_phong = mysqli_query($con, "SELECT toa_nha.id_toanha, toa_nha.ma_toa_nha,toa_nha.ten_toa_nha, phong.idphong, phong.ma_phong, phong.stt_tang, loai_phong.id_loaiphong, loai_phong.ma_loai_phong, loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o FROM phong, toa_nha, loai_phong WHERE phong.xoa=0 AND toa_nha.xoa=0 AND phong.id_toanha=toa_nha.id_toanha AND loai_phong.xoa=0 AND phong.id_loaiphong=loai_phong.id_loaiphong ORDER BY toa_nha.ten_toa_nha, phong.stt_tang, phong.ma_phong");
 }

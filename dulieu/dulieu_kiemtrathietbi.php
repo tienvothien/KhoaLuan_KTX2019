@@ -22,17 +22,10 @@ if (isset($_GET['thietbiphong'])) {
 				<th>Số <br> thiết bị <br>(cái)</th>
 				<th style="color: red;">Số <br> thiết bị <br> hỏng(cái)</th>
 				<th style="color: red;">Tổng số<br>đã hỏng</th>
-				<?php
-					if (isset($_GET['thietbi'])) {
-					
-					}else{
-					?>
-					<th>Kiểm tra</th>
-					<th>Chi tiết</th>
-					<?php
-				}
-				?>
-			</tr>
+				<th>Kiểm tra</th>
+				<th>Chi tiết</th>
+				
+			s</tr>
 		</thead>
 		<tbody>
 			<?php
@@ -57,18 +50,15 @@ if (isset($_GET['thietbiphong'])) {
 				}
 			echo "
 			<tr>
-						<td style='text-align:center;'>$stt</td>
-						<td class='chuinhoa canhgiua'>$row_phong[ma_phong]-$row_phong[ma_toa_nha]</td>
-						<td class='canhgiua'>$slsinhvien[slsinhvien]/$row_phong[sl_nguoi_o]</td>
-						<td class='canhgiua'>$slloaithietbi[slloaithietbi]</td>
-						<td class='canhgiua'>$slthietbi[slthietbi]</td>
-						<td class='canhgiua' style='color: red;'>$slhong1</td>
-						<td class='canhgiua' style='color: red;'>$sl_tong_hong12</td>
-						";
-					if (isset($_GET['thietbi'])) {
-					
-					}else{
-					?>
+							<td style='text-align:center;'>$stt</td>
+							<td class='chuinhoa canhgiua'>$row_phong[ma_phong]-$row_phong[ma_toa_nha]</td>
+							<td class='canhgiua'>$slsinhvien[slsinhvien]/$row_phong[sl_nguoi_o]</td>
+							<td class='canhgiua'>$slloaithietbi[slloaithietbi]</td>
+							<td class='canhgiua'>$slthietbi[slthietbi]</td>
+							<td class='canhgiua' style='color: red;'>$slhong1</td>
+							<td class='canhgiua' style='color: red;'>$sl_tong_hong12</td>
+				";?>
+				
 				<td class="canhgiuanek12">
 					<input type="button" name="edit" value="Kiểm tra" id="<?php echo $row_phong['idphong']; ?>" class="btn btn-primary btn-xs id_sua_phong" />
 				</td>
@@ -77,7 +67,7 @@ if (isset($_GET['thietbiphong'])) {
 				</td>
 				
 				
-				<?php }echo "
+				<?php echo "
 			</tr>
 			";
 			$stt++;
