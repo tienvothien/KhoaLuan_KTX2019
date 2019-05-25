@@ -36,7 +36,7 @@ include './../dulieu/kiemtradangnhap.php';
 						<div class="container-fluid" style="padding: 0px;">
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 chutieude">
-									<h2>Quản lý thông kê khoa</h2>
+									<h2>Quản lý thống kê khoa</h2>
 								</div>
 							</div>
 						<hr class="ngay_ad"></div>
@@ -45,9 +45,7 @@ include './../dulieu/kiemtradangnhap.php';
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 								<div id="dulieukhoa"><?php include './../dulieu/dulieu_thongke_khoasv.php';?></div>
 							</div>
-							<div class="col-xs-11 col-sm-12 col-md-2 col-lg-2">
-								<div class="nuthemmoi"><input type="button" class="btn btn-primary btn-block" name="themkhoa" value="Thêm mới" data-toggle="modal" data-target="#themkhoa1"></div>
-							</div>
+							
 							</div><!-- end thaydoi1 -->
 							</div><!-- end noidungthaydoi -->
 							</div> <!-- end col-9 -->
