@@ -124,7 +124,7 @@ include './../dulieu/kiemtradangnhap_sinhvien.php';
                         <div class="modal-body" >
                             <form action="" method="POST" role="form" id="doi_matkhau_tk_sv" enctype="multipart/form-data" data-confirm="Bạn có chắn muốn cập nhật lại thông tin này?">
                                 <div class="form-group">
-                                    <label for="">Mật khẩu củ</label>
+                                    <label for="">Mật khẩu cũ</label>
                                     <input type="password" class="form-control" id="mat_khau_cu_sv" name="mat_khau_cu_sv" placeholder="Nhập mật khẩu củ" required="">
                                 </div>
                                 <div class="form-group">

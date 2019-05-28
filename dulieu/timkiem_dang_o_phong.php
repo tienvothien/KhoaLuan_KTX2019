@@ -78,7 +78,7 @@
 							<td class='canhgiua'>".date('d/m/Y', strtotime($row_sinh_vien["ngay_bat_dau"]))."</td>
 
 							<td class='canhgiua chuinhoa'>$row_sinh_vien[so_dt]</td>
-							<td class='chuinhoa'>$lop1</td>";?>
+							<td class='chuinhoa canhgiua'>$lop1</td>";?>
 							<td class="canhgiuanek12"><input type="button" name="edit" value="Chuyển" id="<?php echo $row_sinh_vien['id_ophong']; ?>" class="btn btn-primary btn-xs id_sua_sinh_vien_o_phong" /></td>
 							<td class="canhgiuanek12"><input type="button" name="view" value="Chi tiết" id="<?php echo $row_sinh_vien['id_ophong']; ?>" class="btn btn-success btn-xs view_chitietsinh_vien_o_phong" /></td>
 							<td class="canhgiuanek12"><input type="button" name="delete" value="Nghỉ ở" id="<?php echo $row_sinh_vien['id_ophong']; ?>" class="btn btn-info btn-danger btn-xs xoa_sinh_vien_o_phong" /></td>

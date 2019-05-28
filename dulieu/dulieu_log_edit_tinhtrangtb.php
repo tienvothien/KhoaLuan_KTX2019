@@ -1,6 +1,6 @@
 <?php
 include 'conn.php';
-	$selecet_khoa = mysqli_query($con, "SELECT phong.ma_phong, tb.tenthietbi, tr.id_tinhtrang, tr.slhong, tr.ngay_kt, tr.can_bo_kt, toa_nha.ma_toa_nha FROM tinhtrang_thietbi_phong tr, thietbi tb, loaiphongcothietbi ctb, phong, toa_nha WHERE tr.xoa=1 AND tr.idcothietbi = ctb.idcothietbi AND tb.idtb = ctb.idtb AND tr.idphong= phong.idphong and phong.id_toanha= toa_nha.id_toanha ORDER BY tr.ngay_kt DESC");
+	$selecet_khoa = mysqli_query($con, "SELECT phong.ma_phong, tb.tenthietbi, tr.id_tinhtrang, tr.slhong, tr.ngay_kt, tr.can_bo_kt, toa_nha.ma_toa_nha FROM tinhtrang_thietbi_phong tr, thietbi tb, loaiphongcothietbi ctb, phong, toa_nha WHERE tr.idcothietbi = ctb.idcothietbi AND tb.idtb = ctb.idtb AND tr.idphong= phong.idphong and phong.id_toanha= toa_nha.id_toanha ORDER BY tr.ngay_kt DESC");
 	if (!mysqli_num_rows($selecet_khoa)) {
 		echo "<div style='text-align: center;'> Chưa có dữ liệu</div>";
 	} else {

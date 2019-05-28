@@ -17,6 +17,7 @@
 				<th>Số Gường</th>
 				<th>Đang ở </th>
 				<th>Đã ở</th>
+				<th>Gường <br>trống</th>
 				<th>Chuyển phòng <br>(lượt)</th>
 				<th>Danh sách</th>
 				<th>Chi tiết</th>
@@ -46,6 +47,7 @@
 				<td class='chuinthuong canhgiua'>$slguong[slguong] </td>
 				<td class='chuinthuong canhgiua'>$slsinhvien[slsinhvien] </td>
 				<td class='chuinthuong canhgiua'>$sl_da_o[sl_da_o] </td>
+				<td class='chuinthuong canhgiua'>".($slguong['slguong']-$slsinhvien['slsinhvien'] )."</td>
 				<td class='chuinthuong canhgiua'>$sl_chuyen[sl_chuyen] </td>
 			";?>
 				

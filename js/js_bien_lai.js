@@ -55,10 +55,12 @@ $(document).ready(function () {
 							// alert(kq_add_bien_lai);
 							if(kq_add_bien_lai==1){
 								alert('Số biên lai đã tồn tại');
+								document.getElementById('so_bien_lai').focus();
 							}else {
 								if (kq_add_bien_lai==99) {
 									alert('Thêm công thành công');
 									$('#from_them_bien_lai')[0].reset();
+									$('#tt_sinhvie').html("");
 	                                $('#modal_sua__o_phong').modal('hide');
 	                                $('#dulieu_o_phong').load("./../dulieu/dulieu_bien_lai.php")
 								}else {

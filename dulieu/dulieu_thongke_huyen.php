@@ -48,6 +48,5 @@ include 'conn.php';
 
 <?php
 }
-	echo("Chưa có dữ liệu");
 }
 ?>

@@ -233,9 +233,7 @@ $(document).ready(function () {
 			var timkiem_dang_ophong_id_toanha=$('#timkiem_dang_ophong_id_toanha').val();
 			var timkiem_dang_ophong_idphong=$('#timkiem_dang_ophong_idphong').val();
 
-			if (timkiem_daophongngay_batdau=='' && timkiem_dang_ophong_idphong=='' && timkiem_daophongngay_kethuc==''&& timkiem_dang_ophong_id_toanha=='') {
-				
-			}else{
+			
 				$.ajax({
 					url:"./../dulieu/timkiemda_o_phong.php",
                      method:"POST",
@@ -249,7 +247,6 @@ $(document).ready(function () {
 						// $('#dulieu_o_phong').load('./../dulieu/timkiemda_o_phong.php');
 					}
 				});
-			}
 	});// end xử lý tìm kiếm đã ở phòng
 		// xử lý tìm kiếm đang ở phòng
 	$('#tim_kiem_dang_o_phong').on('click', function(event){
@@ -258,9 +255,7 @@ $(document).ready(function () {
 			var timkiem_dang_ophongngay_kethuc=$('#timkiem_dang_ophongngay_kethuc').val();
 			var timkiem_dang_ophong_id_toanha=$('#timkiem_dang_ophong_id_toanha').val();
 			var timkiem_dang_ophong_idphong=$('#timkiem_dang_ophong_idphong').val();
-			if (timkiem_dang_ophongngay_batdau=='' && timkiem_dang_ophongngay_kethuc==''&& timkiem_dang_ophong_idphong=='' && timkiem_dang_ophong_id_toanha=='') {
-				
-			}else{
+			
 				$.ajax({
 					url:"./../dulieu/timkiem_dang_o_phong.php",
                      method:"POST",
@@ -274,6 +269,5 @@ $(document).ready(function () {
 						// $('#dulieu_o_phong').load('./../dulieu/timkiemda_o_phong.php');
 					}
 				});
-			}
 	});// end xử lý tìm kiếm đang ở phòng
 });

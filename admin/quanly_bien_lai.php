@@ -122,7 +122,7 @@ include './../dulieu/kiemtradangnhap_ketoan.php';
 								<div class="row">
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 										<div class="form-group">
-											<label for="">Mã Sinh viên đón tiền</label>
+											<label for="">Mã Sinh viên đón tiền (*)</label>
 											<input type="number" name="mssv_o_phong_them" id="mssv_o_phong_them" class="form-control " value="" required="" placeholder="Nhập mã sinh viên" >
 										</div>
 									</div>
@@ -130,7 +130,7 @@ include './../dulieu/kiemtradangnhap_ketoan.php';
 								<div class="row">
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 										<div class="form-group">
-											<label for="">Tòa nhà</label>
+											<label for="">Tòa nhà (*)</label>
 											<select name="id_toa_nha_them_ophong" id="id_toa_nha_them_ophong" class="form-control chuinthuong" required="required">
 												<option value="">Chọn Tòa nhà</option>
 											</select>
@@ -138,7 +138,7 @@ include './../dulieu/kiemtradangnhap_ketoan.php';
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 										<div class="form-group">
-											<label for="">Số phòng</label>
+											<label for="">Số phòng (*)</label>
 											<select name="id_phong_them_ophong" id="id_phong_them_ophong" class="form-control chuinthuong" required="required">
 												<option value="">Chọn phòng</option>
 												
@@ -150,7 +150,7 @@ include './../dulieu/kiemtradangnhap_ketoan.php';
 								<div class="row">
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 										<div class="form-group">
-											<label for="">Loại tiền</label>
+											<label for="">Loại tiền (*)</label>
 											<select name="loai_tien" id="loai_tien" class="form-control chuinthuong" required="required">
 												<option value="">Chọn loại</option>
 												<?php
@@ -167,7 +167,7 @@ include './../dulieu/kiemtradangnhap_ketoan.php';
 									</div>
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 										<div class="form-group">
-											<label for="">Số biên lai</label>
+											<label for="">Số biên lai (*)</label>
 											<input type="number" name="so_bien_lai" id="so_bien_lai" class="form-control" value="" min="0" max="" step="" required="required" title="">
 											
 										</div>
@@ -175,7 +175,7 @@ include './../dulieu/kiemtradangnhap_ketoan.php';
 								</div>
 								<div class="row">
 									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-										<label>Tiền ( VMĐ)</label>
+										<label>Tiền ( VMĐ) (*)</label>
 										<div class="form-group">
 											<input type="text" name="so_tien_don" id="so_tien_don" class="form-control" value=""  required="required" placeholder="Nhập giá Loại phòng" title="" onkeyup="this.value=FormatNumber(this.value);">
 										</div>
