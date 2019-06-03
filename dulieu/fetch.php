@@ -83,9 +83,21 @@ if (isset($_POST['id_toa_nha_them_ophong'])) {
 		$queryphong = mysqli_query($con, $sqlphong);
 		echo " <option value=''>Chọn Phòng</option>";
 		while ($rowphong = mysqli_fetch_array($queryphong)) {
+			$slsvop_1=$sl_nguoi_o_p=0;
+			$slsvop=mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(o_phong.id_ophong) as slsvop FROM o_phong WHERE o_phong.ngay_ket_thuc IS NULL and o_phong.id_phong = '$rowphong[idphong]'"));
+			$slsvop_1=$slsvop['slsvop'];
+			// lấy số lượng lloaij phòng đó
+			$sl_ngoclp=mysqli_fetch_array(mysqli_query($con, "SELECT loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o FROM loai_phong, phong WHERE phong.xoa =0 AND phong.idphong='$rowphong[idphong]' AND loai_phong.xoa=0"));
+			$sl_nguoi_o_p=$sl_ngoclp['sl_nguoi_o'];
 			$ma_phong = $rowphong['ma_phong'];
 			$idphong = $rowphong['idphong'];
-			echo "<option value='$idphong'> $ma_phong</option>";}
+			if ($slsvop_1==$sl_nguoi_o_p) {
+				echo "<option value='$idphong' style='color:red;'> $ma_phong (phòng đầy)</option>";
+			}else{
+				echo "<option value='$idphong'> $ma_phong</option>";
+			}
+		
+		}
 }//end tỉnh thay đổi sẽ chọn huyện thay đổi
 if (isset($_POST['id_o_phong_sua1'])) {
 		$id_o_phong_sua1 = $_POST['id_o_phong_sua1'];

@@ -49,14 +49,6 @@ if (isset($_POST['id_sinhvien_sua_12'])) {
 					if (mysqli_num_rows($kiemtra_email_sv) && $email_sua_sinh_vien!='') {
 						echo "3";// email đã tồn tại
 					}else{
-						$kiemtra_sdt_cha_sv = (mysqli_query($con,"SELECT sinh_vien.id_sinhvien FROM sinh_vien WHERE sinh_vien.id_sinhvien !='$id_sinhvien_sua_12' AND (sinh_vien.so_dt='$sdtcha_sua_sinh_vien'  OR sinh_vien.sdtcha='$sdtcha_sua_sinh_vien' OR sinh_vien.sdtme='$sdtcha_sua_sinh_vien')"));
-						if (mysqli_num_rows($kiemtra_sdt_cha_sv)&& $sdtcha_sua_sinh_vien!='') {
-							echo "4";// sdt cha hoặc mẹ đã tồn tại
-						}else{
-							$kiemtra_me_sv = (mysqli_query($con,"SELECT sinh_vien.id_sinhvien FROM sinh_vien WHERE sinh_vien.id_sinhvien !='$id_sinhvien_sua_12' AND (sinh_vien.so_dt='$sdtme_sua_sinh_vien'  OR sinh_vien.sdtcha='$sdtme_sua_sinh_vien' OR sinh_vien.sdtme='$sdtme_sua_sinh_vien')"));
-							if (mysqli_num_rows($kiemtra_me_sv)&& $sdtme_sua_sinh_vien!='') {
-								echo "5";// sdt me hoặc mẹ đã tồn tại
-							}else{
 								$logdl_sinh_vien_cu_row = mysqli_fetch_array(mysqli_query($con,"SELECT sinh_vien.mssv, sinh_vien.anh_ca_nhan, sinh_vien.ho_sv, sinh_vien.ten_sv, sinh_vien.ngay_sinh, sinh_vien.gioi_tinh, sinh_vien.que_quan, sinh_vien.so_cmnd, sinh_vien.ngay_cap, sinh_vien.noi_cap, sinh_vien.matinh, sinh_vien.mahuyen, sinh_vien.maxa, sinh_vien.so_nha, sinh_vien.so_dt, sinh_vien.email, sinh_vien.hotencha, sinh_vien.sdtcha, sinh_vien.hotenme, sinh_vien.sdtme,sinh_vien.id_lop FROM sinh_vien WHERE sinh_vien.id_sinhvien ='$id_sinhvien_sua_12'"));// lấy tất cả giá trị củ của sih vien
 								$kiemtracapnhatcsinh_vien=99;
 								if ($ma_sinhvien_sua123!=$logdl_sinh_vien_cu_row["mssv"] ) { // kiểm mã có thay đổi  Mã số Sih viên
@@ -298,8 +290,6 @@ if (isset($_POST['id_sinhvien_sua_12'])) {
 								echo $kiemtracapnhatcsinh_vien;
 							}
 						}
-					}
-				}
 			}
 		}
 	}

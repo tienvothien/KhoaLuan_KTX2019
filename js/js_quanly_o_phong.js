@@ -215,7 +215,8 @@ $(document).ready(function () {
 								$('#id_chucvuthem_o_phong').html();
 								$('#form_them_o_phongmoi')[0].reset();
 								$('#tt_sinhvie').html();
-								$('#dulieu_o_phong').load("./../dulieu/dulieu_o_phong.php");
+								// $('#dulieu_o_phong').load("./../dulieu/dulieu_o_phong.php");
+								location.reload();
 							}else {
 								alert('Lỗi Thêm');
 							}

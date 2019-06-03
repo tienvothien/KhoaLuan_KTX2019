@@ -141,7 +141,7 @@ $(document).ready(function () {
 	         	}
 	         });
       	}else {
-      	alert("Độ dài mã thietbi không đúng");
+      	alert("Độ dài mã thiết bị không đúng");
 		document.getElementById("ma_thietbi_them").focus();
 
       	}

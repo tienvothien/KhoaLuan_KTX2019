@@ -42,8 +42,8 @@ include 'conn.php';
 					$ngayhethong= strtotime(date("m/d/Y"));
 					$ngay_hk2_1 = strtotime("1/1/".date("Y"));
 					$ngayht_hk2_2= strtotime("5/30".date("Y"));
-					$ngayht_hk_he_2 = strtotime("30/7/".date("Y"));
-					$ngayht_hk1_1 = strtotime("30/12/".date("Y"));
+					$ngayht_hk_he_2 = strtotime("7/30/".date("Y"));
+					$ngayht_hk1_1 = strtotime("12/30/".date("Y"));
 					
 					while ($row_sinh_vien = mysqli_fetch_array($selecet_sinh_vien)) {
 						$diachi2='';
@@ -70,7 +70,7 @@ include 'conn.php';
 						<td class='canhgiua chuinthuong hidden '>$diachi1</td>
 						<td class='canhgiua chuinhoa'>$row_sinh_vien[so_dt]</td>
 						<td class='chuinhoa'>$lop1</td>
-						<td class='chuinhoa canhgiua'>$row_sinh_vien[hoc_ky] <br> $row_sinh_vien[nam_hoc]</td>
+						<td class=' canhgiua'>$row_sinh_vien[hoc_ky] <br> $row_sinh_vien[nam_hoc]</td>
 						<td class='canhgiua'>".date('d/m/Y', strtotime($row_sinh_vien["ngay_bat_dau"]))."</td>
 
 						";
@@ -84,7 +84,7 @@ include 'conn.php';
 
 						if ( $hoc_ky1==2  && $ngayhethong >= $ngay_hk2_1 && $ngayhethong<=$ngayht_hk2_2  ) {
 							echo "<td></td>";
-						}else if ( $hoc_ky1=="hè"  && $ngayhethong > $ngayht_hk2_2 && $ngayhethong<=$ngayht_hk_he_2  ) {
+						}else if ( $hoc_ky1=="Hè"  && $ngayhethong > $ngayht_hk2_2 && $ngayhethong<=$ngayht_hk_he_2  ) {
 							echo "<td></td>";
 						}else if ( $hoc_ky1==1  && $ngayhethong > $ngayht_hk_he_2 && $ngayhethong<=$ngayht_hk1_1  ) {
 							echo "<td></td>";

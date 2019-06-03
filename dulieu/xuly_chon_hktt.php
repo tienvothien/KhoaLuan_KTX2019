@@ -33,8 +33,8 @@
 		echo " <option value=''>Chọn lớp</option>";
 		while ($rowxa = mysqli_fetch_array($queryxa)) {
 			$id_lop = $rowxa['id_lop'];
-			$ten_lop = $rowxa['ten_lop'];
-			echo "<option value='$id_lop'>$ten_lop</option>";}
+			$ma_lop = $rowxa['ma_lop'];
+			echo "<option value='$id_lop' class='chuinhoa'>$ma_lop</option>";}
 	}// end huyện thay đổi lớpsẽ thay đổi
 
 	if (isset($_POST['khoa_them_sinh_vien1'])) {// Khóa thay đổi Khoa sẽ thay đổi
@@ -87,14 +87,14 @@
 		$id_sinh_vien_sua_id_lop = $_POST['id_sinh_vien_sua_id_lop'];
 		include 'conn.php';
 		// ds lớp có cùng khoa
-		$sql_dsklop = "SELECT l2.id_lop, l2.ten_lop FROM lop l2 WHERE l2.id_khoa= (SELECT lop.id_khoa FROM lop, sinh_vien WHERE sinh_vien.id_lop= lop.id_lop AND sinh_vien.id_sinhvien = '$id_sinh_vien_sua_id_lop') and l2.xoa=0 and l2.id_lop!=(SELECT lop.id_lop FROM lop, sinh_vien WHERE sinh_vien.id_lop= lop.id_lop AND sinh_vien.id_sinhvien = '$id_sinh_vien_sua_id_lop') AND l2.khoa =(SELECT l3.khoa FROM lop l3, sinh_vien WHERE sinh_vien.id_lop= l3.id_lop AND sinh_vien.id_sinhvien = '$id_sinh_vien_sua_id_lop')";
+		$sql_dsklop = "SELECT l2.id_lop, l2.ten_lop, l2.ma_lop FROM lop l2 WHERE l2.id_khoa= (SELECT lop.id_khoa FROM lop, sinh_vien WHERE sinh_vien.id_lop= lop.id_lop AND sinh_vien.id_sinhvien = '$id_sinh_vien_sua_id_lop') and l2.xoa=0 and l2.id_lop!=(SELECT lop.id_lop FROM lop, sinh_vien WHERE sinh_vien.id_lop= lop.id_lop AND sinh_vien.id_sinhvien = '$id_sinh_vien_sua_id_lop') AND l2.khoa =(SELECT l3.khoa FROM lop l3, sinh_vien WHERE sinh_vien.id_lop= l3.id_lop AND sinh_vien.id_sinhvien = '$id_sinh_vien_sua_id_lop')";
 		// tthonhg tin lớp của sinh viên
-		$sql_lop_hienra = mysqli_fetch_array(mysqli_query($con,"SELECT lop.id_lop, lop.ten_lop FROM lop, sinh_vien WHERE sinh_vien.id_lop= lop.id_lop AND sinh_vien.id_sinhvien = '$id_sinh_vien_sua_id_lop'"));
+		$sql_lop_hienra = mysqli_fetch_array(mysqli_query($con,"SELECT lop.id_lop, lop.ten_lop, lop.ma_lop FROM lop, sinh_vien WHERE sinh_vien.id_lop= lop.id_lop AND sinh_vien.id_sinhvien = '$id_sinh_vien_sua_id_lop'"));
 		$dsklop = mysqli_query($con, $sql_dsklop);
-		echo " <option value='".$sql_lop_hienra['id_lop']."'>". $sql_lop_hienra['ten_lop']."</option>";
+		echo " <option class='chuinhoa' value='".$sql_lop_hienra['id_lop']."' >". $sql_lop_hienra['ma_lop']."</option>";
 		while ($rowhuyen = mysqli_fetch_array($dsklop)) {
-			$ten_lop = $rowhuyen['ten_lop'];
+			$ten_lop = $rowhuyen['ma_lop'];
 			$id_lop = $rowhuyen['id_lop'];
-			echo "<option value='$id_lop'>$ten_lop</option>";}
+			echo "<option value='$id_lop' class='chuinhoa'>$ten_lop</option>";}
 	}// end hiện tt id Khoa sẽ thay đổi sửa tt sinh viên
  ?>

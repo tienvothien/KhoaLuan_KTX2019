@@ -134,7 +134,7 @@ include './../dulieu/kiemtradangnhap.php';
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 										<div class="form-group">
 											<label for="">Số phòng</label>
-											<select name="id_phong_them_ophong" id="id_phong_them_ophong" class="form-control chuinthuong" required="required">
+											<select name="id_phong_them_ophong" id="id_phong_them_ophong" class="form-control " required="required">
 												<option value="">Chọn phòng</option>
 												
 											</select>

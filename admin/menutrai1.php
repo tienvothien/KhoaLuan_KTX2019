@@ -37,48 +37,48 @@
 					<i class="fa fa-caret-down"></i>
 					</button>
 					<div class="dropdown-container">
-						<a href="quanlysinhvien.php" class="list-group-item">Thông tin Sinh viên</a>
-						<a href="quanlylop.php" class="list-group-item">Quản lý Lớp</a>
-						<a href="quanlykhoa.php" class="list-group-item">Quản lý Khoa</a>
+						<a href="quanlysinhvien.php" class="list-group-item">Thông tin sinh viên</a>
+						<a href="quanlylop.php" class="list-group-item">Quản lý lớp</a>
+						<a href="quanlykhoa.php" class="list-group-item">Quản lý khoa</a>
 						<a href="quanly_nguoithan_sinhvien.php" class="list-group-item">Thông tin người thân</a>
 					</div>
-					<button class="dropdown-btn">Quản lý Phòng Ở
+					<button class="dropdown-btn">Quản lý phòng ở
 					<i class="fa fa-caret-down"></i>
 					</button>
 					<div class="dropdown-container">
-						<a href="quanlytoanha.php" class="list-group-item">Quản lý Tòa nhà</a>
-						<a href="quanlyphong.php" class="list-group-item">Quản lý Phòng</a>
-						<a href="quanlyloaiphong.php" class="list-group-item">Quản lý Loại Phòng</a>
-						<a href="quanly_o_phong.php" class="list-group-item">Quản lý Đang ở</a>
-						<a href="quanlyquatrinhophong_sinhvien.php" class="list-group-item">Quản lý Đã ở</a>
-						<a href="quanly_chuyen_phong.php" class="list-group-item">Quản lý Chuyển phòng</a>
-						<a href="quanly_quanhan_o_phong.php" class="list-group-item">Quản lý Quá hạn</a>
+						<a href="quanlytoanha.php" class="list-group-item">Quản lý tòa nhà</a>
+						<a href="quanlyphong.php" class="list-group-item">Quản lý phòng</a>
+						<a href="quanlyloaiphong.php" class="list-group-item">Quản lý loại phòng</a>
+						<a href="quanly_o_phong.php" class="list-group-item">Quản lý đang ở</a>
+						<a href="quanlyquatrinhophong_sinhvien.php" class="list-group-item">Quản lý đã ở</a>
+						<a href="quanly_chuyen_phong.php" class="list-group-item">Quản lý chuyển phòng</a>
+						<a href="quanly_quanhan_o_phong.php" class="list-group-item">Quản lý quá hạn</a>
 					</div>
 					<?php } ?>
 					<?php
 					if ($qr_ktra_chucvu['idchucvu']==0){ ?>
-					<button class="dropdown-btn">Quản lý Cán bộ
+					<button class="dropdown-btn">Quản lý cán bộ
 					<i class="fa fa-caret-down"></i>
 					</button>
 					<div class="dropdown-container">
 						<a href="quanlycanbo.php" class="list-group-item">Cán bộ</a>
 						<a href="quanlychucvu.php" class="list-group-item">Chức vụ</a>
 						
-						<a href="quanlycochucvu.php" class="list-group-item">Có Chức vụ</a>
+						<a href="quanlycochucvu.php" class="list-group-item">Có chức vụ</a>
 						
 					</div>
 					<?php } ?>
 					<?php
 					if ($qr_ktra_chucvu['idchucvu']==0 ||$qr_ktra_chucvu['idchucvu']==1){ ?>
-					<button class="dropdown-btn">Quản lý Thiết bị
+					<button class="dropdown-btn">Quản lý thiết bị
 					<i class="fa fa-caret-down"></i>
 					</button>
 					<div class="dropdown-container">
-						<a href="quanlythietbi.php" class="list-group-item">Danh sách Thiết bị</a>
+						<a href="quanlythietbi.php" class="list-group-item">Danh sách thiết bị</a>
 						<a href="quanlythietbitrongloaiphong.php" class="list-group-item">Thiết bị trong Loại phòng</a>
-						<a href="quanly_kiemtrathietbi.php" class="list-group-item">Kiêm tra Thiết bị</a>
+						<a href="quanly_kiemtrathietbi.php" class="list-group-item">Kiêm tra thiết bị</a>
 					</div>
-					<button class="dropdown-btn">Quản lý Thống kê
+					<button class="dropdown-btn">Quản lý thống kê
 					<i class="fa fa-caret-down"></i>
 					</button>
 					<div class="dropdown-container">
@@ -103,37 +103,37 @@
 					<?php } ?>
 					<?php
 					if ($qr_ktra_chucvu['idchucvu']==0){ ?>
-					<button class="dropdown-btn">Quản lý Log Edit
+					<button class="dropdown-btn">Quản lý sửa
 					<i class="fa fa-caret-down"></i>
 					</button>
 					<div class="dropdown-container">
-						<a href="quanly_log_sinhvien.php" class="list-group-item">Edit sinh viên</a>
-						<a href="quanlyloglop.php" class="list-group-item">Edit Lớp</a>
-						<a href="quanlylog_edit_khoa.php" class="list-group-item">Edit Khoa</a>
-						<a href="quanly_log_toanha.php" class="list-group-item">Edit Tòa nhà</a>
-						<a href="quanly_log_phong_1.php" class="list-group-item">Edit Phòng</a>
-						<a href="quanly_log_loai_phong.php" class="list-group-item">Edit Loại phòng</a>
-						<a href="quanly_log_chuyen_phong.php" class="list-group-item">Edit Chuyển phòng</a>
-						<a href="quanly_log_can_bo.php" class="list-group-item">Edit Cán bộ</a>
-						<a href="quanly_log_chuc_vu.php" class="list-group-item">Edit Chúc vụ</a>
-						<a href="quanlylog_edit_thietbi1.php" class="list-group-item">Edit Thiết bị</a>
-						<a href="quanlylog_edit_cothietbi.php" class="list-group-item">Edit Thiết bị Loại phòng</a>
-						<a href="quanlylog_edit_tinhtranhtb.php" class="list-group-item">Edit Kiểm tra tình trạng</a>
+						<a href="quanly_log_sinhvien.php" class="list-group-item">Sửa sinh viên</a>
+						<a href="quanlyloglop.php" class="list-group-item">Sửa lớp</a>
+						<a href="quanlylog_edit_khoa.php" class="list-group-item">Sửa khoa</a>
+						<a href="quanly_log_toanha.php" class="list-group-item">Sửa tòa nhà</a>
+						<a href="quanly_log_phong_1.php" class="list-group-item">Sửa phòng</a>
+						<a href="quanly_log_loai_phong.php" class="list-group-item">Sửa loại phòng</a>
+						<a href="quanly_log_chuyen_phong.php" class="list-group-item">Sửa chuyển phòng</a>
+						<a href="quanly_log_can_bo.php" class="list-group-item">Sửa cán bộ</a>
+						<a href="quanly_log_chuc_vu.php" class="list-group-item">Sửa Chúc vụ</a>
+						<a href="quanlylog_edit_thietbi1.php" class="list-group-item">Sửa thiết bị</a>
+						<a href="quanlylog_edit_cothietbi.php" class="list-group-item">Sửa thiết bị loại phòng</a>
+						<a href="quanlylog_edit_tinhtranhtb.php" class="list-group-item">Sửa kiểm tra tình trạng</a>
 					</div>
-					<button class="dropdown-btn">Quản lý Log Delete
+					<button class="dropdown-btn">Quản lý xóa
 					<i class="fa fa-caret-down"></i>
 					</button>
 					<div class="dropdown-container">
-						<a href="quanlylogDeleteThietbi.php" class="list-group-item">Log Delete Thiết bị</a>
-						<a href="quanlylogDeletelctb.php" class="list-group-item">Log Delete Có thiết bị</a>
-						<a href="quanlylogDeletelop.php" class="list-group-item">Log Delete Lớp</a>
-						<a href="quanlylogDeletekhoa.php" class="list-group-item">Log Delete  Khoa</a>
-						<a href="quanly_delete_sinhvien.php" class="list-group-item">Delete sinh viên</a>
-						<a href="quanly_delete_toa_nha.php" class="list-group-item">Delete Tòa nhà</a>
-						<a href="quanly_delete_phong.php" class="list-group-item">Delete Phòng</a>
-						<a href="quanly_delete_loai_phong.php" class="list-group-item">Delete Loại phòng</a>
-						<a href="quanly_delete_can_bo.php" class="list-group-item">Delete Cán bộ</a>
-						<a href="quanly_delete_chucvu.php" class="list-group-item">Delete Chúc vụ</a>
+						<a href="quanlylogDeleteThietbi.php" class="list-group-item">Xóa thiết bị</a>
+						<a href="quanlylogDeletelctb.php" class="list-group-item">Xóa có thiết bị</a>
+						<a href="quanlylogDeletelop.php" class="list-group-item">Xóa lớp</a>
+						<a href="quanlylogDeletekhoa.php" class="list-group-item">Xóa khoa</a>
+						<a href="quanly_delete_sinhvien.php" class="list-group-item">Xóa sinh viên</a>
+						<a href="quanly_delete_toa_nha.php" class="list-group-item">Xóa tòa nhà</a>
+						<a href="quanly_delete_phong.php" class="list-group-item">Xóa phòng</a>
+						<a href="quanly_delete_loai_phong.php" class="list-group-item">Xóa loại phòng</a>
+						<a href="quanly_delete_can_bo.php" class="list-group-item">Xóa cán bộ</a>
+						<a href="quanly_delete_chucvu.php" class="list-group-item">Xóa chúc vụ</a>
 					</div>
 					<?php } ?>
 					

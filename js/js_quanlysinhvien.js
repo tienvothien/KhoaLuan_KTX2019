@@ -352,12 +352,6 @@ $(document).ready(function () {
 			}else if ($('#sdtcha_sua_sinh_vien').val().length!=10 && $('#sdtcha_sua_sinh_vien').val()!='' || document.getElementById('sdtcha_sua_sinh_vien').value.slice(0, 1)!=0) {
 				alert('Số điện thoại phải Cha 10 số và bất đầu là số "0"');
 				document.getElementById('sdtcha_sua_sinh_vien').focus();
-			}else if (($('#sdtcha_sua_sinh_vien').val()==$('#so_dt_sua_sinh_vien').val() || $('#sdtcha_sua_sinh_vien').val()==$('#sdtme_sua_sinh_vien').val() )&& $('#sdtcha_sua_sinh_vien').val()!='') {
-				alert('Số điện thoại Cha sinh viên đã tồn tại');
-				document.getElementById('sdtcha_sua_sinh_vien').focus();
-			}else if (($('#sdtme_sua_sinh_vien').val()==$('#so_dt_sua_sinh_vien').val() || $('#sdtme_sua_sinh_vien').val()==$('#sdtcha_sua_sinh_vien').val())&& $('#sdtcha_sua_sinh_vien').val()!='' ) {
-				alert('Số điện thoại Mẹ sinh viên đã tồn tại');
-				document.getElementById('sdtme_sua_sinh_vien').focus();
 			}else {
 				$.ajax({
 					url:"./../dulieu/update_sinh_vien_moi.php",

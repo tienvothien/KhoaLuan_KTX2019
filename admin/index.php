@@ -31,7 +31,7 @@
 					<div class="container-fluid" style="padding: 0px;">
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 chutieude">
-								<h2>Hệ Thống quản lý</h2>
+								<h2>Hệ thống quản lý</h2>
 							</div>
 						</div>
 					<hr class="ngay_ad"></div>
@@ -60,7 +60,7 @@
 					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 						<div class="thumbnail mua_nen_3">
 							<div class="captionb align-middler">
-								<h3 class="canhgiua"  >Đang Ở </h3>
+								<h3 class="canhgiua"  >Đang ở </h3>
 								<p  >
 									<h3 class="canhgiua ">
 									<?php include './conn.php';
@@ -76,7 +76,7 @@
 					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 						<div class="thumbnail mua_nen_7">
 							<div class="captionb align-middler">
-								<h3 class="canhgiua"  >Đã Ở </h3>
+								<h3 class="canhgiua"  >Đã ở </h3>
 								<p  >
 									<h3 class="canhgiua ">
 									<?php include './conn.php';
@@ -200,12 +200,76 @@
 						</div>
 					</div>
 					</a> <!-- end het hien thong tin thietbi-->
-					<a href="quanlyphong.php?phong_co_sv_o=1" title="">
+					<a href="quanlyphong.php?phong_day=1" title="">
 						<!-- hien thoong trinh chi tiet thietbi -->
 						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 							<div class="thumbnail mua_nen_2">
 								<div class="captionb align-middler">
-									<h3 class="canhgiua"  >Phòng Có SV</h3>
+									<h3 class="canhgiua"  >Phòng đầy</h3>
+									<p  >
+										<h3 class="canhgiua ">
+										<?php include './conn.php';
+										$slephong = mysqli_query($con,"SELECT * FROM phong WHERE phong.xoa=0");
+										$dem=0;
+										while ($row_phong = mysqli_fetch_array($slephong)) {
+											$slsvop_1=$sl_nguoi_o_p=0;
+											$slsvop=mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(o_phong.id_ophong) as slsvop FROM o_phong WHERE o_phong.ngay_ket_thuc IS NULL and o_phong.id_phong = '$row_phong[idphong]'"));
+											$slsvop_1=$slsvop['slsvop'];
+											// lấy số lượng lloaij phòng đó
+											$sl_ngoclp=mysqli_fetch_array(mysqli_query($con, "SELECT loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o FROM loai_phong, phong WHERE phong.xoa =0 AND phong.idphong='$row_phong[idphong]' AND loai_phong.xoa=0"));
+											$sl_nguoi_o_p=$sl_ngoclp['sl_nguoi_o'];
+											if ($slsvop_1==$sl_nguoi_o_p) {
+												$dem++;
+											}
+										}
+										
+										echo $dem;									
+										?>
+											
+										</h3>
+									</p>
+								</div>
+							</div>
+						</div>
+						</a> <!-- end he t hien thong tin thietbi-->
+						<a href="quanlyphong.php?phong_con_cho=1" title="">
+						<!-- hien thoong trinh chi tiet thietbi -->
+						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+							<div class="thumbnail mua_nen_4">
+								<div class="captionb align-middler">
+									<h3 class="canhgiua"  >Phòng còn chỗ</h3>
+									<p  >
+										<h3 class="canhgiua ">
+										<?php include './conn.php';
+										$slephong = mysqli_query($con,"SELECT * FROM phong WHERE phong.xoa=0");
+										$dem=0;
+										while ($row_phong = mysqli_fetch_array($slephong)) {
+											$slsvop_1=$sl_nguoi_o_p=0;
+											$slsvop=mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(o_phong.id_ophong) as slsvop FROM o_phong WHERE o_phong.ngay_ket_thuc IS NULL and o_phong.id_phong = '$row_phong[idphong]'"));
+											$slsvop_1=$slsvop['slsvop'];
+											// lấy số lượng lloaij phòng đó
+											$sl_ngoclp=mysqli_fetch_array(mysqli_query($con, "SELECT loai_phong.ten_loai_phong, loai_phong.sl_nguoi_o FROM loai_phong, phong WHERE phong.xoa =0 AND phong.idphong='$row_phong[idphong]' AND loai_phong.xoa=0"));
+											$sl_nguoi_o_p=$sl_ngoclp['sl_nguoi_o'];
+											if ($slsvop_1!=$sl_nguoi_o_p) {
+												$dem++;
+											}
+										}
+										
+										echo $dem;									
+										?>
+											
+										</h3>
+									</p>
+								</div>
+							</div>
+						</div>
+						</a> <!-- end he t hien thong tin thietbi-->
+						<a href="quanlyphong.php?phong_co_sv_o=1" title="">
+						<!-- hien thoong trinh chi tiet thietbi -->
+						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+							<div class="thumbnail  mua_nen_1">
+								<div class="captionb align-middler">
+									<h3 class="canhgiua"  >Phòng có người</h3>
 									<p  >
 										<h3 class="canhgiua ">
 										<?php include './conn.php';
@@ -223,7 +287,7 @@
 						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 							<div class="thumbnail mua_nen_5">
 								<div class="captionb align-middler">
-									<h3 class="canhgiua"  >Phòng Không Có SV</h3>
+									<h3 class="canhgiua"  >Phòng không có người</h3>
 									<p  >
 										<h3 class="canhgiua ">
 										<?php include './conn.php';
@@ -240,9 +304,9 @@
 						<a href="quanly_o_phong.php?nu=1" title="">
 						<!-- hien thoong trinh chi tiet thietbi -->
 						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-							<div class="thumbnail mua_nen_4">
+							<div class="thumbnail mua_nen_8">
 								<div class="captionb align-middler">
-									<h3 class="canhgiua"  >Số Sinh viên Nữ</h3>
+									<h3 class="canhgiua"  >Số Sinh viên nữ</h3>
 									<p  >
 										<h3 class="canhgiua ">
 										<?php include './conn.php';
@@ -260,7 +324,7 @@
 						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 							<div class="thumbnail mua_nen_6">
 								<div class="captionb align-middler">
-									<h3 class="canhgiua"  >Số Sinh viên Nam</h3>
+									<h3 class="canhgiua"  >Số Sinh viên nam</h3>
 									<p  >
 										<h3 class="canhgiua ">
 										<?php include './conn.php';
