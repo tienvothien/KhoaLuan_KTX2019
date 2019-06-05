@@ -65,13 +65,13 @@ if(isset($_POST['timkiem_bien_lai_ngay_batdau']) ){
 			$sheet->getStyle('A'.$rowCount)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);// canh giữa
 			$sheet->setCellValue('A'.$rowCount,$stt);
 			$sheet->setCellValue('B'.$rowCount,$row_sinh_vien['mssv']);
-			$sheet->setCellValue('C'.$rowCount,$row_sinh_vien['ho_sv'].' '.$row_sinh_vien['ten_sv']);
-			$sheet->setCellValue('D'.$rowCount,$row_sinh_vien['ma_phong'].' - '.$row_sinh_vien['ma_toa_nha']);
+			$sheet->setCellValue('C'.$rowCount,ucwords($row_sinh_vien['ho_sv'].' '.$row_sinh_vien['ten_sv']));
+			$sheet->setCellValue('D'.$rowCount,strtoupper($row_sinh_vien['ma_phong'].' - '.$row_sinh_vien['ma_toa_nha']));
 			$sheet->setCellValue('E'.$rowCount,$row_sinh_vien['so_tien']);
 			$sheet->setCellValue('F'.$rowCount,$row_sinh_vien['so_bien_lai']);
 			$sheet->setCellValue('G'.$rowCount,date('d/m/Y', strtotime($row_sinh_vien['ngay_them'])));
 			$sheet->setCellValue('H'.$rowCount,$row_sinh_vien['ten_bien_lai']);
-			$sheet->setCellValue('I'.$rowCount,$row_sinh_vien['ho_can_bo'].' '.$row_sinh_vien['ten_can_bo']);
+			$sheet->setCellValue('I'.$rowCount,ucwords($row_sinh_vien['ho_can_bo'].' '.$row_sinh_vien['ten_can_bo']));
 			$sheet->setCellValue('J'.$rowCount,$row_sinh_vien['ma_can_bo']);
 			$sheet->getStyle('B'.$rowCount)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 			$sheet->getStyle('D'.$rowCount.':G'.$rowCount)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
@@ -101,7 +101,7 @@ if(isset($_POST['timkiem_bien_lai_ngay_batdau']) ){
 	$rowCount+=4;
 	$ten = mysqli_fetch_array(mysqli_query($con,"SELECT can_bo.ho_can_bo, can_bo.ten_can_bo FROM can_bo WHERE can_bo.id_canbo='".$_SESSION['id_canbo']."'"));
 	$ten_ne = $ten['ho_can_bo'].' '.$ten['ten_can_bo'];
-	$sheet->setCellValue('G'.$rowCount,$ten_ne)->mergeCells('G'.$rowCount.':J'.$rowCount);
+	$sheet->setCellValue('G'.$rowCount,ucwords($ten_ne))->mergeCells('G'.$rowCount.':J'.$rowCount);
 	$sheet->getStyle('G'.$rowCount.':J'.$rowCount)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 	$sheet->getStyle('G'.$rowCount.':J'.$rowCount)->getFont()->setBold(true);
 	$sheet->getStyle('A4:J'.$rowCount)->getFont()->setSize(13);
