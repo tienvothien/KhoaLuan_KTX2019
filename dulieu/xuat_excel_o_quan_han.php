@@ -74,15 +74,15 @@ if(isset($_POST['xuat_excel_o_quan_han1']) ){
 			$rowCount++;
 			$sheet->getStyle('A'.$rowCount)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);// canh giữa
 			$sheet->setCellValue('A'.$rowCount,$stt);
-			$sheet->setCellValue('B'.$rowCount,$row_sinh_vien['ma_toa_nha']);
+			$sheet->setCellValue('B'.$rowCount,strtoupper($row_sinh_vien['ma_toa_nha']));
 			$sheet->setCellValue('C'.$rowCount,$row_sinh_vien['ma_phong']);
 			$sheet->setCellValue('D'.$rowCount,$row_sinh_vien['mssv']);
-			$sheet->setCellValue('E'.$rowCount,$row_sinh_vien['ho_sv'].' '.$row_sinh_vien['ten_sv']);
+			$sheet->setCellValue('E'.$rowCount,ucwords($row_sinh_vien['ho_sv'].' '.$row_sinh_vien['ten_sv']));
 			$sheet->setCellValue('F'.$rowCount,date('d/m/Y', strtotime($row_sinh_vien['ngay_sinh'])));
 			$sheet->setCellValue('G'.$rowCount,$row_sinh_vien['gioi_tinh']);
 			$sheet->setCellValue('H'.$rowCount,$diachi2);
 			$sheet->setCellValue('I'.$rowCount,$row_sinh_vien['so_dt']);
-			$sheet->setCellValue('J'.$rowCount,$lop1);
+			$sheet->setCellValue('J'.$rowCount,strtoupper($lop1));
 			$sheet->setCellValue('K'.$rowCount,$row_sinh_vien['hoc_ky']);
 			$sheet->setCellValue('L'.$rowCount,$row_sinh_vien['nam_hoc']);
 			$sheet->setCellValue('M'.$rowCount, date('d/m/Y', strtotime($row_sinh_vien['ngay_bat_dau'])));
@@ -93,6 +93,7 @@ if(isset($_POST['xuat_excel_o_quan_han1']) ){
 			$sheet->getStyle('I'.$rowCount.':N'.$rowCount)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 		}
 		$stt++;
+
 	}
 	$styleArray=  array(// khung
 		'borders' => array(

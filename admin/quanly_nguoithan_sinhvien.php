@@ -32,8 +32,7 @@ include './../dulieu/kiemtradangnhap.php';
 			<br>
 			<div class="container-fluid">
 				<div class="row">
-					<?php include 'menutrai1.php';?>
-					<div class="col-xs-12 col-sm-8 col-md-10 col-lg-10 benphai">
+					
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 chutieude">
@@ -53,7 +52,6 @@ include './../dulieu/kiemtradangnhap.php';
 							</div><!-- end thaydoi1 -->
 							</div><!-- end noidungthaydoi -->
 							</div> <!-- end col-9 -->
-							</div> <!-- end row noi dung -->
 						</div>
 						<?php include 'food.php';?>
 						</div> <!-- end trang admin -->

@@ -27,7 +27,7 @@ include 'conn.php';
 			$stt = 1;
 			while ($row_lop = mysqli_fetch_array($selecet_lop)) {
 				// tinh số lượng sinh vien
-				$slsinh_vien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(id_sinhvien) as solsinh_vien FROM sinh_vien WHERE id_lop='$row_lop[id_lop]'"));
+				$slsinh_vien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(id_sinhvien) as solsinh_vien FROM sinh_vien WHERE sinh_vien.xoa=0 and id_lop='$row_lop[id_lop]'"));
 				//tìm khoa
 				$slkhoa = mysqli_fetch_array(mysqli_query($con, "SELECT khoa.ten_khoa FROM khoa WHERE id_khoa='$row_lop[id_khoa]'"));
 				$nam_kt = $row_lop['khoa'];

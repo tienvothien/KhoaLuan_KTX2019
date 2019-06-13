@@ -32,31 +32,40 @@ if (isset($_POST['ma_sinhvien_themmoi123'])) {
 	if (mysqli_num_rows($kiemtra_mssv)) {
 		echo "1";// mssv đã tồn tại
 	}else{
-		$kiemtra_so_cmnd = (mysqli_query($con,"SELECT sinh_vien.id_sinhvien FROM sinh_vien WHERE sinh_vien.so_cmnd='$cmnd_them_sinh_vien'"));
-	if (mysqli_num_rows($kiemtra_so_cmnd)) {
-		echo "6";// mssv đã tồn tại
-	}else{
-			$kiemtra_sdt_sv = (mysqli_query($con,"SELECT sinh_vien.id_sinhvien FROM sinh_vien WHERE sinh_vien.so_dt='$so_dt_them_sinh_vien'  OR sinh_vien.sdtcha='$so_dt_them_sinh_vien' OR sinh_vien.sdtme='$so_dt_them_sinh_vien'" ));
-			if (mysqli_num_rows($kiemtra_sdt_sv) && $so_dt_them_sinh_vien!='') {
-				echo "2";// sđt đã tồn tại
+		$namhethong = date('Y');
+		$namsinh = date('Y', strtotime($ngaysinh_sinhvienthemmoi_12));
+		if ($namhethong-$namsinh<2) {
+			echo "7";
+		}else{
+			if((strtotime(date("Y/m/d"))-strtotime(date("Y/m/d", strtotime($ngay_capcnnd_them_sinh_vien))))<1){
+				echo "8";
 			}else{
-				$kiemtra_email_sv = (mysqli_query($con,"SELECT sinh_vien.id_sinhvien FROM sinh_vien WHERE sinh_vien.email='$email_them_sinh_vien'"));
-				if (mysqli_num_rows($kiemtra_email_sv) && $email_them_sinh_vien!='') {
-					echo "3";// email đã tồn tại
-				}else{
-					$insert_sinhvien ="INSERT INTO sinh_vien(mssv,anh_ca_nhan,ho_sv,ten_sv,ngay_sinh,gioi_tinh,que_quan,so_cmnd,ngay_cap,noi_cap,matinh,mahuyen,maxa,so_nha,so_dt,email,hotencha,sdtcha,hotenme,sdtme,id_lop,id_canbothem,ngay_them) VALUES ('$ma_sinhvien_themmoi123','$hinhanhthem','$ho_sinhvienthemmoi_12','$ten_sinhvienthemmoi_12','$ngaysinh_sinhvienthemmoi_12','$gioitinh_sinhvienthemmoi_12','$quequan_them_sinh_vien','$cmnd_them_sinh_vien','$ngay_capcnnd_them_sinh_vien','$noicap_them_sinh_vien','$tinh_them_sinh_vien','$huyen_them_sinh_vien','$xa_them_sinh_vien','$sonha_them_sinh_vien','$so_dt_them_sinh_vien','$email_them_sinh_vien','$hotencha_them_sinh_vien','$sdtcha_them_sinh_vien','$hotenme_them_sinh_vien','$sdtme_them_sinh_vien','$lop_them_sinh_vien','$_SESSION[id_canbo]','$ngay')";
-							if (mysqli_query($con, $insert_sinhvien)) {
-								move_uploaded_file($_FILES["image12"]["tmp_name"], $target_file);
-								// thêm tài khoản vào
-								mysqli_query($con,"INSERT INTO taikhoan(idms, matkhau, ngaythem, idtktao, is_sinhvien) VALUES ('$ma_sinhvien_themmoi123','".md5(md5(md5($ma_sinhvien_themmoi123)))."','$ngay','$_SESSION[id_canbo]','1' )");
-								echo "99";
-							}else {
-								echo var_dump(mysqli_query($con, $insert_sinhvien));;
+			$kiemtra_so_cmnd = (mysqli_query($con,"SELECT sinh_vien.id_sinhvien FROM sinh_vien WHERE sinh_vien.so_cmnd='$cmnd_them_sinh_vien'"));
+			if (mysqli_num_rows($kiemtra_so_cmnd)) {
+				echo "6";// mssv đã tồn tại
+			}else{
+					$kiemtra_sdt_sv = (mysqli_query($con,"SELECT sinh_vien.id_sinhvien FROM sinh_vien WHERE sinh_vien.so_dt='$so_dt_them_sinh_vien'  OR sinh_vien.sdtcha='$so_dt_them_sinh_vien' OR sinh_vien.sdtme='$so_dt_them_sinh_vien'" ));
+					if (mysqli_num_rows($kiemtra_sdt_sv) && $so_dt_them_sinh_vien!='') {
+						echo "2";// sđt đã tồn tại
+					}else{
+						$kiemtra_email_sv = (mysqli_query($con,"SELECT sinh_vien.id_sinhvien FROM sinh_vien WHERE sinh_vien.email='$email_them_sinh_vien'"));
+						if (mysqli_num_rows($kiemtra_email_sv) && $email_them_sinh_vien!='') {
+							echo "3";// email đã tồn tại
+						}else{
+							$insert_sinhvien ="INSERT INTO sinh_vien(mssv,anh_ca_nhan,ho_sv,ten_sv,ngay_sinh,gioi_tinh,que_quan,so_cmnd,ngay_cap,noi_cap,matinh,mahuyen,maxa,so_nha,so_dt,email,hotencha,sdtcha,hotenme,sdtme,id_lop,id_canbothem,ngay_them) VALUES ('$ma_sinhvien_themmoi123','$hinhanhthem','$ho_sinhvienthemmoi_12','$ten_sinhvienthemmoi_12','$ngaysinh_sinhvienthemmoi_12','$gioitinh_sinhvienthemmoi_12','$quequan_them_sinh_vien','$cmnd_them_sinh_vien','$ngay_capcnnd_them_sinh_vien','$noicap_them_sinh_vien','$tinh_them_sinh_vien','$huyen_them_sinh_vien','$xa_them_sinh_vien','$sonha_them_sinh_vien','$so_dt_them_sinh_vien','$email_them_sinh_vien','$hotencha_them_sinh_vien','$sdtcha_them_sinh_vien','$hotenme_them_sinh_vien','$sdtme_them_sinh_vien','$lop_them_sinh_vien','$_SESSION[id_canbo]','$ngay')";
+									if (mysqli_query($con, $insert_sinhvien)) {
+										move_uploaded_file($_FILES["image12"]["tmp_name"], $target_file);
+										// thêm tài khoản vào
+										mysqli_query($con,"INSERT INTO taikhoan(idms, matkhau, ngaythem, idtktao, is_sinhvien) VALUES ('$ma_sinhvien_themmoi123','".md5(md5(md5($ma_sinhvien_themmoi123)))."','$ngay','$_SESSION[id_canbo]','1' )");
+										echo "99";
+									}else {
+										echo var_dump(mysqli_query($con, $insert_sinhvien));;
+									}
+								}
 							}
 						}
-					}
-				}
-			
+			}
+		}
 		
 	}
 	

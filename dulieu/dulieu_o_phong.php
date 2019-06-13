@@ -28,7 +28,7 @@ include 'conn.php';
 						<th class="hidden" style="width:300px;">HKTT</th>
 						<th>Điện thoại</th>
 						<th>Lớp</th>
-						<th style="width:40px;">Hoc kỳ <br>Năm học</th>
+						<th style="width:40px;">Học kỳ <br>Năm học</th>
 						<th>Ở ngày</th>
 						<th>Chuyển</th>
 						<th>Chi tiết</th>

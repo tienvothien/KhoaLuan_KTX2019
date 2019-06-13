@@ -447,10 +447,11 @@ $(document).ready(function () {
 		var anh1 = document.getElementById('file_anh_sv');
 		var loaianh = anh1.files[0].type;
 		var match= ["image/jpeg","image/png","image/jpg"];
+		
 		if(!((loaianh==match[0]) || (loaianh==match[1]) || (loaianh==match[2]))){
 				alert("Bạn phải chọn file ảnh có đuôi là (jpeg, jpg and png)");
 		}else{
-						var ma_sinhvien_themmoi123=$('#ma_sinhvien_themmoi123').val();
+			var ma_sinhvien_themmoi123=$('#ma_sinhvien_themmoi123').val();
 			if (ma_sinhvien_themmoi123.length!=10) {
 				alert('MSSV phải 10 chữ số');
 				document.getElementById('ma_sinhvien_themmoi123').focus();
@@ -481,6 +482,7 @@ $(document).ready(function () {
 					cache: false,
 					processData:false,
 					success:function (kql_add_sinh_vien) {
+						// alert(kql_add_sinh_vien);
 						if (kql_add_sinh_vien==1) {
 							alert('Mã sinh viên đã tồn tạo');
 							document.getElementById("ma_sinhvien_themmoi123").focus();
@@ -498,6 +500,11 @@ $(document).ready(function () {
 							document.getElementById("sdtcha_them_sinh_vien").focus();
 		          		}else if (kql_add_sinh_vien==5) {
 		          			alert('Số điện thoại Mẹ sinh viên đã tồn tạo');
+							document.getElementById("sdtme_them_sinh_vien").focus();
+		          		}else if (kql_add_sinh_vien==7) {
+		          			alert('Lỗi ngày sinh, Sinh viên phải từ 16 tuổi trở lên');
+		          		}else if (kql_add_sinh_vien==8) {
+		          			alert('Lỗi ngày cấp CMND, ngày cấp phải trước ngày hiện tại');
 							document.getElementById("sdtme_them_sinh_vien").focus();
 		          		}else if (kql_add_sinh_vien==99) {
 								alert('Thêm sinh viên mới thành công');
