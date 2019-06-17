@@ -34,7 +34,7 @@ if (isset($_POST['ma_sinhvien_themmoi123'])) {
 	}else{
 		$namhethong = date('Y');
 		$namsinh = date('Y', strtotime($ngaysinh_sinhvienthemmoi_12));
-		if ($namhethong-$namsinh<2) {
+		if ($namhethong-$namsinh<16) {
 			echo "7";
 		}else{
 			if((strtotime(date("Y/m/d"))-strtotime(date("Y/m/d", strtotime($ngay_capcnnd_them_sinh_vien))))<1){

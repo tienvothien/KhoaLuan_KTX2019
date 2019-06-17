@@ -103,7 +103,7 @@
 					<?php } ?>
 					<?php
 					if ($qr_ktra_chucvu['idchucvu']==0){ ?>
-					<button class="dropdown-btn">Quản lý sửa
+					<button class="dropdown-btn">Quản lý lịch sử sửa
 					<i class="fa fa-caret-down"></i>
 					</button>
 					<div class="dropdown-container">
@@ -120,7 +120,7 @@
 						<a href="quanlylog_edit_cothietbi.php" class="list-group-item">Sửa thiết bị loại phòng</a>
 						<a href="quanlylog_edit_tinhtranhtb.php" class="list-group-item">Sửa kiểm tra tình trạng</a>
 					</div>
-					<button class="dropdown-btn">Quản lý xóa
+					<button class="dropdown-btn">Quản lý lịch sử xóa
 					<i class="fa fa-caret-down"></i>
 					</button>
 					<div class="dropdown-container">

@@ -380,7 +380,11 @@ $(document).ready(function () {
 			          	}else if (kql_update_sinh_vien==5) {
 			          		alert('Số điện thoại Mẹ sinh viên đã tồn tạo');
 							document.getElementById("sdtme_sua_sinh_vien").focus();
-			          	}else if (kql_update_sinh_vien==99) {
+			          	}else if (kql_update_sinh_vien==7) {
+		          			alert('Lỗi ngày sinh, Sinh viên phải từ 16 tuổi trở lên');
+		          		}else if (kql_update_sinh_vien==8) {
+		          			alert('Lỗi ngày cấp CMND, ngày cấp phải trước ngày hiện tại');
+		          		}else if (kql_update_sinh_vien==99) {
 							alert('Cập nhật thông tin sinh viên mới thành công');
 							$('#modal_sua_sinhvien').modal('hide');
 							// $('#from_suathongtin_sinhvien')[0].reset();
@@ -505,7 +509,6 @@ $(document).ready(function () {
 		          			alert('Lỗi ngày sinh, Sinh viên phải từ 16 tuổi trở lên');
 		          		}else if (kql_add_sinh_vien==8) {
 		          			alert('Lỗi ngày cấp CMND, ngày cấp phải trước ngày hiện tại');
-							document.getElementById("sdtme_them_sinh_vien").focus();
 		          		}else if (kql_add_sinh_vien==99) {
 								alert('Thêm sinh viên mới thành công');
 								$('#form_themsinhvienmoi')[0].reset();

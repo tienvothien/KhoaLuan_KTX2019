@@ -37,6 +37,14 @@ if (isset($_POST['id_sinhvien_sua_12'])) {
 		if (mysqli_num_rows($kiemtra_mssv)) {
 			echo "1";// mssv đã tồn tại
 		}else{
+			$namhethong = date('Y');
+			$namsinh = date('Y', strtotime($ngaysinh_sinhviensua_12));
+			if ($namhethong-$namsinh<16) {
+				echo "7";
+			}else{
+				if((strtotime(date("Y/m/d"))-strtotime(date("Y/m/d", strtotime($ngay_capcnnd_sua_sinh_vien))))<1){
+					echo "8";
+				}else{
 			$kiemtra_so_cmnd = (mysqli_query($con,"SELECT sinh_vien.id_sinhvien FROM sinh_vien WHERE sinh_vien.id_sinhvien !='$id_sinhvien_sua_12' AND sinh_vien.so_cmnd='$cmnd_sua_sinh_vien'"));
 			if (mysqli_num_rows($kiemtra_so_cmnd)) {
 				echo "6";// mssv đã tồn tại
@@ -290,6 +298,8 @@ if (isset($_POST['id_sinhvien_sua_12'])) {
 								echo $kiemtracapnhatcsinh_vien;
 							}
 						}
+					}
+				}
 			}
 		}
 	}

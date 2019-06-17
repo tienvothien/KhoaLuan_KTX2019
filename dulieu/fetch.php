@@ -94,7 +94,7 @@ if (isset($_POST['id_toa_nha_them_ophong'])) {
 			if ($slsvop_1==$sl_nguoi_o_p) {
 				echo "<option value='$idphong' style='color:red;'> $ma_phong (phòng đầy)</option>";
 			}else{
-				echo "<option value='$idphong'> $ma_phong</option>";
+				echo "<option value='$idphong'> $ma_phong ($slsvop_1/$sl_nguoi_o_p)</option>";
 			}
 		
 		}

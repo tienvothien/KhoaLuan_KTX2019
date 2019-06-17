@@ -75,12 +75,7 @@
 							<th>SĐT mẹ</th>
 							<td class="" >'.$row['sdtme'].'</td>
 						</tr>
-						<tr>
-							<th >Ngày thêm</th>
-							<td >' . date('d/m/Y', strtotime($row["ngay_them"])) . '</td>
-							<th>Cán bộ thêm</th>
-							<td class="chuinthuong">'.$canbothem['ho_can_bo'].'&nbsp;'.$canbothem['ten_can_bo'].'<br>'.$canbothem['ma_can_bo'].'</td>
-						</tr>
+						
 			';
 			$output .= '
 			    	</table>
