@@ -49,10 +49,10 @@
 						<a href="quanlytoanha.php" class="list-group-item">Quản lý tòa nhà</a>
 						<a href="quanlyphong.php" class="list-group-item">Quản lý phòng</a>
 						<a href="quanlyloaiphong.php" class="list-group-item">Quản lý loại phòng</a>
-						<a href="quanly_o_phong.php" class="list-group-item">Quản lý đang ở</a>
-						<a href="quanlyquatrinhophong_sinhvien.php" class="list-group-item">Quản lý đã ở</a>
+						<a href="quanly_o_phong.php" class="list-group-item">Quản lý SV đang ở</a>
+						<a href="quanlyquatrinhophong_sinhvien.php" class="list-group-item">Quản lý SV đã ở</a>
 						<a href="quanly_chuyen_phong.php" class="list-group-item">Quản lý chuyển phòng</a>
-						<a href="quanly_quanhan_o_phong.php" class="list-group-item">Quản lý quá hạn</a>
+						<a href="quanly_quanhan_o_phong.php" class="list-group-item">Quản lý SV quá hạn</a>
 					</div>
 					<?php } ?>
 					<?php

@@ -60,7 +60,7 @@
 					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 						<div class="thumbnail mua_nen_3">
 							<div class="captionb align-middler">
-								<h3 class="canhgiua"  >Đang ở </h3>
+								<h3 class="canhgiua"  >SV Đang ở </h3>
 								<p  >
 									<h3 class="canhgiua ">
 									<?php include './conn.php';
@@ -72,11 +72,47 @@
 						</div>
 					</div>
 					</a> <!-- end het hien thong tin Tòa nhà-->
+					<a href="quanly_o_phong.php?nu=1" title="">
+						<!-- hien thoong trinh chi tiet thietbi -->
+						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+							<div class="thumbnail mua_nen_8">
+								<div class="captionb align-middler">
+									<h3 class="canhgiua"  >Số Sinh viên nữ</h3>
+									<p  >
+										<h3 class="canhgiua ">
+										<?php include './conn.php';
+										
+										$sl_sv_is_nam = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(DISTINCT sinh_vien.id_sinhvien) as sl_sv_is_nam FROM o_phong, sinh_vien WHERE o_phong.ngay_ket_thuc IS null AND sinh_vien.id_sinhvien= o_phong.id_sinhvien AND sinh_vien.gioi_tinh='Nữ'"));
+										echo $sl_sv_is_nam['sl_sv_is_nam'];
+										?></h3>
+									</p>
+								</div>
+							</div>
+						</div>
+						</a> <!-- end he t hien thong tin thietbi-->
+						<a href="quanly_o_phong.php?nam=1" title="">
+						<!-- hien thoong trinh chi tiet thietbi -->
+						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+							<div class="thumbnail mua_nen_6">
+								<div class="captionb align-middler">
+									<h3 class="canhgiua"  >Số Sinh viên nam</h3>
+									<p  >
+										<h3 class="canhgiua ">
+										<?php include './conn.php';
+										
+										$sl_sv_is_nam = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(DISTINCT sinh_vien.id_sinhvien) as sl_sv_is_nam FROM o_phong, sinh_vien WHERE o_phong.ngay_ket_thuc IS null AND sinh_vien.id_sinhvien= o_phong.id_sinhvien AND sinh_vien.gioi_tinh='nam'"));
+										echo $sl_sv_is_nam['sl_sv_is_nam'];
+										?></h3>
+									</p>
+								</div>
+							</div>
+						</div>
+						</a> <!-- end he t hien thong tin thietbi-->
 					<a href="quanlyquatrinhophong_sinhvien.php" title=""><!--  hien thoong trinh chi tiet Tòa nhà-->
 					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 						<div class="thumbnail mua_nen_7">
 							<div class="captionb align-middler">
-								<h3 class="canhgiua"  >Đã ở </h3>
+								<h3 class="canhgiua"  >SV Đã ở </h3>
 								<p  >
 									<h3 class="canhgiua ">
 									<?php include './conn.php';
@@ -104,22 +140,7 @@
 						</div>
 					</div>
 					</a> <!-- end het hien thong tin Tòa nhà-->
-					<a href="quanlyphong.php" title=""><!--  hien thoong trinh chi tiet Phòng-->
-					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-						<div class="thumbnail mua_nen_2">
-							<div class="captionb align-middler">
-								<h3 class="canhgiua"  >Phòng</h3>
-								<p  >
-									<h3 class="canhgiua ">
-									<?php include './conn.php';
-									$soluongphong = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(phong.idphong) AS slphong FROM phong WHERE phong.xoa =0"));
-									echo $soluongphong['slphong'];
-									?></h3>
-								</p>
-							</div>
-						</div>
-					</div>
-					</a> <!-- end het hien thong tin Phòng-->
+					
 					<a href="quanlyloaiphong.php" title=""><!--  hien thoong trinh chi tiet Loại phòng-->
 					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 						<div class="thumbnail mua_nen_6">
@@ -136,70 +157,22 @@
 						</div>
 					</div>
 					</a> <!-- end het hien thong tin Loại phòng-->
-					<a href="quanlykhoa.php" title=""><!--  hien thoong trinh chi tiet khoa -->
+					<a href="quanlyphong.php" title=""><!--  hien thoong trinh chi tiet Phòng-->
 					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-						<div class="thumbnail mua_nen_1">
+						<div class="thumbnail mua_nen_2">
 							<div class="captionb align-middler">
-								<h3 class="canhgiua"  >Khoa</h3>
+								<h3 class="canhgiua"  >Phòng</h3>
 								<p  >
 									<h3 class="canhgiua ">
 									<?php include './conn.php';
-									$soluongkhoa = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(khoa.id_khoa) AS slkhoa FROM khoa WHERE khoa.xoa =0"));
-									echo $soluongkhoa['slkhoa'];
+									$soluongphong = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(phong.idphong) AS slphong FROM phong WHERE phong.xoa =0"));
+									echo $soluongphong['slphong'];
 									?></h3>
 								</p>
 							</div>
 						</div>
 					</div>
-					</a> <!-- end het hien thong tin khoa -->
-					<a href="quanlylop.php" title=""><!--  hien thoong trinh chi tiet khoa -->
-					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-						<div class="thumbnail mua_nen_8">
-							<div class="captionb align-middler">
-								<h3 class="canhgiua"  >Lớp</h3>
-								<p  >
-									<h3 class="canhgiua ">
-									<?php include './conn.php';
-									$soluonglop = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(lop.id_lop) AS sllop FROM lop WHERE lop.xoa =0"));
-									echo $soluonglop['sllop'];
-									?></h3>
-								</p>
-							</div>
-						</div>
-					</div>
-					</a> <!-- end het hien thong tin khoa -->
-					<a href="quanlysinhvien.php" title=""><!--  hien thoong trinh chi tiet Sinh viên-->
-					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-						<div class="thumbnail mua_nen_7">
-							<div class="captionb align-middler">
-								<h3 class="canhgiua"  >Sinh viên</h3>
-								<p  >
-									<h3 class="canhgiua ">
-									<?php include './conn.php';
-									$soluongsinh_vien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(sinh_vien.id_sinhvien) AS slsinh_vien FROM sinh_vien WHERE sinh_vien.xoa =0"));
-									echo $soluongsinh_vien['slsinh_vien'];
-									?></h3>
-								</p>
-							</div>
-						</div>
-					</div>
-					</a> <!-- end het hien thong tin Sinh viên-->
-					<a href="quanlythietbi.php" title=""><!--  hien thoong trinh chi tiet thietbi-->
-					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-						<div class="thumbnail mua_nen_3">
-							<div class="captionb align-middler">
-								<h3 class="canhgiua"  >Thiết bị</h3>
-								<p  >
-									<h3 class="canhgiua ">
-									<?php include './conn.php';
-									$soluongthietbi = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(thietbi.idtb) AS slthietbi FROM thietbi WHERE thietbi.xoa =0"));
-									echo $soluongthietbi['slthietbi'];
-									?></h3>
-								</p>
-							</div>
-						</div>
-					</div>
-					</a> <!-- end het hien thong tin thietbi-->
+					</a> <!-- end het hien thong tin Phòng-->
 					<a href="quanlyphong.php?phong_day=1" title="">
 						<!-- hien thoong trinh chi tiet thietbi -->
 						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
@@ -292,8 +265,7 @@
 										<h3 class="canhgiua ">
 										<?php include './conn.php';
 										
-										$slphong_khong_co_sv = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(DISTINCT phong.idphong) as slphong_khong_co_sv FROM phong WHERE phong.xoa=0 and phong.idphong NOT in (SELECT o_phong.id_phong as sl_moi_p FROM o_phong, phong WHERE o_phong.ngay_ket_thuc IS null AND phong.idphong = o_phong.id_phong GROUP by o_phong.id_phong)
-"));
+										$slphong_khong_co_sv = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(DISTINCT phong.idphong) as slphong_khong_co_sv FROM phong WHERE phong.xoa=0 and phong.idphong NOT in (SELECT o_phong.id_phong as sl_moi_p FROM o_phong, phong WHERE o_phong.ngay_ket_thuc IS null AND phong.idphong = o_phong.id_phong GROUP by o_phong.id_phong)"));
 										echo $slphong_khong_co_sv['slphong_khong_co_sv'];
 										?></h3>
 									</p>
@@ -301,42 +273,72 @@
 							</div>
 						</div>
 						</a> <!-- end he t hien thong tin thietbi-->
-						<a href="quanly_o_phong.php?nu=1" title="">
-						<!-- hien thoong trinh chi tiet thietbi -->
-						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-							<div class="thumbnail mua_nen_8">
-								<div class="captionb align-middler">
-									<h3 class="canhgiua"  >Số Sinh viên nữ</h3>
-									<p  >
-										<h3 class="canhgiua ">
-										<?php include './conn.php';
-										
-										$sl_sv_is_nam = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(DISTINCT sinh_vien.id_sinhvien) as sl_sv_is_nam FROM o_phong, sinh_vien WHERE o_phong.ngay_ket_thuc IS null AND sinh_vien.id_sinhvien= o_phong.id_sinhvien AND sinh_vien.gioi_tinh='Nữ'"));
-										echo $sl_sv_is_nam['sl_sv_is_nam'];
-										?></h3>
-									</p>
-								</div>
+					<a href="quanlykhoa.php" title=""><!--  hien thoong trinh chi tiet khoa -->
+					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+						<div class="thumbnail mua_nen_1">
+							<div class="captionb align-middler">
+								<h3 class="canhgiua"  >Khoa</h3>
+								<p  >
+									<h3 class="canhgiua ">
+									<?php include './conn.php';
+									$soluongkhoa = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(khoa.id_khoa) AS slkhoa FROM khoa WHERE khoa.xoa =0"));
+									echo $soluongkhoa['slkhoa'];
+									?></h3>
+								</p>
 							</div>
 						</div>
-						</a> <!-- end he t hien thong tin thietbi-->
-						<a href="quanly_o_phong.php?nam=1" title="">
-						<!-- hien thoong trinh chi tiet thietbi -->
-						<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-							<div class="thumbnail mua_nen_6">
-								<div class="captionb align-middler">
-									<h3 class="canhgiua"  >Số Sinh viên nam</h3>
-									<p  >
-										<h3 class="canhgiua ">
-										<?php include './conn.php';
-										
-										$sl_sv_is_nam = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(DISTINCT sinh_vien.id_sinhvien) as sl_sv_is_nam FROM o_phong, sinh_vien WHERE o_phong.ngay_ket_thuc IS null AND sinh_vien.id_sinhvien= o_phong.id_sinhvien AND sinh_vien.gioi_tinh='nam'"));
-										echo $sl_sv_is_nam['sl_sv_is_nam'];
-										?></h3>
-									</p>
-								</div>
+					</div>
+					</a> <!-- end het hien thong tin khoa -->
+					<a href="quanlylop.php" title=""><!--  hien thoong trinh chi tiet khoa -->
+					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+						<div class="thumbnail mua_nen_8">
+							<div class="captionb align-middler">
+								<h3 class="canhgiua"  >Lớp</h3>
+								<p  >
+									<h3 class="canhgiua ">
+									<?php include './conn.php';
+									$soluonglop = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(lop.id_lop) AS sllop FROM lop WHERE lop.xoa =0"));
+									echo $soluonglop['sllop'];
+									?></h3>
+								</p>
 							</div>
 						</div>
-						</a> <!-- end he t hien thong tin thietbi-->
+					</div>
+					</a> <!-- end het hien thong tin khoa -->
+					<a href="quanlysinhvien.php" title=""><!--  hien thoong trinh chi tiet Sinh viên-->
+					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+						<div class="thumbnail mua_nen_7">
+							<div class="captionb align-middler">
+								<h3 class="canhgiua"  >Sinh viên</h3>
+								<p  >
+									<h3 class="canhgiua ">
+									<?php include './conn.php';
+									$soluongsinh_vien = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(sinh_vien.id_sinhvien) AS slsinh_vien FROM sinh_vien WHERE sinh_vien.xoa =0"));
+									echo $soluongsinh_vien['slsinh_vien'];
+									?></h3>
+								</p>
+							</div>
+						</div>
+					</div>
+					</a> <!-- end het hien thong tin Sinh viên-->
+					<a href="quanlythietbi.php" title=""><!--  hien thoong trinh chi tiet thietbi-->
+					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+						<div class="thumbnail mua_nen_3">
+							<div class="captionb align-middler">
+								<h3 class="canhgiua"  >Thiết bị</h3>
+								<p  >
+									<h3 class="canhgiua ">
+									<?php include './conn.php';
+									$soluongthietbi = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(thietbi.idtb) AS slthietbi FROM thietbi WHERE thietbi.xoa =0"));
+									echo $soluongthietbi['slthietbi'];
+									?></h3>
+								</p>
+							</div>
+						</div>
+					</div>
+					</a> <!-- end het hien thong tin thietbi-->
+					
+						
 					</div>
 					</div><!-- end thaydoi1 -->
 					</div><!-- end noidungthaydoi -->
